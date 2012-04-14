@@ -1,0 +1,64 @@
+(*********************************************************************************)
+(*                Cameleon                                                       *)
+(*                                                                               *)
+(*    Copyright (C) 2004-2011 Institut National de Recherche en Informatique     *)
+(*    et en Automatique. All rights reserved.                                    *)
+(*                                                                               *)
+(*    This program is free software; you can redistribute it and/or modify       *)
+(*    it under the terms of the GNU Library General Public License as            *)
+(*    published by the Free Software Foundation; either version 2 of the         *)
+(*    License, or any later version.                                             *)
+(*                                                                               *)
+(*    This program is distributed in the hope that it will be useful,            *)
+(*    but WITHOUT ANY WARRANTY; without even the implied warranty of             *)
+(*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              *)
+(*    GNU Library General Public License for more details.                       *)
+(*                                                                               *)
+(*    You should have received a copy of the GNU Library General Public          *)
+(*    License along with this program; if not, write to the Free Software        *)
+(*    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA                   *)
+(*    02111-1307  USA                                                            *)
+(*                                                                               *)
+(*    Contact: Maxence.Guesdon@inria.fr                                          *)
+(*                                                                               *)
+(*********************************************************************************)
+
+module CF = Config_file
+
+let factory_name = "odoc"
+let rc_file = Ed_config.rc_file factory_name
+
+let group = new CF.group
+
+let default_key_bindings  = [
+]
+
+let key_bindings = new CF.list_cp Ed_config.binding_wrappers ~group
+    ["key_bindings"] default_key_bindings "Key bindings"
+
+let create_pix name def help =
+  new CF.filename_cp ~group ["pixmaps";name] def
+    ("Pixmap file used to represent "^help)
+
+let pix_file = create_pix "file"
+    (Filename.concat Cam_installation.pixmaps_dir "file_component.png")
+    "files"
+let pix_comp = create_pix "component"
+    (Filename.concat Cam_installation.pixmaps_dir "component.png")
+    "classes and modules"
+let pix_other = create_pix "other"
+    (Filename.concat Cam_installation.pixmaps_dir "run.png")
+    "other stuff"
+let pix_type = create_pix "type"
+    (Filename.concat Cam_installation.pixmaps_dir "type.png")
+    "types"
+let pix_fun = create_pix "function"
+    (Filename.concat Cam_installation.pixmaps_dir "fun.png")
+    "functions and methods"
+let pix_value = create_pix "value"
+    (Filename.concat Cam_installation.pixmaps_dir "value.png")
+    "non functional values"
+
+
+let read () = group#read rc_file
+let write () = group#write rc_file

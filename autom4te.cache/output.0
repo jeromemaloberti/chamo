@@ -582,6 +582,7 @@ OCAMLLEX
 OCAMLDEP
 OCAMLOPT
 OCAMLC
+ICONV
 target_alias
 host_alias
 build_alias
@@ -1704,6 +1705,62 @@ fi
 
 echo Debug level is set to $DEBUG_LEVEL
 
+# CHARSET ENCODINGS FROM ICONV
+ED_CHARSET_FILE=src/ed_charsets.ml
+# Extract the first word of "iconv", so it can be a program name with args.
+set dummy iconv; ac_word=$2
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+$as_echo_n "checking for $ac_word... " >&6; }
+if ${ac_cv_path_ICONV+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  case $ICONV in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_ICONV="$ICONV" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_ICONV="$as_dir/$ac_word$ac_exec_ext"
+    $as_echo "$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_ICONV" && ac_cv_path_ICONV="no"
+  ;;
+esac
+fi
+ICONV=$ac_cv_path_ICONV
+if test -n "$ICONV"; then
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ICONV" >&5
+$as_echo "$ICONV" >&6; }
+else
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+fi
+
+
+if test "$ICONV" = no ; then \
+  AVAILABLE_CHARSETS="" ;\
+  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Cannot find iconv" >&5
+$as_echo "$as_me: WARNING: Cannot find iconv" >&2;};\
+else \
+  echo 'let charsets = @<:@' > $ED_CHARSET_FILE ;\
+  for i in `$ICONV --list | cat | cut -d'/' -f1 | sort -u`; do \
+  echo "  \"$i\";" ; \
+  done >> $ED_CHARSET_FILE ; \
+  echo '@:>@' >> $ED_CHARSET_FILE ; \
+  echo `$ICONV --list | cat | cut -d'/' -f1 | sort -u | wc -l` charsets available in editor ;\
+fi
+
 #############################
 # substitutions to perform
 
@@ -1726,7 +1783,7 @@ echo Debug level is set to $DEBUG_LEVEL
 
 
 # Finally create the master.Makefile.in
-ACFILES="master.Makefile META src/ed_charsets.ml"
+ACFILES="master.Makefile META"
 ac_config_files="$ac_config_files $ACFILES"
 
 cat >confcache <<\_ACEOF
@@ -2898,7 +2955,6 @@ fi
 
 chmod a-w master.Makefile
 chmod a-w META
-chmod a-w src/ed_charsets.ml
 
 cat << EOF
 ====

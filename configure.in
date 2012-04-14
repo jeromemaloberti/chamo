@@ -59,6 +59,21 @@ AC_ARG_WITH(debug-level,
 
 echo Debug level is set to $DEBUG_LEVEL
 
+# CHARSET ENCODINGS FROM ICONV
+ED_CHARSET_FILE=src/ed_charsets.ml
+AC_PATH_PROG(ICONV,iconv,no)
+if test "$ICONV" = no ; then \
+  AVAILABLE_CHARSETS="" ;\
+  AC_MSG_WARN(Cannot find iconv, no charset encoding available in editor.);\
+else \
+  echo 'let charsets = @<:@' > $ED_CHARSET_FILE ;\
+  for i in `$ICONV --list | cat | cut -d'/' -f1 | sort -u`; do \
+  echo "  \"$i\";" ; \
+  done >> $ED_CHARSET_FILE ; \
+  echo '@:>@' >> $ED_CHARSET_FILE ; \
+  echo `$ICONV --list | cat | cut -d'/' -f1 | sort -u | wc -l` charsets available in editor ;\
+fi
+
 #############################
 # substitutions to perform
 AC_SUBST(OCAMLC)
@@ -81,11 +96,10 @@ AC_SUBST(VERSION)
 AC_SUBST(PACKAGE)
 
 # Finally create the master.Makefile.in
-ACFILES="master.Makefile META src/ed_charsets.ml"
+ACFILES="master.Makefile META"
 AC_OUTPUT($ACFILES)
 chmod a-w master.Makefile
 chmod a-w META
-chmod a-w src/ed_charsets.ml
 
 cat << EOF
 ====

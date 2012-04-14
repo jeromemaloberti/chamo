@@ -41,7 +41,7 @@ doc: dummy
 
 # myself
 
-master.Makefile: master.Makefile.in src/cgversion.ml.in config.status
+master.Makefile: master.Makefile.in config.status
 	./config.status
 
 config.status: configure
@@ -72,12 +72,12 @@ dummy:
 headers: dummy
 	headache -h header -c ~/.headache_config configure.in configure \
 	master.Makefile.in Makefile src/Makefile checkocaml.ml \
-	src/*.ml src/*.mli src/cgversion.ml.in
+	src/*.ml src/*.mli
 
 noheaders: dummy
 	headache -r -c ~/.headache_config configure.in configure \
 	master.Makefile.in Makefile src/Makefile checkocaml.ml \
-	src/*.ml src/*.mli src/cgversion.ml.in
+	src/*.ml src/*.mli
 
 
 
@@ -95,7 +95,7 @@ uninstall: dummy
 # archive
 ###########
 archive:
-	git archive --prefix=camlget-$(VERSION)/ HEAD | gzip > /tmp/camlget-$(VERSION).tar.gz
+	git archive --prefix=chamo-$(VERSION)/ HEAD | gzip > /tmp/chamo-$(VERSION).tar.gz
 
 ###########################
 # additional dependencies

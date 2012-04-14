@@ -1,0 +1,8 @@
+# Multi-shell script.  Works under Bourne Shell, MPW Shell, zsh.
+if : == x
+then # Bourne Shell or zsh
+exec /opt/ocaml-4.00/bin/ocamlopt.opt -I +threads -I +ocamldoc  -I /opt/ocaml-4.00/lib/ocaml/cameleon2 -I '/opt/ocaml-4.00/lib/site-lib/pcre' -I '/opt/ocaml-4.00/lib/ocaml/lablgtk2' -I '/opt/ocaml-4.00/lib/ocaml/lablgtk-extras' -I '/opt/ocaml-4.00/lib/ocaml/lablgtk2'  -linkall str.cmxa unix.cmxa threads.cmxa xml-light.cmxa lablgtk.cmxa lablglade.cmxa gtkThread.cmx gtkInit.cmx lablgtksourceview2.cmxa config_file.cmx lablgtkextras.cmxa configwin.cmxa multiclip.cmx multiclip_gui.cmx cam_installation.cmx tdl.cmxa tdl_gui.cmxa odoc_info.cmxa pcre.cmxa chamo.cmxa "$@" ed_main.cmx
+else #MPW Shell
+/opt/ocaml-4.00/bin/ocamlopt.opt -I +threads -I +ocamldoc  -I /opt/ocaml-4.00/lib/ocaml/cameleon2 -I '/opt/ocaml-4.00/lib/site-lib/pcre' -I '/opt/ocaml-4.00/lib/ocaml/lablgtk2' -I '/opt/ocaml-4.00/lib/ocaml/lablgtk-extras' -I '/opt/ocaml-4.00/lib/ocaml/lablgtk2'  -linkall str.cmxa unix.cmxa threads.cmxa xml-light.cmxa lablgtk.cmxa lablglade.cmxa gtkThread.cmx gtkInit.cmx lablgtksourceview2.cmxa config_file.cmx lablgtkextras.cmxa configwin.cmxa multiclip.cmx multiclip_gui.cmx cam_installation.cmx tdl.cmxa tdl_gui.cmxa odoc_info.cmxa pcre.cmxa chamo.cmxa {"parameters"} ed_main.cmx
+End # uppercase E because end is a keyword in zsh
+fi
