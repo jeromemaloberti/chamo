@@ -1,5 +1,5 @@
 #################################################################################
-#                DBForge                                                        #
+#                Chamo                                                          #
 #                                                                               #
 #    Copyright (C) 2003-2012 Institut National de Recherche en Informatique     #
 #    et en Automatique. All rights reserved.                                    #
