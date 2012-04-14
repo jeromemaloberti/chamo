@@ -41,3 +41,4 @@ let software_about =
 
 let about = "About "^software^" ..."
 let preferences = "Preferences"
+

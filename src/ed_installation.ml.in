@@ -22,32 +22,25 @@
 (*                                                                               *)
 (*********************************************************************************)
 
-(** Some configuration stuff of the editor. *)
+let bin_dir = "@bindir@"
+let lib_dir = "@libdir@"
+let man_dir = "@mandir@"
+let glade_dir = "@GLADEDIR@"
+let glade_file = Filename.concat glade_dir "chamo.glade"
 
-let glade_file =
-  let name = "chamo.glade" in
-  let files =
-    [
-      name ;
-      Filename.concat "editor" name ;
-      Filename.concat Cam_installation.glade_dir name ;
-    ]
+let languages_specs_dir = "@LANGUAGESSPECSDIR@"
+
+let version = "@VERSION@"
+
+let home =
+  try Sys.getenv "HOME"
+  with Not_found -> ""
+
+let rc_dir =
+  let d = Filename.concat home ".chamo" in
+  let _ =
+    try Unix.mkdir d 0o700
+    with _ -> ()
   in
-  let rec iter = function
-      [] -> assert false
-    | h :: q ->
-        if Sys.file_exists h then h else iter q
-  in
-  iter files
-
-let local_dir_rc_file_prefix = ".chamo."
-let local_dir_rc_file name = ".chamo." ^ name
-
-let rc_file s = Filename.concat Ed_installation.rc_dir ("chamo."^s)
-
-let key_state_wrappers = Config_file.list_wrappers Configwin.key_cp_wrapper
-
-let binding_wrappers =
-  Config_file.tuple2_wrappers
-    key_state_wrappers
-    Config_file.string_wrappers
+  d
+(* shut up autconf: @datarootdir@ *)

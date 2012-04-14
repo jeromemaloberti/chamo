@@ -22,32 +22,27 @@
 (*                                                                               *)
 (*********************************************************************************)
 
-(** Some configuration stuff of the editor. *)
+(** Names of installation directories, completed by the configure script. *)
 
-let glade_file =
-  let name = "chamo.glade" in
-  let files =
-    [
-      name ;
-      Filename.concat "editor" name ;
-      Filename.concat Cam_installation.glade_dir name ;
-    ]
-  in
-  let rec iter = function
-      [] -> assert false
-    | h :: q ->
-        if Sys.file_exists h then h else iter q
-  in
-  iter files
+val bin_dir : string
 
-let local_dir_rc_file_prefix = ".chamo."
-let local_dir_rc_file name = ".chamo." ^ name
+val lib_dir : string
 
-let rc_file s = Filename.concat Ed_installation.rc_dir ("chamo."^s)
+val man_dir : string
 
-let key_state_wrappers = Config_file.list_wrappers Configwin.key_cp_wrapper
+val glade_dir : string
 
-let binding_wrappers =
-  Config_file.tuple2_wrappers
-    key_state_wrappers
-    Config_file.string_wrappers
+val glade_file : string
+
+val languages_specs_dir : string
+
+(** The version number of the software *)
+val version : string
+
+(** {2 Some useful values for user configuration} *)
+
+(** The user homedir *)
+val home : string
+
+(** The chamo rc directory of the user *)
+val rc_dir : string

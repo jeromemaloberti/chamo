@@ -26,7 +26,7 @@
 
 module O = Config_file
 
-let rc_dir = Cam_messages.rc_dir
+let rc_dir = Ed_installation.rc_dir
 
 (** {2 Core options} *)
 

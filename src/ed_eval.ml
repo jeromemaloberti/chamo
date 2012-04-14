@@ -27,7 +27,7 @@
 let _ = Toploop.set_paths ()
 let _ = Toploop.initialize_toplevel_env()
 
-let init_file = Filename.concat Ed_rc.rc_dir "chamo_init.ml"
+let init_file = Filename.concat Ed_installation.rc_dir "chamo_init.ml"
 let local_init_file = ".chamo_init.ml"
 
 let prompt_eval_history = Ed_minibuffer.history ()
