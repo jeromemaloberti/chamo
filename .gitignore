@@ -12,5 +12,6 @@ src/chamo.byte
 src/ed_charsets.ml
 src/ed_ocaml_lexer.ml
 src/ed_gui_base.ml
+src/ed_installation.ml
 src/ocamldoc
 src/dump.odoc
