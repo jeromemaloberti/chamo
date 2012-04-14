@@ -29,5 +29,5 @@
 val get : unit -> string list
 val add : string -> unit
 
-(** To call when {!Cam_rc.load_core} has been called. *)
+(** To call when {!Ed_rc.load_core} has been called. *)
 val init : unit -> unit

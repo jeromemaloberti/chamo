@@ -43,7 +43,7 @@ let glade_file =
 let local_dir_rc_file_prefix = ".chamo."
 let local_dir_rc_file name = ".chamo." ^ name
 
-let rc_file s = Filename.concat Cam_rc.rc_dir ("chamo."^s)
+let rc_file s = Filename.concat Ed_rc.rc_dir ("chamo."^s)
 
 let key_state_wrappers = Config_file.list_wrappers Configwin.key_cp_wrapper
 

@@ -28,10 +28,10 @@ let software = "Chamo"
 let software_author = "Maxence Guesdon"
 let software_author_mail = "Maxence.Guesdon@inria.fr"
 let software_copyright =
-  "Copyright 2004-2010 Institut National de Recherche en \n"^
+  "Copyright 2003-2012 Institut National de Recherche en \n"^
   "Informatique et en Automatique. All rights reserved.\n"^
   "This software is distributed under the terms of the\n"^
-  "GNU Library General Public License version 2.\n"^
+  "GNU Lesser General Public License version 3.\n"^
   "(see file LICENSE in the distribution)"
 
 let software_about =

@@ -22,44 +22,33 @@
 (*                                                                               *)
 (*********************************************************************************)
 
-(* $Id: cam_com_history.ml 758 2011-01-13 07:53:27Z zoggy $ *)
+(* $Id: cam_rc.mli 758 2011-01-13 07:53:27Z zoggy $ *)
 
-module O = Config_file
+(** Handling configuration files *)
 
-let history : string option array = Array.create Ed_constant.com_history_size None
+(** The directory where personal config files are stored. *)
+val rc_dir : string
 
-let pos = ref 0
-let n = ref 0
+(** {2 The core configuration} *)
 
-let history_option = new O.list_cp O.string_wrappers
-    ~group: Ed_rc.core_ini ["commands_history"]
-    []
-    ""
+val core_ini : Config_file.group
+val save_core : unit -> unit
+val load_core : unit -> unit
 
-let get () =
-  let rec iter acc nb_read i =
-    if nb_read >= !n then
-      acc
-    else
-      let pred_i =
-	if i <= 0 then
-	  Ed_constant.com_history_size - 1
-	else
-	  i - 1
-      in
-      match history.(pred_i) with
-	None -> acc
-      |	Some e ->
-	  iter (e::acc) (nb_read+1) pred_i
-  in
-  List.rev (iter [] 0 !pos)
+(** {2 the GUI configuration file} *)
 
-let add e =
-  history.(!pos) <- Some e;
-  n := min (!n+1) Ed_constant.com_history_size ;
-  pos := (!pos + 1) mod Ed_constant.com_history_size;
-  history_option#set (get ());
-  Ed_rc.save_core ()
+val gui_ini : Config_file.group
+val save_gui : unit -> unit
+val load_gui : unit -> unit
 
-let init () =
-  List.iter add (List.rev history_option#get)
+(** {2 Keeping windows positions and sizes} *)
+
+(** [handle_window win name] *)
+val handle_window : GWindow.window -> string -> unit
+
+(** {2 Utils} *)
+
+val add_binding :
+  < get : ((Gdk.Tags.modifier list * int) * 'a) list;
+    set : ((Gdk.Tags.modifier list * int) * 'a) list -> 'b; .. > ->
+  string -> 'a -> 'b

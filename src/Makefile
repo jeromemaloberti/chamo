@@ -55,8 +55,9 @@ LIB_CMXFILES= \
 	ed_hooks.cmx \
 	ed_commands.cmx \
 	ed_com_history.cmx \
-	ed_config.cmx \
 	ed_messages.cmx \
+	ed_rc.cmx \
+	ed_config.cmx \
 	ed_prefs.cmx \
 	ed_gui_base.cmx \
 	ed_keymaps.cmx \
