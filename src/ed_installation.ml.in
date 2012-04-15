@@ -38,6 +38,10 @@ let home =
   try Sys.getenv "HOME"
   with Not_found -> ""
 
+let login =
+  try Sys.getenv "USER"
+  with Not_found -> Filename.basename home
+
 let rc_dir =
   let d = Filename.concat home ".chamo" in
   let _ =

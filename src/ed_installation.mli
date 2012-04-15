@@ -48,5 +48,8 @@ val version : string
 (** The user homedir *)
 val home : string
 
+(** The user login *)
+val login : string
+
 (** The chamo rc directory of the user *)
 val rc_dir : string
