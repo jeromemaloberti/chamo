@@ -24,9 +24,11 @@ ed_dbg.cmo : ed_config.cmi ed_dbg.cmi
 ed_dbg.cmx : ed_config.cmx ed_dbg.cmi
 ed_dbg.cmi :
 ed_eval.cmo : ed_misc.cmi ed_minibuffer.cmi ed_messages.cmo \
-    ed_installation.cmi ed_hooks.cmi ed_gui.cmi ed_commands.cmi ed_eval.cmi
+    ed_installation.cmi ed_hooks.cmi ed_gui.cmi ed_extern.cmi ed_commands.cmi \
+    ed_args.cmi ed_eval.cmi
 ed_eval.cmx : ed_misc.cmx ed_minibuffer.cmx ed_messages.cmx \
-    ed_installation.cmx ed_hooks.cmx ed_gui.cmx ed_commands.cmx ed_eval.cmi
+    ed_installation.cmx ed_hooks.cmx ed_gui.cmx ed_extern.cmx ed_commands.cmx \
+    ed_args.cmx ed_eval.cmi
 ed_eval.cmi :
 ed_extern.cmo : ed_extern.cmi
 ed_extern.cmx : ed_extern.cmi
@@ -60,9 +62,9 @@ ed_installation.cmi :
 ed_keymaps.cmo : ed_extern.cmi ed_keymaps.cmi
 ed_keymaps.cmx : ed_extern.cmx ed_keymaps.cmi
 ed_keymaps.cmi :
-ed_layout.cmo : ed_view.cmi ed_misc.cmi ed_gui.cmi ed_extern.cmi \
+ed_layout.cmo : ed_xml.cmi ed_view.cmi ed_gui.cmi ed_extern.cmi \
     ed_config.cmi ed_commands.cmi ed_layout.cmi
-ed_layout.cmx : ed_view.cmx ed_misc.cmx ed_gui.cmx ed_extern.cmx \
+ed_layout.cmx : ed_xml.cmx ed_view.cmx ed_gui.cmx ed_extern.cmx \
     ed_config.cmx ed_commands.cmx ed_layout.cmi
 ed_layout.cmi : ed_gui.cmi
 ed_log.cmo : ed_messages.cmo ed_hooks.cmi ed_constant.cmo ed_commands.cmi
@@ -156,13 +158,13 @@ ed_prefs.cmi :
 ed_rc.cmo : ed_installation.cmi ed_gtk_misc.cmi ed_rc.cmi
 ed_rc.cmx : ed_installation.cmx ed_gtk_misc.cmx ed_rc.cmi
 ed_rc.cmi :
-ed_sourceview.cmo : ed_view.cmi ed_utf8.cmi ed_sourceview_rc.cmi ed_misc.cmi \
-    ed_minibuffer.cmi ed_installation.cmi ed_hooks.cmi ed_fstack.cmi \
-    ed_extern.cmi ed_core_rc.cmi ed_config.cmi ed_commands.cmi \
+ed_sourceview.cmo : ed_xml.cmi ed_view.cmi ed_utf8.cmi ed_sourceview_rc.cmi \
+    ed_misc.cmi ed_minibuffer.cmi ed_installation.cmi ed_hooks.cmi \
+    ed_fstack.cmi ed_extern.cmi ed_core_rc.cmi ed_config.cmi ed_commands.cmi \
     ed_charsets.cmi ed_bookmarks.cmi ed_sourceview.cmi
-ed_sourceview.cmx : ed_view.cmx ed_utf8.cmx ed_sourceview_rc.cmx ed_misc.cmx \
-    ed_minibuffer.cmx ed_installation.cmx ed_hooks.cmx ed_fstack.cmx \
-    ed_extern.cmx ed_core_rc.cmx ed_config.cmx ed_commands.cmx \
+ed_sourceview.cmx : ed_xml.cmx ed_view.cmx ed_utf8.cmx ed_sourceview_rc.cmx \
+    ed_misc.cmx ed_minibuffer.cmx ed_installation.cmx ed_hooks.cmx \
+    ed_fstack.cmx ed_extern.cmx ed_core_rc.cmx ed_config.cmx ed_commands.cmx \
     ed_charsets.cmx ed_bookmarks.cmx ed_sourceview.cmi
 ed_sourceview.cmi : ed_view.cmi ed_minibuffer.cmi
 ed_sourceview_expand.cmo : ed_utf8.cmi ed_sourceview_rc.cmi \
@@ -184,6 +186,9 @@ ed_view.cmi : ed_minibuffer.cmi
 ed_view_rc.cmo : ed_config.cmi ed_view_rc.cmi
 ed_view_rc.cmx : ed_config.cmx ed_view_rc.cmi
 ed_view_rc.cmi :
+ed_xml.cmo : ed_extern.cmi ed_xml.cmi
+ed_xml.cmx : ed_extern.cmx ed_xml.cmi
+ed_xml.cmi :
 multiclip.cmo : multiclip.cmi
 multiclip.cmx : multiclip.cmi
 multiclip.cmi :

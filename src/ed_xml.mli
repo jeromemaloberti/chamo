@@ -11,10 +11,11 @@ type t =
 val string_of_xml : ?decl: bool -> t -> string
 
 (** Parse a string to build a XML tree.
+  @strip can be used to strip blanks (see Xmlm documentation for details).
      @raise Failure in case of error. *)
-val xml_of_string : string -> t
+val xml_of_string : ?strip: bool -> string -> t
 
 (** [read_xml_file file f] reads the file to get an xml tree
      and applies [f] on the xml tree. *)
-val read_xml_file : string -> (t -> 'a) -> 'a
+val read_xml_file : ?strip: bool -> string -> (t -> 'a) -> 'a
 

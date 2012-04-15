@@ -25,6 +25,8 @@
 include ../master.Makefile
 
 PACKAGES=str,threads.posix,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.init
+# IMPORTANT: do not forget to update ed_eval.ml modifying the list of packages
+
 OF_FLAGS=-package $(PACKAGES) -predicates mt
 INCLUDES=-I +ocamldoc
 
@@ -188,9 +190,10 @@ uninstall: dummy
 ed_gui_base.ml: chamo.glade
 	$(LABLGLADECC) -hide-default $< > $@
 
-ed_commands.cmo: ed_commands.ml
+ed_commands.cmi: ed_com_history.cmi
+
+ed_commands.cmo: ed_commands.ml ed_com_history.cmo
 	$(OCAMLFIND) ocamlc $(OF_FLAGS) $(COMPFLAGS) -c -pp "$(OCAMLBIN)/camlp4o" $<
 
-ed_commands.cmx: ed_commands.ml
+ed_commands.cmx: ed_commands.ml ed_com_history.cmx
 	$(OCAMLFIND) ocamlopt $(OF_FLAGS) $(COMPFLAGS) -c -pp "$(OCAMLBIN)/camlp4o" $<
-

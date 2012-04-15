@@ -4,10 +4,12 @@ config.log
 config.status
 ocaml_config.sh
 master.Makefile
+autom4te.cache
 src/*.cm*
 src/*.a
 src/*.o
 src/*.annot
+src/chamo
 src/chamo.byte
 src/ed_charsets.ml
 src/ed_ocaml_lexer.ml

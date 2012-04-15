@@ -182,18 +182,28 @@ let (old_m,old_w) =
 Ed_hooks.set_display_message (fun ?to_utf8 _ -> ());;
 Ed_hooks.set_warning_message (fun ?to_utf8 _ -> ());;
 
+let packages =
+  [ "str" ; "threads.posix" ; "pcre" ; "config-file" ;
+    "xmlm" ; "lablgtk2.glade" ; "lablgtk2-extras.configwin" ;
+  ];;
+
 let _ =
-  let default_dirs = [
-      Ed_installation.lib_dir ;
-      Ed_installation.lablgtk2_dir ;
-      Ed_installation.pcre_dir ;
-    ]
+  let temp_file = Filename.temp_file "chamo" ".txt" in
+  let com = Printf.sprintf "%s query -r %s > %s" Ed_installation.ocamlfind
+    (String.concat " " packages) (Filename.quote temp_file)
   in
-  List.iter
-    (fun d ->
-       eval_ocaml
+  match Sys.command com with
+    0 ->
+      let default_dirs = Ed_extern.split_string (Ed_extern.string_of_file temp_file) ['\n'] in
+      Ed_extern.safe_remove_file temp_file;
+      List.iter
+      (fun d ->
+         eval_ocaml
          [| Printf.sprintf "#directory \"%s\";;" d |])
-    default_dirs
+      default_dirs
+  | n ->
+      Ed_extern.safe_remove_file temp_file;
+      prerr_endline (Printf.sprintf "Command failed: %s" com)
 ;;
 (* Restore the printing functions *)
 Ed_hooks.set_display_message old_m;;
@@ -206,3 +216,4 @@ let _ =
   List.iter
     (fun file -> if Sys.file_exists file then use file)
     init_files
+;;

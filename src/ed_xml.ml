@@ -22,9 +22,9 @@ let string_of_xml ?decl tree =
       failwith msg
 ;;
 
-let xml_of_string s =
+let xml_of_string ?strip s =
   try
-    let input = Xmlm.make_input ~enc: (Some `UTF_8) (`String (0, s)) in
+    let input = Xmlm.make_input ?strip ~enc: (Some `UTF_8) (`String (0, s)) in
     let el tag childs = E (tag, childs)  in
     let data d = D d in
     let (_, tree) = Xmlm.input_doc_tree ~el ~data input in
@@ -40,10 +40,10 @@ let xml_of_string s =
       failwith msg
 ;;
 
-let read_xml_file file f =
+let read_xml_file ?strip file f =
   let error s = failwith (Printf.sprintf "File %s: %s" file s) in
   try
-    f (xml_of_string (Ed_extern.string_of_file file))
+    f (xml_of_string ?strip (Ed_extern.string_of_file file))
   with
     Failure s -> error s
 ;;

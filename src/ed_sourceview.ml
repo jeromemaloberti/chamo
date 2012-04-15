@@ -155,7 +155,7 @@ let file_list_of_xml = function
 | _ -> []
 
 let read_open_buffers_file f =
-  Ed_xml.read_xml_file f file_list_of_xml
+  Ed_xml.read_xml_file ~strip: true f file_list_of_xml
 
 let write_open_buffers_file file buffers  =
   let xml = xml_of_file_list buffers in
