@@ -2,142 +2,175 @@ ed_annot.cmo :
 ed_annot.cmx :
 ed_bookmarks.cmo : ed_bookmarks.cmi
 ed_bookmarks.cmx : ed_bookmarks.cmi
+ed_bookmarks.cmi :
 ed_charsets.cmo : ed_charsets.cmi
 ed_charsets.cmx : ed_charsets.cmi
-ed_config.cmo : ed_config.cmi
-ed_config.cmx : ed_config.cmi
+ed_charsets.cmi :
+ed_com_history.cmo : ed_rc.cmi ed_constant.cmo ed_com_history.cmi
+ed_com_history.cmx : ed_rc.cmx ed_constant.cmx ed_com_history.cmi
+ed_com_history.cmi :
+ed_config.cmo : ed_installation.cmi ed_config.cmi
+ed_config.cmx : ed_installation.cmx ed_config.cmi
+ed_config.cmi :
+ed_constant.cmo :
+ed_constant.cmx :
 ed_core_rc.cmo : ed_config.cmi ed_core_rc.cmi
 ed_core_rc.cmx : ed_config.cmx ed_core_rc.cmi
-ed_eval.cmo : ed_misc.cmi ed_minibuffer.cmi ed_messages.cmo ed_gui.cmi \
-    ed_eval.cmi
-ed_eval.cmx : ed_misc.cmx ed_minibuffer.cmx ed_messages.cmx ed_gui.cmx \
-    ed_eval.cmi
+ed_core_rc.cmi :
+ed_dbg.cmo : ed_config.cmi ed_dbg.cmi
+ed_dbg.cmx : ed_config.cmx ed_dbg.cmi
+ed_dbg.cmi :
+ed_eval.cmo : ed_misc.cmi ed_minibuffer.cmi ed_messages.cmo \
+    ed_installation.cmi ed_hooks.cmi ed_gui.cmi ed_commands.cmi ed_eval.cmi
+ed_eval.cmx : ed_misc.cmx ed_minibuffer.cmx ed_messages.cmx \
+    ed_installation.cmx ed_hooks.cmx ed_gui.cmx ed_commands.cmx ed_eval.cmi
+ed_eval.cmi :
 ed_fstack.cmo : ed_fstack.cmi
 ed_fstack.cmx : ed_fstack.cmi
+ed_fstack.cmi :
 ed_gui.cmo : ed_view.cmi ed_prefs.cmi ed_misc.cmi ed_minibuffer_rc.cmi \
-    ed_minibuffer.cmi ed_messages.cmo ed_keymaps.cmi ed_gui_rc.cmi \
-    ed_config.cmi ed_charsets.cmi ed_gui.cmi
+    ed_minibuffer.cmi ed_messages.cmo ed_keymaps.cmi ed_installation.cmi \
+    ed_hooks.cmi ed_gui_rc.cmi ed_gui_base.cmo ed_config.cmi ed_commands.cmi \
+    ed_charsets.cmi ed_gui.cmi
 ed_gui.cmx : ed_view.cmx ed_prefs.cmx ed_misc.cmx ed_minibuffer_rc.cmx \
-    ed_minibuffer.cmx ed_messages.cmx ed_keymaps.cmx ed_gui_rc.cmx \
-    ed_config.cmx ed_charsets.cmx ed_gui.cmi
-ed_gui_rc.cmo : ed_config.cmi ed_gui_rc.cmi
-ed_gui_rc.cmx : ed_config.cmx ed_gui_rc.cmi
-ed_keymaps.cmo : ed_keymaps.cmi
-ed_keymaps.cmx : ed_keymaps.cmi
+    ed_minibuffer.cmx ed_messages.cmx ed_keymaps.cmx ed_installation.cmx \
+    ed_hooks.cmx ed_gui_rc.cmx ed_gui_base.cmx ed_config.cmx ed_commands.cmx \
+    ed_charsets.cmx ed_gui.cmi
+ed_gui.cmi : ed_view.cmi ed_minibuffer.cmi
+ed_gui_base.cmo :
+ed_gui_base.cmx :
+ed_gui_rc.cmo : ed_config.cmi ed_commands.cmi ed_gui_rc.cmi
+ed_gui_rc.cmx : ed_config.cmx ed_commands.cmx ed_gui_rc.cmi
+ed_gui_rc.cmi :
+ed_hooks.cmo : ed_hooks.cmi
+ed_hooks.cmx : ed_hooks.cmi
+ed_hooks.cmi :
+ed_installation.cmo : ed_installation.cmi
+ed_installation.cmx : ed_installation.cmi
+ed_installation.cmi :
+ed_keymaps.cmo : ed_misc.cmi ed_keymaps.cmi
+ed_keymaps.cmx : ed_misc.cmx ed_keymaps.cmi
+ed_keymaps.cmi :
 ed_layout.cmo : ed_view.cmi ed_misc.cmi ed_gui.cmi ed_config.cmi \
-    ed_layout.cmi
+    ed_commands.cmi ed_layout.cmi
 ed_layout.cmx : ed_view.cmx ed_misc.cmx ed_gui.cmx ed_config.cmx \
-    ed_layout.cmi
+    ed_commands.cmx ed_layout.cmi
+ed_layout.cmi : ed_gui.cmi
 ed_main.cmo : ed_view.cmi ed_sourceview.cmi ed_misc.cmi ed_layout.cmi \
-    ed_gui.cmi
+    ed_installation.cmi ed_hooks.cmi ed_gui.cmi ed_constant.cmo \
+    ed_commands.cmi
 ed_main.cmx : ed_view.cmx ed_sourceview.cmx ed_misc.cmx ed_layout.cmx \
-    ed_gui.cmx
+    ed_installation.cmx ed_hooks.cmx ed_gui.cmx ed_constant.cmx \
+    ed_commands.cmx
 ed_messages.cmo :
 ed_messages.cmx :
-ed_minibuffer.cmo : ed_minibuffer_rc.cmi ed_keymaps.cmi ed_gui_rc.cmi \
-    ed_minibuffer.cmi
-ed_minibuffer.cmx : ed_minibuffer_rc.cmx ed_keymaps.cmx ed_gui_rc.cmx \
-    ed_minibuffer.cmi
+ed_minibuffer.cmo : ed_misc.cmi ed_minibuffer_rc.cmi ed_keymaps.cmi \
+    ed_gui_rc.cmi ed_minibuffer.cmi
+ed_minibuffer.cmx : ed_misc.cmx ed_minibuffer_rc.cmx ed_keymaps.cmx \
+    ed_gui_rc.cmx ed_minibuffer.cmi
+ed_minibuffer.cmi :
 ed_minibuffer_rc.cmo : ed_gui_rc.cmi ed_config.cmi ed_minibuffer_rc.cmi
 ed_minibuffer_rc.cmx : ed_gui_rc.cmx ed_config.cmx ed_minibuffer_rc.cmi
-ed_misc.cmo : ed_minibuffer.cmi ed_core_rc.cmi ed_misc.cmi
-ed_misc.cmx : ed_minibuffer.cmx ed_core_rc.cmx ed_misc.cmi
+ed_minibuffer_rc.cmi :
+ed_misc.cmo : ed_minibuffer.cmi ed_messages.cmo ed_installation.cmi \
+    ed_hooks.cmi ed_dbg.cmi ed_core_rc.cmi ed_commands.cmi ed_misc.cmi
+ed_misc.cmx : ed_minibuffer.cmx ed_messages.cmx ed_installation.cmx \
+    ed_hooks.cmx ed_dbg.cmx ed_core_rc.cmx ed_commands.cmx ed_misc.cmi
+ed_misc.cmi : ed_minibuffer.cmi
 ed_mode_changelog.cmo : ed_sourceview.cmi ed_mode_changelog_rc.cmi \
-    ed_mode_changelog.cmi
+    ed_commands.cmi ed_mode_changelog.cmi
 ed_mode_changelog.cmx : ed_sourceview.cmx ed_mode_changelog_rc.cmx \
-    ed_mode_changelog.cmi
+    ed_commands.cmx ed_mode_changelog.cmi
+ed_mode_changelog.cmi : ed_sourceview.cmi
 ed_mode_changelog_rc.cmo : ed_sourceview_rc.cmi ed_config.cmi \
     ed_mode_changelog_rc.cmi
 ed_mode_changelog_rc.cmx : ed_sourceview_rc.cmx ed_config.cmx \
     ed_mode_changelog_rc.cmi
+ed_mode_changelog_rc.cmi :
 ed_mode_makefile.cmo : ed_sourceview.cmi ed_mode_makefile_rc.cmi \
     ed_mode_makefile.cmi
 ed_mode_makefile.cmx : ed_sourceview.cmx ed_mode_makefile_rc.cmx \
     ed_mode_makefile.cmi
+ed_mode_makefile.cmi : ed_sourceview.cmi
 ed_mode_makefile_rc.cmo : ed_sourceview_rc.cmi ed_config.cmi \
     ed_mode_makefile_rc.cmi
 ed_mode_makefile_rc.cmx : ed_sourceview_rc.cmx ed_config.cmx \
     ed_mode_makefile_rc.cmi
+ed_mode_makefile_rc.cmi :
 ed_mode_ocaml.cmo : ed_sourceview.cmi ed_ocamlbuild.cmi ed_mode_ocaml_rc.cmi \
-    ed_misc.cmi ed_mode_ocaml.cmi
+    ed_misc.cmi ed_constant.cmo ed_commands.cmi ed_annot.cmo \
+    ed_mode_ocaml.cmi
 ed_mode_ocaml.cmx : ed_sourceview.cmx ed_ocamlbuild.cmx ed_mode_ocaml_rc.cmx \
-    ed_misc.cmx ed_mode_ocaml.cmi
+    ed_misc.cmx ed_constant.cmx ed_commands.cmx ed_annot.cmx \
+    ed_mode_ocaml.cmi
+ed_mode_ocaml.cmi : ed_sourceview.cmi
 ed_mode_ocaml_rc.cmo : ed_sourceview_rc.cmi ed_config.cmi \
     ed_mode_ocaml_rc.cmi
 ed_mode_ocaml_rc.cmx : ed_sourceview_rc.cmx ed_config.cmx \
     ed_mode_ocaml_rc.cmi
-ed_multiclip.cmo : ed_view.cmi ed_multiclip_rc.cmi ed_misc.cmi \
-    ed_minibuffer.cmi
-ed_multiclip.cmx : ed_view.cmx ed_multiclip_rc.cmx ed_misc.cmx \
-    ed_minibuffer.cmx
+ed_mode_ocaml_rc.cmi :
+ed_multiclip.cmo : multiclip_gui.cmi multiclip.cmi ed_view.cmi \
+    ed_multiclip_rc.cmi ed_misc.cmi ed_minibuffer.cmi ed_commands.cmi
+ed_multiclip.cmx : multiclip_gui.cmx multiclip.cmx ed_view.cmx \
+    ed_multiclip_rc.cmx ed_misc.cmx ed_minibuffer.cmx ed_commands.cmx
 ed_multiclip_rc.cmo : ed_gui_rc.cmi ed_config.cmi ed_multiclip_rc.cmi
 ed_multiclip_rc.cmx : ed_gui_rc.cmx ed_config.cmx ed_multiclip_rc.cmi
+ed_multiclip_rc.cmi :
 ed_ocamlbuild.cmo : ed_sourceview.cmi ed_outputs.cmi ed_mode_ocaml_rc.cmi \
-    ed_misc.cmi ed_minibuffer.cmi ed_ocamlbuild.cmi
+    ed_misc.cmi ed_minibuffer.cmi ed_commands.cmi ed_ocamlbuild.cmi
 ed_ocamlbuild.cmx : ed_sourceview.cmx ed_outputs.cmx ed_mode_ocaml_rc.cmx \
-    ed_misc.cmx ed_minibuffer.cmx ed_ocamlbuild.cmi
-ed_ocamloutput.cmo : ed_outputs.cmi ed_ocamloutput.cmi
-ed_ocamloutput.cmx : ed_outputs.cmx ed_ocamloutput.cmi
-ed_odoc.cmo : ed_view.cmi ed_odoc_rc.cmi ed_misc.cmi ed_odoc.cmi
-ed_odoc.cmx : ed_view.cmx ed_odoc_rc.cmx ed_misc.cmx ed_odoc.cmi
-ed_odoc_rc.cmo : ed_config.cmi ed_odoc_rc.cmi
-ed_odoc_rc.cmx : ed_config.cmx ed_odoc_rc.cmi
-ed_outputs.cmo : ed_config.cmi ed_outputs.cmi
-ed_outputs.cmx : ed_config.cmx ed_outputs.cmi
+    ed_misc.cmx ed_minibuffer.cmx ed_commands.cmx ed_ocamlbuild.cmi
+ed_ocamlbuild.cmi : ed_sourceview.cmi ed_outputs.cmi
+ed_ocamloutput.cmo : ed_outputs.cmi ed_commands.cmi ed_ocamloutput.cmi
+ed_ocamloutput.cmx : ed_outputs.cmx ed_commands.cmx ed_ocamloutput.cmi
+ed_ocamloutput.cmi : ed_outputs.cmi
+ed_odoc.cmo : ed_view.cmi ed_odoc_rc.cmi ed_misc.cmi ed_commands.cmi \
+    ed_odoc.cmi
+ed_odoc.cmx : ed_view.cmx ed_odoc_rc.cmx ed_misc.cmx ed_commands.cmx \
+    ed_odoc.cmi
+ed_odoc.cmi : ed_view.cmi
+ed_odoc_rc.cmo : ed_installation.cmi ed_config.cmi ed_odoc_rc.cmi
+ed_odoc_rc.cmx : ed_installation.cmx ed_config.cmx ed_odoc_rc.cmi
+ed_odoc_rc.cmi :
+ed_outputs.cmo : ed_misc.cmi ed_gui_base.cmo ed_config.cmi ed_outputs.cmi
+ed_outputs.cmx : ed_misc.cmx ed_gui_base.cmx ed_config.cmx ed_outputs.cmi
+ed_outputs.cmi :
 ed_prefs.cmo : ed_messages.cmo ed_prefs.cmi
 ed_prefs.cmx : ed_messages.cmx ed_prefs.cmi
+ed_prefs.cmi :
+ed_rc.cmo : ed_misc.cmi ed_installation.cmi ed_rc.cmi
+ed_rc.cmx : ed_misc.cmx ed_installation.cmx ed_rc.cmi
+ed_rc.cmi :
 ed_sourceview.cmo : ed_view.cmi ed_sourceview_rc.cmi ed_misc.cmi \
-    ed_minibuffer.cmi ed_fstack.cmi ed_core_rc.cmi ed_config.cmi \
-    ed_charsets.cmi ed_bookmarks.cmi ed_sourceview.cmi
+    ed_minibuffer.cmi ed_installation.cmi ed_hooks.cmi ed_fstack.cmi \
+    ed_core_rc.cmi ed_config.cmi ed_commands.cmi ed_charsets.cmi \
+    ed_bookmarks.cmi ed_sourceview.cmi
 ed_sourceview.cmx : ed_view.cmx ed_sourceview_rc.cmx ed_misc.cmx \
-    ed_minibuffer.cmx ed_fstack.cmx ed_core_rc.cmx ed_config.cmx \
-    ed_charsets.cmx ed_bookmarks.cmx ed_sourceview.cmi
+    ed_minibuffer.cmx ed_installation.cmx ed_hooks.cmx ed_fstack.cmx \
+    ed_core_rc.cmx ed_config.cmx ed_commands.cmx ed_charsets.cmx \
+    ed_bookmarks.cmx ed_sourceview.cmi
+ed_sourceview.cmi : ed_view.cmi ed_minibuffer.cmi
 ed_sourceview_expand.cmo : ed_sourceview_rc.cmi ed_sourceview.cmi \
-    ed_misc.cmi ed_sourceview_expand.cmi
+    ed_misc.cmi ed_commands.cmi ed_sourceview_expand.cmi
 ed_sourceview_expand.cmx : ed_sourceview_rc.cmx ed_sourceview.cmx \
-    ed_misc.cmx ed_sourceview_expand.cmi
+    ed_misc.cmx ed_commands.cmx ed_sourceview_expand.cmi
+ed_sourceview_expand.cmi : ed_sourceview.cmi
 ed_sourceview_rc.cmo : ed_gui_rc.cmi ed_config.cmi ed_sourceview_rc.cmi
 ed_sourceview_rc.cmx : ed_gui_rc.cmx ed_config.cmx ed_sourceview_rc.cmi
-ed_tdl.cmo : ed_view.cmi ed_tdl_rc.cmi ed_tdl.cmi
-ed_tdl.cmx : ed_view.cmx ed_tdl_rc.cmx ed_tdl.cmi
-ed_tdl_rc.cmo : ed_config.cmi ed_tdl_rc.cmi
-ed_tdl_rc.cmx : ed_config.cmx ed_tdl_rc.cmi
-ed_view.cmo : ed_view_rc.cmi ed_minibuffer.cmi ed_view.cmi
-ed_view.cmx : ed_view_rc.cmx ed_minibuffer.cmx ed_view.cmi
-ed_view_rc.cmo : ed_config.cmi ed_view_rc.cmi
-ed_view_rc.cmx : ed_config.cmx ed_view_rc.cmi
-test_ocaml_mode.cmo :
-test_ocaml_mode.cmx :
-ed_bookmarks.cmi :
-ed_charsets.cmi :
-ed_config.cmi :
-ed_core_rc.cmi :
-ed_eval.cmi :
-ed_fstack.cmi :
-ed_gui.cmi : ed_view.cmi ed_minibuffer.cmi
-ed_gui_rc.cmi :
-ed_keymaps.cmi :
-ed_layout.cmi : ed_gui.cmi
-ed_minibuffer.cmi :
-ed_minibuffer_rc.cmi :
-ed_misc.cmi : ed_minibuffer.cmi
-ed_mode_changelog.cmi : ed_sourceview.cmi
-ed_mode_changelog_rc.cmi :
-ed_mode_makefile.cmi : ed_sourceview.cmi
-ed_mode_makefile_rc.cmi :
-ed_mode_ocaml.cmi : ed_sourceview.cmi
-ed_mode_ocaml_rc.cmi :
-ed_multiclip_rc.cmi :
-ed_ocamlbuild.cmi : ed_sourceview.cmi ed_outputs.cmi
-ed_ocamloutput.cmi : ed_outputs.cmi
-ed_odoc.cmi : ed_view.cmi
-ed_odoc_rc.cmi :
-ed_outputs.cmi :
-ed_prefs.cmi :
-ed_sourceview.cmi : ed_view.cmi ed_minibuffer.cmi
-ed_sourceview_expand.cmi : ed_sourceview.cmi
 ed_sourceview_rc.cmi :
 ed_tdl.cmi : ed_view.cmi
 ed_tdl_rc.cmi :
+ed_view.cmo : ed_view_rc.cmi ed_minibuffer.cmi ed_view.cmi
+ed_view.cmx : ed_view_rc.cmx ed_minibuffer.cmx ed_view.cmi
 ed_view.cmi : ed_minibuffer.cmi
+ed_view_rc.cmo : ed_config.cmi ed_view_rc.cmi
+ed_view_rc.cmx : ed_config.cmx ed_view_rc.cmi
 ed_view_rc.cmi :
+multiclip.cmo : multiclip.cmi
+multiclip.cmx : multiclip.cmi
+multiclip.cmi :
+multiclip_gui.cmo : multiclip.cmi multiclip_gui.cmi
+multiclip_gui.cmx : multiclip.cmx multiclip_gui.cmi
+multiclip_gui.cmi : multiclip.cmi
+test_ocaml_mode.cmo :
+test_ocaml_mode.cmx :

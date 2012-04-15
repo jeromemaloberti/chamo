@@ -81,7 +81,7 @@ let goto_error file line start stop error =
 (*      v#set_location ((line-1), start);*)
       let mes = Printf.sprintf "Line %d, chars %d-%d: %s" line start stop error in
       Ed_misc.error_message (Ed_misc.to_utf8 mes);
-      let line_offset = Cam_misc.char_of_line file (line-1) in
+      let line_offset = Ed_misc.char_of_line file (line-1) in
       v#select_range_in_file ~jump: `Left
         ~left: (line_offset + start)
         ~right: (line_offset + stop)

@@ -25,7 +25,7 @@
 (** Main gui classes *)
 
 let window_pixmap =
-  Filename.concat Cam_installation.pixmaps_dir "chamo.png"
+  Filename.concat Ed_installation.pixmap_dir "chamo.png"
 
 let window_pixbuf =
   try Some (GdkPixbuf.from_file window_pixmap)
@@ -1029,7 +1029,7 @@ let show_about_dialog () =
              Ed_messages.software_author
                Ed_messages.software_author_mail)]
           ~name: Ed_messages.software
-          ~version: Cam_installation.software_version
+          ~version: Ed_installation.version
           ~website: "http://www.gna.org/projects/cameleon"
           ~website_label: "The Cameleon website"
           ~position: `CENTER

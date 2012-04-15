@@ -216,7 +216,7 @@ let load_annot_tree ml_file =
           (Printf.sprintf "Source was modified since %s was created" annot_file)
       else
         let annot_string = Ed_misc.string_of_file annot_file in
-        match Dtypes.build_tree annot_string with
+        match Ed_annot.build_tree annot_string with
           None -> failwith "No tree built"
         | Some t -> t
 ;;
@@ -228,26 +228,26 @@ let display_annot ?(id_jump=false) ?(copy=false) kind (v:Ed_sourceview.sourcevie
     let loc_start =
       let (start,_) = v#file#buffer#selection_bounds in
       (* beware of the possible offset between file contents and display *)
-      Cam_misc.utf8_string_length
+      Ed_misc.utf8_string_length
         (v#file#mode_from_display
          (v#file#buffer#get_text ~start: v#file#buffer#start_iter ~stop: start ()))
     in
-    match Dtypes.search_in_tree kind loc_start t with
+    match Ed_annot.search_in_tree kind loc_start t with
       None -> failwith "No annotation found"
     | Some (left,right,k) ->
         let (left, right, message) =
           match k with
-            Dtypes.Type f -> (left, right, Lazy.force f)
-          | Dtypes.Ident (Dtypes.Def id)
-          | Dtypes.Ident (Dtypes.Ext_ref id) -> (left, right, id)
-          | Dtypes.Ident (Dtypes.Int_ref (id, (start, stop))) ->
+            Ed_annot.Type f -> (left, right, Lazy.force f)
+          | Ed_annot.Ident (Ed_annot.Def id)
+          | Ed_annot.Ident (Ed_annot.Ext_ref id) -> (left, right, id)
+          | Ed_annot.Ident (Ed_annot.Int_ref (id, (start, stop))) ->
               let s = Printf.sprintf "local def: %s" id in
               if id_jump then
                 (start, stop, s)
               else
                 (left, right, s)
-          | Dtypes.Call `Tail -> (left, right, "tail")
-          | Dtypes.Call `Stack -> (left, right, "stack")
+          | Ed_annot.Call `Tail -> (left, right, "tail")
+          | Ed_annot.Call `Stack -> (left, right, "stack")
         in
         let message = Ed_misc.to_utf8 message in
         if copy then
@@ -288,10 +288,10 @@ let show_hide_call_annots (v:Ed_sourceview.sourceview) args =
         ignore(create_call_display_tag buf);
         let t = load_annot_tree f in
         let f acc = function
-          (left, right, Some (Dtypes.Call k)) -> (left, right, k) :: acc
+          (left, right, Some (Ed_annot.Call k)) -> (left, right, k) :: acc
         | _ -> acc
         in
-        let calls = Dtypes.fold f [] t in
+        let calls = Ed_annot.fold f [] t in
         let display_call n (left, right, kind) =
           match kind with
             `Tail -> n
@@ -324,7 +324,7 @@ let expand_external_idents (v:Ed_sourceview.sourceview) args =
     let from_pervasives s = Ed_misc.is_prefix s "Pervasives." in
     let f acc (left, right, kind) =
       match kind with
-        Some (Dtypes.Ident (Dtypes.Ext_ref ext_ident)) ->
+        Some (Ed_annot.Ident (Ed_annot.Ext_ref ext_ident)) ->
           if from_pervasives ext_ident then
             acc
           else
@@ -333,7 +333,7 @@ let expand_external_idents (v:Ed_sourceview.sourceview) args =
     in
     let ext_refs = List.sort
       (fun (l1, _, _) (l2, _, _) -> Pervasives.compare l1 l2)
-        ((Dtypes.fold f [] t))
+        ((Ed_annot.fold f [] t))
     in
     let b = v#file#buffer in
     let mb = v#minibuffer in

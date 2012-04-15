@@ -88,7 +88,7 @@ let get_size_chars widget =
   (width,height)
 
 let fill_string size s =
-  let m = size - Cam_misc.utf8_string_length s in
+  let m = size - Ed_misc.utf8_string_length s in
   Printf.sprintf "%s%s" s (String.make m ' ')
 
 open GdkKeysyms
@@ -252,7 +252,7 @@ class minibuffer () =
       let l = List.sort compare l in
       let (w,_) = get_size_chars view in
       let max = List.fold_left
-          (fun acc s -> max acc (Cam_misc.utf8_string_length s))
+          (fun acc s -> max acc (Ed_misc.utf8_string_length s))
           0
           l
       in

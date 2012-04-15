@@ -184,9 +184,9 @@ Ed_hooks.set_warning_message (fun ?to_utf8 _ -> ());;
 
 let _ =
   let default_dirs = [
-      Cam_installation.lib_dir ;
-      Cam_installation.lablgtk2_dir ;
-      Cam_installation.pcre_dir ;
+      Ed_installation.lib_dir ;
+      Ed_installation.lablgtk2_dir ;
+      Ed_installation.pcre_dir ;
     ]
   in
   List.iter

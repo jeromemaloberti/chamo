@@ -45,6 +45,7 @@ if test "$datadir" = "\${prefix}/share" ; then
         datadir=$prefix/share
 fi
 
+PIXMAPSDIR=$datadir/pixmaps
 GLADEDIR=$datadir/glade
 LANGUAGESSPECSDIR=$datadir/language-specs
 
@@ -94,19 +95,22 @@ AC_SUBST(LANGUAGESSPECSDIR)
 AC_SUBST(ROOT)
 AC_SUBST(DEBUG_LEVEL)
 AC_SUBST(GLADEDIR)
+AC_SUBST(PIXMAPSDIR)
 AC_SUBST(VERSION)
 AC_SUBST(PACKAGE)
 
 # Finally create the master.Makefile.in
-ACFILES="master.Makefile META src/ed_installation.ml"
+ACFILES="master.Makefile META src/ed_installation.ml src/ed_config.ml"
 AC_OUTPUT($ACFILES)
 chmod a-w master.Makefile
 chmod a-w META
 chmod a-w src/ed_installation.ml
+chmod a-w src/ed_config.ml
 
 cat << EOF
 ====
 The following packages will be installed with findlib:
   $PACKAGE
 Glade file will be installed in $GLADEDIR
+Pixmaps file will be installed in $PIXMAPSDIR
 EOF

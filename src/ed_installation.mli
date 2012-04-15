@@ -30,6 +30,8 @@ val lib_dir : string
 
 val man_dir : string
 
+val pixmap_dir : string
+
 val glade_dir : string
 
 val glade_file : string

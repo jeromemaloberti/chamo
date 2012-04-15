@@ -72,12 +72,12 @@ dummy:
 headers: dummy
 	headache -h header -c ~/.headache_config configure.in configure \
 	master.Makefile.in Makefile src/Makefile checkocaml.ml \
-	src/*.ml src/*.mli src/ed_installation.ml.in
+	src/*.ml src/*.mli src/ed_installation.ml.in src/ed_config.ml.in
 
 noheaders: dummy
 	headache -r -c ~/.headache_config configure.in configure \
 	master.Makefile.in Makefile src/Makefile checkocaml.ml \
-	src/*.ml src/*.mli src/ed_installation.ml.in
+	src/*.ml src/*.mli src/ed_installation.ml.in src/ed_config.ml.in
 
 
 

@@ -179,7 +179,7 @@ class text_output ?(on_destroy=fun () -> ()) (name : string) =
 
     method insert text =
       view#buffer#insert text;
-      Cam_misc.treat_gtk_events(); (* needed to that the scroll_to_iter works *)
+      Ed_misc.treat_gtk_events(); (* needed to that the scroll_to_iter works *)
       ignore(view#scroll_to_iter (view#buffer#get_iter `END))
 
     method run command ?(reset=false) (f_on_end : int -> unit) =

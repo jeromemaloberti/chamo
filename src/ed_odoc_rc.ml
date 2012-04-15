@@ -36,26 +36,26 @@ let key_bindings = new CF.list_cp Ed_config.binding_wrappers ~group
     ["key_bindings"] default_key_bindings "Key bindings"
 
 let create_pix name def help =
-  new CF.filename_cp ~group ["pixmaps";name] def
+  new CF.filename_cp ~group ["pixmap";name] def
     ("Pixmap file used to represent "^help)
 
 let pix_file = create_pix "file"
-    (Filename.concat Cam_installation.pixmaps_dir "file_component.png")
+    (Filename.concat Ed_installation.pixmap_dir "file_component.png")
     "files"
 let pix_comp = create_pix "component"
-    (Filename.concat Cam_installation.pixmaps_dir "component.png")
+    (Filename.concat Ed_installation.pixmap_dir "component.png")
     "classes and modules"
 let pix_other = create_pix "other"
-    (Filename.concat Cam_installation.pixmaps_dir "run.png")
+    (Filename.concat Ed_installation.pixmap_dir "run.png")
     "other stuff"
 let pix_type = create_pix "type"
-    (Filename.concat Cam_installation.pixmaps_dir "type.png")
+    (Filename.concat Ed_installation.pixmap_dir "type.png")
     "types"
 let pix_fun = create_pix "function"
-    (Filename.concat Cam_installation.pixmaps_dir "fun.png")
+    (Filename.concat Ed_installation.pixmap_dir "fun.png")
     "functions and methods"
 let pix_value = create_pix "value"
-    (Filename.concat Cam_installation.pixmaps_dir "value.png")
+    (Filename.concat Ed_installation.pixmap_dir "value.png")
     "non functional values"
 
 

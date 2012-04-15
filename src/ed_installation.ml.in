@@ -25,6 +25,7 @@
 let bin_dir = "@bindir@"
 let lib_dir = "@libdir@"
 let man_dir = "@mandir@"
+let pixmap_dir = "@PIXMAPSDIR@"
 let glade_dir = "@GLADEDIR@"
 let glade_file = Filename.concat glade_dir "chamo.glade"
 

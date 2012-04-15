@@ -80,7 +80,7 @@ let location_of_string s =
       with _ ->
           try let f a b = Chars(a,b) in Some (Scanf.sscanf s "%d-%d" f)
           with _ ->
-              try Some (Char(Cam_misc.my_int_of_string s))
+              try Some (Char(Ed_misc.my_int_of_string s))
               with _ -> None
 ;;
 let string_of_location = function
@@ -246,8 +246,8 @@ class my_buffer () =
     method syntax_mode = buffer#language
 
     method private pcre_offset_tuple_to_char_indices text (start,stop) =
-      let len1 = Cam_misc.utf8_string_length (String.sub text 0 start) in
-      (len1, len1 + Cam_misc.utf8_string_length (String.sub text start (stop-start)))
+      let len1 = Ed_misc.utf8_string_length (String.sub text 0 start) in
+      (len1, len1 + Ed_misc.utf8_string_length (String.sub text start (stop-start)))
 
     method private re_search_backward re text =
       let res = Pcre.exec_all ~rex: re text in
@@ -596,12 +596,12 @@ class buffered_file ?(attributes=[]) ?loc ~name ~filename buffer =
       let from_display = self#mode_from_display (buffer#get_text ()) in
       let (left, right) =
         let left =
-          Cam_misc.utf8_string_length
+          Ed_misc.utf8_string_length
             (self#mode_to_display
              (String.sub from_display 0 left))
         in
         let right =
-          Cam_misc.utf8_string_length
+          Ed_misc.utf8_string_length
             (self#mode_to_display
              (String.sub from_display 0 right))
         in
@@ -610,9 +610,9 @@ class buffered_file ?(attributes=[]) ?loc ~name ~filename buffer =
       (left, right)
 
     method line_offset_from_line_in_file line =
-      let char_offset = Cam_misc.char_of_line filename line in
+      let char_offset = Ed_misc.char_of_line filename line in
       let from_display = self#mode_from_display (buffer#get_text ()) in
-      Cam_misc.utf8_string_length
+      Ed_misc.utf8_string_length
         (self#mode_to_display (String.sub from_display 0 char_offset))
 
     method select_range_in_file ~left ~right =
@@ -972,7 +972,7 @@ class sourceview ?(attributes=[]) (topwin : Ed_view.topwin)
             let label =
                Printf.sprintf "%s (%s, %d, %d)" name (Filename.basename file) line col
              in
-            `I (Cam_misc.escape_menu_label (Ed_misc.to_utf8 label), com)
+            `I (Ed_misc.escape_menu_label (Ed_misc.to_utf8 label), com)
           )
           l
       in
@@ -1339,7 +1339,7 @@ class sourceview ?(attributes=[]) (topwin : Ed_view.topwin)
 
       try
         let pix_bookmark = GdkPixbuf.from_file
-          (Filename.concat Cam_installation.pixmaps_dir "bookmark.png")
+          (Filename.concat Ed_installation.pixmap_dir "bookmark.png")
         in
         source_view#set_mark_category_pixbuf "bookmark" (Some pix_bookmark)
       with
@@ -1937,7 +1937,7 @@ let goto_history = Ed_minibuffer.history ()
 let goto_line v args =
   let f s =
     let n =
-      try Cam_misc.my_int_of_string args.(0)
+      try Ed_misc.my_int_of_string args.(0)
       with _ -> invalid_arg "Bad line number"
     in
     v#goto_line (n-1)
@@ -1950,7 +1950,7 @@ let goto_line v args =
 let goto_char v args =
   let f s =
     let n =
-      try Cam_misc.my_int_of_string args.(0)
+      try Ed_misc.my_int_of_string args.(0)
       with _ -> invalid_arg "Bad character number"
     in
     v#goto_char (n-1)
@@ -2089,7 +2089,7 @@ let insert_utf8 (view : sourceview) args =
   else
     try
       let code = int_of_string args.(0) in
-      let s = Cam_misc.utf8_char_of_code code in
+      let s = Ed_misc.utf8_char_of_code code in
       view#file#buffer#insert s
     with
       Invalid_argument _ ->

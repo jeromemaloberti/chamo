@@ -36,9 +36,12 @@ val local_dir_rc_file_prefix : string
 (** Create a "local" config file name with the given suffix. *)
 val local_dir_rc_file : string -> string
 
-(** Create a config file with the given suffix, in the user's 
+(** Create a config file with the given suffix, in the user's
      cameleon config directory. *)
 val rc_file : string -> string
+
+(** The debug level. [debug_level <= 0] means no debug. *)
+val debug_level : int
 
 (** {2 Convenient function to use configuration files.} *)
 
@@ -46,6 +49,6 @@ val rc_file : string -> string
 val key_state_wrappers :
   (Gdk.Tags.modifier list * int) list Config_file.wrappers
 
-(** Wrappers to convert key bindings to and from a string. *) 
+(** Wrappers to convert key bindings to and from a string. *)
 val binding_wrappers :
   ((Gdk.Tags.modifier list * int) list * string) Config_file.wrappers

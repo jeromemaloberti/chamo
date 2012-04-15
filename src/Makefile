@@ -24,11 +24,11 @@
 
 include ../master.Makefile
 
-PACKAGES=pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin
-OF_FLAGS=-package $(PACKAGES)
-INCLUDES=-I +ocamldoc
+PACKAGES=threads.posix,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin
+OF_FLAGS=-package $(PACKAGES) -verbose
+INCLUDES=-I +ocamldoc -I +threads
 
-COMPFLAGS=$(INCLUDES) -annot
+COMPFLAGS=$(INCLUDES) -annot -thread
 LINKFLAGS=$(INCLUDES)
 
 # The executables and libraries to produce
@@ -38,8 +38,6 @@ EDITOR_BYTE=$(EDITOR).byte
 
 LIB=chamo.cmxa
 LIB_BYTE=chamo.cma
-
-
 
 # Compilation
 #############
@@ -52,9 +50,10 @@ LIB_CMXFILES= \
 	multiclip.cmx \
 	multiclip_gui.cmx \
 	ed_constant.cmx \
+	ed_dbg.cmx \
 	ed_hooks.cmx \
-	ed_commands.cmx \
 	ed_com_history.cmx \
+	ed_commands.cmx \
 	ed_installation.cmx \
 	ed_messages.cmx \
 	ed_rc.cmx \
@@ -78,8 +77,6 @@ LIB_CMXFILES= \
 	ed_multiclip.cmx \
 	ed_odoc_rc.cmx \
 	ed_odoc.cmx \
-	ed_tdl_rc.cmx \
-	ed_tdl.cmx \
 	ed_sourceview.cmx \
 	ed_sourceview_expand.cmx \
 	ed_ocamloutput.cmx \
@@ -146,7 +143,7 @@ clean:: dummy
 
 .depend depend:
 	$(RM) .depend
-	$(OCAMLDEP) *.ml *.mli > .depend
+	$(OCAMLDEP) `ls *.ml *.mli | grep -v ed_commands` > .depend
 
 dummy:
 
@@ -185,7 +182,7 @@ uninstall: dummy
 ed_gui_base.ml: chamo.glade
 	$(LABLGLADECC) -hide-default $< > $@
 
-ed_commands.cmi ed_commands.cmo: ed_commands.ml
+ed_commands.cmo: ed_commands.ml
 	$(OCAMLFIND) ocamlc $(OF_FLAGS) -c -pp "$(OCAMLBIN)/camlp4o" $<
 
 ed_commands.cmx: ed_commands.ml

@@ -24,6 +24,105 @@
 
 (** Misc functions. *)
 
+val map_opt : ('a -> 'b) -> 'a option -> 'b option
+
+(*i==v=[String.chop_n_char]=1.0====*)
+(** [chop_n_char n s] returns the given string where characters after position n
+   are replaced by ["..."].
+@@version 1.0
+@@cgname String.chop_n_char*)
+val chop_n_char : int -> string -> string
+(*/i==v=[String.chop_n_char]=1.0====*)
+
+(** Same as [int_of_string] but support strings beginning with '+'. *)
+val my_int_of_string : string -> int
+
+(*i==v=[List.list_remove_doubles]=1.0====*)
+(** [list_remove_doubles ?pred l] remove doubles in the given list [l], according
+   to the optional equality function [pred]. Default equality function is [(=)].
+@author Maxence Guesdon
+@version 1.0
+@cgname List.list_remove_doubles*)
+val list_remove_doubles : ?pred:('k -> 'k -> bool) -> 'k list -> 'k list
+(*/i==v=[List.list_remove_doubles]=1.0====*)
+
+val add_shortcut :
+  < connect : < destroy : callback:(unit -> unit) -> GtkSignal.id; .. >;
+    event : GObj.event_ops; get_oid : int; .. > ->
+  (string * ((unit -> bool) option * (unit -> unit))) list ->
+  (Okey.modifier list * Gdk.keysym) * string -> unit
+
+
+val select_in_list :
+    ?ok:string -> ?cancel:string ->
+      ?allow_empty: bool ->
+	?value_in_list: bool ->
+	  title:string ->
+	  choices: string list ->
+	    string -> string option
+
+(** [remove_char s c] returns the given string [s] without character [c]. *)
+val remove_char : string -> char -> string
+
+(** Handle all pending GTK events. *)
+val treat_gtk_events : unit -> unit
+
+(** Return the offset of position due to the window manager's decoration. *)
+val get_wm_window_position_offset : unit -> int * int
+
+(*i==v=[File.subdirs]=0.1====*)
+(** [subdirs path] returns the list of subdirectories of the given directory name.
+   Returned names are relative to the given path.
+@author Maxence Guesdon
+@version 0.1
+@raise Unix_error if an error occurs.
+@cgname File.subdirs*)
+val subdirs : string -> string list
+(*/i==v=[File.subdirs]=0.1====*)
+
+(** [line_of_char file char] gets the line number (0-based)
+   in a file from a character number. *)
+val line_of_char : string -> int -> int
+
+(** [char_of_line file line] returns the offset of the first character
+     of the given [line] of the give [file]. Line number are zero-based,
+     as the returned character number. *)
+val char_of_line : string -> int -> int
+
+(*i==v=[String.replace_in_string]=1.0====*)
+(** [replace_in_string ~pat ~subs ~s] replaces all occurences of
+   pattern [pat] by [subs] in string [s].
+@author Maxence Guesdon
+@version 1.0
+@cgname String.replace_in_string*)
+val replace_in_string : pat:string -> subs:string -> s:string -> string
+(*/i==v=[String.replace_in_string]=1.0====*)
+
+(** [escape_menu_label string] returns a the string where all '_' have
+   been escaped to be displayed correctly in Lablgtk menus.*)
+val escape_menu_label : string -> string
+
+(** [utf8_index_of_char string n] returns the position of the first byte
+     the [n]th character in the given UTF-8 [string].
+     @raise Not_found if there is no such character.*)
+val utf8_index_of_char : string -> int -> int
+
+(** [utf8_char_of_index string i] returns the number of characters
+     found from the beginning of the UTF-8 string to position [i] (included).
+     @raise Invalid_argument if the given position is out of the string bounds.*)
+val utf8_char_of_index : string -> int -> int
+
+(** [utf8_string_length string] returns the number of utf8 characters in the
+     given string. *)
+val utf8_string_length : string -> int
+
+(** [utf8_char_of_code code] returns the string representing the UTF-8 character
+  with the given [code].
+  @raise Failure if the code is out of range. Only 4 bytes UTF-8 is supported by now.
+  *)
+val utf8_char_of_code : int -> string
+
+
 (** [mod_date_of_file file] returns the Unix last modification date of the given file,
    or 0.0 if the date could not be obtained. *)
 val mod_date_of_file : string -> float
@@ -37,7 +136,6 @@ val mod_date_of_file : string -> float
 @cgname File.string_of_file*)
 val string_of_file : string -> string
 (*/i==v=[File.string_of_file]=1.0====*)
-
 
 (*i==v=[File.file_of_string]=1.1====*)
 (** [file_of_string ~file str] creates a file named
@@ -62,7 +160,6 @@ val bool_of_string : string -> bool
 val split_string : ?keep_empty:bool -> string -> char list -> string list
 (*/i==v=[String.split_string]=1.1====*)
 
-
 (*i==v=[File.safe_remove_file]=1.0====*)
 (** Remove the given file, and ignore the error if
    the file does not exist (catch [Sys_error]).
@@ -71,7 +168,6 @@ val split_string : ?keep_empty:bool -> string -> char list -> string list
 val safe_remove_file : string -> unit
 (*/i==v=[File.safe_remove_file]=1.0====*)
 
-
 (*i==v=[List.make_list]=1.0====*)
 (** [make_list n ele] builds a list of [n] elements [ele].
 @author Maxence Guesdon
@@ -79,7 +175,6 @@ val safe_remove_file : string -> unit
 @cgname List.make_list*)
 val make_list : int -> 'i -> 'i list
 (*/i==v=[List.make_list]=1.0====*)
-
 
 (*i==v=[String.no_blanks]=1.0====*)
 (** [no_blanks s] returns the given string without any blank
@@ -93,12 +188,11 @@ val no_blanks : string -> string
      of the file, is the file can be accessed. *)
 val date_of_file : string -> float option
 
-
 (*i==v=[Misc.try_finalize]=1.0====*)
 (** [try_finalize f x g y] applies [f] to [x] and return
    the result or raises an exception, but in all cases
    [g] is applied to [y] before returning or raising the exception.
-@author Didier Rémy
+@author Didier RÃ©my
 @version 1.0
 @cgname Misc.try_finalize*)
 val try_finalize : ('l -> 'm) -> 'l -> ('n -> unit) -> 'n -> 'm

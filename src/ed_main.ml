@@ -70,7 +70,7 @@ let main () =
      let m = Printf.sprintf
        "No objective-caml syntax mode found in directories\n%s\nYou should copy %s into one of these directories and restart Chamo to be able to use the objetive caml syntax mode."
          (String.concat "\n" Ed_sourceview.language_manager#search_path)
-         (Filename.concat Cam_installation.languages_specs_dir "ocaml.lang")
+         (Filename.concat Ed_installation.languages_specs_dir "ocaml.lang")
      in
      Ed_hooks.warning_message (Ed_misc.to_utf8 m);
     );

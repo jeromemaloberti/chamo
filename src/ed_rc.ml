@@ -106,7 +106,7 @@ let handle_window (win : GWindow.window) name =
   let (offset_x, offset_y) =
     match !move_offset with
       None ->
-	let (x,y) = Cam_misc.get_wm_window_position_offset () in
+	let (x,y) = Ed_misc.get_wm_window_position_offset () in
 	move_offset := Some (x,y);
 	(x,y)
     | Some (x,y) -> (x,y)
