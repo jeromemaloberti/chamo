@@ -39,5 +39,5 @@ let latex_of_key_bindings l =
   List.iter f l;
   Buffer.add_string b "\\end{tabular}\n";
   let s = Buffer.contents b in
-  Ed_misc.replace_in_string ~pat: "_" ~subs: "\\_" ~s
+  Ed_extern.replace_in_string ~pat: "_" ~subs: "\\_" ~s
 ;;

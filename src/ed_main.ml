@@ -30,11 +30,11 @@ let ocaml_syntax_mode_installed () =
   List.exists (fun l -> String.lowercase l#name = "objective caml") l
 ;;
 
-let _ = Cam_args.parse ()
+let _ = Ed_args.parse ()
 let main () =
   Ed_gui.on_last_window_close := GMain.Main.quit;
-  ignore(Cam_log.get_log_window());
-  List.iter Ed_commands.eval_command (!Cam_args.init_commands @ !Cam_args.commands);
+  ignore(Ed_log.get_log_window());
+  List.iter Ed_commands.eval_command (!Ed_args.init_commands @ !Ed_args.commands);
   Ed_view.iter_factories
     (fun f -> Ed_misc.catch_print_exceptions (fun () -> f#on_start) ());
   begin
@@ -64,7 +64,7 @@ let main () =
   let on_file file =
     Ed_commands.launch_command "open_file" [| file |]
   in
-  List.iter on_file !Cam_args.remaining;
+  List.iter on_file !Ed_args.remaining;
   if not (ocaml_syntax_mode_installed ()) then
     (
      let m = Printf.sprintf

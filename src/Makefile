@@ -24,9 +24,9 @@
 
 include ../master.Makefile
 
-PACKAGES=threads.posix,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin
-OF_FLAGS=-package $(PACKAGES) -verbose
-INCLUDES=-I +ocamldoc -I +threads
+PACKAGES=str,threads.posix,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.init
+OF_FLAGS=-package $(PACKAGES) -predicates mt
+INCLUDES=-I +ocamldoc
 
 COMPFLAGS=$(INCLUDES) -annot -thread
 LINKFLAGS=$(INCLUDES)
@@ -46,18 +46,22 @@ EDITOR_CMOFILES=$(EDITOR_CMXFILES:.cmx=.cmo)
 EDITOR_CMIFILES=$(EDITOR_CMXFILES:.cmx=.cmi)
 
 LIB_CMXFILES= \
+	ed_extern.cmx \
+	ed_xml.cmx \
+	ed_utf8.cmx \
+	ed_gtk_misc.cmx \
 	ed_annot.cmx \
 	multiclip.cmx \
 	multiclip_gui.cmx \
 	ed_constant.cmx \
+	ed_installation.cmx \
+	ed_config.cmx \
 	ed_dbg.cmx \
 	ed_hooks.cmx \
+	ed_rc.cmx \
 	ed_com_history.cmx \
 	ed_commands.cmx \
-	ed_installation.cmx \
 	ed_messages.cmx \
-	ed_rc.cmx \
-	ed_config.cmx \
 	ed_prefs.cmx \
 	ed_gui_base.cmx \
 	ed_keymaps.cmx \
@@ -89,7 +93,9 @@ LIB_CMXFILES= \
 	ed_mode_changelog_rc.cmx \
 	ed_mode_changelog.cmx \
 	ed_gui.cmx \
-	ed_layout.cmx
+	ed_layout.cmx \
+	ed_args.cmx \
+	ed_log.cmx
 
 LIB_CMOFILES= $(LIB_CMXFILES:.cmx=.cmo) ed_eval.cmo
 LIB_CMIFILES= $(LIB_CMOFILES:.cmo=.cmi)
@@ -99,17 +105,17 @@ opt: $(LIB) $(EDITOR)
 byte: $(LIB_BYTE) $(EDITOR_BYTE)
 
 $(LIB): $(LIB_CMIFILES) $(LIB_CMXFILES)
-	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -a -o $@ $(LIB_CMXFILES)
+	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -a -o $@ -thread $(LIB_CMXFILES)
 
 $(LIB_BYTE): $(LIB_CMIFILES) $(LIB_CMOFILES)
-	$(OCAMLFIND) ocamlc $(OF_FLAGS) -a -o $@ $(LIB_CMOFILES)
+	$(OCAMLFIND) ocamlc $(OF_FLAGS) -a -o $@ -thread $(LIB_CMOFILES)
 
 $(EDITOR): $(LIB) $(EDITOR_CMIFILES) $(EDITOR_CMXFILES)
-	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -linkpkg -o $@ $(LINKFLAGS) \
+	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -linkpkg -o $@ -thread $(LINKFLAGS) \
 	$(LIB) $(EDITOR_CMXFILES)
 
 $(EDITOR_BYTE): $(LIB_BYTE) $(EDITOR_CMIFILES) $(EDITOR_CMOFILES)
-	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -linkpkg -o $@ $(LINKFLAGS) \
+	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -linkpkg -o $@ -thread $(LINKFLAGS) \
 	$(LIB_BYTE) $(EDITOR_CMOFILES)
 
 
@@ -183,8 +189,8 @@ ed_gui_base.ml: chamo.glade
 	$(LABLGLADECC) -hide-default $< > $@
 
 ed_commands.cmo: ed_commands.ml
-	$(OCAMLFIND) ocamlc $(OF_FLAGS) -c -pp "$(OCAMLBIN)/camlp4o" $<
+	$(OCAMLFIND) ocamlc $(OF_FLAGS) $(COMPFLAGS) -c -pp "$(OCAMLBIN)/camlp4o" $<
 
 ed_commands.cmx: ed_commands.ml
-	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -c -pp "$(OCAMLBIN)/camlp4o" $<
+	$(OCAMLFIND) ocamlopt $(OF_FLAGS) $(COMPFLAGS) -c -pp "$(OCAMLBIN)/camlp4o" $<
 

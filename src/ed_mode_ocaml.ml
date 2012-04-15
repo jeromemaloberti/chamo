@@ -117,13 +117,13 @@ let indent_buffer (v : Ed_sourceview.sourceview) args =
           start stop (Ed_ocaml_lexer.report_error e) in
       Ed_misc.set_active_action_message (Ed_misc.to_utf8 err)
   | `Success indentations ->
-      let lines = Ed_misc.split_string ~keep_empty: true code ['\n'] in
+      let lines = Ed_extern.split_string ~keep_empty: true code ['\n'] in
       let nb_lines = List.length lines in
       let nb_indentations = List.length indentations in
       let indentations =
         if nb_indentations < nb_lines then
           indentations @
-          (Ed_misc.make_list (nb_lines - nb_indentations) None)
+          (Ed_extern.make_list (nb_lines - nb_indentations) None)
         else
           indentations
       in
@@ -215,7 +215,7 @@ let load_annot_tree ml_file =
         failwith
           (Printf.sprintf "Source was modified since %s was created" annot_file)
       else
-        let annot_string = Ed_misc.string_of_file annot_file in
+        let annot_string = Ed_extern.string_of_file annot_file in
         match Ed_annot.build_tree annot_string with
           None -> failwith "No tree built"
         | Some t -> t
@@ -228,7 +228,7 @@ let display_annot ?(id_jump=false) ?(copy=false) kind (v:Ed_sourceview.sourcevie
     let loc_start =
       let (start,_) = v#file#buffer#selection_bounds in
       (* beware of the possible offset between file contents and display *)
-      Ed_misc.utf8_string_length
+      Ed_utf8.utf8_string_length
         (v#file#mode_from_display
          (v#file#buffer#get_text ~start: v#file#buffer#start_iter ~stop: start ()))
     in

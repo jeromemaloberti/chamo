@@ -36,22 +36,6 @@ let rec my_int_of_string s =
     '+' -> my_int_of_string (String.sub s 1 (len - 1))
   | _ -> int_of_string s
 
-(*c==v=[String.chop_n_char]=1.0====*)
-let chop_n_char n s =
-  let len = String.length s in
-  if len <= n +1 or n < 0 then
-    s
-  else
-    Printf.sprintf "%s..." (String.sub s 0 (n+1))
-(*/c==v=[String.chop_n_char]=1.0====*)
-
-(*c==v=[List.list_remove_doubles]=1.0====*)
-let list_remove_doubles ?(pred=(=)) l =
-  List.fold_left
-    (fun acc e -> if List.exists (pred e) acc then acc else e :: acc)
-    []
-    (List.rev l)
-(*/c==v=[List.list_remove_doubles]=1.0====*)
 
 let add_shortcut w l ((mods, k), action) =
   try
@@ -134,49 +118,6 @@ let remove_char s c =
     done;
   s
 
-let treat_gtk_events () =
-  while Glib.Main.pending () do
-    ignore (Glib.Main.iteration false)
-  done
-
-let get_wm_window_position_offset () =
-  let win = GWindow.window ~width: 0 ~height: 0 () in
-  win#show ();
-  let (x,y) = Gdk.Window.get_position win#misc#window in
-  win#move ~x ~y;
-  treat_gtk_events ();
-  let (x2,y2) = Gdk.Window.get_position win#misc#window in
-  win#destroy ();
-  Ed_dbg.print ~level: 3
-    (Printf.sprintf "get_wm_window_position_offset: offset: x=%d-%d=%d y=%d-%d=%d"
-       x2 x (x2-x) y2 y (y2-y));
-  (x2 - x, y2 - y)
-
-(*c==v=[File.subdirs]=0.2====*)
-let subdirs path =
-  let d = Unix.opendir path in
-  let rec iter acc =
-    let file =
-      try Some (Unix.readdir d)
-      with End_of_file -> Unix.closedir d; None
-    in
-    match file with
-    | None -> List.rev acc
-    | Some s when
-	s = Filename.current_dir_name or
-	s = Filename.parent_dir_name -> iter acc
-    | Some file ->
-        let complete_f = Filename.concat path file in
-	match
-	  try Some (Unix.stat complete_f).Unix.st_kind
-	  with _ -> None
-	with
-	  Some Unix.S_DIR -> iter (complete_f :: acc)
-	| None | Some _ -> iter acc
-  in
-  iter []
-(*/c==v=[File.subdirs]=0.2====*)
-
 let line_of_char file n =
   try
     let chanin = open_in file in
@@ -219,118 +160,9 @@ let char_of_line file n =
   close_in ic;
   n
 ;;
-(*c==v=[String.replace_in_string]=1.0====*)
-let replace_in_string ~pat ~subs ~s =
-  let len_pat = String.length pat in
-  let len = String.length s in
-  let b = Buffer.create len in
-  let rec iter pos =
-    if pos >= len then
-      ()
-    else
-      if pos + len_pat > len then
-	Buffer.add_string b (String.sub s pos (len - pos))
-      else
-	if String.sub s pos len_pat = pat then
-	  (
-	   Buffer.add_string b subs;
-	   iter (pos+len_pat)
-	  )
-	else
-	  (
-	   Buffer.add_char b s.[pos];
-	   iter (pos+1);
-	  )
-  in
-  iter 0;
-  Buffer.contents b
-(*/c==v=[String.replace_in_string]=1.0====*)
 
-let escape_menu_label s = replace_in_string ~pat: "_" ~subs: "__" ~s
+let escape_menu_label s = Ed_extern.replace_in_string ~pat: "_" ~subs: "__" ~s
 
-let utf8_nb_bytes_of_char c =
-  let n = Char.code c in
-  if n < 0b10000000 then
-    1
-  else if n < 0b11100000 then
-      2
-    else if n < 0b11110000 then
-        3
-      else
-        4
-
-let utf8_index_of_char s c =
-  let cpt = ref 0 in
-  let current = ref 0 in
-  let len = String.length s in
-  while !current < c && !cpt < len do
-    cpt := !cpt + utf8_nb_bytes_of_char s.[!cpt];
-    incr current;
-  done;
-  if !current = c then
-    !cpt
-  else
-    raise Not_found
-
-let utf8_char_of_index s i =
-  let len = String.length s in
-  if i >= len or i < 0 then
-    invalid_arg "utf8_char_from_index"
-  else
-    begin
-      let char_count = ref (-1) in
-      let pos = ref 0 in
-      while !pos <= i && !pos < len do
-        incr char_count;
-        pos := !pos + utf8_nb_bytes_of_char s.[!pos]
-      done;
-      !char_count
-    end
-
-let utf8_string_length s =
-  let len = String.length s in
-  let rec iter acc n =
-    if n >= len then
-      acc
-    else
-      iter (acc+1) (n + (utf8_nb_bytes_of_char s.[n]))
-  in
-  iter 0 0
-
-(** conversions algorithm from [http://en.wikipedia.org/wiki/UTF-8]. *)
-let utf8_char_of_code n =
-  if n < 128 then
-    String.make 1 (Char.chr n)
-  else
-    let z_mask = 0b00111111 in
-    let z_part = (n land z_mask) in
-    let z = 0b10000000 lor z_part in
-    if n <= 0x0007FF then
-      let y_mask = 0b0000011111000000 in
-      let y_part = (n land y_mask) lsr 6 in
-      let y = 0b11000000 lor y_part in
-      Printf.sprintf "%c%c" (Char.chr y) (Char.chr z)
-    else
-      let y_mask = 0b111111000000 in
-      let y_part = (n land y_mask) lsr 6 in
-      let y = 0b10000000 lor y_part in
-      if n <= 0x00FFFF then
-        let x_mask = 0b1111 lsl 12 in
-        let x_part = (n land x_mask) lsr 12 in
-        let x = 0b11100000 lor x_part in
-        Printf.sprintf "%c%c%c" (Char.chr x) (Char.chr y) (Char.chr z)
-      else
-        if n <= 0x10FFFF then
-          let x_mask = 0b111111 lsl 12 in
-          let x_part = (n land x_mask) lsr 12 in
-          let x = 0b10000000 lor x_part in
-          let w_mask = 0b111 lsl 18 in
-          let w_part = (n land w_mask) lsr 18 in
-          let w = 0b11110000 lor w_part in
-          Printf.sprintf "%c%c%c%c" (Char.chr w) (Char.chr x) (Char.chr y) (Char.chr z)
-        else
-          failwith (Printf.sprintf "UTF-8 code out of range: %x" n)
-;;
 
 
 let mod_date_of_file file =
@@ -351,35 +183,7 @@ let catch_print_exceptions f x =
       in
       Ed_hooks.error_message s
 
-(*c==v=[File.string_of_file]=1.0====*)
-let string_of_file name =
-  let chanin = open_in_bin name in
-  let len = 1024 in
-  let s = String.create len in
-  let buf = Buffer.create len in
-  let rec iter () =
-    try
-      let n = input chanin s 0 len in
-      if n = 0 then
-        ()
-      else
-        (
-         Buffer.add_substring buf s 0 n;
-         iter ()
-        )
-    with
-      End_of_file -> ()
-  in
-  iter ();
-  close_in chanin;
-  Buffer.contents buf
-(*/c==v=[File.string_of_file]=1.0====*)
-(*c==v=[File.file_of_string]=1.1====*)
-let file_of_string ~file s =
-  let oc = open_out file in
-  output_string oc s;
-  close_out oc
-(*/c==v=[File.file_of_string]=1.1====*)
+
 
 let to_utf8 ?coding s =
   match coding with
@@ -413,31 +217,10 @@ let gtkevent_set_above_child evbox b =
  _gtkevent_set_above_child (Obj.magic evbox#as_widget :> [Gtk.event_box] Gtk.obj) b
 *)
 
-let read_xml_file file f =
-  let error s = failwith (Printf.sprintf "File %s: %s" file s) in
-  try
-    let xml = Xml.parse_file file in
-    f xml
-  with
-    Xml.Error e ->
-      error (Xml.error e)
-  | Xml.File_not_found s ->
-      error ("File "^s^" not found")
-
 (** {2 Getting canonical filenames} *)
 
 let equal_node n1 n2 =
   n1.Unix.st_ino = n2.Unix.st_ino && n1.Unix.st_dev = n2.Unix.st_dev;;
-
-(*c==v=[Misc.try_finalize]=1.0====*)
-let try_finalize f x finally y =
-  let res =
-    try f x
-    with exn -> finally y; raise exn
-  in
-  finally y;
-  res
-(*/c==v=[Misc.try_finalize]=1.0====*)
 
 let set_active_state_message msg =
   Ed_commands.launch_command "set_active_state_message" [|msg|]
@@ -453,17 +236,6 @@ let error_message msg =
   Ed_hooks.error_message msg;
   set_active_action_message msg
 
-(*c==v=[String.no_blanks]=1.0====*)
-let no_blanks s =
-  let len = String.length s in
-  let buf = Buffer.create len in
-  for i = 0 to len - 1 do
-    match s.[i] with
-      ' ' | '\n' | '\t' | '\r' -> ()
-    | c -> Buffer.add_char buf c
-  done;
-  Buffer.contents buf
-(*/c==v=[String.no_blanks]=1.0====*)
 
 let fail_if_unix_error f x =
   try f x
@@ -714,41 +486,8 @@ let choice_in_list f choices =
     ~button: 1 ~time: Int32.zero
     ~entries
 
-(*c==v=[String.split_string]=1.1====*)
-let split_string ?(keep_empty=false) s chars =
-  let len = String.length s in
-  let rec iter acc pos =
-    if pos >= len then
-      match acc with
-        "" -> []
-      | _ -> [acc]
-    else
-      if List.mem s.[pos] chars then
-        match acc with
-          "" ->
-            if keep_empty then
-              "" :: iter "" (pos + 1)
-            else
-              iter "" (pos + 1)
-        | _ -> acc :: (iter "" (pos + 1))
-      else
-        iter (Printf.sprintf "%s%c" acc s.[pos]) (pos + 1)
-  in
-  iter "" 0
-(*/c==v=[String.split_string]=1.1====*)
-(*c==v=[List.make_list]=1.0====*)
-let make_list n ele =
-  let rec f acc n =
-    if n > 0 then f (ele :: acc) (n-1) else acc
-  in
-  f [] n
-(*/c==v=[List.make_list]=1.0====*)
 
-(*c==v=[File.safe_remove_file]=1.0====*)
-let safe_remove_file file =
-  try Sys.remove file
-  with Sys_error _ -> ()
-(*/c==v=[File.safe_remove_file]=1.0====*)
+
 
 let string_of_bool = function
   true -> "true"

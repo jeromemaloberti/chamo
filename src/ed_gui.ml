@@ -1030,8 +1030,8 @@ let show_about_dialog () =
                Ed_messages.software_author_mail)]
           ~name: Ed_messages.software
           ~version: Ed_installation.version
-          ~website: "http://www.gna.org/projects/cameleon"
-          ~website_label: "The Cameleon website"
+          ~website: "http://zoggy.github.com/chamo"
+          ~website_label: "The Chamo website"
           ~position: `CENTER
           ~copyright: Ed_messages.software_copyright
           ~logo: (GdkPixbuf.from_file window_pixmap)
@@ -1125,7 +1125,7 @@ let prompt_command_history = Ed_minibuffer.history ()
 let prompt_command (w : gui_window) =
   let mb = w#minibuffer in
   let on_return com =
-    match Ed_misc.no_blanks com with
+    match Ed_extern.no_blanks com with
       "" -> ()
     | _ -> Ed_commands.eval_command com
   in

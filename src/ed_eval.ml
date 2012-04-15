@@ -102,9 +102,9 @@ let eval_ocaml args =
         exceptions are not installed (Errors, ...).
      *)
      let tmp_file = Filename.temp_file Ed_messages.software "ml" in
-     Ed_misc.file_of_string ~file: tmp_file code;
+     Ed_extern.file_of_string ~file: tmp_file code;
      eval_file [| tmp_file |];
-     Ed_misc.safe_remove_file tmp_file;
+     Ed_extern.safe_remove_file tmp_file;
     )
 
 let _ =
@@ -164,12 +164,12 @@ let _ =
 
 let use file =
   let com = Printf.sprintf "eval_file %s" (Filename.quote file) in
-  Cam_args.append_init_command com
+  Ed_args.append_init_command com
 
 let option_use =
   ("--use", Arg.String use, "<file>\n\t\tocaml-evaluate the given file after initialization")
 
-let _ = Cam_args.add_option option_use;;
+let _ = Ed_args.add_option option_use;;
 
 (** {2 Init} *)
 

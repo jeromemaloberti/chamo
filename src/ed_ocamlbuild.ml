@@ -112,7 +112,7 @@ let warning_is_error c =
 
 
 let analyze_ocaml_compilation on_problem text =
-  let lines = Ed_misc.split_string text ['\n'] in
+  let lines = Ed_extern.split_string text ['\n'] in
   let rec iter = function
     [] | [_] -> ()
   | line1 :: line2 :: q ->

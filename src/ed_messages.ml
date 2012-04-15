@@ -41,5 +41,6 @@ let software_about =
 
 let about = "About "^software^" ..."
 let preferences = "Preferences"
-
+let usage = "Usage: "^Sys.argv.(0)^" [options]\nwhere options are:"
 let error_unknown_action a = "Unknown action "^a^"."
+let close = "Close"

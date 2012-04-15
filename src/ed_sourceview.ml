@@ -122,24 +122,26 @@ let open_buffers_file =
   ref (Ed_config.local_dir_rc_file (factory_name^".buffers"))
 
 let xml_of_file f =
-  let atts = ("file", f#filename) :: f#attributes in
-  Xml.Element ("file", atts, [])
+  let atts = (("","file"), f#filename) ::
+    (List.map (fun (a, v) -> (("",a), v)) f#attributes)
+  in
+  Ed_xml.E ((("","file"), atts), [])
 
 let xml_of_file_list l =
-  Xml.Element ("list", [], List.map xml_of_file l)
+  Ed_xml.E ((("","list"), []), List.map xml_of_file l)
 
 let file_of_xml = function
-  Xml.Element ("file", atts, _) ->
+  Ed_xml.E ((("","file"), atts), _) ->
     begin
-      match List.partition (fun (s,_) -> s = "file") atts with
+      match List.partition (fun ((_,s),_) -> s = "file") atts with
         ((_,filename) :: _), others ->
-          Some (filename, others)
+          Some (filename, List.map (fun ((_,s),v) -> (s, v)) others)
       | _ -> None
     end
 | _ -> None
 
 let file_list_of_xml = function
-  Xml.Element ("list", _, l) ->
+  Ed_xml.E ((("","list"), _), l) ->
     List.rev
       (List.fold_left
        (fun acc xml ->
@@ -153,12 +155,12 @@ let file_list_of_xml = function
 | _ -> []
 
 let read_open_buffers_file f =
-  Ed_misc.read_xml_file f file_list_of_xml
+  Ed_xml.read_xml_file f file_list_of_xml
 
 let write_open_buffers_file file buffers  =
   let xml = xml_of_file_list buffers in
-  let s = Xml.to_string_fmt xml in
-  Ed_misc.file_of_string ~file s
+  let s = Ed_xml.string_of_xml xml in
+  Ed_extern.file_of_string ~file s
 ;;
 
 (** {2 Recently used buffers} *)
@@ -246,8 +248,8 @@ class my_buffer () =
     method syntax_mode = buffer#language
 
     method private pcre_offset_tuple_to_char_indices text (start,stop) =
-      let len1 = Ed_misc.utf8_string_length (String.sub text 0 start) in
-      (len1, len1 + Ed_misc.utf8_string_length (String.sub text start (stop-start)))
+      let len1 = Ed_utf8.utf8_string_length (String.sub text 0 start) in
+      (len1, len1 + Ed_utf8.utf8_string_length (String.sub text start (stop-start)))
 
     method private re_search_backward re text =
       let res = Pcre.exec_all ~rex: re text in
@@ -541,7 +543,7 @@ class buffered_file ?(attributes=[]) ?loc ~name ~filename buffer =
           (* FIXME: handle errors occuring while opening file *)
           let text =
             try self#mode_to_display
-              (self#to_utf8 (Ed_misc.string_of_file filename))
+              (self#to_utf8 (Ed_extern.string_of_file filename))
             with _ -> ""
           in
           self#buffer#begin_not_undoable_action ();
@@ -563,7 +565,7 @@ class buffered_file ?(attributes=[]) ?loc ~name ~filename buffer =
         raise (Newer_file_exists filename);
       let utf8 = buffer#get_text () in
       let s = self#of_utf8 (self#mode_from_display utf8) in
-      Ed_misc.file_of_string ~file: filename s;
+      Ed_extern.file_of_string ~file: filename s;
       buffer#set_modified false;
       self#update_date
 (*      self#update_source_marks_in_bookmarks*)
@@ -596,12 +598,12 @@ class buffered_file ?(attributes=[]) ?loc ~name ~filename buffer =
       let from_display = self#mode_from_display (buffer#get_text ()) in
       let (left, right) =
         let left =
-          Ed_misc.utf8_string_length
+          Ed_utf8.utf8_string_length
             (self#mode_to_display
              (String.sub from_display 0 left))
         in
         let right =
-          Ed_misc.utf8_string_length
+          Ed_utf8.utf8_string_length
             (self#mode_to_display
              (String.sub from_display 0 right))
         in
@@ -612,7 +614,7 @@ class buffered_file ?(attributes=[]) ?loc ~name ~filename buffer =
     method line_offset_from_line_in_file line =
       let char_offset = Ed_misc.char_of_line filename line in
       let from_display = self#mode_from_display (buffer#get_text ()) in
-      Ed_misc.utf8_string_length
+      Ed_utf8.utf8_string_length
         (self#mode_to_display (String.sub from_display 0 char_offset))
 
     method select_range_in_file ~left ~right =
@@ -2017,7 +2019,7 @@ let set_mode v args =
   if len > 0 then
     let name = args.(0) in
     try
-      match Ed_misc.no_blanks name with
+      match Ed_extern.no_blanks name with
         "" -> v#set_mode None
       | _ -> v#set_mode (Some (get_mode name))
     with
@@ -2089,7 +2091,7 @@ let insert_utf8 (view : sourceview) args =
   else
     try
       let code = int_of_string args.(0) in
-      let s = Ed_misc.utf8_char_of_code code in
+      let s = Ed_utf8.utf8_char_of_code code in
       view#file#buffer#insert s
     with
       Invalid_argument _ ->

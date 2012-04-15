@@ -61,11 +61,11 @@ type layout = layout_window list
 
 let xml_of_layout_view lv =
   let atts =
-    ("kind", lv.lv_kind) ::
-      ("file", lv.lv_file) ::
-      lv.lv_atts
+    (("", "kind"), lv.lv_kind) ::
+      (("", "file"), lv.lv_file) ::
+      (List.map (fun (a, v) -> ("",a), v) lv.lv_atts)
   in
-  Element("view", atts, [])
+  Ed_xml.E ((("", "view"), atts), [])
 
 let rec xml_of_layout_contents = function
     `View v -> xml_of_layout_view v
@@ -74,8 +74,8 @@ let rec xml_of_layout_contents = function
 
 and xml_of_layout_paned lp =
   let atts =
-    [ "orientation", (match lp.lp_orientation with `VERTICAL -> "vertical" | `HORIZONTAL -> "horizontal") ;
-      "position", string_of_int lp.lp_position ;
+    [ ("", "orientation"), (match lp.lp_orientation with `VERTICAL -> "vertical" | `HORIZONTAL -> "horizontal") ;
+      ("", "position"), string_of_int lp.lp_position ;
     ]
   in
   let children =
@@ -84,18 +84,18 @@ and xml_of_layout_paned lp =
       xml_of_layout_contents c2 ;
     ]
   in
-  Element("paned", atts, children)
+  Ed_xml.E ((("","paned"), atts), children)
 
 and xml_of_layout_notebook ln =
   let children = List.map xml_of_layout_contents ln.ln_tabs in
-  Element("notebook", [], children)
+  Ed_xml.E((("","notebook"), []), children)
 
 let xml_of_layout_window lw =
   let atts =
-    [ "x", string_of_int lw.lw_x ;
-      "y", string_of_int lw.lw_y ;
-      "width", string_of_int lw.lw_w ;
-      "height", string_of_int lw.lw_h ;
+    [ ("", "x"), string_of_int lw.lw_x ;
+      ("", "y"), string_of_int lw.lw_y ;
+      ("", "width"), string_of_int lw.lw_w ;
+      ("", "height"), string_of_int lw.lw_h ;
     ]
   in
   let children =
@@ -103,15 +103,15 @@ let xml_of_layout_window lw =
       None -> []
     | Some c -> [xml_of_layout_contents c]
   in
-  Element("window", atts, children)
+  Ed_xml.E((("","window"), atts), children)
 
 let xml_of_layout wins =
-  Element("layout",[],List.map xml_of_layout_window wins)
+  Ed_xml.E((("","layout"), []), List.map xml_of_layout_window wins)
 
 let store_layout file wins =
   let xml = xml_of_layout wins in
-  let s = Xml.to_string_fmt xml in
-  Ed_misc.file_of_string ~file s
+  let s = Ed_xml.string_of_xml xml in
+  Ed_extern.file_of_string ~file s
 
 
 let map_opt f = function
@@ -119,28 +119,33 @@ let map_opt f = function
   | Some v -> Some (f v)
 
 let string_opt_att name l =
-  try Some (List.assoc name l)
+  try Some (snd (List.find (fun ((_,n),_) -> n = name) l))
   with Not_found -> None
+;;
+
 let string_att name l =
   match string_opt_att name l with
     None -> failwith ("Attribute "^name^" not found")
   | Some s -> s
+
 let int_att name l =
   let v = string_att name l in
   try int_of_string v
   with Invalid_argument _ ->
     failwith ("Bad value for attribute "^name^": "^v)
 
-let remove_common_view_atts =
-  List.filter (fun (s,_) -> s <> "kind" && s <> "file")
+let remove_common_view_atts atts =
+  let atts = List.map (fun ((_,a),v) -> (a, v)) atts in
+  List.filter (fun (s,_) -> s <> "kind" && s <> "file") atts
+;;
 
 let rec layout_contents_of_xml = function
-    Element("view",atts,_) ->
+    Ed_xml.E ((("","view"),atts),_) ->
       `View { lv_kind = string_att "kind" atts ;
               lv_file = string_att "file" atts ;
               lv_atts = remove_common_view_atts atts ;
             }
-  | Element("paned",atts,l) ->
+  | Ed_xml.E ((("","paned"),atts),l) ->
       let o =
         match string_att "orientation" atts with
           "vertical" -> `VERTICAL
@@ -160,12 +165,12 @@ let rec layout_contents_of_xml = function
                lp_children = children ;
              }
 
-  | Element("notebook",_,l) ->
+  | Ed_xml.E ((("","notebook"),_),l) ->
       `Notebook { ln_tabs = List.map layout_contents_of_xml l}
   | _ -> failwith "Invalid contents layout"
 
 let layout_window_of_xml = function
-    Element("window",atts,l) ->
+    Ed_xml.E((("","window"),atts),l) ->
       let c =
         match l with
           [] -> None
@@ -180,12 +185,12 @@ let layout_window_of_xml = function
   | _ -> failwith "Invalid window layout"
 
 let layout_of_xml = function
-    Element ("layout",_,l) ->
+    Ed_xml.E ((("","layout"),_),l) ->
       List.map layout_window_of_xml l
   | _ -> failwith "Invalid layout"
 
 let load_layout file =
-  Ed_misc.read_xml_file file layout_of_xml
+  Ed_xml.read_xml_file file layout_of_xml
 
 let rec layout_of_contents = function
     `View v ->

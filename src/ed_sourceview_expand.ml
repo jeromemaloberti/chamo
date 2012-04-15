@@ -168,7 +168,7 @@ let expand (v : Ed_sourceview.sourceview) args =
         in
         (* we're supposed to be at the end of the (previously inserted) text *)
         let stop = cur_iter in
-        let len = Ed_misc.utf8_string_length s_to_remove in
+        let len = Ed_utf8.utf8_string_length s_to_remove in
         let start = stop#backward_chars len in
         b#delete ~start ~stop;
         b#get_iter (`OFFSET (pos - len))
