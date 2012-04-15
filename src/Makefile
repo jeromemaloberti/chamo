@@ -107,18 +107,18 @@ opt: $(LIB) $(EDITOR)
 byte: $(LIB_BYTE) $(EDITOR_BYTE)
 
 $(LIB): $(LIB_CMIFILES) $(LIB_CMXFILES)
-	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -a -o $@ -thread $(LIB_CMXFILES)
+	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -a -o $@ -thread -linkall $(LIB_CMXFILES)
 
 $(LIB_BYTE): $(LIB_CMIFILES) $(LIB_CMOFILES)
-	$(OCAMLFIND) ocamlc $(OF_FLAGS) -a -o $@ -thread $(LIB_CMOFILES)
+	$(OCAMLFIND) ocamlc $(OF_FLAGS) -a -o $@ -thread -linkall $(LIB_CMOFILES)
 
 $(EDITOR): $(LIB) $(EDITOR_CMIFILES) $(EDITOR_CMXFILES)
 	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -linkpkg -o $@ -thread $(LINKFLAGS) \
-	$(LIB) $(EDITOR_CMXFILES)
+	$(INCLUDES) odoc_info.cmxa $(LIB) $(EDITOR_CMXFILES)
 
 $(EDITOR_BYTE): $(LIB_BYTE) $(EDITOR_CMIFILES) $(EDITOR_CMOFILES)
 	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -linkpkg -o $@ -thread $(LINKFLAGS) \
-	$(LIB_BYTE) $(EDITOR_CMOFILES)
+	$(INCLUDES) odoc_info.cma toplevellib.cma $(LIB_BYTE) $(EDITOR_CMOFILES)
 
 
 # Documentation :
