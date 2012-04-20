@@ -16,5 +16,6 @@ src/ed_ocaml_lexer.ml
 src/ed_gui_base.ml
 src/ed_installation.ml
 src/ed_config.ml
+src/mk-chamo
 src/ocamldoc
 src/dump.odoc
