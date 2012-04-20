@@ -87,6 +87,8 @@ noheaders: dummy
 
 install: dummy
 	cd src && $(MAKE) install
+	$(MKDIR) $(PIXMAPSDIR)
+	$(CP) $(IMAGES)/*.png $(PIXMAPSDIR)/
 
 uninstall: dummy
 	cd src && $(MAKE) uninstall

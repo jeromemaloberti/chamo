@@ -184,11 +184,10 @@ let layout_window_of_xml = function
       }
 | Ed_xml.E (((s1,s2),_),l) ->
     prerr_endline (Printf.sprintf "Ed_xml.E (%s, %s)" s1 s2);
-    failwith "error"
+    failwith "Invalid window layout"
 | Ed_xml.D data ->
     prerr_endline (Printf.sprintf "Ed_xml.D %S" data);
-    failwith "error"
-| _ -> failwith "Invalid window layout"
+    failwith "Invalid window layout"
 
 let layout_of_xml = function
   Ed_xml.E ((("","layout"),_),l) ->

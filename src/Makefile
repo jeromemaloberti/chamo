@@ -37,9 +37,10 @@ LINKFLAGS=$(INCLUDES)
 EDITOR=chamo
 EDITOR_BYTE=$(EDITOR).byte
 
-
 LIB=chamo.cmxa
 LIB_BYTE=chamo.cma
+
+MKCHAMO_SCRIPT=mk-chamo
 
 # Compilation
 #############
@@ -102,7 +103,7 @@ LIB_CMXFILES= \
 LIB_CMOFILES= $(LIB_CMXFILES:.cmx=.cmo) ed_eval.cmo
 LIB_CMIFILES= $(LIB_CMOFILES:.cmo=.cmi)
 
-all: opt byte
+all: opt byte $(MKCHAMO_SCRIPT)
 opt: $(LIB) $(EDITOR)
 byte: $(LIB_BYTE) $(EDITOR_BYTE)
 
@@ -120,12 +121,29 @@ $(EDITOR_BYTE): $(LIB_BYTE) $(EDITOR_CMIFILES) $(EDITOR_CMOFILES)
 	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -linkpkg -o $@ -thread -linkall $(LINKFLAGS) \
 	$(INCLUDES) toplevellib.cma odoc_info.cma $(LIB_BYTE) $(EDITOR_CMOFILES)
 
+$(MKCHAMO_SCRIPT): $(LIB)
+	@echo -n "Creating $@... "
+	@echo "# Multi-shell script.  Works under Bourne Shell, MPW Shell, zsh." > $@
+	@echo "if : == x" >> $@
+	@echo "then # Bourne Shell or zsh" >> $@
+	@echo "  exec $(OCAMLFIND) ocamlopt $(OF_FLAGS) -package chamo -linkpkg -linkall -thread $(INCLUDES) odoc_info.cmxa \"\$$@\" ed_main.cmx" >> $@
+	@echo "else #MPW Shell" >> $@
+	@echo "  exec $(OCAMLFIND) ocamlopt $(OF_FLAGS) -package chamo -linkpkg -linkall -thread $(INCLUDES) odoc_info.cmxa {\"parameters\"} ed_main.cmx" >> $@
+	@echo "End # uppercase E because \"end\" is a keyword in zsh" >> $@
+	@echo "fi" >> $@
+	@chmod ugo+rx $@
+	@chmod a-w $@
+	@echo done
+
 
 # Documentation :
 #################
 dump.odoc: *.mli *.ml
-	$(OCAMLFIND) ocamldoc $(OF_FLAGS) $(OCAMLPP) $(INCLUDES) -sort -dump dump.odoc \
-	`ls $^ | grep -v example`
+	$(OCAMLFIND) ocamldoc $(OF_FLAGS) -pp "$(OCAMLBIN)/camlp4o" ed_commands.ml -dump dump.odoc
+	$(OCAMLFIND) ocamldoc $(OF_FLAGS) -load dump.odoc ed_commands.mli -dump dump.odoc
+	$(OCAMLFIND) ocamldoc $(OF_FLAGS) $(OCAMLPP) $(INCLUDES) \
+	-load dump.odoc -sort -dump dump.odoc \
+	`ls $^ | grep -v example | grep -v ed_commands.ml | grep -v test_ocaml_mode`
 
 doc: dump.odoc
 	$(MKDIR) ocamldoc
@@ -161,17 +179,11 @@ include .depend
 # Installation
 #################
 install: all
-	$(OCAMLFIND) install $(PACKAGE) dbf/META \
-		$(LIB_DBF) $(LIB_DBF:.cmxa=.a) $(LIB_DBF_CMIFILES) \
-		$(LIB_SQL) $(LIB_SQL:.cmxa=.a) $(LIB_SQL_CMIFILES) \
-		$(LIB_MYSQL) $(LIB_MYSQL:.cmxa=.cmi) $(LIB_MYSQL:.cmxa=.a) $(LIB_MYSQL:.cmxa=.mli) \
-		$(LIB_DBF_GTK) $(LIB_DBF_GTK:.cmxa=.a) $(LIB_DBF_GTK:.cmxa=.mli) $(LIB_DBF_GTK_CMIFILES) \
-		$(LIB_DBF_BYTE) $(LIB_DBF_GTK_BYTE) $(LIB_SQL_BYTE) $(LIB_MYSQL_BYTE)
-	$(CP) $(DBFORGE) $(DBFORGE_BYTE) $(OCAMLBIN)
-	$(CP) $(DBFORGE_GTK) $(DFBORGE_GTK_BYTE) $(OCAMLBIN)
-	$(OCAMLFIND) install sqml sqml/META \
-		$(LIB_SQML) $(LIB_SQML:.cmxa=.cmi) $(LIB_SQML:.cmxa=.a) $(LIB_SQML_CMIFILES) \
-		$(LIB_SQML_BYTE)
+	$(OCAMLFIND) install $(PACKAGE) ../META \
+		$(LIB) $(LIB:.cmxa=.a) $(LIB_CMIFILES)	$(LIB_BYTE) \
+		$(EDITOR_CMXFILES) $(EDITOR_CMOFILES) $(EDITOR_CMIFILES) *.mli
+	$(MKDIR) $(OCAMLBIN) $(GLADEDIR)
+	$(CP) $(EDITOR) $(EDITOR_BYTE) $(MKCHAMO_SCRIPT) $(OCAMLBIN)
 	$(MKDIR) $(DTDDIR) $(GLADEDIR)
 	$(CP) dbf/db.dtd $(DTDDIR)/
 	$(CP) dbf/dbforge.glade $(GLADEDIR)/

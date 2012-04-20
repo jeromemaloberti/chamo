@@ -1,13 +1,6 @@
 version = "@VERSION@"
-description = "Library of the caml-get tool"
-requires = "str,config-file,diff"
-archive(byte) = "camlget.cma"
-archive(native) = "camlget.cmxa"
-archive(toploop) = "camlget.cma"
-package "gtk" (
-  version = "@VERSION@"
-  description = "LablGtk interface"
-  requires = "lablgtk2-extras.configwin,diff.gtk,lablgtk2"
-  archive(byte) = "camlget_gtk.cma"
-  archive(native) = "camlget_gtk.cmxa"
-)
+description = "The Chamo library"
+requires = "threads.posix,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.init"
+archive(byte) = "chamo.cma"
+archive(native) = "chamo.cmxa"
+
