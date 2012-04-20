@@ -123,13 +123,13 @@ $(EDITOR_BYTE): $(LIB_BYTE) $(EDITOR_CMIFILES) $(EDITOR_CMOFILES)
 
 $(MKCHAMO_SCRIPT): $(LIB)
 	@echo -n "Creating $@... "
-	$(RM) $@
+	@$(RM) $@
 	@echo "# Multi-shell script.  Works under Bourne Shell, MPW Shell, zsh." > $@
 	@echo "if : == x" >> $@
 	@echo "then # Bourne Shell or zsh" >> $@
-	@echo "  exec $(OCAMLFIND) ocamlopt $(OF_FLAGS) -package chamo -linkpkg -linkall -thread $(INCLUDES) odoc_info.cmxa \"\$$@\" ed_main.cmx" >> $@
+	@echo "  exec $(OCAMLFIND) ocamlopt $(OF_FLAGS) -package chamo -linkpkg -linkall -thread $(INCLUDES) \"\$$@\" ed_main.cmx" >> $@
 	@echo "else #MPW Shell" >> $@
-	@echo "  exec $(OCAMLFIND) ocamlopt $(OF_FLAGS) -package chamo -linkpkg -linkall -thread $(INCLUDES) odoc_info.cmxa {\"parameters\"} ed_main.cmx" >> $@
+	@echo "  exec $(OCAMLFIND) ocamlopt $(OF_FLAGS) -package chamo -linkpkg -linkall -thread $(INCLUDES) {\"parameters\"} ed_main.cmx" >> $@
 	@echo "End # uppercase E because \"end\" is a keyword in zsh" >> $@
 	@echo "fi" >> $@
 	@chmod ugo+rx $@
@@ -181,8 +181,9 @@ include .depend
 #################
 install: all
 	$(OCAMLFIND) install $(PACKAGE) ../META \
-		$(LIB) $(LIB:.cmxa=.a) $(LIB_CMIFILES)	$(LIB_BYTE) \
-		$(EDITOR_CMXFILES) $(EDITOR_CMOFILES) $(EDITOR_CMIFILES) *.mli
+		$(LIB) $(LIB:.cmxa=.a) $(LIB_CMIFILES)	$(LIB_BYTE) $(LIB_CMXFILES:.cmx=.o) \
+		$(EDITOR_CMXFILES) $(EDITOR_CMOFILES) $(EDITOR_CMIFILES) \
+		$(EDITOR_CMXFILES:.cmx=.o) *.mli
 	@$(MKDIR) $(OCAMLBIN) $(GLADEDIR)
 	@for i in $(EDITOR) $(EDITOR_BYTE) $(MKCHAMO_SCRIPT); do\
 		$(CP) $$i $(OCAMLBIN) && echo Installed $(OCAMLBIN)/$$i; done
