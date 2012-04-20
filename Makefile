@@ -70,17 +70,20 @@ dummy:
 ###########
 # Headers
 ###########
-headers: dummy
-	headache -h header -c ~/.headache_config configure.in configure \
-	master.Makefile.in Makefile src/Makefile checkocaml.ml \
+HEADEDFILES= configure.in configure \
+	master.Makefile.in Makefile src/Makefile web/Makefile checkocaml.ml \
 	src/*.ml src/*.mli src/ed_installation.ml.in src/ed_config.ml.in
+headers: dummy
+	headache -h header -c ~/.headache_config $(HEADEDFILES)
 
 noheaders: dummy
-	headache -r -c ~/.headache_config configure.in configure \
-	master.Makefile.in Makefile src/Makefile checkocaml.ml \
-	src/*.ml src/*.mli src/ed_installation.ml.in src/ed_config.ml.in
+	headache -r -c ~/.headache_config $(HEADEDFILES)
 
-
+############
+# Web site
+############
+webdoc: dummy
+	cd web && $(MAKE) install
 
 #################
 # installation
