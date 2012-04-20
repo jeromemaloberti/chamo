@@ -29,9 +29,9 @@ For example, to display the "about box" at launch time, simply add to
 <p>
 The same effect could be achieved by calling the command "about" with no arguments.
 To do so from OCaml code, you can use the function
-<code>Cam_commands.eval_command</code>:
+<code>Ed_commands.eval_command</code>:
 </p>
-<hcode lang="ocaml">Cam_commands.eval_command "about";;</hcode>
+<hcode lang="ocaml">Ed_commands.eval_command "about";;</hcode>
 <p>
 Another way to evaluate OCaml code to add your own command or whatever you want is
 to call the "eval" command. When called without argument, this command
@@ -40,7 +40,7 @@ as OCaml code. See
 <a href="#commands">here</a>
 for details on commands. So, putting the following code in your file
 <code>chamo_init.ml</code>:
-<hcode lang="ocaml">Cam_command.eval_command "eval \"let x = 1;;\"";;</hcode>
+<hcode lang="ocaml">Ed_command.eval_command "eval \"let x = 1;;\"";;</hcode>
 is the same as simply putting
 <hcode lang="ocaml">let x = 1;;</hcode>
 </p>
@@ -96,7 +96,7 @@ Quoting of arguments works the same way as in the shell (with simple or double q
 <subsection name="faq:chamo:defining_commands" title="How to define new commands ?">
 <p>
 Commands are defined in OCaml using the functions in
-<a href="refdoc/Cam_commands.html">module Cam_commands</a>.
+<a href="refdoc/Ed_commands.html">module Ed_commands</a>.
 They are composed of a name, a list of parameter names, an optional description for
 remaining parameters and the OCaml function which is called when the command is launched.
 This function is of type
@@ -117,34 +117,34 @@ argument, or "Alert!" if there is no argument:
       Ed_misc.to_utf8 args.(0)
    in
    GToolbox.message_box "Alert message" message;;
-let com = Cam_commands.create_com
+let com = Ed_commands.create_com
    "alert_message" [| "Message to display" |] alert_message;;
-Cam_commands.register com;;
+Ed_commands.register com;;
 </hcode>
 </p>
 <p>
 It is useful to name and make visible the function associated to the command, so that it is
 also directly available in OCaml code, rather than calling
-<hcode lang="ocaml">Cam_commands.eval_command "alert_message my_message";;</hcode>
+<hcode lang="ocaml">Ed_commands.eval_command "alert_message my_message";;</hcode>
 or
-<hcode lang="ocaml">Cam_commands.launch_command "alert_message" [|"my_message"|];;</hcode>
+<hcode lang="ocaml">Ed_commands.launch_command "alert_message" [|"my_message"|];;</hcode>
 Of course, calling directly the function which was first associated to the command "alert_message"
 will short-circuit any redefinition of the command.
 </p>
 <p>
 It is also possible to complete existing commands, by adding some code to execute before or
 after the original code of a command. This is done with the functions
-<code>Cam_commands.register_before</code>
+<code>Ed_commands.register_before</code>
  and
-<code>Cam_commands.register_after</code>.
+<code>Ed_commands.register_after</code>.
 For example, if we want alert messages to be logged, we could use something like
 <hcode lang="ocaml">
 let log_message args =
   (* log the message(s) in the arguments *)
   ...
 ;;
-Cam_commands.register_before
-  (Cam_commands.create_com
+Ed_commands.register_before
+  (Ed_commands.create_com
      "alert_message" [|"Message to display"|] log_message);;
 </hcode>
 </p>
@@ -153,19 +153,19 @@ Cam_commands.register_before
 <subsection name="faq:chamo:commandlist" title="Which commands are available ?">
 <p>
 The list of available command names can be obtained with
-<code>Cam_commands.available_command_names ()</code>.
+<code>Ed_commands.available_command_names ()</code>.
  Then it is easy to obtain, for each command, the names of its parameters:
 <hcode lang="ocaml"><![CDATA[let f name =
-  let com = Cam_commands.get_com_or_fail name in
-  print_string com.Cam_commands.com_name;
-  Array.iter (fun s -> Printf.printf " (%s)" s) com.Cam_commands.com_args;
-  (match com.Cam_commands.com_more_args with
+  let com = Ed_commands.get_com_or_fail name in
+  print_string com.Ed_commands.com_name;
+  Array.iter (fun s -> Printf.printf " (%s)" s) com.Ed_commands.com_args;
+  (match com.Ed_commands.com_more_args with
      None -> ()
    | Some s -> Printf.printf " (%s...)" s
   );
   print_newline ()
 ;;
-List.iter f (Cam_commands.available_command_names());;]]>
+List.iter f (Ed_commands.available_command_names());;]]>
 </hcode>
 </p>
 <p class="warning">
@@ -300,7 +300,7 @@ or evaluate the following OCaml code to reload the values of options:
 </p>
 <p>
 Values of options can also be set using OCaml code. Refer to the documentation of the
-<a href="refdoc/Config_file.html">Config_file library</a>
+<a href="http://config-file.forge.ocamlcore.org/ocamldoc/Config_file.html">Config_file library</a>
  to manipulate the options.
 For example, to add a new association between a filename pattern and a view name, use the
 following OCaml code (here we add a pattern so that files with ".ocamldoc" extension are
@@ -456,7 +456,7 @@ Most of predefined commands are already bound to a key combination, so you
 can already have a look at the various configuration files for command names.
 If you don't find what you're looking for, you can execute the following command
 in a bytecode version of chamo:
-<hcode lang="ocaml">eval "Cam_commands.available_command_names ()"</hcode>
+<hcode lang="ocaml">eval "Ed_commands.available_command_names ()"</hcode>
 </p>
 <p>
 This command will evaluate the given ocaml expression, which returns the list

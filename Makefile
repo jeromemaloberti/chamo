@@ -84,6 +84,8 @@ noheaders: dummy
 ############
 webdoc: dummy
 	cd web && $(MAKE) DEST_DIR=../../chamo-gh-pages
+	$(MKDIR) ../chamo-gh-pages/refdoc
+	$(CP) src/ocamldoc/* ../chamo-gh-pages/refdoc/
 
 #################
 # installation

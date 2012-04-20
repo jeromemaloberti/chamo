@@ -140,9 +140,9 @@ $(MKCHAMO_SCRIPT): $(LIB)
 # Documentation :
 #################
 dump.odoc: *.mli *.ml
-	$(OCAMLFIND) ocamldoc $(OF_FLAGS) -pp "$(OCAMLBIN)/camlp4o" ed_commands.ml -dump dump.odoc
-	$(OCAMLFIND) ocamldoc $(OF_FLAGS) -load dump.odoc ed_commands.mli -dump dump.odoc
-	$(OCAMLFIND) ocamldoc $(OF_FLAGS) $(OCAMLPP) $(INCLUDES) \
+	$(OCAMLFIND) ocamldoc $(OF_FLAGS) -keep-code -pp "$(OCAMLBIN)/camlp4o" ed_commands.ml -dump dump.odoc
+	$(OCAMLFIND) ocamldoc $(OF_FLAGS) -keep-code -load dump.odoc ed_commands.mli -dump dump.odoc
+	$(OCAMLFIND) ocamldoc $(OF_FLAGS) -keep-code $(OCAMLPP) $(INCLUDES) \
 	-load dump.odoc -sort -dump dump.odoc \
 	`ls $^ | grep -v example | grep -v ed_commands.ml | grep -v test_ocaml_mode`
 
@@ -166,7 +166,7 @@ distclean: clean
 clean:: dummy
 	$(RM) *~ \#*\#
 	$(RM) $(EDITOR) $(EDITOR_BYTE) $(MKCHAMO_SCRIPT)
-	$(RM) *.cm* *.a *.o *.annot ed_ocaml_lexer.ml
+	$(RM) *.cm* *.a *.o *.annot ed_ocaml_lexer.ml dump.odoc
 
 .depend depend:
 	$(RM) .depend
