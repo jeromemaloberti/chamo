@@ -87,8 +87,9 @@ noheaders: dummy
 
 install: dummy
 	cd src && $(MAKE) install
-	$(MKDIR) $(PIXMAPSDIR)
-	$(CP) $(IMAGES)/*.png $(PIXMAPSDIR)/
+	@$(MKDIR) $(PIXMAPSDIR)
+	@for i in images/*.png ; do \
+		$(CP) $$i $(PIXMAPSDIR)/ && echo Installed $(PIXMAPSDIR)/$$i; done
 
 uninstall: dummy
 	cd src && $(MAKE) uninstall

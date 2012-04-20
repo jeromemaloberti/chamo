@@ -118,11 +118,12 @@ $(EDITOR): $(LIB) $(EDITOR_CMIFILES) $(EDITOR_CMXFILES)
 	$(INCLUDES) odoc_info.cmxa $(LIB) $(EDITOR_CMXFILES)
 
 $(EDITOR_BYTE): $(LIB_BYTE) $(EDITOR_CMIFILES) $(EDITOR_CMOFILES)
-	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -linkpkg -o $@ -thread -linkall $(LINKFLAGS) \
+	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -linkpkg -w -31 -o $@ -thread -linkall $(LINKFLAGS) \
 	$(INCLUDES) toplevellib.cma odoc_info.cma $(LIB_BYTE) $(EDITOR_CMOFILES)
 
 $(MKCHAMO_SCRIPT): $(LIB)
 	@echo -n "Creating $@... "
+	$(RM) $@
 	@echo "# Multi-shell script.  Works under Bourne Shell, MPW Shell, zsh." > $@
 	@echo "if : == x" >> $@
 	@echo "then # Bourne Shell or zsh" >> $@
@@ -182,19 +183,17 @@ install: all
 	$(OCAMLFIND) install $(PACKAGE) ../META \
 		$(LIB) $(LIB:.cmxa=.a) $(LIB_CMIFILES)	$(LIB_BYTE) \
 		$(EDITOR_CMXFILES) $(EDITOR_CMOFILES) $(EDITOR_CMIFILES) *.mli
-	$(MKDIR) $(OCAMLBIN) $(GLADEDIR)
-	$(CP) $(EDITOR) $(EDITOR_BYTE) $(MKCHAMO_SCRIPT) $(OCAMLBIN)
-	$(MKDIR) $(DTDDIR) $(GLADEDIR)
-	$(CP) dbf/db.dtd $(DTDDIR)/
-	$(CP) dbf/dbforge.glade $(GLADEDIR)/
+	@$(MKDIR) $(OCAMLBIN) $(GLADEDIR)
+	@for i in $(EDITOR) $(EDITOR_BYTE) $(MKCHAMO_SCRIPT); do\
+		$(CP) $$i $(OCAMLBIN) && echo Installed $(OCAMLBIN)/$$i; done
+	@$(MKDIR) $(DTDDIR) $(GLADEDIR)
+	@$(CP) chamo.glade $(GLADEDIR)/ && echo Installed echo $(GLADEDIR)/chamo.glade
 
 uninstall: dummy
-	$(OCAMLFIND) remove $(PACKAGE)
-	$(OCAMLFIND) remove sqml
-	$(RM) $(OCAMLBIN)/$(DBFORGE)
-	$(RM) $(OCAMLBIN)/$(DBFORGE_GTK)
-	$(RM) $(OCAMLBIN)/$(DBFORGE_BYTE)
-	$(RM) $(OCAMLBIN)/$(DBFORGE_GTK_BYTE)
+	@$(OCAMLFIND) remove $(PACKAGE)
+	$(RM) $(OCAMLBIN)/$(EDITOR)
+	$(RM) $(OCAMLBIN)/$(EDITOR_BYTE)
+	$(RM) $(OCAMLBIN)/$(MKCHAMO_SCRIPT)
 
 ###########################
 # additional dependencies
