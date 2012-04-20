@@ -165,7 +165,7 @@ distclean: clean
 
 clean:: dummy
 	$(RM) *~ \#*\#
-	$(RM) $(EDITOR) $(EDITOR_BYTE)
+	$(RM) $(EDITOR) $(EDITOR_BYTE) $(MKCHAMO_SCRIPT)
 	$(RM) *.cm* *.a *.o *.annot ed_ocaml_lexer.ml
 
 .depend depend:
