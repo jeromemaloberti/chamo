@@ -1,0 +1,57 @@
+<!DOCTYPE html><html>
+<head>
+<title>Chamo : Tips and tricks</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+
+
+</head><body>
+<div id="page">
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container">
+
+
+  <a class="brand" href="http://zoggy.github.com/chamo/index.html">Chamo</a>
+  <div class="nav-collapse">
+  <ul class="nav">
+    <li class=""><a href="http://zoggy.github.com/chamo/index.html">Home</a></li>
+    <li class="&lt;navbar-install/&gt;"><a href="http://zoggy.github.com/chamo/install.html">Installation</a></li>
+    <li class="active"><a href="http://zoggy.github.com/chamo/doc.html">Documentation</a></li>
+    <li class="&lt;navbar-blog/&gt;"><a href="http://zoggy.github.com/chamo/blog.html">Blog</a></li>
+    <li class=""><a href="http://zoggy.github.com/chamo/about.html">?</a></li>
+  </ul>
+  </div>
+  <div class="nav pull-right">
+  </div>
+
+</div>
+</div>
+</div>
+<div id="header">
+<div class="page-title">Tips and tricks</div>
+</div>
+
+
+<ul class="toc"><li class="toc-section"><a href="#general">General</a><ul class="toc"><li class="toc-subsection"><a href="#setmailinfo">How to set my name and address used by the changelog_new_day_entry command ?</a></li></ul></li></ul>
+
+<div class="section"><div class="section-title" id="general">General</div>
+<div class="subsection"><div class="subsection-title" id="setmailinfo">How to set my name and address used by the changelog_new_day_entry command ?</div>
+<p>
+This command uses the &quot;usermail&quot; and &quot;username&quot; variables to insert a preformatted
+changelog entry. Add the following code to your
+<code>~/.chamo_init.ml</code>
+file, so that these variables are set each time you launch Chamo:
+<pre class="code-txt">Cam_commands.set_global &quot;usermail&quot; &quot;my.mail@foo.bar&quot;;;
+Cam_commands.set_global &quot;username&quot; &quot;Firstname Name&quot;;;</pre>
+</p>
+</div>
+
+</div>
+
+
+</div>
+<footer id="bottombar">
+</footer>
+</body>
+</html>

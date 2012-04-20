@@ -1,0 +1,231 @@
+<!DOCTYPE html><html>
+<head>
+<title>Chamo : Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+
+
+</head><body>
+<div id="page">
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container">
+
+
+  <a class="brand" href="http://zoggy.github.com/chamo/index.html">Chamo</a>
+  <div class="nav-collapse">
+  <ul class="nav">
+    <li class=""><a href="http://zoggy.github.com/chamo/index.html">Home</a></li>
+    <li class="&lt;navbar-install/&gt;"><a href="http://zoggy.github.com/chamo/install.html">Installation</a></li>
+    <li class="active"><a href="http://zoggy.github.com/chamo/doc.html">Documentation</a></li>
+    <li class="&lt;navbar-blog/&gt;"><a href="http://zoggy.github.com/chamo/blog.html">Blog</a></li>
+    <li class=""><a href="http://zoggy.github.com/chamo/about.html">?</a></li>
+  </ul>
+  </div>
+  <div class="nav pull-right">
+  </div>
+
+</div>
+</div>
+</div>
+<div id="header">
+<div class="page-title">Documentation</div>
+</div>
+
+
+
+
+<div class="section"><div class="section-title">Topics</div>
+<ul class="toc">
+<li><a href="#introduction">Introduction</a>,</li>
+<li><a href="#tour">Screenshots and tour</a>,</li>
+<li><a href="http://zoggy.github.com/chamo/faq.html">FAQ</a>,</li>
+<li><a href="http://zoggy.github.com/chamo/tips.html">Tips and tricks</a>.</li>
+</ul>
+</div>
+
+<div class="section"><div class="section-title" id="introduction">Introduction</div>
+<p>
+Chamo is a source code editor, even if it can be used to edit any text file.
+A system of &quot;views&quot; allows to edit some kinds of files in specific views.
+</p>
+<p>
+Each window can be splitted vertically or horizontally (à la emacs) or using tabs (à la gedit)
+in different views. Navigating from one view to another is easy with commands boundable
+to combinations of keys. One can also store the position and layout of the windows and
+the list of open files, so that, the next time Chamo is launched, everything is restored
+at the same position.
+</p>
+<p>
+A &quot;minibuffer&quot; à la emacs with automatic completion is used to launch
+commands and indicate arguments for commands (when opening a file, doing some
+query/replace in a buffer, ...).
+</p>
+<p>
+The text editing view uses GtkSourceView 2.X and so provides the following functionalities:
+support of internationalisation (UTF-8), syntax highlighting (with colors, fonts, ...)
+depending on the language (OCaml, C, C++, Makefile, ... or your own language description),
+undo/redo management, clipboard management, incremental forward/backward search, query/replace,
+history of pastable text (&quot;kill-ring&quot;), ...
+</p>
+<p>
+A system of association of code to commands and of evaluation of commands
+(in a form similar to shell commands
+<code>command arg1 arg2 ...</code>)
+ allows to add one's own functionalities. It is also possible to add and modify
+all key bindings, even specifically for each kind of view.
+</p>
+<p>
+In the bytecode version of Chamo, the command &quot;eval&quot; takes in argument some OCaml
+code which is interpreted and allows to modify everything in the editor: adding
+modes, redefining commands, ..., the same way as with Lisp in Emacs. The command
+&quot;eval_file&quot; interprets all the OCaml code present in a file given in argument.
+</p>
+<div class="alter alert-warning">
+A quick reference of default key bindings is
+<a href="keybindings.html">available here</a>.
+</div>
+<p>
+
+</p>
+</div>
+
+<div class="section"><div class="section-title" id="tour">Screenshots and tour</div>
+<div class="row">
+<div class="span7">
+The windows can be splitted to display various views, à la emacs.
+Some commands allows to handle the splitting and, like any command, can be bound
+to combinations of keys:
+&quot;split_horizontally&quot; (&quot;C-h&quot; or &quot;C-x 2&quot; by default), &quot;split_vertically&quot;
+(&quot;C-v&quot; or &quot;C-x 3&quot; by default), &quot;destroy_active_view&quot; (&quot;C-x 0&quot; by default).
+</div>
+<div class="span3"><a href="chamo_split_views.png"><img src="chamo_split_views_small.png" alt="Chamo, an emacs-like file editor based on Gtk2" title="Chamo, an emacs-like file editor based on Gtk2."/></a>
+</div>
+</div>
+
+<div class="row">
+<div class="span7">
+Another way to have various views in a window is the use of tabs, as in GEdit.
+The commands &quot;cycle_tab&quot; (&quot;C-Tab&quot; by default) and &quot;new_tab&quot; (&quot;C-x C-t&quot; by default)
+allow respectively to move from one tab to another and create a new tab.
+</div>
+<div class="span3">
+<a href="chamo_tabs.png"><img src="chamo_tabs_small.png" alt="Using tabs" title="Using tabs."/></a>
+</div>
+</div>
+
+<div class="row">
+<div class="span7">
+Of course, one can mix the two ways to arrange views to fit one's needs.
+The position and layout of windows and views can be stored on demand using the command &quot;store_layout&quot;.
+When the editor is launched in the same directory, position and layout of windows and views
+are restored.
+</div>
+<div class="span3"><a href="chamo_multiviews.png"><img src="chamo_multiviews_small.png" alt="Using tabs and splits" title="Using tabs and splits."/></a>
+</div>
+</div>
+
+<div class="row">
+<div class="span7">
+To each type of file (by now a regular expression matching the file name) one can associate
+a view to edit it. Various views are available. The view &quot;odoc&quot; allows to browse an
+OCamldoc dump file. A double-click on an element opens the corresponding file at the position
+where the element is defined. A right-button click provides a choice between opening the
+interface file (&quot;.mli&quot;) and the implementation file (&quot;.ml&quot;) used to produce the dump.
+This is an easy way to browse the code of a project.
+</div>
+<div class="span3">
+<a href="chamo_odoc.png"><img src="chamo_odoc_small.png" alt="The odoc view" title="The odoc view."/></a>
+</div>
+</div>
+
+<div class="row">
+<div class="span7">
+The view &quot;tdl&quot; can be used to edit &quot;todo list&quot; files, in the format used by the
+<a href="refdoc/Tdl.html">Tdl</a>
+ library included in Cameleon.
+</div>
+<div class="span3"><a href="chamo_tdl.png"><img src="chamo_tdl_small.png" alt="The todo list view" title="The todo list view."/></a>
+</div>
+</div>
+
+<div class="row">
+<div class="span7">
+The view &quot;sourceview&quot; is based on GtkSourceView. It provides the syntax highlighting
+associated to each type of file (by now a regular expression matching the file name).
+Modes (like in emacs) can be defined to provides commands, key bindings, menus and
+indentations adapted to each type of file. A file can be open by various &quot;sourceviews&quot;
+at the same time. Basic commands are available in this view: incremental forward/backward
+search, query/replace, transposing lines or characters, copy/paste, &quot;kill-ring&quot; à la emacs, ...
+</div>
+<div class="span3"><a href="chamo_buffers.png"><img src="chamo_buffers_small.png" alt="Sourceviews in action" title="Sourceviews in action."/></a>
+</div>
+</div>
+
+<div class="row">
+<div class="span7">
+A minibuffer like the one in emacs is used for commands arguments (opening files,
+changing buffer, search, ...) and provides automatic completion.
+</div>
+<div class="span3"><a href="chamo_minibuffers.png"><img src="chamo_minibuffers_small.png" alt="Minibuffers with completion" title="Minibuffers with completion."/></a>
+</div>
+</div>
+
+<div class="row">
+<div class="span3">
+Various files are used to configure key bindings. Here is the configuration file for
+all windows of Chamo. The key bindings of the active view are also configurable and
+are added to the common key bindings of windows.
+</div>
+<div class="span7">
+File <code>~/.chamo/chamo.gui</code>:
+<pre class="code-txt">(* The size of histories in minibuffer *)
+minibuffer_history_size = 50
+(* The key combination to use to reset the key stroke state *)
+abort_binding = &quot;C-g&quot;
+(* Common key bindings for windows *)
+window_key_bindings =
+  [([&quot;C-x&quot;; &quot;C-c&quot;], close_active_window); ([&quot;C-n&quot;], new_window);
+   ([&quot;C-x&quot;; &quot;C-s&quot;], save_active_view); ([&quot;C-x&quot;; &quot;C-w&quot;], save_active_view_as);
+   ([&quot;C-x&quot;; &quot;C-f&quot;], open_file); ([&quot;C-b&quot;], cycle_view);
+   ([&quot;C-Tab&quot;], cycle_tab); ([&quot;SC-Tab&quot;], rev_cycle_tab);
+   ([&quot;C-x&quot;; &quot;C-t&quot;], new_tab); ([&quot;C-v&quot;], split_vertically);
+   ([&quot;C-x&quot;; &quot;S-3&quot;], split_vertically); ([&quot;C-h&quot;], split_horizontally);
+   ([&quot;C-x&quot;; &quot;S-2&quot;], split_horizontally);
+   ([&quot;C-x&quot;; &quot;S-0&quot;], destroy_active_view);
+   ([&quot;C-x&quot;; &quot;C-x&quot;; l], print_key_bindings); ([&quot;C-y&quot;], paste);
+   ([&quot;C-c&quot;], copy); ([&quot;C-w&quot;], cut); ([&quot;A-x&quot;], prompt_command)]</pre>
+</div>
+</div>
+</div>
+
+<div class="section"><div class="section-title" id="mychamo">Creating your own native code Chamo</div>
+<p>
+The native version of Chamo can not interpret OCaml code
+to modify its behaviour. However, it is possible to create your own
+native version of Chamo including personal modifications.
+This is the purpose of the tool
+<code>mk-chamo</code>. This script allows to compile a Chamo including additional modules
+to extend and customize Chamo's behaviour while keeping the advantages
+of the native code.
+</p>
+<p>
+Here is the synopsis of this script:
+<pre class="code-txt">mk-chamo -o outfile [options] module1 [module2 [module3 ...]]</pre>
+For example, the following command creates a native code executable
+<code>~/bin/mychamo.x</code> which includes the default configuration module
+<code>~/.chamo/chamo_init.ml</code>:
+<pre class="code-txt">mk-chamo -o ~/bin/mychamo.x ~/.chamo/chamo_init.ml</pre>
+</p>
+<p>
+The script launches a compilation command using the OCaml compiler
+generating native code (ocamlopt). All options of this compiler can
+be used in the parameters of
+<code>mk-chamo</code>.
+</p>
+</div>
+</div>
+<footer id="bottombar">
+</footer>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"><channel><title>Chamo: web site</title><link>http://zoggy.github.com/chamo/kw_web+site.html</link><description>Source code editor in OCaml</description><managingEditor>zoggy 'AT' bat8 'DOT' org</managingEditor><pubDate>20 Apr 2012 08:00:00 +0000</pubDate><lastBuildDate>20 Apr 2012 08:00:00 +0000</lastBuildDate><generator>Stog</generator><item><title>Chamo is not in Cameleon any more</title><link>http://zoggy.github.com/chamo/new-site/index.html</link><description>&lt;main&gt;&lt;p&gt;
+Chamo is now separated from
+&lt;span class=&quot;ext-a&quot;&gt;&lt;a href=&quot;http://home.gna.org/cameleon/index.en.html&quot;&gt;Cameleon&lt;/a&gt;&lt;/span&gt;.
+&lt;/p&gt;
+&lt;p&gt;It is now hosted on &lt;a href=&quot;http://zoggy.github.com/chamo&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;&lt;/main&gt;</description><pubDate>20 Apr 2012 08:00:00 +0000</pubDate><category>chamo</category><category>web site</category><guid isPermaLink="true">http://zoggy.github.com/chamo/new-site/index.html</guid></item></channel></rss>
