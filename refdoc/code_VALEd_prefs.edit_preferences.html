@@ -1,0 +1,77 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_prefs.edit_preferences</title>
+</head>
+<body>
+<code class="code"><span class="keyword">let</span>&nbsp;edit_preferences&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(param_scheme,&nbsp;f_restore_scheme)&nbsp;=&nbsp;style_scheme_box&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(param_svprops,&nbsp;f_restore_svprops)&nbsp;=&nbsp;source_view_props_box&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;sections&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Configwin</span>.<span class="constructor">Section</span>&nbsp;(<span class="string">"Source&nbsp;views"</span>,&nbsp;[param_svprops])&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Configwin</span>.<span class="constructor">Section</span>&nbsp;(<span class="string">"Style&nbsp;scheme"</span>,&nbsp;[param_scheme])&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Configwin</span>.get&nbsp;<span class="constructor">Ed_messages</span>.preferences&nbsp;sections&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Configwin</span>.<span class="constructor">Return_ok</span>&nbsp;<span class="keywordsign">-&gt;</span><span class="comment">(*&nbsp;save_options&nbsp;()&nbsp;;*)</span>()<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f_restore_scheme&nbsp;();&nbsp;f_restore_svprops&nbsp;()</code></body></html>

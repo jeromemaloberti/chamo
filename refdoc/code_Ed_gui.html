@@ -1,0 +1,1253 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_gui</title>
+</head>
+<body>
+<code class="code"></code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chamo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;(C)&nbsp;2003-2012&nbsp;Institut&nbsp;National&nbsp;de&nbsp;Recherche&nbsp;en&nbsp;Informatique&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;et&nbsp;en&nbsp;Automatique.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public&nbsp;License&nbsp;version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;along&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place,&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;02111-1307&nbsp;&nbsp;USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Contact:&nbsp;Maxence.Guesdon@inria.fr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+</code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** Main gui classes *)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="keyword">let</span>&nbsp;window_pixmap&nbsp;=<br>
+&nbsp;&nbsp;<span class="constructor">Filename</span>.concat&nbsp;<span class="constructor">Ed_installation</span>.pixmap_dir&nbsp;<span class="string">"chamo.png"</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;window_pixbuf&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="constructor">GdkPixbuf</span>.from_file&nbsp;window_pixmap)<br>
+&nbsp;&nbsp;<span class="keyword">with</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;init_view&nbsp;topwin&nbsp;(v&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.gui_view)&nbsp;=<br>
+&nbsp;&nbsp;v<span class="keywordsign">#</span>set_on_focus_in&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;topwin<span class="keywordsign">#</span>set_active_view&nbsp;(<span class="constructor">Some</span>&nbsp;v))<br>
+<br>
+<span class="keyword">let</span>&nbsp;insert_in_pos&nbsp;ele&nbsp;p&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;n&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[ele]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;h&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;p<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">then</span>&nbsp;ele&nbsp;::&nbsp;h&nbsp;::&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span>&nbsp;h&nbsp;::&nbsp;(iter&nbsp;(n+1)&nbsp;q)<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;iter&nbsp;0<br>
+<br>
+<br>
+<span class="keyword">let</span>&nbsp;label_of_contents&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;o&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;o<span class="keywordsign">#</span>label<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;o&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;o<span class="keywordsign">#</span>label<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;o&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;o<span class="keywordsign">#</span>label<br>
+<br>
+<span class="keyword">let</span>&nbsp;id_of_contents&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;o&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;o<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;o&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;o<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;o&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;o<br>
+<br>
+<span class="keyword">let</span>&nbsp;widget_of_contents&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gv<span class="keywordsign">#</span>box<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gn<span class="keywordsign">#</span>notebook<span class="keywordsign">#</span>coerce<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gp<span class="keywordsign">#</span>paned<span class="keywordsign">#</span>coerce<br>
+<br>
+<span class="keyword">let</span>&nbsp;contents_grab_focus&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gv<span class="keywordsign">#</span>grab_focus<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gn<span class="keywordsign">#</span>grab_focus<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gp<span class="keywordsign">#</span>grab_focus<br>
+<br>
+<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;find_container&nbsp;c&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pred&nbsp;c2&nbsp;=&nbsp;id_of_contents&nbsp;c2&nbsp;=&nbsp;id_of_contents&nbsp;c&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;search_child&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c2&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;pred&nbsp;c2&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find_container&nbsp;c&nbsp;c2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;search_child&nbsp;gp<span class="keywordsign">#</span>child1&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;search_child&nbsp;gp<span class="keywordsign">#</span>child2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;x&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pred&nbsp;c2&nbsp;=&nbsp;id_of_contents&nbsp;c2&nbsp;=&nbsp;id_of_contents&nbsp;c&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(_,c2)&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;pred&nbsp;c2&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;find_container&nbsp;c&nbsp;c2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;x&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;gn<span class="keywordsign">#</span>tabs<br>
+<br>
+<span class="keyword">class</span>&nbsp;gui_window&nbsp;?x&nbsp;?y&nbsp;?width&nbsp;?height&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;key_bindings_trees&nbsp;=&nbsp;ref&nbsp;[]&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;minibuffer&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;<span class="constructor">Ed_minibuffer</span>.minibuffer&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">object</span>(self)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">inherit</span>&nbsp;<span class="constructor">Ed_gui_base</span>.main&nbsp;~file:&nbsp;<span class="constructor">Ed_config</span>.glade_file&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;x&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fst&nbsp;(<span class="constructor">Gdk</span>.<span class="constructor">Window</span>.get_position&nbsp;toplevel<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>window)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;y&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snd&nbsp;(<span class="constructor">Gdk</span>.<span class="constructor">Window</span>.get_position&nbsp;toplevel<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>window)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;width&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fst&nbsp;(<span class="constructor">Gdk</span>.<span class="constructor">Drawable</span>.get_size&nbsp;toplevel<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>window)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;height&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snd&nbsp;(<span class="constructor">Gdk</span>.<span class="constructor">Drawable</span>.get_size&nbsp;toplevel<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>window)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;contents&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_paned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_notebook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;window&nbsp;=&nbsp;toplevel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;contents&nbsp;=&nbsp;contents<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;minibuffer&nbsp;=&nbsp;minibuffer<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;active_view&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.gui_view&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_active_view&nbsp;gvopt&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active_view&nbsp;&lt;-&nbsp;gvopt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key_bindings_trees&nbsp;:=&nbsp;<span class="constructor">Ed_gui_rc</span>.trees_for_window<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">match</span>&nbsp;gvopt&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v<span class="keywordsign">#</span>key_bindings);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_view_interface&nbsp;gvopt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minibuffer<span class="keywordsign">#</span>set_active&nbsp;<span class="keyword">false</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prerr_endline&nbsp;"active&nbsp;view&nbsp;set!";*)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_view_interface&nbsp;gvopt&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menuEdit<span class="keywordsign">#</span>remove_submenu&nbsp;();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;menu&nbsp;=&nbsp;<span class="constructor">GMenu</span>.menu&nbsp;~packing:&nbsp;menuEdit<span class="keywordsign">#</span>set_submenu&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;l&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;gvopt&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[<span class="keyword">false</span>;&nbsp;<span class="keyword">false</span>;&nbsp;<span class="keyword">false</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[gv<span class="keywordsign">#</span>save&nbsp;&lt;&gt;&nbsp;<span class="constructor">None</span>;&nbsp;gv<span class="keywordsign">#</span>save_as&nbsp;&lt;&gt;&nbsp;<span class="constructor">None</span>;&nbsp;gv<span class="keywordsign">#</span>reload&nbsp;&lt;&gt;&nbsp;<span class="constructor">None</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.iter2&nbsp;(<span class="keyword">fun</span>&nbsp;mi&nbsp;b&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;mi<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>set_sensitive&nbsp;b)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[item_save;item_save_as;item_reload]&nbsp;l;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;l&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;gvopt&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[<span class="constructor">None</span>;<span class="constructor">None</span>;<span class="constructor">None</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[gv<span class="keywordsign">#</span>paste;gv<span class="keywordsign">#</span>copy;gv<span class="keywordsign">#</span>cut]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.iter2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;label&nbsp;fopt&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mi&nbsp;=&nbsp;<span class="constructor">GMenu</span>.menu_item&nbsp;~packing:menu<span class="keywordsign">#</span>append&nbsp;~label&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;fopt&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;mi<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>set_sensitive&nbsp;<span class="keyword">false</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;f&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(mi<span class="keywordsign">#</span>connect<span class="keywordsign">#</span>activate&nbsp;f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="string">"Paste"</span>;<span class="string">"Copy"</span>;<span class="string">"Cut"</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mb&nbsp;=&nbsp;viewmenubar&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.iter&nbsp;mb<span class="keywordsign">#</span>remove&nbsp;mb<span class="keywordsign">#</span>children;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;(label,entries)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mi&nbsp;=&nbsp;<span class="constructor">GMenu</span>.menu_item&nbsp;~label&nbsp;~packing:&nbsp;(mb<span class="keywordsign">#</span>insert&nbsp;~pos:&nbsp;0)&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mn&nbsp;=&nbsp;<span class="constructor">GMenu</span>.menu&nbsp;~packing:&nbsp;mi<span class="keywordsign">#</span>set_submenu&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">GToolbox</span>.build_menu&nbsp;mn&nbsp;~entries<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;gvopt&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">List</span>.iter&nbsp;f&nbsp;(<span class="constructor">List</span>.rev&nbsp;gv<span class="keywordsign">#</span>menus)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;update_menus&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_view_interface&nbsp;self<span class="keywordsign">#</span>active_view<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;active_view&nbsp;=&nbsp;active_view<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;contains_view&nbsp;(v&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.gui_view)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keyword">false</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v2)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;v2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;find_container&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v)&nbsp;c&nbsp;&lt;&gt;&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_active_view_container&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;gv&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Window</span>&nbsp;(self&nbsp;:&gt;&nbsp;gui_window))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>find_view_container&nbsp;gv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>find_view_container&nbsp;gv<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;destroy_active_view&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v<span class="keywordsign">#</span>destroy<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_about&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"about"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_new_window&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"new_window"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_open_file&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"open_file"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_destroy_active_view&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"destroy_active_view"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;reload_active_view&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;gv<span class="keywordsign">#</span>reload&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;ask_open_file&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;dir&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Sys</span>.getcwd&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Filename</span>.dirname&nbsp;v<span class="keywordsign">#</span>filename<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.select_file&nbsp;minibuffer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~title:&nbsp;<span class="string">"Open&nbsp;file"</span>&nbsp;(<span class="constructor">Glib</span>.<span class="constructor">Convert</span>.filename_to_utf8&nbsp;(dir^<span class="string">"/"</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"open_file&nbsp;%s"</span>&nbsp;(<span class="constructor">Filename</span>.quote&nbsp;s)))<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;widget_opt_of_contents_opt&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;x&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;(widget_of_contents&nbsp;x)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_contents&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>widget_opt_of_contents_opt&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;widget&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;vbox<span class="keywordsign">#</span>remove&nbsp;widget<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">fun</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents&nbsp;&lt;-&nbsp;c;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>widget_opt_of_contents_opt&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;widget&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>set_on_destroy&nbsp;self<span class="keywordsign">#</span>on_view_destroy;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>set_on_label_change&nbsp;self<span class="keywordsign">#</span>set_title<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>set_on_destroy&nbsp;(<span class="keyword">fun</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>set_contents&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>set_on_label_change&nbsp;self<span class="keywordsign">#</span>set_title<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_destroy&nbsp;(<span class="keyword">fun</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>set_contents&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_label_change&nbsp;self<span class="keywordsign">#</span>set_title<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vbox<span class="keywordsign">#</span>pack&nbsp;~expand:&nbsp;<span class="keyword">true</span>&nbsp;~fill:&nbsp;<span class="keyword">true</span>&nbsp;widget;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vbox<span class="keywordsign">#</span>reorder_child&nbsp;widget&nbsp;~pos:&nbsp;1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;label&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;contents_grab_focus&nbsp;c;&nbsp;label_of_contents&nbsp;c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_title&nbsp;label<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_view&nbsp;v&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_view&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;v;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_contents&nbsp;(<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;((<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;_)&nbsp;<span class="keyword">as</span>&nbsp;current_c)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;((<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;_)&nbsp;<span class="keyword">as</span>&nbsp;current_c)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><span class="comment">(** TODO: whether a paned or notebook is created should
+             be a choice in preferences *)</span></td></tr></table><code class="code"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;gn&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;gui_notebook&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_contents&nbsp;(<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>add_tab&nbsp;<span class="constructor">None</span>&nbsp;current_c;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>add_view&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>add_view&nbsp;v<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;on_view_destroy&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>widget_opt_of_contents_opt&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents&nbsp;&lt;-&nbsp;<span class="constructor">None</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vbox<span class="keywordsign">#</span>remove&nbsp;w<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_view_in_active_view_container&nbsp;v&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>get_active_view_container&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>add_view&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Window</span>&nbsp;_)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>add_view&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gp<span class="keywordsign">#</span>add_view&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gn<span class="keywordsign">#</span>add_view&nbsp;v<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;open_file&nbsp;?attributes&nbsp;f&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;factory&nbsp;=&nbsp;<span class="constructor">Ed_view</span>.factory_of_filename&nbsp;f&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Ed_view</span>.factory_open_file&nbsp;~factory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;active_view&nbsp;?attributes&nbsp;f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Use_view</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v<span class="keywordsign">#</span>grab_focus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">New_view</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_view&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;v;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>add_view_in_active_view_container&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Failure</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>error_message&nbsp;s<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_title&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;s&nbsp;=&nbsp;<span class="keyword">if</span>&nbsp;s&nbsp;=&nbsp;<span class="string">""</span>&nbsp;<span class="keyword">then</span>&nbsp;<span class="string">""</span>&nbsp;<span class="keyword">else</span>&nbsp;<span class="string">":&nbsp;"</span>^s&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toplevel<span class="keywordsign">#</span>set_title&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s%s"</span>&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;<span class="constructor">Ed_messages</span>.software)&nbsp;s)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;new_tab&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>get_active_view_container&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Window</span>&nbsp;_)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;it's&nbsp;me&nbsp;!&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v<span class="keywordsign">#</span>dup&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_view&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;v;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>add_view&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;prerr_endline&nbsp;<span class="string">"Should&nbsp;not&nbsp;be&nbsp;here"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v<span class="keywordsign">#</span>dup&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_view&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;v;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>new_tab&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>grab_focus;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v<span class="keywordsign">#</span>dup&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_view&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;v;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>add_view&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;split_active_view&nbsp;(orientation&nbsp;:&nbsp;<span class="constructor">Gtk</span>.<span class="constructor">Tags</span>.orientation)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>get_active_view_container&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Window</span>&nbsp;_)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v1)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v1<span class="keywordsign">#</span>dup&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v2&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;gp&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;gui_paned&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;orientation&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_contents&nbsp;(<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_view&nbsp;(self&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;v2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_children_views&nbsp;v1&nbsp;v2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v2<span class="keywordsign">#</span>grab_focus;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gp<span class="keywordsign">#</span>split_active_view&nbsp;orientation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gn<span class="keywordsign">#</span>split_active_view&nbsp;orientation<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_new_tab&nbsp;()&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"new_tab"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_split_active_view&nbsp;o&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"split_%s"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">match</span>&nbsp;o&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">HORIZONTAL</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">"horizontally"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">VERTICAL</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">"vertically"</span>))<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_store_layout&nbsp;()&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"store_layout"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;cycle_tab&nbsp;forward&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;mycontents&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;c&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;find_container&nbsp;c&nbsp;mycontents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;gn<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;x&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v)&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;gn&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;gn<span class="keywordsign">#</span>cycle_tab&nbsp;forward<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;cycle_view&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;contents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;mycontents&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;c&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;find_container&nbsp;c&nbsp;mycontents&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;gp<span class="keywordsign">#</span>child1,&nbsp;gp<span class="keywordsign">#</span>child2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;c,&nbsp;_<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>,&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;contents_grab_focus&nbsp;c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>,&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;shold&nbsp;not&nbsp;happen&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>grab_focus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;nb&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;give&nbsp;focus&nbsp;to&nbsp;first&nbsp;view&nbsp;in&nbsp;the&nbsp;current&nbsp;tab&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb<span class="keywordsign">#</span>grab_focus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;((<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)&nbsp;<span class="keyword">as</span>&nbsp;x)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;gp<span class="keywordsign">#</span>child1,&nbsp;gp<span class="keywordsign">#</span>child2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c1,&nbsp;<span class="constructor">Some</span>&nbsp;c2&nbsp;<span class="keyword">when</span>&nbsp;id_of_contents&nbsp;c1&nbsp;=&nbsp;id_of_contents&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents_grab_focus&nbsp;c2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;x&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_close&nbsp;()&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"close_active_window"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;close&nbsp;=&nbsp;self<span class="keywordsign">#</span>window<span class="keywordsign">#</span>destroy&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_state_message&nbsp;=&nbsp;wl_keystate<span class="keywordsign">#</span>set_text<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_action_message&nbsp;msg&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;minibuffer<span class="keywordsign">#</span>active&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minibuffer<span class="keywordsign">#</span>set_text&nbsp;msg<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;error_message&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.error_message&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;s)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;save_active_view&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v<span class="keywordsign">#</span>save&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;save_active_view_as&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v<span class="keywordsign">#</span>save_as&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;display_keyhit_state&nbsp;~after_handler&nbsp;st&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;s&nbsp;=&nbsp;<span class="constructor">Ed_keymaps</span>.string_of_state&nbsp;st&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_state_message&nbsp;s&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;not&nbsp;after_handler&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_action_message&nbsp;<span class="string">""</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;print_key_bindings&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;l&nbsp;=&nbsp;<span class="constructor">Ed_gui_rc</span>.window_key_bindings<span class="keywordsign">#</span>get&nbsp;@<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v<span class="keywordsign">#</span>key_bindings)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.iter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(st,com)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_hooks</span>.display_message&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s&nbsp;-&gt;&nbsp;%s"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Ed_keymaps</span>.string_of_state&nbsp;st)&nbsp;com))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_minibuffer_active_change&nbsp;active&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;active&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Okey</span>.reset_state&nbsp;toplevel;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>display_keyhit_state&nbsp;~after_handler:&nbsp;<span class="keyword">true</span>&nbsp;[];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key_bindings_trees&nbsp;:=&nbsp;<span class="constructor">Ed_gui_rc</span>.trees_for_window&nbsp;minibuffer<span class="keywordsign">#</span>key_bindings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v<span class="keywordsign">#</span>grab_focus<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;paste&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v<span class="keywordsign">#</span>paste&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;copy&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v<span class="keywordsign">#</span>copy&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;cut&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v<span class="keywordsign">#</span>cut&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">initializer</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toplevel<span class="keywordsign">#</span>set_icon&nbsp;window_pixbuf;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hbox_state<span class="keywordsign">#</span>pack&nbsp;~expand:&nbsp;<span class="keyword">true</span>&nbsp;~fill:&nbsp;<span class="keyword">true</span>&nbsp;minibuffer<span class="keywordsign">#</span>box;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minibuffer<span class="keywordsign">#</span>set_on_active_change&nbsp;self<span class="keywordsign">#</span>on_minibuffer_active_change;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;x,&nbsp;y&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;x,&nbsp;<span class="constructor">Some</span>&nbsp;y&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;toplevel<span class="keywordsign">#</span>move&nbsp;~x&nbsp;~y<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;width,&nbsp;height&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;width,&nbsp;<span class="constructor">Some</span>&nbsp;height&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;toplevel<span class="keywordsign">#</span>resize&nbsp;~width&nbsp;~height<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;handlers&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_close_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;self<span class="keywordsign">#</span>on_close);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_log_window_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"log_window"</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_save_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"save_active_view"</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_save_as_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"save_active_view_as"</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_reload_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"reload_active_view"</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_about_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;self<span class="keywordsign">#</span>on_about);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_new_window_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;self<span class="keywordsign">#</span>on_new_window);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_open_file_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;self<span class="keywordsign">#</span>on_open_file);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_new_tab_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;self<span class="keywordsign">#</span>on_new_tab);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_split_horizontally_activate"</span>,&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;(self<span class="keywordsign">#</span>on_split_active_view&nbsp;<span class="keywordsign">`</span><span class="constructor">HORIZONTAL</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_split_vertically_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;(self<span class="keywordsign">#</span>on_split_active_view&nbsp;<span class="keywordsign">`</span><span class="constructor">VERTICAL</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_destroy_active_view_activate"</span>,&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;self<span class="keywordsign">#</span>on_destroy_active_view);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_store_layout_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;self<span class="keywordsign">#</span>on_store_layout);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_cycle_tab_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"cycle_tab"</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_cycle_view_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"cycle_view"</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"on_preferences_activate"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Simple</span>&nbsp;<span class="constructor">Ed_prefs</span>.edit_preferences)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;Finalize&nbsp;GUI&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Glade</span>.bind_handlers&nbsp;~extra:handlers&nbsp;~warn:<span class="keyword">true</span>&nbsp;self<span class="keywordsign">#</span>xml;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key_bindings_trees&nbsp;:=&nbsp;<span class="constructor">Ed_gui_rc</span>.trees_for_window&nbsp;[];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Okey</span>.set_handler_trees<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~stop:&nbsp;<span class="constructor">Ed_gui_rc</span>.abort_binding<span class="keywordsign">#</span>get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;!key_bindings_trees)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~f_display_state:&nbsp;self<span class="keywordsign">#</span>display_keyhit_state<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toplevel;<br>
+<br>
+&nbsp;&nbsp;<span class="keyword">end</span><br>
+<br>
+<span class="keyword">and</span>&nbsp;gui_paned&nbsp;(topwin&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;orientation&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;paned&nbsp;=&nbsp;<span class="constructor">GPack</span>.paned&nbsp;orientation&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">object</span>(self)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">inherit</span>&nbsp;<span class="constructor">Ed_view</span>.dyn_label<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;paned&nbsp;=&nbsp;paned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;orientation&nbsp;=&nbsp;orientation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;position&nbsp;=&nbsp;paned<span class="keywordsign">#</span>position<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_position&nbsp;=&nbsp;paned<span class="keywordsign">#</span>set_position<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;child1&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_paned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_notebook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;child2&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_paned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_notebook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;child1&nbsp;=&nbsp;child1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;child2&nbsp;=&nbsp;child2<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_destroy&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(c&nbsp;:&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_paned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_notebook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;option)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_child_view_destroy&nbsp;n&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.iter&nbsp;paned<span class="keywordsign">#</span>remove&nbsp;paned<span class="keywordsign">#</span>children;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_destroy&nbsp;(<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;child2&nbsp;<span class="keyword">else</span>&nbsp;child1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child1&nbsp;&lt;-&nbsp;<span class="constructor">None</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child2&nbsp;&lt;-&nbsp;<span class="constructor">None</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paned<span class="keywordsign">#</span>destroy()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_destroy&nbsp;f&nbsp;=&nbsp;on_destroy&nbsp;&lt;-&nbsp;f<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_child_destroy&nbsp;n&nbsp;c&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;(<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;child1&nbsp;<span class="keyword">else</span>&nbsp;child2)&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()&nbsp;<span class="comment">(*&nbsp;strange&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c_old&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="comment">(*&nbsp;strange,&nbsp;nothing&nbsp;to&nbsp;replace&nbsp;the&nbsp;child,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we&nbsp;do&nbsp;as&nbsp;if&nbsp;it&nbsp;was&nbsp;a&nbsp;view&nbsp;so&nbsp;that&nbsp;the&nbsp;other&nbsp;child<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replaces&nbsp;the&nbsp;paned&nbsp;in&nbsp;the&nbsp;parent&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>on_child_view_destroy&nbsp;n<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;w&nbsp;=&nbsp;widget_of_contents&nbsp;c_old&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paned<span class="keywordsign">#</span>remove&nbsp;w;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;paned<span class="keywordsign">#</span>add1&nbsp;<span class="keyword">else</span>&nbsp;paned<span class="keywordsign">#</span>add2)&nbsp;(widget_of_contents&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;child1&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keyword">else</span>&nbsp;child2&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;c;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>on_child_label_change;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents_grab_focus&nbsp;c<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_child_label_change&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child1,&nbsp;child2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>,&nbsp;<span class="constructor">Some</span>&nbsp;c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c,&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;label_of_contents&nbsp;c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>,&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">"&nbsp;"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c1,&nbsp;<span class="constructor">Some</span>&nbsp;c2&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s&nbsp;|&nbsp;%s"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(label_of_contents&nbsp;c1)&nbsp;(label_of_contents&nbsp;c2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_label&nbsp;s<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_one_child&nbsp;n&nbsp;c&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;(<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;child1&nbsp;<span class="keyword">else</span>&nbsp;child2)&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paned<span class="keywordsign">#</span>remove&nbsp;(widget_of_contents&nbsp;c)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;child1&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keyword">else</span>&nbsp;child2&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;c;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>set_on_destroy&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>on_child_view_destroy&nbsp;n);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>set_on_label_change&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>on_child_label_change);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_child_destroy&nbsp;n);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_label_change&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>on_child_label_change);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_child_destroy&nbsp;n);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>set_on_label_change&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>on_child_label_change);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;paned<span class="keywordsign">#</span>add1&nbsp;<span class="keyword">else</span>&nbsp;paned<span class="keywordsign">#</span>add2)&nbsp;(widget_of_contents&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>on_child_label_change;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents_grab_focus&nbsp;c<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_children_views&nbsp;v1&nbsp;v2&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_one_child&nbsp;1&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_one_child&nbsp;2&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(w,h)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gdk</span>.<span class="constructor">Drawable</span>.get_size<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Gdk</span>.<span class="constructor">Drawable</span>.cast&nbsp;paned<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>window)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;p&nbsp;=&nbsp;<span class="keyword">match</span>&nbsp;orientation&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">VERTICAL</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;h<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">HORIZONTAL</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paned<span class="keywordsign">#</span>set_position&nbsp;(p&nbsp;/&nbsp;2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;find_view_container&nbsp;gv&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;find_in_child&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>find_view_container&nbsp;gv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>find_view_container&nbsp;gv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;gv&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;(self&nbsp;:&gt;&nbsp;gui_paned))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;find_in_child&nbsp;child1&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;find_in_child&nbsp;child2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;x&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;x<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;new_tab&nbsp;c&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;we&nbsp;insert&nbsp;the&nbsp;tab&nbsp;in&nbsp;a&nbsp;view;&nbsp;if&nbsp;we&nbsp;don't&nbsp;have&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;active&nbsp;view,&nbsp;then&nbsp;we&nbsp;should&nbsp;not&nbsp;be&nbsp;here&nbsp;since<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new_tab&nbsp;is&nbsp;inserted&nbsp;in&nbsp;the&nbsp;active&nbsp;view&nbsp;container&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;topwin<span class="keywordsign">#</span>active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;res&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child1&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v1)&nbsp;<span class="keyword">when</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v1&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;(1,&nbsp;v1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v2)&nbsp;<span class="keyword">when</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v2&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;(2,&nbsp;v2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;res&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;prerr_endline&nbsp;<span class="string">"Can't&nbsp;insert&nbsp;tab&nbsp;here,&nbsp;we&nbsp;should&nbsp;not&nbsp;be&nbsp;here&nbsp;in&nbsp;this&nbsp;paned"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(n,&nbsp;cur_view)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paned<span class="keywordsign">#</span>remove&nbsp;cur_view<span class="keywordsign">#</span>box;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;gn&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;gui_notebook&nbsp;topwin&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;paned<span class="keywordsign">#</span>add1&nbsp;<span class="keyword">else</span>&nbsp;paned<span class="keywordsign">#</span>add2)&nbsp;gn<span class="keywordsign">#</span>notebook<span class="keywordsign">#</span>coerce;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_child_destroy&nbsp;n);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>set_on_label_change&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>on_child_label_change);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child1&nbsp;&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child2&nbsp;&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>add_tab&nbsp;<span class="constructor">None</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;cur_view);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>add_tab&nbsp;<span class="constructor">None</span>&nbsp;c;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_view&nbsp;(v&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.gui_view)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;topwin<span class="keywordsign">#</span>active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;av&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;res&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child1&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v1)&nbsp;<span class="keyword">when</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v1&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;av&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;(1,&nbsp;v1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v2)&nbsp;<span class="keyword">when</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v2&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;av&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;(2,&nbsp;v2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;res&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;prerr_endline&nbsp;<span class="string">"Can't&nbsp;insert&nbsp;view&nbsp;here,&nbsp;we&nbsp;should&nbsp;not&nbsp;be&nbsp;here&nbsp;in&nbsp;this&nbsp;paned"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(n,&nbsp;cur_view)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paned<span class="keywordsign">#</span>remove&nbsp;cur_view<span class="keywordsign">#</span>box;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;TODO:&nbsp;use&nbsp;a&nbsp;user&nbsp;preference&nbsp;to&nbsp;use&nbsp;a&nbsp;tab&nbsp;of&nbsp;a&nbsp;paned&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;gp&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;gui_paned&nbsp;topwin&nbsp;orientation&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;paned<span class="keywordsign">#</span>add1&nbsp;<span class="keyword">else</span>&nbsp;paned<span class="keywordsign">#</span>add2)&nbsp;gp<span class="keywordsign">#</span>paned<span class="keywordsign">#</span>coerce;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_child_destroy&nbsp;n);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_label_change&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>on_child_label_change);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child1&nbsp;&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child2&nbsp;&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_children_views&nbsp;cur_view&nbsp;v;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>grab_focus<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;split_active_view&nbsp;orientation&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;topwin<span class="keywordsign">#</span>active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;res&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child1&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v1)&nbsp;<span class="keyword">when</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v1&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;(1,&nbsp;v1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v2)&nbsp;<span class="keyword">when</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v2&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;(2,&nbsp;v2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;res&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;prerr_endline&nbsp;<span class="string">"can't&nbsp;split&nbsp;this,&nbsp;not&nbsp;a&nbsp;view"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(n,&nbsp;cur_view)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;cur_view<span class="keywordsign">#</span>dup&nbsp;topwin&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;view_copy&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;gp&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;gui_paned&nbsp;topwin&nbsp;orientation&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paned<span class="keywordsign">#</span>remove&nbsp;cur_view<span class="keywordsign">#</span>box;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child1&nbsp;&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child2&nbsp;&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">if</span>&nbsp;n&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;paned<span class="keywordsign">#</span>add1&nbsp;<span class="keyword">else</span>&nbsp;paned<span class="keywordsign">#</span>add2)&nbsp;gp<span class="keywordsign">#</span>paned<span class="keywordsign">#</span>coerce;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_label_change&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>on_child_label_change);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_child_destroy&nbsp;n);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_view&nbsp;topwin&nbsp;view_copy;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_children_views&nbsp;cur_view&nbsp;view_copy;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view_copy<span class="keywordsign">#</span>grab_focus<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;grab_focus&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child1&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;contents_grab_focus&nbsp;c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;child2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;contents_grab_focus&nbsp;c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+<br>
+&nbsp;&nbsp;<span class="keyword">end</span><br>
+<br>
+<span class="keyword">and</span>&nbsp;gui_notebook&nbsp;(topwin&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;nb&nbsp;=&nbsp;<span class="constructor">GPack</span>.notebook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~border_width:&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~show_border:&nbsp;<span class="keyword">false</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~scrollable:&nbsp;<span class="keyword">true</span>&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">object</span>(self)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">inherit</span>&nbsp;<span class="constructor">Ed_view</span>.dyn_label<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;notebook&nbsp;=&nbsp;nb<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;tabs&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">GMisc</span>.label&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_paned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_notebook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;list&nbsp;=&nbsp;[]<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;tabs&nbsp;=&nbsp;tabs<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_destroy&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(c&nbsp;:&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_paned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_notebook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;option)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;destroy&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;tabs&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(_,c)&nbsp;::&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;i&nbsp;=&nbsp;0&nbsp;<span class="keyword">to</span>&nbsp;<span class="constructor">List</span>.length&nbsp;tabs&nbsp;-&nbsp;1&nbsp;<span class="keyword">do</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb<span class="keywordsign">#</span>remove_page&nbsp;i<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">done</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_destroy&nbsp;(<span class="constructor">Some</span>&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb<span class="keywordsign">#</span>destroy()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;on_destroy&nbsp;<span class="constructor">None</span>;&nbsp;nb<span class="keywordsign">#</span>destroy&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_destroy&nbsp;f&nbsp;=&nbsp;on_destroy&nbsp;&lt;-&nbsp;f<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_tab_destroy&nbsp;c&nbsp;new_c&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>tab_of_contents&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;n&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tabs&nbsp;&lt;-&nbsp;<span class="constructor">List</span>.filter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(_,c2)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;id_of_contents&nbsp;c2&nbsp;&lt;&gt;&nbsp;id_of_contents&nbsp;c)&nbsp;tabs;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb<span class="keywordsign">#</span>remove_page&nbsp;n;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;new_c,&nbsp;tabs&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>,&nbsp;[]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>,&nbsp;[_]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>destroy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>,&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;new_c,&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_destroy&nbsp;(<span class="constructor">Some</span>&nbsp;new_c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb<span class="keywordsign">#</span>destroy&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;new_c,&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>add_tab&nbsp;(<span class="constructor">Some</span>&nbsp;n)&nbsp;new_c<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_view_destroy&nbsp;v&nbsp;()&nbsp;=&nbsp;self<span class="keywordsign">#</span>on_tab_destroy&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v)&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;find_view_container&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_view</span>.gui_view&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_notebook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_paned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Window</span>&nbsp;<span class="keyword">of</span>&nbsp;gui_window&nbsp;]&nbsp;option&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">fun</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;find_in_child&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>find_view_container&nbsp;gv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>find_view_container&nbsp;gv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;v&nbsp;=&nbsp;<span class="constructor">Oo</span>.id&nbsp;gv&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;(self&nbsp;:&gt;&nbsp;gui_notebook))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(_,h)&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;find_in_child&nbsp;h&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;x&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;self<span class="keywordsign">#</span>tabs<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;tab_of_contents&nbsp;c&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;oid&nbsp;=&nbsp;id_of_contents&nbsp;c&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pred&nbsp;c2&nbsp;=&nbsp;id_of_contents&nbsp;c2&nbsp;=&nbsp;oid&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;n&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(_,h)&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;pred&nbsp;h&nbsp;<span class="keyword">then</span>&nbsp;<span class="constructor">Some</span>&nbsp;n&nbsp;<span class="keyword">else</span>&nbsp;iter&nbsp;(n+1)&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;0&nbsp;tabs<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_view&nbsp;v&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>add_tab&nbsp;<span class="constructor">None</span>&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>grab_focus<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_tab_label&nbsp;c&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>tab_of_contents&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;n&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(w,_)&nbsp;=&nbsp;<span class="constructor">List</span>.nth&nbsp;tabs&nbsp;n&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w<span class="keywordsign">#</span>set_text&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;(label_of_contents&nbsp;c));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_label&nbsp;s<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_tab&nbsp;pos&nbsp;c&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;label&nbsp;=&nbsp;label_of_contents&nbsp;c&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;wlabel&nbsp;=&nbsp;<span class="constructor">GMisc</span>.label&nbsp;~text:&nbsp;label()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tabs&nbsp;&lt;-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">match</span>&nbsp;pos&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;tabs&nbsp;@&nbsp;[wlabel,c]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;pos&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;insert_in_pos&nbsp;(wlabel,c)&nbsp;pos&nbsp;tabs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;w&nbsp;=&nbsp;<span class="keyword">match</span>&nbsp;c&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;gv&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv<span class="keywordsign">#</span>set_on_label_change&nbsp;(self<span class="keywordsign">#</span>set_tab_label&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_view_destroy&nbsp;gv);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv<span class="keywordsign">#</span>box<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Notebook</span>&nbsp;gn&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>set_on_label_change&nbsp;(self<span class="keywordsign">#</span>set_tab_label&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_tab_destroy&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gn<span class="keywordsign">#</span>notebook<span class="keywordsign">#</span>coerce<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_label_change&nbsp;(self<span class="keywordsign">#</span>set_tab_label&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_tab_destroy&nbsp;c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>paned<span class="keywordsign">#</span>coerce<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;n&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;pos&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(nb<span class="keywordsign">#</span>append_page&nbsp;~tab_label:&nbsp;wlabel<span class="keywordsign">#</span>coerce&nbsp;w);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.length&nbsp;tabs&nbsp;-&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;pos&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(nb<span class="keywordsign">#</span>insert_page&nbsp;~pos&nbsp;~tab_label:&nbsp;wlabel<span class="keywordsign">#</span>coerce&nbsp;w);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>goto_page&nbsp;n;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents_grab_focus&nbsp;c<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;split_active_view&nbsp;orientation&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;topwin<span class="keywordsign">#</span>active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v1&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;self<span class="keywordsign">#</span>tab_of_contents&nbsp;(<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v1)&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;n&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(wl,_)&nbsp;=&nbsp;<span class="constructor">List</span>.nth&nbsp;tabs&nbsp;n&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v1<span class="keywordsign">#</span>dup&nbsp;topwin&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v2&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;gp&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;gui_paned&nbsp;topwin&nbsp;orientation&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_label_change&nbsp;(self<span class="keywordsign">#</span>set_tab_label&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_on_destroy&nbsp;(self<span class="keywordsign">#</span>on_tab_destroy&nbsp;(<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb<span class="keywordsign">#</span>remove_page&nbsp;n;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;m&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(wl,<span class="keywordsign">`</span><span class="constructor">View</span>&nbsp;v')&nbsp;::&nbsp;q&nbsp;<span class="keyword">when</span>&nbsp;n&nbsp;=&nbsp;m&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(wl,&nbsp;<span class="keywordsign">`</span><span class="constructor">Paned</span>&nbsp;gp)&nbsp;::&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;h&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;::&nbsp;(iter&nbsp;(m+1)&nbsp;q)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tabs&nbsp;&lt;-&nbsp;iter&nbsp;0&nbsp;tabs;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(nb<span class="keywordsign">#</span>insert_page&nbsp;~tab_label:&nbsp;wl<span class="keywordsign">#</span>coerce&nbsp;~pos:&nbsp;n&nbsp;gp<span class="keywordsign">#</span>paned<span class="keywordsign">#</span>coerce);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init_view&nbsp;topwin&nbsp;v2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gp<span class="keywordsign">#</span>set_children_views&nbsp;v1&nbsp;v2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>goto_page&nbsp;n;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v2<span class="keywordsign">#</span>grab_focus;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;grab_focus&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(_,c)&nbsp;=&nbsp;<span class="constructor">List</span>.nth&nbsp;tabs&nbsp;nb<span class="keywordsign">#</span>current_page&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents_grab_focus&nbsp;c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">with</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;cycle_tab&nbsp;forward&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;new_page&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((<span class="keyword">if</span>&nbsp;forward&nbsp;<span class="keyword">then</span>&nbsp;(+)&nbsp;<span class="keyword">else</span>&nbsp;(-))&nbsp;nb<span class="keywordsign">#</span>current_page&nbsp;1)&nbsp;<span class="keyword">mod</span>&nbsp;(<span class="constructor">List</span>.length&nbsp;tabs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>goto_page&nbsp;new_page<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;goto_page&nbsp;n&nbsp;=&nbsp;nb<span class="keywordsign">#</span>goto_page&nbsp;n<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_switch_page&nbsp;n&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_label&nbsp;(label_of_contents&nbsp;(snd&nbsp;(<span class="constructor">List</span>.nth&nbsp;tabs&nbsp;n)))<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">initializer</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore&nbsp;(nb<span class="keywordsign">#</span>connect<span class="keywordsign">#</span>after<span class="keywordsign">#</span>switch_page&nbsp;self<span class="keywordsign">#</span>on_switch_page);<br>
+&nbsp;&nbsp;<span class="keyword">end</span><br>
+<br>
+<span class="keyword">type</span>&nbsp;gui_windows&nbsp;=&nbsp;gui_window&nbsp;list<br>
+<br>
+<span class="keyword">let</span>&nbsp;gui_windows&nbsp;:&nbsp;gui_windows&nbsp;ref&nbsp;=&nbsp;ref&nbsp;[]<br>
+<br>
+<span class="keyword">let</span>&nbsp;active_window&nbsp;=&nbsp;ref&nbsp;(<span class="constructor">None</span>&nbsp;:&nbsp;gui_window&nbsp;option)<br>
+<br>
+<span class="keyword">let</span>&nbsp;on_last_window_close&nbsp;=&nbsp;ref&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;())<br>
+<br>
+<span class="keyword">let</span>&nbsp;on_window_destroy&nbsp;w&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;gui_windows&nbsp;:=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.filter&nbsp;(<span class="keyword">fun</span>&nbsp;w2&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Oo</span>.id&nbsp;w&nbsp;&lt;&gt;&nbsp;<span class="constructor">Oo</span>.id&nbsp;w2)&nbsp;!gui_windows;<br>
+&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;!gui_windows&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;!on_last_window_close&nbsp;()<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+<br>
+<span class="keyword">let</span>&nbsp;create_window&nbsp;?x&nbsp;?y&nbsp;?width&nbsp;?height&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;o&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;gui_window&nbsp;?x&nbsp;?y&nbsp;?width&nbsp;?height&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;gui_windows&nbsp;:=&nbsp;o&nbsp;::&nbsp;!gui_windows;<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;w&nbsp;=&nbsp;o<span class="keywordsign">#</span>window&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;ignore(w<span class="keywordsign">#</span>connect<span class="keywordsign">#</span>destroy&nbsp;(on_window_destroy&nbsp;o));<br>
+&nbsp;&nbsp;ignore(w<span class="keywordsign">#</span>event<span class="keywordsign">#</span>connect<span class="keywordsign">#</span>focus_in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;active_window&nbsp;:=&nbsp;<span class="constructor">Some</span>&nbsp;o;&nbsp;<span class="keyword">false</span>));<br>
+&nbsp;&nbsp;w<span class="keywordsign">#</span>show&nbsp;();<br>
+&nbsp;&nbsp;o<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;(<span class="constructor">Ed_commands</span>.unit_com&nbsp;<span class="string">"new_window"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;ignore(create_window&nbsp;())))<br>
+<br>
+<span class="keyword">let</span>&nbsp;in_new_window&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.argv_to_string&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;w&nbsp;=&nbsp;create_window&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;active_window&nbsp;:=&nbsp;<span class="constructor">Some</span>&nbsp;w;<br>
+&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.create_com&nbsp;<span class="string">"in_new_window"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~more:&nbsp;<span class="string">"command&nbsp;and&nbsp;arguments&nbsp;to&nbsp;launch&nbsp;with&nbsp;the&nbsp;new&nbsp;window&nbsp;active"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[|&nbsp;|]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in_new_window<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;about_dialog&nbsp;=&nbsp;ref&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;raise&nbsp;<span class="constructor">Not_found</span>)<br>
+<span class="keyword">let</span>&nbsp;show_about_dialog&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span>&nbsp;!about_dialog&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;dialog&nbsp;=&nbsp;<span class="constructor">GWindow</span>.about_dialog<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~authors:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s&nbsp;&lt;%s&gt;"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_messages</span>.software_author<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_messages</span>.software_author_mail)]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~name:&nbsp;<span class="constructor">Ed_messages</span>.software<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~version:&nbsp;<span class="constructor">Ed_installation</span>.version<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~website:&nbsp;<span class="string">"http://zoggy.github.com/chamo"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~website_label:&nbsp;<span class="string">"The&nbsp;Chamo&nbsp;website"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~position:&nbsp;<span class="keywordsign">`</span><span class="constructor">CENTER</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~copyright:&nbsp;<span class="constructor">Ed_messages</span>.software_copyright<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~logo:&nbsp;(<span class="constructor">GdkPixbuf</span>.from_file&nbsp;window_pixmap)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~modal:&nbsp;<span class="keyword">true</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;about_dialog&nbsp;:=&nbsp;dialog<span class="keywordsign">#</span>present&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(dialog<span class="keywordsign">#</span>connect<span class="keywordsign">#</span>response&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dialog<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>hide()));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dialog<span class="keywordsign">#</span>show&nbsp;()<br>
+;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;(<span class="constructor">Ed_commands</span>.unit_com&nbsp;<span class="string">"about"</span>&nbsp;show_about_dialog)<br>
+<br>
+<span class="keyword">let</span>&nbsp;on_active_window&nbsp;f&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;!active_window&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_hooks</span>.warning_message&nbsp;<span class="string">"no&nbsp;active&nbsp;window."</span>;<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;o&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;o<br>
+<br>
+<span class="keyword">let</span>&nbsp;on_active_window_args&nbsp;(f&nbsp;:&nbsp;gui_window&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;(<span class="keyword">match</span>&nbsp;!active_window&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_hooks</span>.warning_message&nbsp;<span class="string">"no&nbsp;active&nbsp;window."</span>;<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;o&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;o<br>
+&nbsp;&nbsp;)&nbsp;args<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&lt;=&nbsp;0&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;g&nbsp;w&nbsp;=&nbsp;w<span class="keywordsign">#</span>ask_open_file&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_active_window&nbsp;g&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;filename&nbsp;=&nbsp;args.(0)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;loc&nbsp;=&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;=&nbsp;1&nbsp;<span class="keyword">then</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keyword">else</span>&nbsp;<span class="constructor">Some</span>&nbsp;args.(1)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;attributes&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;loc&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;loc&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Some</span>&nbsp;[<span class="string">"location"</span>,&nbsp;loc]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;g&nbsp;w&nbsp;=&nbsp;w<span class="keywordsign">#</span>open_file&nbsp;?attributes&nbsp;filename&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_active_window&nbsp;g&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<span class="constructor">Ed_commands</span>.com_name&nbsp;=&nbsp;<span class="string">"open_file"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_args&nbsp;=&nbsp;[|&nbsp;<span class="string">"file"</span>&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_more_args&nbsp;=&nbsp;<span class="constructor">Some</span>&nbsp;<span class="string">"optional&nbsp;location"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_f&nbsp;=&nbsp;f;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;com<br>
+;;<br>
+<span class="keyword">let</span>&nbsp;open_file_with_encoding&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&lt;&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;g&nbsp;w&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;dir&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;w<span class="keywordsign">#</span>active_view&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Sys</span>.getcwd&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Filename</span>.dirname&nbsp;v<span class="keywordsign">#</span>filename<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.select_file&nbsp;w<span class="keywordsign">#</span>minibuffer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~title:&nbsp;<span class="string">"Open&nbsp;file&nbsp;with&nbsp;encoding"</span>&nbsp;(<span class="constructor">Glib</span>.<span class="constructor">Convert</span>.filename_to_utf8&nbsp;(dir^<span class="string">"/"</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.launch_command&nbsp;<span class="string">"open_file_with_encoding"</span>&nbsp;[|s|])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_active_window&nbsp;g&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">else</span>&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&lt;&nbsp;2&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;g&nbsp;w&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;s&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.launch_command&nbsp;<span class="string">"open_file_with_encoding"</span>&nbsp;[|&nbsp;args.(0);&nbsp;s&nbsp;|]&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.select_string&nbsp;w<span class="keywordsign">#</span>minibuffer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~title:&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"Open&nbsp;%s&nbsp;with&nbsp;encoding"</span>&nbsp;(<span class="constructor">Glib</span>.<span class="constructor">Convert</span>.filename_to_utf8&nbsp;args.(0)))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~choices:&nbsp;<span class="constructor">Ed_charsets</span>.charsets<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">""</span>&nbsp;f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_active_window&nbsp;g&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;g&nbsp;(w&nbsp;:&nbsp;gui_window)&nbsp;=&nbsp;w<span class="keywordsign">#</span>open_file&nbsp;~attributes:&nbsp;[<span class="string">"encoding"</span>,&nbsp;args.(1)]&nbsp;args.(0)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_active_window&nbsp;g&nbsp;()<br>
+;;<br>
+<br>
+<span class="constructor">Ed_commands</span>.register<br>
+&nbsp;&nbsp;{&nbsp;<span class="constructor">Ed_commands</span>.com_name&nbsp;=&nbsp;<span class="string">"open_file_with_encoding"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_args&nbsp;=&nbsp;[|&nbsp;<span class="string">"file"</span>;&nbsp;<span class="string">"encoding"</span>&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_more_args&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_f&nbsp;=&nbsp;open_file_with_encoding;<br>
+&nbsp;&nbsp;}<br>
+;;<br>
+<br>
+<br>
+<span class="keyword">let</span>&nbsp;prompt_command_history&nbsp;=&nbsp;<span class="constructor">Ed_minibuffer</span>.history&nbsp;()<br>
+<span class="keyword">let</span>&nbsp;prompt_command&nbsp;(w&nbsp;:&nbsp;gui_window)&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mb&nbsp;=&nbsp;w<span class="keywordsign">#</span>minibuffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;on_return&nbsp;com&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Ed_extern</span>.no_blanks&nbsp;com&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">""</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;com<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.select_string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;~history:&nbsp;prompt_command_history<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mb&nbsp;~title:&nbsp;<span class="string">"Command"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;~choices:&nbsp;(<span class="constructor">Ed_commands</span>.available_command_names&nbsp;())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_return<br>
+<br>
+<span class="keyword">let</span>&nbsp;unit_coms_on_active_window&nbsp;=<br>
+&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"close_active_window"</span>,&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>close)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"new_tab"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>new_tab)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"split_vertically"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>split_active_view&nbsp;<span class="keywordsign">`</span><span class="constructor">HORIZONTAL</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"split_horizontally"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>split_active_view&nbsp;<span class="keywordsign">`</span><span class="constructor">VERTICAL</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"destroy_active_view"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>destroy_active_view)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"cycle_tab"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>cycle_tab&nbsp;<span class="keyword">true</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"rev_cycle_tab"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>cycle_tab&nbsp;<span class="keyword">false</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"cycle_view"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>cycle_view)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"save_active_view"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>save_active_view)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"save_active_view_as"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>save_active_view_as)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"reload_active_view"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>reload_active_view)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"print_key_bindings"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>print_key_bindings)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"paste"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>paste)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"copy"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>copy)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"cut"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>cut)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"prompt_command"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;prompt_command&nbsp;w)&nbsp;;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;^&nbsp;<span class="string">"_eval"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>minibuffer<span class="keywordsign">#</span>eval)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;^&nbsp;<span class="string">"_complete"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>minibuffer<span class="keywordsign">#</span>complete)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;^&nbsp;<span class="string">"_history_previous"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>minibuffer<span class="keywordsign">#</span>history_previous)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;^&nbsp;<span class="string">"_history_next"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>minibuffer<span class="keywordsign">#</span>history_next)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;^&nbsp;<span class="string">"_exit"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>minibuffer<span class="keywordsign">#</span>exit&nbsp;())&nbsp;;<br>
+&nbsp;&nbsp;]<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">List</span>.iter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(name,&nbsp;f)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;(<span class="constructor">Ed_commands</span>.unit_com&nbsp;name&nbsp;(on_active_window&nbsp;f)))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit_coms_on_active_window<br>
+<br>
+<span class="keyword">let</span>&nbsp;args_coms_on_active_window&nbsp;=<br>
+&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"set_active_state_message"</span>,&nbsp;[|&nbsp;<span class="string">"message"</span>&nbsp;|],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;args&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>set_state_message&nbsp;(<span class="keyword">if</span>&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;&gt;&nbsp;0&nbsp;<span class="keyword">then</span>&nbsp;args.(0)&nbsp;<span class="keyword">else</span>&nbsp;<span class="string">""</span>))&nbsp;;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"set_active_action_message"</span>,&nbsp;[|&nbsp;<span class="string">"message"</span>&nbsp;|],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;args&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;w<span class="keywordsign">#</span>set_action_message&nbsp;(<span class="keyword">if</span>&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;&gt;&nbsp;0&nbsp;<span class="keyword">then</span>&nbsp;args.(0)&nbsp;<span class="keyword">else</span>&nbsp;<span class="string">""</span>));<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;^&nbsp;<span class="string">"_eval_custom_key_binding"</span>,&nbsp;[|&nbsp;<span class="string">"binding"</span>&nbsp;|],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;args&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;&gt;&nbsp;0&nbsp;<span class="keyword">then</span>&nbsp;w<span class="keywordsign">#</span>minibuffer<span class="keywordsign">#</span>eval_custom_key_binding&nbsp;args.(0))&nbsp;;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;^&nbsp;<span class="string">"_insert"</span>,&nbsp;[|&nbsp;<span class="string">"string"</span>&nbsp;|],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;w&nbsp;args&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;&gt;&nbsp;0&nbsp;<span class="keyword">then</span>&nbsp;w<span class="keywordsign">#</span>minibuffer<span class="keywordsign">#</span>insert&nbsp;args.(0))&nbsp;;<br>
+&nbsp;&nbsp;]<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">List</span>.iter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(name,args,&nbsp;f)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;(<span class="constructor">Ed_commands</span>.create_com&nbsp;name&nbsp;args&nbsp;(on_active_window_args&nbsp;f)))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args_coms_on_active_window<br>
+</code></body></html>

@@ -1,0 +1,522 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_mode_ocaml</title>
+</head>
+<body>
+<code class="code"></code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chamo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;(C)&nbsp;2003-2012&nbsp;Institut&nbsp;National&nbsp;de&nbsp;Recherche&nbsp;en&nbsp;Informatique&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;et&nbsp;en&nbsp;Automatique.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public&nbsp;License&nbsp;version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;along&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place,&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;02111-1307&nbsp;&nbsp;USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Contact:&nbsp;Maxence.Guesdon@inria.fr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+</code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** OCaml sourceview mode. *)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.read&nbsp;()<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.write&nbsp;()<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.local_read&nbsp;()<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.local_write&nbsp;()<br>
+<br>
+<span class="keyword">let</span>&nbsp;mode_name&nbsp;=&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.mode_name<br>
+<br>
+<span class="keyword">let</span>&nbsp;remove_first_blanks&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">String</span>.length&nbsp;s&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;first_no_blank&nbsp;p&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;p&nbsp;&lt;&nbsp;len&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;s.[p]&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'&nbsp;'</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="string">'\t'</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;first_no_blank&nbsp;(p+1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;p<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;<span class="constructor">Not_found</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;p&nbsp;=&nbsp;first_no_blank&nbsp;0&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">String</span>.sub&nbsp;s&nbsp;p&nbsp;(len&nbsp;-&nbsp;p)<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">""</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;indent_line&nbsp;(v&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.sourceview)&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;line&nbsp;=&nbsp;v<span class="keywordsign">#</span>current_line&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;b&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>buffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pos&nbsp;=&nbsp;b<span class="keywordsign">#</span>get_iter&nbsp;<span class="keywordsign">`</span><span class="constructor">INSERT</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;cnum&nbsp;=&nbsp;pos<span class="keywordsign">#</span>line_offset&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;bol&nbsp;=&nbsp;b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">LINE</span>&nbsp;line)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;eol&nbsp;=&nbsp;bol<span class="keywordsign">#</span>forward_to_line_end&nbsp;<span class="keyword">in</span><br>
+<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;code&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>of_utf8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>mode_from_display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b<span class="keywordsign">#</span>get_text&nbsp;~start:&nbsp;b<span class="keywordsign">#</span>start_iter&nbsp;~stop:&nbsp;eol&nbsp;()))<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;indentations&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Ed_ocaml_lexer</span>.get_lines_indentation&nbsp;code&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Failure</span>&nbsp;(e,(start,stop),l)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;err&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"chars&nbsp;%d-%d:&nbsp;%s"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;stop&nbsp;(<span class="constructor">Ed_ocaml_lexer</span>.report_error&nbsp;e)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;err);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Success</span>&nbsp;l&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">List</span>.length&nbsp;indentations&nbsp;&lt;=&nbsp;line&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">List</span>.rev&nbsp;indentations&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;::&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(<span class="constructor">Some</span>&nbsp;n)&nbsp;::&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;codeline&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>of_utf8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>mode_from_display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b<span class="keywordsign">#</span>get_text&nbsp;~start:&nbsp;bol&nbsp;~stop:&nbsp;eol&nbsp;()))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">String</span>.length&nbsp;codeline&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;new_codeline&nbsp;=&nbsp;remove_first_blanks&nbsp;codeline&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len2&nbsp;=&nbsp;<span class="constructor">String</span>.length&nbsp;new_codeline&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;user_pos&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;beg&nbsp;=&nbsp;len&nbsp;-&nbsp;len2&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;cnum&nbsp;&lt;&nbsp;beg&nbsp;<span class="keyword">then</span>&nbsp;0&nbsp;<span class="keyword">else</span>&nbsp;cnum&nbsp;-&nbsp;beg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;new_codeline&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s%s"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">String</span>.make&nbsp;n&nbsp;<span class="string">'&nbsp;'</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_codeline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;new_codeline&nbsp;&lt;&gt;&nbsp;codeline&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span class="keywordsign">#</span>delete&nbsp;~start:&nbsp;bol&nbsp;~stop:&nbsp;eol;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pos&nbsp;=&nbsp;b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">LINE</span>&nbsp;line)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>place_cursor&nbsp;pos;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span class="keywordsign">#</span>insert&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>mode_to_display&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>to_utf8&nbsp;new_codeline));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pos&nbsp;=&nbsp;b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">LINECHAR</span>&nbsp;(line,n+user_pos))&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>place_cursor&nbsp;pos<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+<br>
+<span class="keyword">let</span>&nbsp;indent_buffer&nbsp;(v&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.sourceview)&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;current_line&nbsp;=&nbsp;v<span class="keywordsign">#</span>current_line&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;b&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>buffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;code&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>of_utf8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>mode_from_display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b<span class="keywordsign">#</span>get_text&nbsp;~start:&nbsp;b<span class="keywordsign">#</span>start_iter&nbsp;~stop:&nbsp;b<span class="keywordsign">#</span>end_iter&nbsp;()))<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Ed_ocaml_lexer</span>.get_lines_indentation&nbsp;code&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Failure</span>&nbsp;(e,(start,stop),_)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;err&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"chars&nbsp;%d-%d:&nbsp;%s"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;stop&nbsp;(<span class="constructor">Ed_ocaml_lexer</span>.report_error&nbsp;e)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;err)<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Success</span>&nbsp;indentations&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;lines&nbsp;=&nbsp;<span class="constructor">Ed_extern</span>.split_string&nbsp;~keep_empty:&nbsp;<span class="keyword">true</span>&nbsp;code&nbsp;[<span class="string">'\n'</span>]&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;nb_lines&nbsp;=&nbsp;<span class="constructor">List</span>.length&nbsp;lines&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;nb_indentations&nbsp;=&nbsp;<span class="constructor">List</span>.length&nbsp;indentations&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;indentations&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;nb_indentations&nbsp;&lt;&nbsp;nb_lines&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indentations&nbsp;@<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Ed_extern</span>.make_list&nbsp;(nb_lines&nbsp;-&nbsp;nb_indentations)&nbsp;<span class="constructor">None</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indentations<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span class="keywordsign">#</span>delete&nbsp;~start:&nbsp;b<span class="keywordsign">#</span>start_iter&nbsp;~stop:&nbsp;b<span class="keywordsign">#</span>end_iter;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>place_cursor&nbsp;b<span class="keywordsign">#</span>start_iter;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.iter2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;line&nbsp;nopt&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;line&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;nopt&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;line^<span class="string">"\n"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;n&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;s&nbsp;=&nbsp;remove_first_blanks&nbsp;line&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s%s\n"</span>&nbsp;(<span class="constructor">String</span>.make&nbsp;n&nbsp;<span class="string">'&nbsp;'</span>)&nbsp;s<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span class="keywordsign">#</span>insert&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>mode_to_display&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>to_utf8&nbsp;line))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indentations;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>place_cursor&nbsp;(b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">LINE</span>&nbsp;current_line));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;message&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%d&nbsp;lines&nbsp;indented&nbsp;/&nbsp;%d&nbsp;lines&nbsp;in&nbsp;buffer"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb_indentations&nbsp;nb_lines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;message)<br>
+<br>
+<span class="keyword">let</span>&nbsp;switch_file&nbsp;(v:<span class="constructor">Ed_sourceview</span>.sourceview)&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>filename&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;filename2&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;ext&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Filename</span>.check_suffix&nbsp;f&nbsp;<span class="string">".ml"</span>&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"mli"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span>&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Filename</span>.check_suffix&nbsp;f&nbsp;<span class="string">".mli"</span>&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ml"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;<span class="constructor">Not_found</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s.%s"</span>&nbsp;(<span class="constructor">Filename</span>.chop_extension&nbsp;f)&nbsp;ext<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"open_file&nbsp;%s"</span>&nbsp;(<span class="constructor">Filename</span>.quote&nbsp;filename2)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;com<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+<br>
+<span class="keyword">let</span>&nbsp;__alpha__&nbsp;=&nbsp;1;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;annot_file_build_dir_max_parent_level&nbsp;=&nbsp;ref&nbsp;3;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;find_annot_file&nbsp;file&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;annot_file&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Filename</span>.check_suffix&nbsp;file&nbsp;<span class="string">".ml"</span>&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Filename</span>.chop_extension&nbsp;file)^<span class="string">".annot"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;<span class="constructor">Not_found</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">with</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;failwith&nbsp;<span class="string">"File&nbsp;has&nbsp;no&nbsp;.ml&nbsp;extension"</span><br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Sys</span>.file_exists&nbsp;annot_file&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;annot_file<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;annot_file&nbsp;=&nbsp;<span class="constructor">Filename</span>.basename&nbsp;annot_file&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;n&nbsp;up_path&nbsp;down_path&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;n&nbsp;&lt;&nbsp;!annot_file_build_dir_max_parent_level&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;dir&nbsp;=&nbsp;<span class="constructor">Filename</span>.concat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Filename</span>.concat&nbsp;up_path&nbsp;<span class="string">"_build"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;down_path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;=&nbsp;<span class="constructor">Filename</span>.concat&nbsp;dir&nbsp;annot_file&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Sys</span>.file_exists&nbsp;f&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;(n+1)&nbsp;(<span class="constructor">Filename</span>.dirname&nbsp;up_path)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Filename</span>.concat&nbsp;(<span class="constructor">Filename</span>.basename&nbsp;up_path)&nbsp;down_path)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;failwith&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"No&nbsp;%s&nbsp;file&nbsp;found."</span>&nbsp;annot_file)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;0&nbsp;(<span class="constructor">Filename</span>.dirname&nbsp;file)&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;load_annot_tree&nbsp;ml_file&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;annot_file&nbsp;=&nbsp;find_annot_file&nbsp;ml_file&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Ed_misc</span>.date_of_file&nbsp;ml_file,&nbsp;<span class="constructor">Ed_misc</span>.date_of_file&nbsp;annot_file&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>,&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;failwith&nbsp;(<span class="string">"Could&nbsp;not&nbsp;access&nbsp;"</span>^ml_file)<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;_,&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;failwith&nbsp;(<span class="string">"Could&nbsp;not&nbsp;access&nbsp;"</span>^annot_file)<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;d1,&nbsp;<span class="constructor">Some</span>&nbsp;d2&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;d1&nbsp;&gt;&nbsp;d2&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;failwith<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"Source&nbsp;was&nbsp;modified&nbsp;since&nbsp;%s&nbsp;was&nbsp;created"</span>&nbsp;annot_file)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;annot_string&nbsp;=&nbsp;<span class="constructor">Ed_extern</span>.string_of_file&nbsp;annot_file&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Ed_annot</span>.build_tree&nbsp;annot_string&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;failwith&nbsp;<span class="string">"No&nbsp;tree&nbsp;built"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;t<br>
+;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;display_annot&nbsp;?(id_jump=<span class="keyword">false</span>)&nbsp;?(copy=<span class="keyword">false</span>)&nbsp;kind&nbsp;(v:<span class="constructor">Ed_sourceview</span>.sourceview)&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>filename&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;t&nbsp;=&nbsp;load_annot_tree&nbsp;f&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;loc_start&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(start,_)&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>buffer<span class="keywordsign">#</span>selection_bounds&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;beware&nbsp;of&nbsp;the&nbsp;possible&nbsp;offset&nbsp;between&nbsp;file&nbsp;contents&nbsp;and&nbsp;display&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_utf8</span>.utf8_string_length<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>mode_from_display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>buffer<span class="keywordsign">#</span>get_text&nbsp;~start:&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>buffer<span class="keywordsign">#</span>start_iter&nbsp;~stop:&nbsp;start&nbsp;()))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Ed_annot</span>.search_in_tree&nbsp;kind&nbsp;loc_start&nbsp;t&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;failwith&nbsp;<span class="string">"No&nbsp;annotation&nbsp;found"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(left,right,k)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(left,&nbsp;right,&nbsp;message)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;k&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_annot</span>.<span class="constructor">Type</span>&nbsp;f&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(left,&nbsp;right,&nbsp;<span class="constructor">Lazy</span>.force&nbsp;f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ed_annot</span>.<span class="constructor">Ident</span>&nbsp;(<span class="constructor">Ed_annot</span>.<span class="constructor">Def</span>&nbsp;id)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ed_annot</span>.<span class="constructor">Ident</span>&nbsp;(<span class="constructor">Ed_annot</span>.<span class="constructor">Ext_ref</span>&nbsp;id)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(left,&nbsp;right,&nbsp;id)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ed_annot</span>.<span class="constructor">Ident</span>&nbsp;(<span class="constructor">Ed_annot</span>.<span class="constructor">Int_ref</span>&nbsp;(id,&nbsp;(start,&nbsp;stop)))&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;s&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"local&nbsp;def:&nbsp;%s"</span>&nbsp;id&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;id_jump&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(start,&nbsp;stop,&nbsp;s)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left,&nbsp;right,&nbsp;s)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ed_annot</span>.<span class="constructor">Call</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Tail</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(left,&nbsp;right,&nbsp;<span class="string">"tail"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ed_annot</span>.<span class="constructor">Call</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Stack</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(left,&nbsp;right,&nbsp;<span class="string">"stack"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;message&nbsp;=&nbsp;<span class="constructor">Ed_misc</span>.to_utf8&nbsp;message&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;copy&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">GMain</span>.clipboard<span class="keywordsign">#</span>set_text&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>select_range_in_file&nbsp;~jump:&nbsp;<span class="keywordsign">`</span><span class="constructor">Left</span>&nbsp;~left&nbsp;~right&nbsp;();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message&nbsp;&nbsp;message;<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Failure</span>&nbsp;s<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Sys_error</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message&nbsp;s<br>
+;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;call_display_tag_name&nbsp;=&nbsp;mode_name^<span class="string">"_call"</span>;;<br>
+<span class="keyword">let</span>&nbsp;create_call_display_tag&nbsp;(buf&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.my_buffer)&nbsp;=<br>
+&nbsp;&nbsp;buf<span class="keywordsign">#</span>create_tag<br>
+&nbsp;&nbsp;&nbsp;&nbsp;~name:&nbsp;call_display_tag_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">FOREGROUND</span>&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.stack_call_fgcolor<span class="keywordsign">#</span>get&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">BACKGROUND</span>&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.stack_call_bgcolor<span class="keywordsign">#</span>get&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;show_hide_call_annots&nbsp;(v:<span class="constructor">Ed_sourceview</span>.sourceview)&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>filename&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;buf&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>buffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;tt&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;<span class="constructor">GText</span>.tag_table&nbsp;buf<span class="keywordsign">#</span>tag_table&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;tt<span class="keywordsign">#</span>lookup&nbsp;call_display_tag_name&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;t&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buf<span class="keywordsign">#</span>remove_tag_by_name&nbsp;call_display_tag_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~start:&nbsp;buf<span class="keywordsign">#</span>start_iter&nbsp;~stop:&nbsp;buf<span class="keywordsign">#</span>end_iter;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tt<span class="keywordsign">#</span>remove&nbsp;t;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;<span class="string">"Calls&nbsp;on&nbsp;stack&nbsp;hidden"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(create_call_display_tag&nbsp;buf);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;t&nbsp;=&nbsp;load_annot_tree&nbsp;f&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;acc&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left,&nbsp;right,&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="constructor">Ed_annot</span>.<span class="constructor">Call</span>&nbsp;k))&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(left,&nbsp;right,&nbsp;k)&nbsp;::&nbsp;acc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;acc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;calls&nbsp;=&nbsp;<span class="constructor">Ed_annot</span>.fold&nbsp;f&nbsp;[]&nbsp;t&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;display_call&nbsp;n&nbsp;(left,&nbsp;right,&nbsp;kind)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;kind&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Tail</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;n<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Stack</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(left,&nbsp;right)&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>range_from_range_in_file&nbsp;~left&nbsp;~right&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;start&nbsp;=&nbsp;buf<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;left)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;stop&nbsp;=&nbsp;buf<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;right)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buf<span class="keywordsign">#</span>apply_tag_by_name&nbsp;call_display_tag_name&nbsp;~start&nbsp;~stop;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n+1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;n&nbsp;=&nbsp;<span class="constructor">List</span>.fold_left&nbsp;display_call&nbsp;0&nbsp;calls&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%d&nbsp;calls&nbsp;on&nbsp;stack&nbsp;showed"</span>&nbsp;n))<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Failure</span>&nbsp;s<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Sys_error</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message&nbsp;s<br>
+;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;display_type_annot&nbsp;=&nbsp;display_annot&nbsp;<span class="keywordsign">`</span><span class="constructor">Type</span>;;<br>
+<span class="keyword">let</span>&nbsp;copy_type_annot&nbsp;=&nbsp;display_annot&nbsp;~copy:&nbsp;<span class="keyword">true</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Type</span>;;<br>
+<span class="keyword">let</span>&nbsp;display_call_annot&nbsp;=&nbsp;display_annot&nbsp;<span class="keywordsign">`</span><span class="constructor">Call</span>;;<br>
+<span class="keyword">let</span>&nbsp;display_ident_annot&nbsp;=&nbsp;display_annot&nbsp;<span class="keywordsign">`</span><span class="constructor">Ident</span>;;<br>
+<span class="keyword">let</span>&nbsp;jump_to_local_def&nbsp;=&nbsp;display_annot&nbsp;~id_jump:&nbsp;<span class="keyword">true</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Ident</span>;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;expand_external_idents&nbsp;(v:<span class="constructor">Ed_sourceview</span>.sourceview)&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>filename&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;t&nbsp;=&nbsp;load_annot_tree&nbsp;f&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;from_pervasives&nbsp;s&nbsp;=&nbsp;<span class="constructor">Ed_misc</span>.is_prefix&nbsp;s&nbsp;<span class="string">"Pervasives."</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;acc&nbsp;(left,&nbsp;right,&nbsp;kind)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;kind&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;(<span class="constructor">Ed_annot</span>.<span class="constructor">Ident</span>&nbsp;(<span class="constructor">Ed_annot</span>.<span class="constructor">Ext_ref</span>&nbsp;ext_ident))&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;from_pervasives&nbsp;ext_ident&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left,&nbsp;right,&nbsp;ext_ident)&nbsp;::&nbsp;acc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;acc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;ext_refs&nbsp;=&nbsp;<span class="constructor">List</span>.sort<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(l1,&nbsp;_,&nbsp;_)&nbsp;(l2,&nbsp;_,&nbsp;_)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Pervasives</span>.compare&nbsp;l1&nbsp;l2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((<span class="constructor">Ed_annot</span>.fold&nbsp;f&nbsp;[]&nbsp;t))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;b&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>buffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mb&nbsp;=&nbsp;v<span class="keywordsign">#</span>minibuffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;title&nbsp;s1&nbsp;s2&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Replace&nbsp;%s&nbsp;by&nbsp;%s&nbsp;?&nbsp;(y/n/!)"</span>&nbsp;s1&nbsp;s2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;nb_replaced&nbsp;=&nbsp;ref&nbsp;0&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;interactive&nbsp;offset&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;mb<span class="keywordsign">#</span>set_active&nbsp;<span class="keyword">false</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(left,&nbsp;right,&nbsp;ext_id)&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;left&nbsp;=&nbsp;offset&nbsp;+&nbsp;left&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;right&nbsp;=&nbsp;offset&nbsp;+&nbsp;right&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(b_left,&nbsp;b_right)&nbsp;=&nbsp;v<span class="keywordsign">#</span>file<span class="keywordsign">#</span>range_from_range_in_file&nbsp;~left&nbsp;~right&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;current&nbsp;=&nbsp;b<span class="keywordsign">#</span>get_text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~start:&nbsp;(b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;b_left))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~stop:&nbsp;(b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;b_right))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;current&nbsp;=&nbsp;ext_id&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;interactive&nbsp;offset&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;start&nbsp;=&nbsp;b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;b_left)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span class="keywordsign">#</span>select_range&nbsp;start&nbsp;(b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;b_right));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(v<span class="keywordsign">#</span>source_view<span class="keywordsign">#</span>scroll_to_iter&nbsp;start);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;replace&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<span class="keywordsign">#</span>place_cursor&nbsp;(b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;b_left));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span class="keywordsign">#</span>delete<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~start:&nbsp;(b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;b_left))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~stop:&nbsp;(b<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;b_right));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<span class="keywordsign">#</span>insert&nbsp;ext_id;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;incr&nbsp;nb_replaced;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;new_offset&nbsp;=&nbsp;offset&nbsp;-&nbsp;(right&nbsp;-&nbsp;left)&nbsp;+&nbsp;(<span class="constructor">String</span>.length&nbsp;ext_id)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;interactive&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f_yes&nbsp;()&nbsp;=&nbsp;replace&nbsp;();&nbsp;iter&nbsp;interactive&nbsp;new_offset&nbsp;q&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f_no&nbsp;()&nbsp;=&nbsp;iter&nbsp;interactive&nbsp;offset&nbsp;q&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f_bang&nbsp;()&nbsp;=&nbsp;replace&nbsp;();&nbsp;iter&nbsp;<span class="keyword">false</span>&nbsp;new_offset&nbsp;q&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mb<span class="keywordsign">#</span>clear;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mb<span class="keywordsign">#</span>set_more_key_bindings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;[[],&nbsp;<span class="constructor">GdkKeysyms</span>._y],&nbsp;f_yes&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[],&nbsp;<span class="constructor">GdkKeysyms</span>._n],&nbsp;f_no&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[],&nbsp;<span class="constructor">GdkKeysyms</span>._exclam],&nbsp;f_bang&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;title&nbsp;=&nbsp;title&nbsp;current&nbsp;ext_id&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mb<span class="keywordsign">#</span>set_text&nbsp;~fixed:&nbsp;title&nbsp;<span class="string">""</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;not&nbsp;mb<span class="keywordsign">#</span>active&nbsp;<span class="keyword">then</span>&nbsp;(mb<span class="keywordsign">#</span>set_active&nbsp;<span class="keyword">true</span>;&nbsp;mb<span class="keywordsign">#</span>wait);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(replace&nbsp;();&nbsp;iter&nbsp;interactive&nbsp;new_offset&nbsp;q)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;<span class="keyword">true</span>&nbsp;0&nbsp;ext_refs&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%d&nbsp;ident(s)&nbsp;replaced."</span>&nbsp;!nb_replaced))<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Failure</span>&nbsp;s<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Sys_error</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.set_active_action_message&nbsp;s<br>
+;;<br>
+<br>
+<span class="keyword">let</span>&nbsp;coms&nbsp;=&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"indent_line"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;indent_line&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"indent_buffer"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;indent_buffer&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"switch_file"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;switch_file&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"display_type_annot"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;display_type_annot&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"copy_type_annot"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;copy_type_annot&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"display_call_annot"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;display_call_annot&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"display_ident_annot"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;display_ident_annot&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"jump_to_local_def"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;jump_to_local_def&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"show_stack_calls"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;show_hide_call_annots;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"expand_ext_idents"</span>,&nbsp;[|&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;expand_external_idents;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"build"</span>,&nbsp;[|&nbsp;<span class="string">"file"</span>&nbsp;|],&nbsp;<span class="constructor">None</span>,&nbsp;<span class="constructor">Ed_ocamlbuild</span>.build&nbsp;;<br>
+]<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">List</span>.iter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(name,&nbsp;args,&nbsp;more,&nbsp;f)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_sourceview</span>.register_com<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~prefix:&nbsp;mode_name&nbsp;name&nbsp;args&nbsp;?more&nbsp;f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;coms<br>
+<br>
+<span class="keyword">class</span>&nbsp;mode&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">inherit</span>&nbsp;<span class="constructor">Ed_sourceview</span>.empty_mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;name&nbsp;=&nbsp;mode_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;key_bindings&nbsp;:&nbsp;(<span class="constructor">Okey</span>.keyhit_state&nbsp;*&nbsp;string)&nbsp;list&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.key_bindings<span class="keywordsign">#</span>get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;menus&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">GToolbox</span>.menu_entry&nbsp;list)&nbsp;list&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"OCaml"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Switch&nbsp;file"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_switch_file"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">S</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Indent&nbsp;line"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_indent_line"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Indent&nbsp;buffer"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_indent_buffer"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">S</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Run&nbsp;ocamlbuild"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_build"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">S</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Display&nbsp;type&nbsp;from&nbsp;.annot&nbsp;file"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_display_type_annot"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Display&nbsp;call&nbsp;kind&nbsp;from&nbsp;.annot&nbsp;file"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_display_call_annot"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Display&nbsp;ident&nbsp;info&nbsp;from&nbsp;.annot&nbsp;file"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_display_ident_annot"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Jump&nbsp;to&nbsp;local&nbsp;def&nbsp;(from&nbsp;.annot&nbsp;file)"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_jump_to_local_def"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Show&nbsp;stack&nbsp;calls&nbsp;(from&nbsp;.annot&nbsp;file)"</span>,&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"ocaml_show_stack_calls"</span>)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;word_re&nbsp;=&nbsp;<span class="string">"[a-zA-Z0-9_']+"</span><br>
+&nbsp;&nbsp;<span class="keyword">end</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;mode&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;mode;;<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_sourceview</span>.register_mode&nbsp;mode;;<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_commands</span>.register_after<br>
+&nbsp;&nbsp;{&nbsp;<span class="constructor">Ed_commands</span>.com_name&nbsp;=&nbsp;<span class="constructor">Ed_constant</span>.com_on_exit&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.local_write&nbsp;())&nbsp;;<br>
+&nbsp;&nbsp;};;<br>
+<span class="constructor">List</span>.iter<br>
+&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(f,&nbsp;com)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Hashtbl</span>.add&nbsp;<span class="constructor">Ed_ocamlbuild</span>.commands&nbsp;f&nbsp;com)<br>
+&nbsp;&nbsp;<span class="constructor">Ed_mode_ocaml_rc</span>.ocamlbuild_commands<span class="keywordsign">#</span>get<br>
+;;</code></body></html>

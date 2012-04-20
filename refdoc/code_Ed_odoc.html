@@ -1,0 +1,356 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_odoc</title>
+</head>
+<body>
+<code class="code"></code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chamo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;(C)&nbsp;2003-2012&nbsp;Institut&nbsp;National&nbsp;de&nbsp;Recherche&nbsp;en&nbsp;Informatique&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;et&nbsp;en&nbsp;Automatique.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public&nbsp;License&nbsp;version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;along&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place,&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;02111-1307&nbsp;&nbsp;USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Contact:&nbsp;Maxence.Guesdon@inria.fr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+</code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="keyword">open</span>&nbsp;<span class="constructor">Odoc_info</span><br>
+<span class="keyword">open</span>&nbsp;<span class="constructor">Module</span><br>
+<span class="keyword">open</span>&nbsp;<span class="constructor">Class</span><br>
+<span class="keyword">open</span>&nbsp;<span class="constructor">Value</span><br>
+<span class="keyword">open</span>&nbsp;<span class="constructor">Type</span><br>
+<span class="keyword">open</span>&nbsp;<span class="constructor">Exception</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_odoc_rc</span>.read&nbsp;()<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_odoc_rc</span>.write&nbsp;()<br>
+<br>
+<span class="keyword">type</span>&nbsp;loc_info&nbsp;=&nbsp;<span class="constructor">Odoc_info</span>.location<br>
+<span class="keyword">type</span>&nbsp;kind&nbsp;=&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">Module</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Module_type</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Class</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Class_type</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Value</span>&nbsp;<span class="keyword">of</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Method</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Att</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Type</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Exception</span><br>
+]<br>
+<span class="keyword">type</span>&nbsp;data&nbsp;=&nbsp;string&nbsp;*&nbsp;kind<br>
+<br>
+<span class="keyword">type</span>&nbsp;tree&nbsp;=<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;roots&nbsp;:&nbsp;data&nbsp;list;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;get_loc&nbsp;:&nbsp;data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;loc_info&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;get_subs&nbsp;:&nbsp;data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;data&nbsp;list&nbsp;;<br>
+&nbsp;&nbsp;}<br>
+<br>
+<span class="keyword">let</span>&nbsp;fill_data&nbsp;modules&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;data&nbsp;:&nbsp;(data,&nbsp;data&nbsp;list)&nbsp;<span class="constructor">Hashtbl</span>.t&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.create&nbsp;1223&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;data_locs&nbsp;:&nbsp;(data,&nbsp;loc_info)&nbsp;<span class="constructor">Hashtbl</span>.t&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.create&nbsp;1223&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;add_loc&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.add&nbsp;data_locs&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter_mod_eles&nbsp;acc&nbsp;father&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">List</span>.rev&nbsp;acc<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;h&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;h&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Element_module</span>&nbsp;m&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(m.m_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Module</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;m.m_loc;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;subs&nbsp;=&nbsp;iter_mod_eles&nbsp;[]&nbsp;d&nbsp;(module_elements&nbsp;m)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Hashtbl</span>.add&nbsp;data&nbsp;d&nbsp;subs;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Element_module_type</span>&nbsp;m&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(m.mt_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Module_type</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;m.mt_loc;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;subs&nbsp;=&nbsp;iter_mod_eles&nbsp;[]&nbsp;d&nbsp;(module_type_elements&nbsp;m)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Hashtbl</span>.add&nbsp;data&nbsp;d&nbsp;subs;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Element_included_module</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Element_class</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(c.cl_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Class</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;c.cl_loc;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;subs&nbsp;=&nbsp;iter_class_eles&nbsp;[]&nbsp;d&nbsp;(class_elements&nbsp;c)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Hashtbl</span>.add&nbsp;data&nbsp;d&nbsp;subs;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Element_class_type</span>&nbsp;c&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(c.clt_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Class_type</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;c.clt_loc;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;subs&nbsp;=&nbsp;iter_class_eles&nbsp;[]&nbsp;d&nbsp;(class_type_elements&nbsp;c)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Hashtbl</span>.add&nbsp;data&nbsp;d&nbsp;subs;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Element_value</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(v.val_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Value</span>&nbsp;(v.val_parameters&nbsp;&lt;&gt;&nbsp;[]))&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;v.val_loc&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Element_exception</span>&nbsp;e&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(e.ex_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Exception</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;e.ex_loc&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Element_type</span>&nbsp;t&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(t.ty_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Type</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;t.ty_loc&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Element_module_comment</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;d&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter_mod_eles&nbsp;acc&nbsp;father&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter_mod_eles&nbsp;(d::acc)&nbsp;father&nbsp;q<br>
+&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;iter_class_eles&nbsp;acc&nbsp;father&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">List</span>.rev&nbsp;acc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;h&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;h&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Class_attribute</span>&nbsp;a&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(a.att_value.val_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Att</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;a.att_value.val_loc&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Class_method</span>&nbsp;m&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(m.met_value.val_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Method</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;m.met_value.val_loc&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Class_comment</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;d&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter_class_eles&nbsp;acc&nbsp;father&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;iter_class_eles&nbsp;(d::acc)&nbsp;father&nbsp;q<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;add_root&nbsp;m&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;(m.m_name,&nbsp;<span class="keywordsign">`</span><span class="constructor">Module</span>)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;add_loc&nbsp;d&nbsp;m.m_loc;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;subs&nbsp;=&nbsp;iter_mod_eles&nbsp;[]&nbsp;d&nbsp;(module_elements&nbsp;m)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Hashtbl</span>.add&nbsp;data&nbsp;d&nbsp;subs;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;d<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;roots&nbsp;=&nbsp;<span class="constructor">List</span>.map&nbsp;add_root&nbsp;modules&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;get_subs&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;(_,&nbsp;<span class="keywordsign">`</span><span class="constructor">Value</span>&nbsp;_)<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(_,&nbsp;<span class="keywordsign">`</span><span class="constructor">Type</span>)<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(_,&nbsp;<span class="keywordsign">`</span><span class="constructor">Exception</span>)<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(_,&nbsp;<span class="keywordsign">`</span><span class="constructor">Att</span>)<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(_,&nbsp;<span class="keywordsign">`</span><span class="constructor">Method</span>)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;d&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Hashtbl</span>.find&nbsp;data&nbsp;d<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;{&nbsp;roots&nbsp;=&nbsp;roots&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;get_loc&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.find&nbsp;data_locs&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;get_subs&nbsp;=&nbsp;get_subs;<br>
+&nbsp;&nbsp;}<br>
+<br>
+<span class="keyword">let</span>&nbsp;pix_size&nbsp;=&nbsp;16<br>
+<span class="keyword">let</span>&nbsp;create_pix&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;file&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">GdkPixbuf</span>.from_file_at_size&nbsp;file&nbsp;~width:&nbsp;pix_size&nbsp;~height:&nbsp;pix_size<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">fun</span>&nbsp;cp&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span>&nbsp;f&nbsp;cp<span class="keywordsign">#</span>get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">with</span>&nbsp;e&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;prerr_endline&nbsp;(<span class="constructor">Printexc</span>.to_string&nbsp;e);&nbsp;f&nbsp;cp<span class="keywordsign">#</span>get_default<br>
+<br>
+<span class="keyword">class</span>&nbsp;view&nbsp;(topwin&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.topwin)&nbsp;(file&nbsp;:&nbsp;string)&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pix_file&nbsp;=&nbsp;create_pix&nbsp;<span class="constructor">Ed_odoc_rc</span>.pix_file&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pix_comp&nbsp;=&nbsp;create_pix&nbsp;<span class="constructor">Ed_odoc_rc</span>.pix_comp&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pix_other&nbsp;=&nbsp;create_pix&nbsp;<span class="constructor">Ed_odoc_rc</span>.pix_other&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pix_type&nbsp;=&nbsp;create_pix&nbsp;<span class="constructor">Ed_odoc_rc</span>.pix_type&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pix_fun&nbsp;=&nbsp;create_pix&nbsp;<span class="constructor">Ed_odoc_rc</span>.pix_fun&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pix_val&nbsp;=&nbsp;create_pix&nbsp;<span class="constructor">Ed_odoc_rc</span>.pix_value&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;data&nbsp;=&nbsp;ref&nbsp;(fill_data&nbsp;(<span class="constructor">Odoc_info</span>.load_modules&nbsp;file))&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;vbox&nbsp;=&nbsp;<span class="constructor">GPack</span>.vbox&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f_children&nbsp;d&nbsp;=&nbsp;!data.get_subs&nbsp;d&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f_roots&nbsp;()&nbsp;=&nbsp;!data.roots&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f_contents&nbsp;ele&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(pix,&nbsp;s)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;ele&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Module</span>)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pix&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Name</span>.simple&nbsp;name&nbsp;=&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">then</span>&nbsp;pix_file&nbsp;<span class="keyword">else</span>&nbsp;pix_comp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(pix,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Module_type</span>)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(pix_type,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Class</span>)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(pix_comp,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Class_type</span>)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(pix_type,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Value</span>&nbsp;has_params)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pix&nbsp;=&nbsp;<span class="keyword">if</span>&nbsp;has_params&nbsp;<span class="keyword">then</span>&nbsp;pix_fun&nbsp;<span class="keyword">else</span>&nbsp;pix_val&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(pix,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Method</span>)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(pix_fun,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Att</span>)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(pix_val,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Exception</span>)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(pix_other,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(name,<span class="keywordsign">`</span><span class="constructor">Type</span>)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(pix_type,&nbsp;name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="keywordsign">`</span><span class="constructor">Pixmap</span>&nbsp;(<span class="constructor">Some</span>&nbsp;pix);&nbsp;<span class="keywordsign">`</span><span class="constructor">String</span>&nbsp;(<span class="constructor">Ed_misc</span>.to_utf8&nbsp;(<span class="constructor">Odoc_name</span>.simple&nbsp;s))]<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;tree&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;open_file&nbsp;file&nbsp;char&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"open_file&nbsp;%s&nbsp;%d"</span>&nbsp;(<span class="constructor">Filename</span>.quote&nbsp;file)&nbsp;char&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;com<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;open_location&nbsp;loc&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;loc.loc_impl&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(file,&nbsp;char)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;open_file&nbsp;file&nbsp;char<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;loc.loc_inter&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(file,&nbsp;char)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;open_file&nbsp;file&nbsp;char<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;location_of_data&nbsp;d&nbsp;=&nbsp;!data.get_loc&nbsp;d&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span>(tree)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">inherit</span>&nbsp;[data]&nbsp;<span class="constructor">Gmytree</span>.tree_edit&nbsp;~f_roots&nbsp;~f_children&nbsp;~f_contents&nbsp;[<span class="keywordsign">`</span><span class="constructor">Pixmap</span>&nbsp;<span class="constructor">None</span>&nbsp;;&nbsp;<span class="keywordsign">`</span><span class="constructor">String</span>&nbsp;<span class="string">""</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_double_click&nbsp;data&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;open_location&nbsp;(location_of_data&nbsp;data)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;menu&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;selection&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;data&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;loc&nbsp;=&nbsp;location_of_data&nbsp;data&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;loc.loc_impl&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(file,n)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Implementation"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;open_file&nbsp;file&nbsp;n))]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;@<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;loc.loc_inter&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;(file,n)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="keywordsign">`</span><span class="constructor">I</span>&nbsp;(<span class="string">"Interface"</span>,&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;open_file&nbsp;file&nbsp;n))]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">object</span>(self)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">inherit</span>&nbsp;<span class="constructor">Ed_view</span>.dyn_label<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">inherit</span>&nbsp;<span class="constructor">Ed_view</span>.dyn_destroyable&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;vbox<span class="keywordsign">#</span>destroy())<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;vbox&nbsp;=&nbsp;vbox<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;box&nbsp;=&nbsp;vbox<span class="keywordsign">#</span>coerce<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;save&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;save_as&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;close&nbsp;=&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;reload&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;:=&nbsp;fill_data&nbsp;(<span class="constructor">Odoc_info</span>.load_modules&nbsp;file);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree<span class="keywordsign">#</span>update<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Some</span>&nbsp;f<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;paste&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;copy&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;cut&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option&nbsp;=&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;kind&nbsp;=&nbsp;<span class="constructor">Ed_odoc_rc</span>.factory_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;filename&nbsp;=&nbsp;file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;attributes&nbsp;:&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;=&nbsp;[]<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_focus_in&nbsp;(f&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(tree<span class="keywordsign">#</span>view<span class="keywordsign">#</span>event<span class="keywordsign">#</span>connect<span class="keywordsign">#</span>focus_in&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;();&nbsp;<span class="keyword">false</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;grab_focus&nbsp;=&nbsp;tree<span class="keywordsign">#</span>view<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>grab_focus&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;dup&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.topwin&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view&nbsp;option&nbsp;=&nbsp;<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;key_bindings&nbsp;:&nbsp;(<span class="constructor">Okey</span>.keyhit_state&nbsp;*&nbsp;string)&nbsp;list&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_odoc_rc</span>.key_bindings<span class="keywordsign">#</span>get<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;menus&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">GToolbox</span>.menu_entry&nbsp;list)&nbsp;list&nbsp;=&nbsp;[]<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">initializer</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vbox<span class="keywordsign">#</span>pack&nbsp;~expand:&nbsp;<span class="keyword">true</span>&nbsp;~fill:&nbsp;<span class="keyword">true</span>&nbsp;tree<span class="keywordsign">#</span>box<span class="keywordsign">#</span>coerce;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_label&nbsp;(<span class="constructor">Glib</span>.<span class="constructor">Convert</span>.filename_to_utf8&nbsp;(<span class="constructor">Filename</span>.basename&nbsp;file))<br>
+<br>
+&nbsp;&nbsp;<span class="keyword">end</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;create_view&nbsp;topwin&nbsp;file&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">new</span>&nbsp;view&nbsp;topwin&nbsp;file<br>
+<br>
+<span class="keyword">let</span>&nbsp;open_file&nbsp;topwin&nbsp;active_view&nbsp;?attributes&nbsp;filename&nbsp;=<br>
+&nbsp;&nbsp;<span class="keywordsign">`</span><span class="constructor">New_view</span>&nbsp;(create_view&nbsp;topwin&nbsp;filename&nbsp;:&gt;&nbsp;<span class="constructor">Ed_view</span>.gui_view)<br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** <span id="2_Factory"><h2>Factory</h2></span> *)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="keyword">class</span>&nbsp;factory&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.view_factory&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;name&nbsp;=&nbsp;<span class="constructor">Ed_odoc_rc</span>.factory_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;open_file&nbsp;=&nbsp;open_file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;open_hidden&nbsp;=&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_start&nbsp;=&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_exit&nbsp;=&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">end</span><br>
+<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_view</span>.register_view_factory&nbsp;<span class="constructor">Ed_odoc_rc</span>.factory_name&nbsp;(<span class="keyword">new</span>&nbsp;factory)<br>
+</code></body></html>

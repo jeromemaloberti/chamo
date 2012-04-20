@@ -1,0 +1,420 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_minibuffer</title>
+</head>
+<body>
+<code class="code"></code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chamo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;(C)&nbsp;2003-2012&nbsp;Institut&nbsp;National&nbsp;de&nbsp;Recherche&nbsp;en&nbsp;Informatique&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;et&nbsp;en&nbsp;Automatique.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public&nbsp;License&nbsp;version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;along&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place,&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;02111-1307&nbsp;&nbsp;USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Contact:&nbsp;Maxence.Guesdon@inria.fr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+</code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="constructor">Ed_minibuffer_rc</span>.read&nbsp;();;<br>
+<span class="constructor">Ed_minibuffer_rc</span>.write&nbsp;();;<br>
+<br>
+<span class="keyword">class</span>&nbsp;minibuffer_history&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;history_size&nbsp;=&nbsp;<span class="constructor">Ed_gui_rc</span>.minibuffer_history_size<span class="keywordsign">#</span>get&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;t&nbsp;=&nbsp;<span class="constructor">Array</span>.create&nbsp;history_size&nbsp;<span class="string">""</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">object</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;len&nbsp;=&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;pos&nbsp;=&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;insert_pos&nbsp;=&nbsp;0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;init_pos&nbsp;=&nbsp;pos&nbsp;&lt;-&nbsp;insert_pos<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_next&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&gt;&nbsp;0&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;pos&nbsp;+&nbsp;1&nbsp;&gt;=&nbsp;len&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(pos&nbsp;&lt;-&nbsp;pos&nbsp;+&nbsp;1;&nbsp;<span class="constructor">Some</span>&nbsp;t.(pos))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_previous&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&gt;&nbsp;0&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;new_pos&nbsp;=&nbsp;pos&nbsp;-&nbsp;1&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;new_pos&nbsp;&gt;=&nbsp;0&nbsp;<span class="keywordsign">&amp;&amp;</span>&nbsp;new_pos&nbsp;&lt;&nbsp;len&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(pos&nbsp;&lt;-&nbsp;new_pos;&nbsp;<span class="constructor">Some</span>&nbsp;t.(pos))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;insert&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&gt;&nbsp;0&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;p&nbsp;=&nbsp;insert_pos&nbsp;-&nbsp;1&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;p&nbsp;=&nbsp;<span class="keyword">if</span>&nbsp;p&nbsp;&lt;&nbsp;0&nbsp;<span class="keyword">then</span>&nbsp;len&nbsp;-&nbsp;1&nbsp;<span class="keyword">else</span>&nbsp;p&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t.(p)&nbsp;&lt;&gt;&nbsp;s<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">true</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;insert&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t.(insert_pos)&nbsp;&lt;-&nbsp;s;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&gt;=&nbsp;history_size&nbsp;<span class="keyword">then</span>&nbsp;()&nbsp;<span class="keyword">else</span>&nbsp;len&nbsp;&lt;-&nbsp;len&nbsp;+&nbsp;1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;insert_pos&nbsp;&lt;-&nbsp;(insert_pos&nbsp;+&nbsp;1)&nbsp;<span class="keyword">mod</span>&nbsp;history_size<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">end</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;history&nbsp;()&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;minibuffer_history&nbsp;()<br>
+<br>
+<span class="keyword">let</span>&nbsp;max_size&nbsp;=&nbsp;25<br>
+<br>
+<span class="keyword">let</span>&nbsp;get_size_chars&nbsp;widget&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(w,h)&nbsp;=&nbsp;<span class="constructor">Gdk</span>.<span class="constructor">Drawable</span>.get_size&nbsp;widget<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>window&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;metrics&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(widget<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>pango_context&nbsp;:&nbsp;<span class="constructor">GPango</span>.context)<span class="keywordsign">#</span>get_metrics&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;width&nbsp;=&nbsp;w&nbsp;/&nbsp;(<span class="constructor">GPango</span>.to_pixels&nbsp;metrics<span class="keywordsign">#</span>approx_digit_width)<br>
+&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;height&nbsp;=&nbsp;h&nbsp;/&nbsp;(<span class="constructor">GPango</span>.to_pixels&nbsp;(metrics<span class="keywordsign">#</span>ascent+metrics<span class="keywordsign">#</span>descent))&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;(width,height)<br>
+<br>
+<span class="keyword">let</span>&nbsp;fill_string&nbsp;size&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;m&nbsp;=&nbsp;size&nbsp;-&nbsp;<span class="constructor">Ed_utf8</span>.utf8_string_length&nbsp;s&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s%s"</span>&nbsp;s&nbsp;(<span class="constructor">String</span>.make&nbsp;m&nbsp;<span class="string">'&nbsp;'</span>)<br>
+<br>
+<span class="keyword">open</span>&nbsp;<span class="constructor">GdkKeysyms</span><br>
+<br>
+<span class="comment">(*&nbsp;remove&nbsp;the&nbsp;combinations&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;exit&nbsp;which&nbsp;could&nbsp;mask&nbsp;the&nbsp;given&nbsp;list&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key&nbsp;bindings.&nbsp;*)</span><br>
+<span class="keyword">let</span>&nbsp;remove_used_exiting_keys&nbsp;l&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;pred0&nbsp;l1&nbsp;l2&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;l1,&nbsp;l2&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[],&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keyword">true</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_,&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keyword">false</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;h1&nbsp;::&nbsp;q1,&nbsp;h2&nbsp;::q2&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;pred0&nbsp;q1&nbsp;q2<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;pred&nbsp;def&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.for_all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(state,_)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;pred0&nbsp;def&nbsp;state)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">List</span>.filter&nbsp;pred&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.exiting_keys<span class="keywordsign">#</span>get<br>
+<br>
+<span class="keyword">class</span>&nbsp;minibuffer&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;tag_table&nbsp;=&nbsp;<span class="constructor">GText</span>.tag_table&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;tag_not_editable&nbsp;=&nbsp;<span class="constructor">GText</span>.tag&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;tag_not_editable<span class="keywordsign">#</span>set_properties&nbsp;[<span class="keywordsign">`</span><span class="constructor">EDITABLE</span>&nbsp;<span class="keyword">false</span>&nbsp;;&nbsp;<span class="keywordsign">`</span><span class="constructor">WEIGHT</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">BOLD</span>]&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;tag_table<span class="keywordsign">#</span>add&nbsp;tag_not_editable<span class="keywordsign">#</span>as_tag&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;tag_list&nbsp;=&nbsp;<span class="constructor">GText</span>.tag&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;tag_list<span class="keywordsign">#</span>set_properties&nbsp;[<span class="keywordsign">`</span><span class="constructor">EDITABLE</span>&nbsp;<span class="keyword">false</span>&nbsp;;&nbsp;<span class="keywordsign">`</span><span class="constructor">WEIGHT</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">NORMAL</span>]&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;tag_table<span class="keywordsign">#</span>add&nbsp;tag_list<span class="keywordsign">#</span>as_tag&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;buffer&nbsp;=&nbsp;<span class="constructor">GSourceView2</span>.source_buffer&nbsp;~tag_table&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;wscroll&nbsp;=&nbsp;<span class="constructor">GBin</span>.scrolled_window<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~height:&nbsp;20<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~hpolicy:&nbsp;<span class="keywordsign">`</span><span class="constructor">AUTOMATIC</span>&nbsp;~vpolicy:&nbsp;<span class="keywordsign">`</span><span class="constructor">AUTOMATIC</span>&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;view&nbsp;=&nbsp;<span class="constructor">GSourceView2</span>.source_view&nbsp;~source_buffer:&nbsp;buffer&nbsp;~packing:&nbsp;wscroll<span class="keywordsign">#</span>add&nbsp;()&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;view<span class="keywordsign">#</span>set_wrap_mode&nbsp;<span class="keywordsign">`</span><span class="constructor">CHAR</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Gtksv_utils</span>.register_source_buffer&nbsp;buffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Gtksv_utils</span>.register_source_view&nbsp;view&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Gtksv_utils</span>.apply_sourceview_props&nbsp;view<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Gtksv_utils</span>.read_sourceview_props&nbsp;())<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;view<span class="keywordsign">#</span>set_editable&nbsp;<span class="keyword">false</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;view<span class="keywordsign">#</span>set_cursor_visible&nbsp;<span class="keyword">false</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">object</span>(self)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;box&nbsp;=&nbsp;wscroll<span class="keywordsign">#</span>coerce<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</code><table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><span class="comment">(** number of times the minibuffer is waitied to become inactive *)</span></td></tr></table><code class="code"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;nb_waits&nbsp;=&nbsp;0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_complete&nbsp;=&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_complete&nbsp;f&nbsp;=&nbsp;on_complete&nbsp;&lt;-&nbsp;f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;complete&nbsp;=&nbsp;on_complete&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;ignore_text_changed&nbsp;=&nbsp;<span class="keyword">false</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_text_changed&nbsp;=&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_text_changed&nbsp;f&nbsp;=&nbsp;on_text_changed&nbsp;&lt;-&nbsp;f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_text_changed&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;ignore_text_changed&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_text_changed&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;more_key_bindings&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([]&nbsp;:&nbsp;(<span class="constructor">Okey</span>.keyhit_state&nbsp;*&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit))&nbsp;list)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_more_key_bindings&nbsp;l&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more_key_bindings&nbsp;&lt;-&nbsp;l<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;more_key_bindings&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.map<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(ks,&nbsp;_)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s_eval_custom_key_binding&nbsp;\"%s\""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;(<span class="constructor">Ed_keymaps</span>.string_of_state&nbsp;ks)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ks,&nbsp;com)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more_key_bindings<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;eval_custom_key_binding&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(_,f)&nbsp;=&nbsp;<span class="constructor">List</span>.find<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(ks,&nbsp;_)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_keymaps</span>.string_of_state&nbsp;ks&nbsp;=&nbsp;s)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more_key_bindings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;history&nbsp;=&nbsp;(<span class="constructor">None</span>&nbsp;:&nbsp;minibuffer_history&nbsp;option)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_history&nbsp;h&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;history&nbsp;&lt;-&nbsp;<span class="constructor">Some</span>&nbsp;h;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h<span class="keywordsign">#</span>init_pos<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_eval&nbsp;=&nbsp;<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;eval&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;history&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;h&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;s&nbsp;=&nbsp;self<span class="keywordsign">#</span>get_user_text&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h<span class="keywordsign">#</span>add&nbsp;s<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_eval&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_eval&nbsp;f&nbsp;=&nbsp;on_eval&nbsp;&lt;-&nbsp;f<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_active_change&nbsp;=&nbsp;<span class="keyword">fun</span>&nbsp;(_&nbsp;:&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_active_change&nbsp;f&nbsp;=&nbsp;on_active_change&nbsp;&lt;-&nbsp;f<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;active&nbsp;=&nbsp;<span class="keyword">false</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;active&nbsp;=&nbsp;active<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</code><table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><span class="comment">(** Change the active state. If the new state is <code class="code">true</code>,
+       <code class="code">on_active_change</code> is called, else it is called only
+       if the new state if different from the current state
+       (i.e. we switch from "active" to "not active").
+       This is so because of the <code class="code">set_active_view</code> method
+       of <code class="code">Ed_gui.gui_window</code> which set the minibuffer state
+       to "not active" when a view get the focus, and the
+       function called when the minibuffer's state changes
+       make the last view get the focus when the minibuffer
+       is not active.
+    *)</span></td></tr></table><code class="code"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_active&nbsp;b&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;b&nbsp;<span class="keyword">or</span>&nbsp;(active&nbsp;&lt;&gt;&nbsp;b)&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view<span class="keywordsign">#</span>set_editable&nbsp;b;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view<span class="keywordsign">#</span>set_cursor_visible&nbsp;b;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active&nbsp;&lt;-&nbsp;b;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;b&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>grab_focus&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>clear;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;i&nbsp;=&nbsp;1&nbsp;<span class="keyword">to</span>&nbsp;nb_waits&nbsp;<span class="keyword">do</span>&nbsp;<span class="constructor">GMain</span>.quit&nbsp;()&nbsp;<span class="keyword">done</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb_waits&nbsp;&lt;-&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_active_change&nbsp;b<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;clear&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_eval&nbsp;&lt;-&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_complete&nbsp;&lt;-&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on_text_changed&nbsp;&lt;-&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more_key_bindings&nbsp;&lt;-&nbsp;[];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;history&nbsp;&lt;-&nbsp;<span class="constructor">None</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_text&nbsp;<span class="string">""</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;wait&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nb_waits&nbsp;&lt;-&nbsp;nb_waits&nbsp;+&nbsp;1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">GMain</span>.main&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;position&nbsp;from&nbsp;which&nbsp;the&nbsp;text&nbsp;is&nbsp;editable&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;editable_from&nbsp;=&nbsp;0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_size&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;height&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;buffer<span class="keywordsign">#</span>line_count&nbsp;&lt;=&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max&nbsp;1&nbsp;(min&nbsp;max_size&nbsp;(buffer<span class="keywordsign">#</span>line_count&nbsp;+&nbsp;1))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wscroll<span class="keywordsign">#</span>misc<span class="keywordsign">#</span>set_size_chars&nbsp;~height&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;string_of_list&nbsp;l&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;l&nbsp;=&nbsp;<span class="constructor">List</span>.sort&nbsp;compare&nbsp;l&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;(w,_)&nbsp;=&nbsp;get_size_chars&nbsp;view&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;max&nbsp;=&nbsp;<span class="constructor">List</span>.fold_left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;acc&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;max&nbsp;acc&nbsp;(<span class="constructor">Ed_utf8</span>.utf8_string_length&nbsp;s))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;max&nbsp;=&nbsp;max&nbsp;+&nbsp;3&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;nb&nbsp;=&nbsp;w&nbsp;/&nbsp;max&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;nb&nbsp;=&nbsp;<span class="keyword">if</span>&nbsp;nb&nbsp;&lt;=&nbsp;0&nbsp;<span class="keyword">then</span>&nbsp;1&nbsp;<span class="keyword">else</span>&nbsp;nb&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;b&nbsp;=&nbsp;<span class="constructor">Buffer</span>.create&nbsp;256&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;iter&nbsp;m&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;m&nbsp;&lt;&gt;&nbsp;0&nbsp;<span class="keyword">then</span>&nbsp;<span class="constructor">Buffer</span>.add_char&nbsp;b&nbsp;<span class="string">'\n'</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Buffer</span>.contents&nbsp;b<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;s&nbsp;::&nbsp;q&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Buffer</span>.add_string&nbsp;b&nbsp;(fill_string&nbsp;max&nbsp;s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;m&nbsp;=&nbsp;(m&nbsp;+&nbsp;1)&nbsp;<span class="keyword">mod</span>&nbsp;nb&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;m&nbsp;=&nbsp;0&nbsp;<span class="keyword">then</span>&nbsp;<span class="constructor">Buffer</span>.add_char&nbsp;b&nbsp;<span class="string">'\n'</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;m&nbsp;q<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter&nbsp;0&nbsp;l<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_text&nbsp;?(list=[])&nbsp;?(fixed=<span class="string">""</span>)&nbsp;(s:string)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore_text_changed&nbsp;&lt;-&nbsp;<span class="keyword">true</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer<span class="keywordsign">#</span>set_text&nbsp;<span class="string">""</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer<span class="keywordsign">#</span>insert&nbsp;~iter:&nbsp;buffer<span class="keywordsign">#</span>start_iter&nbsp;~tags:&nbsp;[tag_list]&nbsp;(self<span class="keywordsign">#</span>string_of_list&nbsp;list);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer<span class="keywordsign">#</span>insert&nbsp;~iter:&nbsp;buffer<span class="keywordsign">#</span>end_iter&nbsp;~tags:&nbsp;[tag_not_editable]&nbsp;fixed;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;nb_chars&nbsp;=&nbsp;buffer<span class="keywordsign">#</span>end_iter<span class="keywordsign">#</span>offset&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editable_from&nbsp;&lt;-&nbsp;nb_chars;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer<span class="keywordsign">#</span>insert&nbsp;~iter:&nbsp;buffer<span class="keywordsign">#</span>end_iter&nbsp;s;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_size;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore_text_changed&nbsp;&lt;-&nbsp;<span class="keyword">false</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>on_text_changed<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_user_text&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore_text_changed&nbsp;&lt;-&nbsp;<span class="keyword">true</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;it&nbsp;=&nbsp;buffer<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;editable_from)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer<span class="keywordsign">#</span>delete&nbsp;~start:&nbsp;it&nbsp;~stop:&nbsp;buffer<span class="keywordsign">#</span>end_iter;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer<span class="keywordsign">#</span>insert&nbsp;~iter:&nbsp;buffer<span class="keywordsign">#</span>end_iter&nbsp;s;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore_text_changed&nbsp;&lt;-&nbsp;<span class="keyword">false</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>set_size;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>on_text_changed<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_user_text&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;start&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;editable_from&nbsp;=&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">then</span>&nbsp;buffer<span class="keywordsign">#</span>start_iter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span>&nbsp;buffer<span class="keywordsign">#</span>get_iter&nbsp;(<span class="keywordsign">`</span><span class="constructor">OFFSET</span>&nbsp;editable_from)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer<span class="keywordsign">#</span>get_text&nbsp;~start&nbsp;~stop:&nbsp;buffer<span class="keywordsign">#</span>end_iter&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;history_key_bindings&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;history&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.history_key_bindings<span class="keywordsign">#</span>get<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;history_previous&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;history&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;h&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;h<span class="keywordsign">#</span>get_previous&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>set_user_text&nbsp;s<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;history_next&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;history&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;h&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;h<span class="keywordsign">#</span>get_next&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>set_user_text&nbsp;s<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;insert&nbsp;s_utf8&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;active&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;it&nbsp;=&nbsp;buffer<span class="keywordsign">#</span>get_iter&nbsp;<span class="keywordsign">`</span><span class="constructor">INSERT</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;p&nbsp;=&nbsp;it<span class="keywordsign">#</span>offset&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;p&nbsp;&gt;=&nbsp;editable_from&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer<span class="keywordsign">#</span>insert&nbsp;s_utf8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;exit&nbsp;()&nbsp;=&nbsp;self<span class="keywordsign">#</span>set_active&nbsp;<span class="keyword">false</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;key_bindings&nbsp;:&nbsp;(<span class="constructor">Okey</span>.keyhit_state&nbsp;*&nbsp;string)&nbsp;list&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;l&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_minibuffer_rc</span>.key_bindings<span class="keywordsign">#</span>get&nbsp;@<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>more_key_bindings&nbsp;@<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self<span class="keywordsign">#</span>history_key_bindings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;exiting_keys&nbsp;=&nbsp;remove_used_exiting_keys&nbsp;l&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;exiting_key_bindings&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.map&nbsp;(<span class="keyword">fun</span>&nbsp;combs&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(combs,<span class="constructor">Ed_minibuffer_rc</span>.base_name&nbsp;^<span class="string">"_exit"</span>))&nbsp;exiting_keys<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;@&nbsp;exiting_key_bindings<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">initializer</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(buffer<span class="keywordsign">#</span>connect<span class="keywordsign">#</span>changed&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;self<span class="keywordsign">#</span>on_text_changed));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(view<span class="keywordsign">#</span>connect<span class="keywordsign">#</span>destroy&nbsp;(<span class="keyword">fun</span>&nbsp;()&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gtksv_utils</span>.unregister_source_buffer&nbsp;buffer));<br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(view#event#connect#after#focus_out&nbsp;(fun&nbsp;_&nbsp;-&gt;&nbsp;self#exit&nbsp;();&nbsp;false));*)</span><br>
+&nbsp;&nbsp;<span class="keyword">end</span><br>
+</code></body></html>

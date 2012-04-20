@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Ed_multiclip_rc.html">
+<link rel="next" href="Ed_ocamloutput.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_ocamlbuild</title>
+</head>
+<body>
+<div class="navbar"><a href="Ed_multiclip_rc.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Ed_ocamloutput.html">Next</a>
+</div>
+<center><h1>Module <a href="type_Ed_ocamlbuild.html">Ed_ocamlbuild</a> (<a href="code_Ed_ocamlbuild.html">.ml</a>)</h1></center>
+<br>
+<pre><span class="keyword">module</span> Ed_ocamlbuild: <code class="code">sig</code> <a href="Ed_ocamlbuild.html">..</a> <code class="code">end</code></pre>OCamlbuild support, with some useful stuff for ocaml compilation handling.<br>
+<hr width="100%">
+<pre><span id="VALcommands"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.commands.html">commands</a></span> : <code class="type">(string, string) Hashtbl.t</code></pre><div class="info">
+The associations between a file and a compilation command. This table
+   is used to propose to the user the last compilation command used for
+   a given file.<br>
+</div>
+<pre><span id="VALdefault_build_command"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.default_build_command.html">default_build_command</a></span> : <code class="type">string -> string</code></pre><div class="info">
+Generate a default command to launch ocamlbuild on the given ocaml file,
+   depending on the current working directory.<br>
+</div>
+<pre><span id="VALoutput_name"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.output_name.html">output_name</a></span> : <code class="type">string</code></pre><div class="info">
+The name of the default ocamlbuild output.<br>
+</div>
+<pre><span id="VALocamlbuild_output"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.ocamlbuild_output.html">ocamlbuild_output</a></span> : <code class="type">unit -> <a href="Ed_outputs.text_output-c.html">Ed_outputs.text_output</a></code></pre><div class="info">
+Return the ocamlbuild output object (see <a href="Ed_outputs.text_output-c.html"><code class="code">Ed_outputs.text_output</code></a>). The output
+     is created if it does not exist.<br>
+</div>
+<pre><span id="VALgoto_error"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.goto_error.html">goto_error</a></span> : <code class="type">string -> int -> int -> int -> string -> unit</code></pre><div class="info">
+<code class="code">goto_error file line start stop message</code> can be used to position
+     the active sourceview on the given <code class="code">file</code>, on the given <code class="code">line</code>
+     and select on this line the characters from <code class="code">start</code> to <code class="code">stop</code>.
+     The <code class="code">message</code> is displayed in the message zone of the view's window.
+     This function is used to position the user on a compilation problem.<br>
+</div>
+<br><code><span id="TYPEproblem"><span class="keyword">type</span> <code class="type"></code>problem</span> = {</code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTproblem.pb_file">pb_file</span>&nbsp;:<code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTproblem.pb_line">pb_line</span>&nbsp;:<code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTproblem.pb_start">pb_start</span>&nbsp;:<code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTproblem.pb_stop">pb_stop</span>&nbsp;:<code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTproblem.pb_kind">pb_kind</span>&nbsp;:<code class="type">[ `Error of string | `Warning of char * string ]</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >The error/warning message, with a character defining the
+       kind of warning.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+}
+
+<div class="info">
+To represent a compilation problem.<br>
+</div>
+
+<pre><span id="VALwarning_is_error"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.warning_is_error.html">warning_is_error</a></span> : <code class="type">char -> bool</code></pre><div class="info">
+This function returns <code class="code">true</code> if the warning corresponding to the
+     given character must be considered as an error. It uses the
+     <code class="code">"warn_error"</code> global variable to know which warnings must be considered
+     as errors. The signification of this variable is the same as the
+     <code class="code">-warn-error</code> option of <code class="code">ocamlc</code>. This variable can be set with
+     the command <code class="code">set_global warn_error Avd</code>.<br>
+</div>
+<pre><span id="VALanalyze_ocaml_compilation"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.analyze_ocaml_compilation.html">analyze_ocaml_compilation</a></span> : <code class="type">(<a href="Ed_ocamlbuild.html#TYPEproblem">problem</a> -> bool) -> string -> unit</code></pre><div class="info">
+<code class="code">analyze_ocaml_compilation f text</code> looks, in the ocaml compilation output
+     <code class="code">text</code>, for warnings and errors locations. When one is found, the
+     <code class="code">f</code> function is called. If this function returns <code class="code">true</code>, then
+     <code class="code">analyse_ocaml_compilation</code> continues to look for the next problem,
+     and so on. If <code class="code">f</code> returns <code class="code">false</code>, then the analyze is stopped.<br>
+</div>
+<pre><span id="VALrun"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.run.html">run</a></span> : <code class="type">?output:<a href="Ed_outputs.text_output-c.html">Ed_outputs.text_output</a> -> string -> unit</code></pre><div class="info">
+<code class="code">run command</code> runs the given command, displays its output in
+     the ocamlbuild output, and analyzes the output with
+     the <a href="Ed_ocamlbuild.html#VALanalyze_ocaml_compilation"><code class="code">Ed_ocamlbuild.analyze_ocaml_compilation</code></a> function, using the
+     <a href="Ed_ocamlbuild.html#VALwarning_is_error"><code class="code">Ed_ocamlbuild.warning_is_error</code></a> and <a href="Ed_ocamlbuild.html#VALgoto_error"><code class="code">Ed_ocamlbuild.goto_error</code></a> functions to eventually
+     position the active sourceview on the problem.<br>
+</div>
+<div class="param_info"><code class="code">output</code> : can be used to specify another output object to
+     use.</div>
+<pre><span id="VALbuild"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.build.html">build</a></span> : <code class="type"><a href="Ed_sourceview.sourceview-c.html">Ed_sourceview.sourceview</a> -> 'a -> unit</code></pre><div class="info">
+<code class="code">build view args</code> proposes a compilation command which uses ocamlbuild,
+     to compile the file edited in the sourceview. The used can modify the
+     command before launching it. The <a href="Ed_ocamlbuild.html#VALrun"><code class="code">Ed_ocamlbuild.run</code></a> function above is used to
+     run the compilation, display the result and eventually "jump" to the
+     compilation problem.
+<p>
+
+     The command used is associated to the edited file, and this association
+     is stored in the directory where Chamo was launched, in the file
+     <a href="Ed_mode_ocaml_rc.html#VALlocal_rc_file"><code class="code">Ed_mode_ocaml_rc.local_rc_file</code></a>. So the command is kept and proposed
+     to the user when this function is called, rather than the default
+     ocamlbuild command returned by <code class="code">default_built_command</code>.<br>
+</div>
+</body></html>

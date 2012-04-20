@@ -1,0 +1,285 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_eval</title>
+</head>
+<body>
+<code class="code"></code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chamo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;(C)&nbsp;2003-2012&nbsp;Institut&nbsp;National&nbsp;de&nbsp;Recherche&nbsp;en&nbsp;Informatique&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;et&nbsp;en&nbsp;Automatique.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public&nbsp;License&nbsp;version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;along&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place,&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;02111-1307&nbsp;&nbsp;USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Contact:&nbsp;Maxence.Guesdon@inria.fr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+</code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** Evaluating OCaml phrases to control with the editor. *)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Toploop</span>.set_paths&nbsp;()<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Toploop</span>.initialize_toplevel_env()<br>
+<br>
+<span class="keyword">let</span>&nbsp;init_file&nbsp;=&nbsp;<span class="constructor">Filename</span>.concat&nbsp;<span class="constructor">Ed_installation</span>.rc_dir&nbsp;<span class="string">"chamo_init.ml"</span><br>
+<span class="keyword">let</span>&nbsp;local_init_file&nbsp;=&nbsp;<span class="string">".chamo_init.ml"</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;prompt_eval_history&nbsp;=&nbsp;<span class="constructor">Ed_minibuffer</span>.history&nbsp;()<br>
+<span class="keyword">let</span>&nbsp;prompt_eval&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;FIXME:&nbsp;todo:&nbsp;show&nbsp;the&nbsp;"eval"&nbsp;window&nbsp;*)</span><br>
+&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;!<span class="constructor">Ed_gui</span>.active_window&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;code&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.launch_command&nbsp;<span class="string">"eval"</span>&nbsp;[|&nbsp;code&nbsp;|]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mb&nbsp;=&nbsp;w<span class="keywordsign">#</span>minibuffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.input_string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~history:&nbsp;prompt_eval_history<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mb&nbsp;~title:&nbsp;<span class="string">"eval"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_name&nbsp;=&nbsp;<span class="string">"prompt_eval"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;prompt_eval&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;eval_file&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;&lt;&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;!<span class="constructor">Ed_gui</span>.active_window&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;file&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.launch_command&nbsp;<span class="string">"eval_file"</span>&nbsp;[|&nbsp;file&nbsp;|]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mb&nbsp;=&nbsp;w<span class="keywordsign">#</span>minibuffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.select_file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mb&nbsp;~title:&nbsp;<span class="string">"eval_file"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;buf&nbsp;=&nbsp;<span class="constructor">Buffer</span>.create&nbsp;256&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;fmt&nbsp;=&nbsp;<span class="constructor">Format</span>.formatter_of_buffer&nbsp;buf&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore(<span class="constructor">Toploop</span>.use_file&nbsp;fmt&nbsp;args.(0));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.launch_command<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"print_ocaml_output"</span>&nbsp;[|&nbsp;(<span class="constructor">Buffer</span>.contents&nbsp;buf)&nbsp;|]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_name&nbsp;=&nbsp;<span class="string">"eval_file"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;<span class="string">"File"</span>&nbsp;|];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;eval_file&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;eval_ocaml&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&lt;&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.eval_command&nbsp;<span class="string">"prompt_eval"</span><br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;code&nbsp;=&nbsp;args.(0)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;use&nbsp;a&nbsp;temporary&nbsp;file&nbsp;to&nbsp;use&nbsp;the&nbsp;Toploop.use_file&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instead&nbsp;of&nbsp;parsing&nbsp;the&nbsp;phrase,&nbsp;then&nbsp;exectuing&nbsp;it,&nbsp;because<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we&nbsp;don't&nbsp;want&nbsp;to&nbsp;depend&nbsp;on&nbsp;whether&nbsp;we&nbsp;have&nbsp;the&nbsp;compiled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sources&nbsp;of&nbsp;ocaml&nbsp;(the&nbsp;needed&nbsp;modules&nbsp;to&nbsp;analyse&nbsp;the&nbsp;parse<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exceptions&nbsp;are&nbsp;not&nbsp;installed&nbsp;(Errors,&nbsp;...).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;tmp_file&nbsp;=&nbsp;<span class="constructor">Filename</span>.temp_file&nbsp;<span class="constructor">Ed_messages</span>.software&nbsp;<span class="string">"ml"</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_extern</span>.file_of_string&nbsp;~file:&nbsp;tmp_file&nbsp;code;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eval_file&nbsp;[|&nbsp;tmp_file&nbsp;|];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_extern</span>.safe_remove_file&nbsp;tmp_file;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_name&nbsp;=&nbsp;<span class="string">"eval"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;<span class="string">"OCaml&nbsp;Code"</span>&nbsp;|];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;eval_ocaml&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;load_file&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;&lt;&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;!<span class="constructor">Ed_gui</span>.active_window&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;w&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;file&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.launch_command&nbsp;<span class="string">"load_file"</span>&nbsp;[|&nbsp;file&nbsp;|]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mb&nbsp;=&nbsp;w<span class="keywordsign">#</span>minibuffer&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_misc</span>.select_file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mb&nbsp;~title:&nbsp;<span class="string">"load_file"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;file&nbsp;=&nbsp;args.(0)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;code&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"#load&nbsp;\"%s\";;"</span>&nbsp;file&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eval_ocaml&nbsp;[|&nbsp;code&nbsp;|]<br>
+<span class="comment">(*&nbsp;this&nbsp;does&nbsp;not&nbsp;work,&nbsp;because&nbsp;Symtable.Error&nbsp;may&nbsp;be&nbsp;raised<br>
+&nbsp;&nbsp;&nbsp;and&nbsp;we&nbsp;can't&nbsp;print&nbsp;the&nbsp;error&nbsp;message&nbsp;since&nbsp;Bytecomp&nbsp;interface&nbsp;is&nbsp;not<br>
+&nbsp;&nbsp;&nbsp;installed&nbsp;by&nbsp;ocaml<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;buf&nbsp;=&nbsp;Buffer.create&nbsp;256&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;fmt&nbsp;=&nbsp;Format.formatter_of_buffer&nbsp;buf&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;success&nbsp;=&nbsp;Topdirs.load_file&nbsp;fmt&nbsp;file&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;success&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ed_misc.set_active_action_message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Printf.sprintf&nbsp;"Successfully&nbsp;loaded&nbsp;file&nbsp;%s"&nbsp;file)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ed_misc.set_active_action_message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Printf.sprintf&nbsp;"Failed&nbsp;to&nbsp;load&nbsp;file&nbsp;%s"&nbsp;file)<br>
+*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.com_name&nbsp;=&nbsp;<span class="string">"load_file"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;<span class="string">"File"</span>&nbsp;|];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;load_file&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;com<br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** <span id="2_Addingcommandlineoptions"><h2>Adding command line options</h2></span> *)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="keyword">let</span>&nbsp;use&nbsp;file&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"eval_file&nbsp;%s"</span>&nbsp;(<span class="constructor">Filename</span>.quote&nbsp;file)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">Ed_args</span>.append_init_command&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;option_use&nbsp;=<br>
+&nbsp;&nbsp;(<span class="string">"--use"</span>,&nbsp;<span class="constructor">Arg</span>.<span class="constructor">String</span>&nbsp;use,&nbsp;<span class="string">"&lt;file&gt;\n\t\tocaml-evaluate&nbsp;the&nbsp;given&nbsp;file&nbsp;after&nbsp;initialization"</span>)<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_args</span>.add_option&nbsp;option_use;;<br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** <span id="2_Init"><h2>Init</h2></span> *)</span></td></tr></table><code class="code"><br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** Add the cameleon2 lib dir to directories where to look for interfaces. *)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="comment">(*&nbsp;temporarily&nbsp;replace&nbsp;printing&nbsp;functions,&nbsp;to&nbsp;avoid&nbsp;having&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;initializations&nbsp;displaying&nbsp;messages&nbsp;*)</span><br>
+<span class="keyword">let</span>&nbsp;(old_m,old_w)&nbsp;=<br>
+&nbsp;&nbsp;(<span class="constructor">Ed_hooks</span>.get_display_message&nbsp;(),&nbsp;<span class="constructor">Ed_hooks</span>.get_warning_message&nbsp;());;<br>
+<span class="constructor">Ed_hooks</span>.set_display_message&nbsp;(<span class="keyword">fun</span>&nbsp;?to_utf8&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;());;<br>
+<span class="constructor">Ed_hooks</span>.set_warning_message&nbsp;(<span class="keyword">fun</span>&nbsp;?to_utf8&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;());;<br>
+<br>
+<span class="keyword">let</span>&nbsp;packages&nbsp;=<br>
+&nbsp;&nbsp;[&nbsp;<span class="string">"str"</span>&nbsp;;&nbsp;<span class="string">"threads.posix"</span>&nbsp;;&nbsp;<span class="string">"pcre"</span>&nbsp;;&nbsp;<span class="string">"config-file"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"xmlm"</span>&nbsp;;&nbsp;<span class="string">"lablgtk2.glade"</span>&nbsp;;&nbsp;<span class="string">"lablgtk2-extras.configwin"</span>&nbsp;;<br>
+&nbsp;&nbsp;];;<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;temp_file&nbsp;=&nbsp;<span class="constructor">Filename</span>.temp_file&nbsp;<span class="string">"chamo"</span>&nbsp;<span class="string">".txt"</span>&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s&nbsp;query&nbsp;-r&nbsp;%s&nbsp;&gt;&nbsp;%s"</span>&nbsp;<span class="constructor">Ed_installation</span>.ocamlfind<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">String</span>.concat&nbsp;<span class="string">"&nbsp;"</span>&nbsp;packages)&nbsp;(<span class="constructor">Filename</span>.quote&nbsp;temp_file)<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Sys</span>.command&nbsp;com&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;default_dirs&nbsp;=&nbsp;<span class="constructor">Ed_extern</span>.split_string&nbsp;(<span class="constructor">Ed_extern</span>.string_of_file&nbsp;temp_file)&nbsp;[<span class="string">'\n'</span>]&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_extern</span>.safe_remove_file&nbsp;temp_file;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.iter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;d&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eval_ocaml<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[|&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"#directory&nbsp;\"%s\";;"</span>&nbsp;d&nbsp;|])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default_dirs<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;n&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_extern</span>.safe_remove_file&nbsp;temp_file;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prerr_endline&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"Command&nbsp;failed:&nbsp;%s"</span>&nbsp;com)<br>
+;;<br>
+<span class="comment">(*&nbsp;Restore&nbsp;the&nbsp;printing&nbsp;functions&nbsp;*)</span><br>
+<span class="constructor">Ed_hooks</span>.set_display_message&nbsp;old_m;;<br>
+<span class="constructor">Ed_hooks</span>.set_warning_message&nbsp;old_w;;<br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** If the init file exists, then add a command to eval it at launch time *)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;init_files&nbsp;=&nbsp;[&nbsp;init_file&nbsp;;&nbsp;local_init_file]&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="constructor">List</span>.iter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Sys</span>.file_exists&nbsp;file&nbsp;<span class="keyword">then</span>&nbsp;use&nbsp;file)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;init_files<br>
+;;<br>
+</code></body></html>

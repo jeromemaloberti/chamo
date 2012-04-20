@@ -1,0 +1,408 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_commands</title>
+</head>
+<body>
+<code class="code"></code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chamo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;(C)&nbsp;2003-2012&nbsp;Institut&nbsp;National&nbsp;de&nbsp;Recherche&nbsp;en&nbsp;Informatique&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;et&nbsp;en&nbsp;Automatique.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public&nbsp;License&nbsp;version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;along&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place,&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;02111-1307&nbsp;&nbsp;USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;Contact:&nbsp;Maxence.Guesdon@inria.fr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+<span class="comment">(*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*)</span><br>
+</code><table><tr><td></td><td><span class="comment">(*********************************************************************************)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="comment">(*&nbsp;$Id:&nbsp;cam_commands.ml&nbsp;758&nbsp;2011-01-13&nbsp;07:53:27Z&nbsp;zoggy&nbsp;$&nbsp;*)</span><br>
+<br>
+<span class="keyword">type</span>&nbsp;command&nbsp;=&nbsp;string&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<br>
+<span class="keyword">type</span>&nbsp;command_desc&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;com_name&nbsp;:&nbsp;string&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;:&nbsp;string&nbsp;array&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;:&nbsp;string&nbsp;option&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;:&nbsp;command&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+<span class="keyword">let</span>&nbsp;commands&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.create&nbsp;937<br>
+<br>
+<span class="keyword">let</span>&nbsp;get_com&nbsp;?(table=commands)&nbsp;name&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.find&nbsp;table&nbsp;name<br>
+<br>
+<span class="keyword">let</span>&nbsp;get_com_or_fail&nbsp;?table&nbsp;com&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span>&nbsp;get_com&nbsp;?table&nbsp;com<br>
+&nbsp;&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;failwith&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"Command&nbsp;%s&nbsp;not&nbsp;available."</span>&nbsp;com)<br>
+<br>
+<span class="keyword">let</span>&nbsp;register&nbsp;?(table=commands)&nbsp;?(replace=<span class="keyword">false</span>)&nbsp;com&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;ignore&nbsp;(<span class="constructor">Hashtbl</span>.find&nbsp;table&nbsp;com.com_name);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;replace&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Hashtbl</span>.replace&nbsp;table&nbsp;com.com_name&nbsp;com<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;failwith&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"Command&nbsp;%s&nbsp;already&nbsp;registered."</span>&nbsp;com.com_name)<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Hashtbl</span>.add&nbsp;table&nbsp;com.com_name&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;register_before&nbsp;?table&nbsp;com&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;prev&nbsp;=&nbsp;get_com&nbsp;?table&nbsp;com.com_name&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;new_com&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;com&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;(<span class="keyword">fun</span>&nbsp;args&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;com.com_f&nbsp;args;&nbsp;prev.com_f&nbsp;args)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;register&nbsp;?table&nbsp;~replace:&nbsp;<span class="keyword">true</span>&nbsp;new_com<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;register&nbsp;?table&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;register_after&nbsp;?table&nbsp;com&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;prev&nbsp;=&nbsp;get_com&nbsp;?table&nbsp;com.com_name&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;new_com&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;com&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;(<span class="keyword">fun</span>&nbsp;args&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;prev.com_f&nbsp;args;&nbsp;com.com_f&nbsp;args)&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;register&nbsp;?table&nbsp;~replace:&nbsp;<span class="keyword">true</span>&nbsp;new_com<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;register&nbsp;?table&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;unit_com&nbsp;name&nbsp;f&nbsp;=<br>
+&nbsp;&nbsp;{&nbsp;com_name&nbsp;=&nbsp;name&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;(<span class="keyword">fun</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;f&nbsp;())&nbsp;;<br>
+&nbsp;&nbsp;}<br>
+<br>
+<span class="keyword">let</span>&nbsp;create_com&nbsp;name&nbsp;?more&nbsp;args&nbsp;f&nbsp;=<br>
+&nbsp;&nbsp;{&nbsp;com_name&nbsp;=&nbsp;name&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;args&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;more&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;f&nbsp;;<br>
+&nbsp;&nbsp;}<br>
+<br>
+<br>
+<span class="keyword">let</span>&nbsp;string_of_char&nbsp;c&nbsp;=&nbsp;<span class="constructor">String</span>.make&nbsp;1&nbsp;c<br>
+<span class="keyword">let</span>&nbsp;concat&nbsp;char&nbsp;string&nbsp;=<br>
+&nbsp;&nbsp;string_of_char&nbsp;char&nbsp;^&nbsp;string<br>
+<br>
+<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;parse_squote&nbsp;=&nbsp;<span class="keyword">parser</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'\''</span>&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'\\'</span>;&nbsp;<span class="keywordsign">'</span>c;&nbsp;word&nbsp;=&nbsp;parse_squote&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concat&nbsp;c&nbsp;word<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span>c;&nbsp;word&nbsp;=&nbsp;parse_squote&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concat&nbsp;c&nbsp;word<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;failwith&nbsp;<span class="string">"squote"</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;parse_dquote&nbsp;=&nbsp;<span class="keyword">parser</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'"'</span>&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'\\'</span>;&nbsp;<span class="keywordsign">'</span>c;&nbsp;word&nbsp;=&nbsp;parse_dquote&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concat&nbsp;c&nbsp;word<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span>c;&nbsp;word&nbsp;=&nbsp;parse_dquote&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concat&nbsp;c&nbsp;word<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;failwith&nbsp;<span class="string">"dquote"</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;parse_noquote&nbsp;=&nbsp;<span class="keyword">parser</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'&nbsp;'</span>&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'\\'</span>;&nbsp;<span class="keywordsign">'</span>c;&nbsp;word&nbsp;=&nbsp;parse_noquote&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concat&nbsp;c&nbsp;word<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'"'</span>;&nbsp;subword&nbsp;=&nbsp;parse_dquote;&nbsp;word&nbsp;=&nbsp;parse_noquote&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subword&nbsp;^&nbsp;word<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'\''</span>;&nbsp;subword&nbsp;=&nbsp;parse_squote;&nbsp;word&nbsp;=&nbsp;parse_noquote&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subword&nbsp;^&nbsp;word<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span>c;&nbsp;word&nbsp;=&nbsp;parse_noquote&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concat&nbsp;c&nbsp;word<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">""</span><br>
+<br>
+<br>
+<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;parse_words&nbsp;=&nbsp;<span class="keyword">parser</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'&nbsp;'</span>;&nbsp;words&nbsp;=&nbsp;parse_words&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;words<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'"'</span>;&nbsp;word&nbsp;=&nbsp;parse_dquote;&nbsp;words&nbsp;=&nbsp;parse_words&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;word&nbsp;::&nbsp;words<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'\''</span>;&nbsp;word&nbsp;=&nbsp;parse_squote;&nbsp;words&nbsp;=&nbsp;parse_words&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;word&nbsp;::&nbsp;words<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span><span class="string">'\\'</span>;&nbsp;<span class="keywordsign">'</span>c;&nbsp;word&nbsp;=&nbsp;parse_noquote;&nbsp;words&nbsp;=&nbsp;parse_words&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concat&nbsp;c&nbsp;word&nbsp;::&nbsp;words<br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;<span class="keywordsign">'</span>c;&nbsp;word&nbsp;=&nbsp;parse_noquote;&nbsp;words&nbsp;=&nbsp;parse_words&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concat&nbsp;c&nbsp;word&nbsp;::&nbsp;words<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;[&lt;&nbsp;&gt;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;[]<br>
+<br>
+<br>
+<span class="keyword">let</span>&nbsp;list_of_string&nbsp;s&nbsp;=<br>
+&nbsp;&nbsp;parse_words&nbsp;(<span class="constructor">Stream</span>.of_string&nbsp;s)<br>
+<br>
+<span class="keyword">let</span>&nbsp;string_to_argv&nbsp;s&nbsp;=&nbsp;<span class="constructor">Array</span>.of_list&nbsp;(list_of_string&nbsp;s)<br>
+<span class="keyword">let</span>&nbsp;argv_to_string&nbsp;a&nbsp;=<br>
+&nbsp;&nbsp;<span class="constructor">String</span>.concat&nbsp;<span class="string">"&nbsp;"</span>&nbsp;(<span class="constructor">Array</span>.to_list&nbsp;(<span class="constructor">Array</span>.map&nbsp;<span class="constructor">Filename</span>.quote&nbsp;a))<br>
+<br>
+<span class="keyword">let</span>&nbsp;prev_command&nbsp;=&nbsp;ref&nbsp;<span class="string">""</span><br>
+<span class="keyword">let</span>&nbsp;same_previous_command&nbsp;=&nbsp;ref&nbsp;<span class="keyword">false</span><br>
+<span class="keyword">let</span>&nbsp;launch_command&nbsp;?(history=<span class="keyword">true</span>)&nbsp;?table&nbsp;com&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;get_com_or_fail&nbsp;?table&nbsp;com&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;s_com&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s&nbsp;%s"</span>&nbsp;com.com_name&nbsp;(argv_to_string&nbsp;args)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same_previous_command&nbsp;:=&nbsp;s_com&nbsp;=&nbsp;!prev_command;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;history&nbsp;<span class="keyword">then</span>&nbsp;<span class="constructor">Ed_com_history</span>.add&nbsp;s_com;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_hooks</span>.display_message&nbsp;~to_utf8:&nbsp;<span class="keyword">true</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"Executing&nbsp;%s"</span>&nbsp;s_com);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com.com_f&nbsp;(<span class="constructor">Array</span>.copy&nbsp;args);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prev_command&nbsp;:=&nbsp;s_com<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prev_command&nbsp;:=&nbsp;s_com;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;e<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;e&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;err&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;e&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Failure</span>&nbsp;s&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Sys_error</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;s<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Invalid_argument</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"Invalid_argument(\"%s\")"</span>&nbsp;s<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;e&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Printexc</span>.to_string&nbsp;e<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_hooks</span>.error_message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"command&nbsp;%s:&nbsp;%s"</span>&nbsp;com&nbsp;err)<br>
+<span class="keyword">let</span>&nbsp;same_previous_command&nbsp;()&nbsp;=&nbsp;!same_previous_command<br>
+<br>
+<span class="keyword">let</span>&nbsp;ask_launch_command&nbsp;?history&nbsp;?table&nbsp;?(width=300)&nbsp;com&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;get_com_or_fail&nbsp;?table&nbsp;com&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;lenv&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;lend&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;com.com_args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;com.com_args&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">if</span>&nbsp;com.com_more_args&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;<span class="keyword">then</span>&nbsp;0&nbsp;<span class="keyword">else</span>&nbsp;1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Array</span>.init&nbsp;len<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;i&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;i&nbsp;&gt;=&nbsp;lend&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;d&nbsp;=&nbsp;lenv&nbsp;-&nbsp;lend&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;d&nbsp;&gt;&nbsp;0&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;l&nbsp;=&nbsp;<span class="constructor">Array</span>.to_list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Array</span>.map&nbsp;<span class="constructor">Filename</span>.quote<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Array</span>.sub&nbsp;args&nbsp;i&nbsp;d))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">String</span>.concat&nbsp;<span class="string">"&nbsp;"</span>&nbsp;l<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;com.com_more_args&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keyword">assert</span>&nbsp;<span class="keyword">false</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(s,&nbsp;v)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;i&nbsp;&lt;&nbsp;lenv&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args.(i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(com.com_args.(i),&nbsp;v)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;i&nbsp;(label,&nbsp;v)&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Configwin</span>.string&nbsp;~f:&nbsp;(<span class="keyword">fun</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;args.(i)&nbsp;&lt;-&nbsp;(label,&nbsp;s))&nbsp;label&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;params&nbsp;=&nbsp;<span class="constructor">Array</span>.to_list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Array</span>.mapi&nbsp;f&nbsp;args)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;<span class="constructor">Configwin</span>.simple_get&nbsp;com.com_name&nbsp;params&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Configwin</span>.<span class="constructor">Return_cancel</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Configwin</span>.<span class="constructor">Return_ok</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Configwin</span>.<span class="constructor">Return_apply</span>&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;args&nbsp;=&nbsp;<span class="constructor">Array</span>.map&nbsp;snd&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span>&nbsp;com.com_more_args&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;args<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Some</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;s_args&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">String</span>.concat&nbsp;<span class="string">"&nbsp;"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Array</span>.to_list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Array</span>.map&nbsp;<span class="constructor">Filename</span>.quote<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Array</span>.sub&nbsp;args&nbsp;0&nbsp;(len&nbsp;-&nbsp;1))))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;^&nbsp;<span class="string">"&nbsp;"</span>&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args.(len&nbsp;-&nbsp;1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string_to_argv&nbsp;s_args<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;launch_command&nbsp;?history&nbsp;?table&nbsp;com.com_name&nbsp;args<br>
+&nbsp;&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Failure</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ed_hooks</span>.error_message&nbsp;s<br>
+<br>
+<span class="keyword">let</span>&nbsp;_external_command&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&lt;&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;name&nbsp;=&nbsp;args.(0)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;params&nbsp;=&nbsp;<span class="constructor">Array</span>.to_list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Array</span>.map&nbsp;<span class="constructor">Filename</span>.quote&nbsp;(<span class="constructor">Array</span>.sub&nbsp;args&nbsp;1&nbsp;(len&nbsp;-&nbsp;1)))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"%s&nbsp;%s&nbsp;&amp;"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">String</span>.concat&nbsp;<span class="string">"&nbsp;"</span>&nbsp;params)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;ignore&nbsp;(<span class="constructor">Sys</span>.command&nbsp;com)<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;register<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;com_name&nbsp;=&nbsp;<span class="string">"external"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;<span class="string">"program"</span>&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">Some</span>&nbsp;<span class="string">"arguments"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;_external_command&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+<span class="keyword">let</span>&nbsp;_ask_command&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&lt;&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;name&nbsp;=&nbsp;args.(0)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;params&nbsp;=&nbsp;<span class="constructor">Array</span>.sub&nbsp;args&nbsp;1&nbsp;(len&nbsp;-&nbsp;1)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;ask_launch_command&nbsp;name&nbsp;params<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;register<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;com_name&nbsp;=&nbsp;<span class="string">"ask"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">Some</span>&nbsp;<span class="string">"command&nbsp;and&nbsp;args"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;_ask_command&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+<span class="keyword">let</span>&nbsp;_system&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&lt;&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">String</span>.concat&nbsp;<span class="string">"&nbsp;"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Array</span>.to_list&nbsp;(<span class="constructor">Array</span>.map&nbsp;<span class="constructor">Filename</span>.quote&nbsp;args))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;ignore&nbsp;(<span class="constructor">Sys</span>.command&nbsp;(com^<span class="string">"&nbsp;&amp;"</span>))<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;register<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;com_name&nbsp;=&nbsp;<span class="string">"system"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">Some</span>&nbsp;<span class="string">"command&nbsp;and&nbsp;arguments"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;_system&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+<span class="keyword">let</span>&nbsp;eval_command&nbsp;?history&nbsp;?table&nbsp;com&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;args&nbsp;=&nbsp;string_to_argv&nbsp;com&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;len&nbsp;=&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;len&nbsp;&lt;&nbsp;1&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;()<br>
+&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;name&nbsp;=&nbsp;args.(0)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;params&nbsp;=&nbsp;<span class="constructor">Array</span>.sub&nbsp;args&nbsp;1&nbsp;(len&nbsp;-&nbsp;1)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;launch_command&nbsp;?history&nbsp;?table&nbsp;name&nbsp;params<br>
+<br>
+<span class="keyword">let</span>&nbsp;_eval&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">String</span>.concat&nbsp;<span class="string">"&nbsp;"</span>&nbsp;(<span class="constructor">Array</span>.to_list&nbsp;(<span class="constructor">Array</span>.map&nbsp;<span class="constructor">Filename</span>.quote&nbsp;args))&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;eval_command&nbsp;com<br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;register<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;com_name&nbsp;=&nbsp;<span class="string">"command"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_args&nbsp;=&nbsp;[|&nbsp;|]&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_more_args&nbsp;=&nbsp;<span class="constructor">Some</span>&nbsp;<span class="string">"command&nbsp;and&nbsp;arguments"</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com_f&nbsp;=&nbsp;_eval&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+<span class="keyword">let</span>&nbsp;available_command_names&nbsp;?(table=commands)&nbsp;()&nbsp;=<br>
+&nbsp;&nbsp;<span class="constructor">List</span>.sort<br>
+&nbsp;&nbsp;&nbsp;&nbsp;compare<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Hashtbl</span>.fold&nbsp;(<span class="keyword">fun</span>&nbsp;k&nbsp;c&nbsp;acc&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;k&nbsp;::&nbsp;acc)&nbsp;table&nbsp;[])<br>
+<br>
+</code><table><tr><td></td><td><span class="comment">(** <span id="2_Globalvariables"><h2>Global variables</h2></span> *)</span></td></tr></table><code class="code"><br>
+<br>
+<span class="keyword">let</span>&nbsp;global_variables&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.create&nbsp;691<br>
+<br>
+<span class="keyword">let</span>&nbsp;set_global&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.replace&nbsp;global_variables<br>
+<span class="keyword">let</span>&nbsp;get_global&nbsp;=&nbsp;<span class="constructor">Hashtbl</span>.find&nbsp;global_variables<br>
+<span class="keyword">let</span>&nbsp;safe_get_global&nbsp;name&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">try</span>&nbsp;get_global&nbsp;name<br>
+&nbsp;&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">Not_found</span>&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="string">""</span><br>
+<br>
+<span class="keyword">let</span>&nbsp;_&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;f&nbsp;args&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Array</span>.length&nbsp;args&nbsp;&lt;&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">then</span>&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span>&nbsp;set_global&nbsp;args.(0)&nbsp;args.(1)<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;register&nbsp;(create_com&nbsp;<span class="string">"set_global"</span>&nbsp;[|&nbsp;<span class="string">"name"</span>&nbsp;;&nbsp;<span class="string">"value"</span>&nbsp;|]&nbsp;f)</code></body></html>

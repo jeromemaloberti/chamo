@@ -1,0 +1,213 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ed_annot" rel="Chapter" href="Ed_annot.html">
+<link title="Ed_args" rel="Chapter" href="Ed_args.html">
+<link title="Ed_bookmarks" rel="Chapter" href="Ed_bookmarks.html">
+<link title="Ed_charsets" rel="Chapter" href="Ed_charsets.html">
+<link title="Ed_com_history" rel="Chapter" href="Ed_com_history.html">
+<link title="Ed_commands" rel="Chapter" href="Ed_commands.html">
+<link title="Ed_config" rel="Chapter" href="Ed_config.html">
+<link title="Ed_constant" rel="Chapter" href="Ed_constant.html">
+<link title="Ed_core_rc" rel="Chapter" href="Ed_core_rc.html">
+<link title="Ed_dbg" rel="Chapter" href="Ed_dbg.html">
+<link title="Ed_eval" rel="Chapter" href="Ed_eval.html">
+<link title="Ed_extern" rel="Chapter" href="Ed_extern.html">
+<link title="Ed_fstack" rel="Chapter" href="Ed_fstack.html">
+<link title="Ed_gtk_misc" rel="Chapter" href="Ed_gtk_misc.html">
+<link title="Ed_gui" rel="Chapter" href="Ed_gui.html">
+<link title="Ed_gui_base" rel="Chapter" href="Ed_gui_base.html">
+<link title="Ed_gui_rc" rel="Chapter" href="Ed_gui_rc.html">
+<link title="Ed_hooks" rel="Chapter" href="Ed_hooks.html">
+<link title="Ed_installation" rel="Chapter" href="Ed_installation.html">
+<link title="Ed_keymaps" rel="Chapter" href="Ed_keymaps.html">
+<link title="Ed_layout" rel="Chapter" href="Ed_layout.html">
+<link title="Ed_log" rel="Chapter" href="Ed_log.html">
+<link title="Ed_main" rel="Chapter" href="Ed_main.html">
+<link title="Ed_messages" rel="Chapter" href="Ed_messages.html">
+<link title="Ed_minibuffer" rel="Chapter" href="Ed_minibuffer.html">
+<link title="Ed_minibuffer_rc" rel="Chapter" href="Ed_minibuffer_rc.html">
+<link title="Ed_misc" rel="Chapter" href="Ed_misc.html">
+<link title="Ed_mode_changelog" rel="Chapter" href="Ed_mode_changelog.html">
+<link title="Ed_mode_changelog_rc" rel="Chapter" href="Ed_mode_changelog_rc.html">
+<link title="Ed_mode_makefile" rel="Chapter" href="Ed_mode_makefile.html">
+<link title="Ed_mode_makefile_rc" rel="Chapter" href="Ed_mode_makefile_rc.html">
+<link title="Ed_mode_ocaml" rel="Chapter" href="Ed_mode_ocaml.html">
+<link title="Ed_mode_ocaml_rc" rel="Chapter" href="Ed_mode_ocaml_rc.html">
+<link title="Ed_multiclip" rel="Chapter" href="Ed_multiclip.html">
+<link title="Ed_multiclip_rc" rel="Chapter" href="Ed_multiclip_rc.html">
+<link title="Ed_ocamlbuild" rel="Chapter" href="Ed_ocamlbuild.html">
+<link title="Ed_ocamloutput" rel="Chapter" href="Ed_ocamloutput.html">
+<link title="Ed_odoc" rel="Chapter" href="Ed_odoc.html">
+<link title="Ed_odoc_rc" rel="Chapter" href="Ed_odoc_rc.html">
+<link title="Ed_outputs" rel="Chapter" href="Ed_outputs.html">
+<link title="Ed_prefs" rel="Chapter" href="Ed_prefs.html">
+<link title="Ed_rc" rel="Chapter" href="Ed_rc.html">
+<link title="Ed_sourceview" rel="Chapter" href="Ed_sourceview.html">
+<link title="Ed_sourceview_expand" rel="Chapter" href="Ed_sourceview_expand.html">
+<link title="Ed_sourceview_rc" rel="Chapter" href="Ed_sourceview_rc.html">
+<link title="Ed_utf8" rel="Chapter" href="Ed_utf8.html">
+<link title="Ed_view" rel="Chapter" href="Ed_view.html">
+<link title="Ed_view_rc" rel="Chapter" href="Ed_view_rc.html">
+<link title="Ed_xml" rel="Chapter" href="Ed_xml.html">
+<link title="Multiclip" rel="Chapter" href="Multiclip.html">
+<link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_sourceview.sourceview</title>
+</head>
+<body>
+<code class="code">?attributes:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+<span class="constructor">Ed_view</span>.topwin&nbsp;<span class="keywordsign">-&gt;</span><br>
+((&lt;&nbsp;attributes&nbsp;:&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list;&nbsp;backward_char&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;backward_line&nbsp;:&nbsp;unit;&nbsp;backward_word&nbsp;:&nbsp;unit;&nbsp;beginning_of_line&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bookmarks_menus&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">GToolbox</span>.menu_entry&nbsp;list)&nbsp;list;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;box&nbsp;:&nbsp;<span class="constructor">GObj</span>.widget;&nbsp;buffer_modified&nbsp;:&nbsp;bool;&nbsp;buffer_name&nbsp;:&nbsp;string;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;close&nbsp;:&nbsp;unit;&nbsp;connect_buffer_events&nbsp;:&nbsp;unit;&nbsp;copy&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current_line&nbsp;:&nbsp;int;&nbsp;cut&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cut_to_selection&nbsp;:&nbsp;?concat:[&nbsp;<span class="keywordsign">`</span><span class="constructor">APPEND</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">PREPEND</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start:<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;stop:<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delete_char&nbsp;:&nbsp;bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;destroy&nbsp;:&nbsp;unit;&nbsp;display_buffer_name&nbsp;:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit;&nbsp;display_encoding&nbsp;:&nbsp;unit;&nbsp;display_location&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;display_mode&nbsp;:&nbsp;unit;&nbsp;display_modified&nbsp;:&nbsp;unit;&nbsp;display_state&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;display_stx_mode&nbsp;:&nbsp;unit;&nbsp;do_save&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dup&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.topwin&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view&nbsp;option;&nbsp;end_of_line&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.buffered_file;&nbsp;filename&nbsp;:&nbsp;string;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;forward_char&nbsp;:&nbsp;unit;&nbsp;forward_line&nbsp;:&nbsp;unit;&nbsp;forward_word&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;goto_char&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;goto_line&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;grab_focus&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;has_focus&nbsp;:&nbsp;bool;&nbsp;insert&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key_bindings&nbsp;:&nbsp;(<span class="constructor">Okey</span>.keyhit_state&nbsp;*&nbsp;string)&nbsp;list;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kill_line&nbsp;:&nbsp;append:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kill_word&nbsp;:&nbsp;?concat:[&nbsp;<span class="keywordsign">`</span><span class="constructor">APPEND</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">PREPEND</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kind&nbsp;:&nbsp;string;&nbsp;label&nbsp;:&nbsp;string;&nbsp;location_in_buffer&nbsp;:&nbsp;int&nbsp;*&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menus&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">GToolbox</span>.menu_entry&nbsp;list)&nbsp;list;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minibuffer&nbsp;:&nbsp;<span class="constructor">Ed_minibuffer</span>.minibuffer;&nbsp;my_set_label&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_cursor_moved&nbsp;:&nbsp;unit;&nbsp;paste&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;place_cursor&nbsp;:&nbsp;?scroll:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;redo&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reload&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option;&nbsp;save&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;save_as&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;select_location&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.location&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;select_location_opt&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.location&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;select_range_in_file&nbsp;:&nbsp;?jump:[&nbsp;<span class="keywordsign">`</span><span class="constructor">Left</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Right</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;right:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_encoding&nbsp;:&nbsp;string&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_file&nbsp;:&nbsp;?focus_in:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_sourceview</span>.buffered_file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_label&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;set_location&nbsp;:&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_mode&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.mode&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_my_location&nbsp;:&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_on_destroy&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_on_focus_in&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_on_label_change&nbsp;:&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_scroll_on_change&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_syntax_mode&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_language&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set_wrap_mode&nbsp;:&nbsp;<span class="constructor">Gtk</span>.<span class="constructor">Tags</span>.wrap_mode&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;source_buffer&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.my_buffer;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;source_view&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_view;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;switch_line_markers&nbsp;:&nbsp;?v:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;switch_line_numbers&nbsp;:&nbsp;?v:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;transpose_chars&nbsp;:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unit;&nbsp;transpose_lines&nbsp;:&nbsp;unit;&nbsp;transpose_words&nbsp;:&nbsp;unit;&nbsp;undo&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unset_scroll_on_change&nbsp;:&nbsp;unit;&nbsp;update_menus&nbsp;:&nbsp;unit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update_my_location&nbsp;:&nbsp;unit;&nbsp;..&nbsp;&gt;<br>
+&nbsp;&nbsp;<span class="keyword">as</span>&nbsp;<span class="keywordsign">'</span>a)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span><br>
+(<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b)&nbsp;<span class="keywordsign">-&gt;</span><br>
+(<span class="constructor">Ed_sourceview</span>.buffered_file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_view</span>.topwin&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view)&nbsp;<span class="keywordsign">-&gt;</span><br>
+(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span><br>
+<span class="constructor">Ed_sourceview</span>.buffered_file&nbsp;<span class="keywordsign">-&gt;</span><br>
+<span class="keyword">object</span>&nbsp;(<span class="keywordsign">'</span>a)<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;file&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.buffered_file<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;label&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;my_location&nbsp;:&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_destroy&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_focus_in&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;on_label_change&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;attributes&nbsp;:&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;backward_char&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;backward_line&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;backward_word&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;beginning_of_line&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;bookmarks_menus&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">GToolbox</span>.menu_entry&nbsp;list)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;box&nbsp;:&nbsp;<span class="constructor">GObj</span>.widget<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;buffer_modified&nbsp;:&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;buffer_name&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;close&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;connect_buffer_events&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;copy&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;current_line&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;cut&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;cut_to_selection&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?concat:[&nbsp;<span class="keywordsign">`</span><span class="constructor">APPEND</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">PREPEND</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;start:<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;stop:<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;delete_char&nbsp;:&nbsp;bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;destroy&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;display_buffer_name&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;display_encoding&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;display_location&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;display_mode&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;display_modified&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;display_state&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;display_stx_mode&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;do_save&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;dup&nbsp;:&nbsp;<span class="constructor">Ed_view</span>.topwin&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_view</span>.gui_view&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;end_of_line&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;file&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.buffered_file<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;filename&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;forward_char&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;forward_line&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;forward_word&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;goto_char&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;goto_line&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;grab_focus&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;has_focus&nbsp;:&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;insert&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;key_bindings&nbsp;:&nbsp;(<span class="constructor">Okey</span>.keyhit_state&nbsp;*&nbsp;string)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;kill_line&nbsp;:&nbsp;append:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;kill_word&nbsp;:&nbsp;?concat:[&nbsp;<span class="keywordsign">`</span><span class="constructor">APPEND</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">PREPEND</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;kind&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;label&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;location_in_buffer&nbsp;:&nbsp;int&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;menus&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">GToolbox</span>.menu_entry&nbsp;list)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;minibuffer&nbsp;:&nbsp;<span class="constructor">Ed_minibuffer</span>.minibuffer<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;my_set_label&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_cursor_moved&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;paste&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;place_cursor&nbsp;:&nbsp;?scroll:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;redo&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;reload&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;save&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;save_as&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;select_location&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.location&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;select_location_opt&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.location&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;select_range_in_file&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?jump:[&nbsp;<span class="keywordsign">`</span><span class="constructor">Left</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Right</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;left:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;right:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_encoding&nbsp;:&nbsp;string&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_file&nbsp;:&nbsp;?focus_in:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ed_sourceview</span>.buffered_file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_label&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_location&nbsp;:&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_mode&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.mode&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_my_location&nbsp;:&nbsp;int&nbsp;*&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_destroy&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_focus_in&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_on_label_change&nbsp;:&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_scroll_on_change&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_syntax_mode&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_language&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_wrap_mode&nbsp;:&nbsp;<span class="constructor">Gtk</span>.<span class="constructor">Tags</span>.wrap_mode&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;source_buffer&nbsp;:&nbsp;<span class="constructor">Ed_sourceview</span>.my_buffer<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;source_view&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_view<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;switch_line_markers&nbsp;:&nbsp;?v:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;switch_line_numbers&nbsp;:&nbsp;?v:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;transpose_chars&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;transpose_lines&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;transpose_words&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;undo&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;unset_scroll_on_change&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;update_menus&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;update_my_location&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;write_file&nbsp;:&nbsp;unit<br>
+<span class="keyword">end</span></code></body></html>
