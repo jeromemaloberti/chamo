@@ -1,0 +1,524 @@
+page-title=FAQ
+<->
+<p>
+Here are some questions and answers about Chamo and its usage.
+</p>
+
+<prepare-toc depth="2">
+<toc/>
+
+<section name="scriptable" title="Using OCaml code and commands in Chamo">
+<subsection name="ocaml_scriptable"
+title="Chamo is OCaml-scriptable. What does it mean ?">
+<p>
+This means that you can fully customize Chamo with pieces of OCaml code,
+the same way you can customize Emacs with lisp code. There are multiple ways to do so.
+For example, you can place some code in your file
+<code>~/.chamo/chamo_init.ml</code>.
+This file is evaluated when <code>chamo.byte</code>
+is launched. In this file, you can access any part of Chamo.
+Refer to
+<a href="refdoc/index.html#2_Chamomodules">the reference documentation</a>
+for information about the API of the available modules.
+</p>
+<p>
+For example, to display the "about box" at launch time, simply add to
+<code>chamo_init.ml</code> the following code:
+</p>
+<hcode lang="ocaml">Ed_window.show_about_dialog ();;</hcode>
+<p>
+The same effect could be achieved by calling the command "about" with no arguments.
+To do so from OCaml code, you can use the function
+<code>Cam_commands.eval_command</code>:
+</p>
+<hcode lang="ocaml">Cam_commands.eval_command "about";;</hcode>
+<p>
+Another way to evaluate OCaml code to add your own command or whatever you want is
+to call the "eval" command. When called without argument, this command
+prompts the user for OCaml code to evaluate. If an argument is given, it is evaluated
+as OCaml code. See
+<a href="#commands">here</a>
+for details on commands. So, putting the following code in your file
+<code>chamo_init.ml</code>:
+<hcode lang="ocaml">Cam_command.eval_command "eval \"let x = 1;;\"";;</hcode>
+is the same as simply putting
+<hcode lang="ocaml">let x = 1;;</hcode>
+</p>
+<!--
+<p>
+You can also load compiled bytecode using the <code>Ed_eval.load_file : string -> unit</code> function.
+</p>
+-->
+<p>
+Another way to perform some customization is to use the
+<code>--use</code>
+command line option to indicate a file containing OCaml code to evaluate
+at launch time.
+</p>
+<p>
+From a technical point of view, the
+<code>chamo.byte</code> executable includes the
+<code>toplevellib.cma</code>
+OCaml library which offers functions to evaluate OCaml code.
+Then, some initializations are done by the
+<code><a href="refdoc/Ed_eval.html">module Ed_eval</a></code>
+to make the interpreter look for modules interfaces in the cameleon2 and lablgtk2
+directories detected during configuration. This is done by evaluating some
+<code>#directory</code> directives.
+</p>
+<p>
+All the answer above is true for the bytecode version of Chamo
+(<code>chamo.byte</code>).
+It is false for the native code version
+(<code>chamo.x</code>).
+</p>
+
+</subsection>
+<subsection name="commands" title="What are commands ?">
+<p>
+Commands are functions associated to a name. The name is a string. See
+<a href="#defining_commands">here</a>
+ about how to define a command. The commands can take parameters,
+which are strings too. The call to a command is then a string of the form:
+<code>command arg1 arg2 ...</code>.
+ Arguments are optional. Some commands require arguments, some don't.
+Some commands will prompt the user for missing arguments.
+</p>
+<p>
+By default, the A-x (Alt-x) keys are bound to the "prompt_command" command which
+uses the minibuffer of the active window to make the user type in a command (name and arguments).
+Then the text entered is given to the "command" command which parses its first argument
+to separate the command name from arguments and really launches the command.
+Quoting of arguments works the same way as in the shell (with simple or double quotes).
+</p>
+</subsection>
+
+<subsection name="faq:chamo:defining_commands" title="How to define new commands ?">
+<p>
+Commands are defined in OCaml using the functions in
+<a href="refdoc/Cam_commands.html">module Cam_commands</a>.
+They are composed of a name, a list of parameter names, an optional description for
+remaining parameters and the OCaml function which is called when the command is launched.
+This function is of type
+<code>string array -> unit</code>.
+The parameters of the command are passed in the string array.
+The indications about parameters names can be used by higher level functions
+to prompt the user for missing parameters, with the names of the
+parameters, so that the user knows what to enter.
+</p>
+<p>
+Here is an example of the creation of a command which displays the message in the first
+argument, or "Alert!" if there is no argument:
+<hcode lang="ocaml">let alert_message args =
+  let message =
+    if Array.length args &lt; 1 then
+      "Alert!"
+    else
+      Ed_misc.to_utf8 args.(0)
+   in
+   GToolbox.message_box "Alert message" message;;
+let com = Cam_commands.create_com
+   "alert_message" [| "Message to display" |] alert_message;;
+Cam_commands.register com;;
+</hcode>
+</p>
+<p>
+It is useful to name and make visible the function associated to the command, so that it is
+also directly available in OCaml code, rather than calling
+<hcode lang="ocaml">Cam_commands.eval_command "alert_message my_message";;</hcode>
+or
+<hcode lang="ocaml">Cam_commands.launch_command "alert_message" [|"my_message"|];;</hcode>
+Of course, calling directly the function which was first associated to the command "alert_message"
+will short-circuit any redefinition of the command.
+</p>
+<p>
+It is also possible to complete existing commands, by adding some code to execute before or
+after the original code of a command. This is done with the functions
+<code>Cam_commands.register_before</code>
+ and
+<code>Cam_commands.register_after</code>.
+For example, if we want alert messages to be logged, we could use something like
+<hcode lang="ocaml">
+let log_message args =
+  (* log the message(s) in the arguments *)
+  ...
+;;
+Cam_commands.register_before
+  (Cam_commands.create_com
+     "alert_message" [|"Message to display"|] log_message);;
+</hcode>
+</p>
+</subsection>
+
+<subsection name="faq:chamo:commandlist" title="Which commands are available ?">
+<p>
+The list of available command names can be obtained with
+<code>Cam_commands.available_command_names ()</code>.
+ Then it is easy to obtain, for each command, the names of its parameters:
+<hcode lang="ocaml"><![CDATA[let f name =
+  let com = Cam_commands.get_com_or_fail name in
+  print_string com.Cam_commands.com_name;
+  Array.iter (fun s -> Printf.printf " (%s)" s) com.Cam_commands.com_args;
+  (match com.Cam_commands.com_more_args with
+     None -> ()
+   | Some s -> Printf.printf " (%s...)" s
+  );
+  print_newline ()
+;;
+List.iter f (Cam_commands.available_command_names());;]]>
+</hcode>
+</p>
+<p class="warning">
+A naming convention is needed to get some consistency in command names. By now, general commands are not
+prefixed. The commands relative to a sourceview mode (for example the "ocaml" mode of the "sourceview"
+view) should be prefixed by the mode name (e.g. "ocaml_"). The commands relative to a view (like "sourceview"
+or "odoc") should be prefixed by the view name (e.g. "sourceview_" or "odoc_"). The convention is
+to separate words in command names by "_" and not "-".
+</p>
+</subsection>
+</section>
+
+<section name="configfiles" title="Configuration files">
+<subsection name="rcdir" title="Where are stored the configuration files of Chamo ?">
+<p>
+The user's global configuration files of Chamo are stored in the
+<code>~/.chamo/</code>
+directory and are prefixed with "chamo.". The files are created if they don't exist.
+They are human readable with an OCaml-like syntax.
+</p>
+<p>
+There are also "local" configuration files, that is files stored in the directory
+where Chamo was launched. By now, we can find:
+</p>
+<ul>
+<li>
+<code>.chamo.sourceview.buffers</code>
+ which contains the list of open buffers in the "sourceview" view, and
+the position of the cursor in each of them,
+</li>
+<li><code>.chamo.layout.xml</code>
+ which describes the layout of all open windows. This file is created
+on demand by the "store_layout" command. When Chamo is launched and this file exists in the current
+directory, it is read and all windows and views are created accordingly, so that you keep all your views
+arranged like they were when you stored the layout.
+</li>
+<li><code>.chamo_init.ml</code> which is evaluated by
+<code>chamo.byte</code> at launch time, after the
+<code>~/.chamo/chamo_init.ml</code> file of the user; it can be used to
+add some customization relative to a particular directory.
+</li>
+</ul>
+</subsection>
+
+<subsection name="configfileslist"
+title="Wow ! There are a lot of Chamo configuration files in ~/.chamo/ !">
+<p>
+Indeed. But don't panic, there's a logical organisation.
+</p>
+<ul>
+<li>In
+<code>chamo.core</code>,
+ you will find some values concerning internal details, like the default charset
+encoding used to read/write files and convert to/from UTF-8 (Gtk2 uses UTF-8).
+</li>
+<li><code>chamo.gui</code>
+ contains some options common to all Chamo windows, like key bindings.
+</li>
+<li><code>chamo_init.ml</code>
+ is evaluated when
+<code>chamo.byte</code>
+ is launched; it contains OCaml source code. Think of it as the
+<code>~/.emacs</code>
+ file of Emacs.
+</li>
+<li><code>chamo.views</code>
+ defines some options about view management, in particular the
+associations between filename patterns and views, and the default view to use
+when opening a file.
+</li>
+<li><code>chamo.odoc</code> and <code>chamo.sourceview</code>
+ contain respectively the options of the "odoc" and "sourceview"
+views. As you understand now, the standard name of the configuration file of a view is
+<code>chamo.&lt;view name&gt;</code>.
+</li>
+<li>
+Each available mode of the "sourceview" view has its own configuration
+file named
+<code>chamo.sourceview.mode.&lt;mode name&gt;</code>,
+ for example
+<code>chamo.sourceview.mode.ocaml</code> or
+<code>chamo.sourceview.mode.changelog</code>.
+</li>
+</ul>
+</subsection>
+</section>
+
+<section name="views" title="Views">
+<subsection name="whatareviews" title="What are views ?">
+<p>
+Views in Chamo are different ways to edit or display files. The most commonly used
+view in the "sourceview" view, which allows the edition of any text file. It is based
+on GtkSourceView and can highlight syntax elements. Other views are available for
+some kinds of files:
+</p>
+<ul>
+<li>
+the "odoc" view can be used to display and browse the contents of OCamldoc dump files, and
+files can be open directly at the location of an element from this view (by double-clicking or
+from the menu which pops-up when button 3 is pressed).
+</li>
+</ul>
+<p>
+Views define also their own description of menus and key bindings. When a view has the input
+focus, the menus it describes are available in the menubar of the parent window of the view,
+and the key bindings it defines are handled, in addition to the key bindings common to
+all Chamo windows.
+</p>
+</subsection>
+
+<subsection name="chosingview" title="How do I choose which view is used to edit a file ?">
+<p>
+Chamo has no way to guess the view you want to use to edit a file. You have to
+give some indications. This is done in the file
+<code>~/.chamo/chamo.views</code>, in option
+<code>view_from_filename_patterns</code>,
+ by giving pairs (regular expression, view name).
+The regular expressions are tried in the given
+order to match the name of the file to open.
+When a regular expression matches, Chamo uses the view with the associated name
+to open the file. A default view is used when none of the regular expressions
+match the file name. The default view name can be set with option
+<code>default_view</code>.
+ The default value of
+<code>default_view</code>
+ is "sourceview".
+</p>
+<p>
+This file is read at launch time, so you must restart Chamo if you modified it,
+or evaluate the following OCaml code to reload the values of options:
+<hcode lang="ocaml">Ed_view_rc.read();;</hcode>
+</p>
+<p>
+Values of options can also be set using OCaml code. Refer to the documentation of the
+<a href="refdoc/Config_file.html">Config_file library</a>
+ to manipulate the options.
+For example, to add a new association between a filename pattern and a view name, use the
+following OCaml code (here we add a pattern so that files with ".ocamldoc" extension are
+open with the "odoc" view):
+<hcode lang="ocaml"><![CDATA[let l = Ed_view_rc.filename_view_patterns#get in
+Ed_view_rc.filename_view_patterns#set (("\\.*ocamldoc$", "odoc") :: l) ;;]]></hcode>
+</p>
+<p>
+It is also possible to store the values of options, this way:
+<hcode lang="ocaml">Ed_view_rc.write ();;</hcode>
+</p>
+</subsection>
+<subsection name="sourceview" title="Can you give me some details about the &quot;sourceview&quot; view ?">
+<p>
+This view can be used to edit any text file. It is based on the
+<a href="http://gtksourceview.sourceforge.net/">GtkSourceView</a>
+ Gtk2 library.
+As in Emacs, this view separates the buffers from the views on the screen. So a buffer
+can be displayed in various views, and some buffers can be present but not visible.
+There cannot be two different buffers on the same file. Since Gtk2 buffers uses UTF-8
+strings, the contents of the edited files must be converted to UTF-8 when used in
+a buffer and converted back to the file encoding when the file is saved. The default
+encoding used is the one associated to the "LOCALE" environment variable, then if
+it fails, the
+<code>default_charset</code> option of the user's <code>~/.chamo/chamo.core</code>
+ file is used. If it still fails, the user is prompted to choose an encoding among the ones
+found on the system at configuration and compilation time.
+</p>
+<p class="warning">
+Prompting the user to choose an encoding when the default ones fail
+is not yet implemented.
+</p>
+<p>
+Common manipulations of text are allowed through commands and are bound to keys.
+Check your <code>~/.chamo/chamo.sourceview</code>
+file for what commands are bound. Sourceview specific commands begin with "sourceview_".
+</p>
+<p>
+Syntax highlighting in a buffer is made by the GtkSourceView library according to the
+language associated to the buffer. Check the
+<code>language_mime_from_filename_patterns</code> option of your file
+<code>~/.chamo/chamo.sourceview</code>: these are the
+associations between filename patterns and mime types. Then, the mime type is used
+to retrieve the language specification defining syntax elements. Since Chamo uses
+the
+<ext-a href="http://gtk-extras.forge.ocamlcore.org/">module Gtksv_utils</ext-a>,
+ the styles of the elements of each language are shared with the other applications
+ using this module (for example
+<ext-a href="http://zoggy.github.com/ocamltop-gtk">OCamltop-gtk</ext-a>).
+ Styles of the "sourceview" views and syntax highlighting can be modified
+ using the "Preferences" box accessible from the
+menu "File/Preferences". The syntax mode of the buffer in a view is displayed
+between square brackets below the view, next to the buffer name and the line and column
+numbers.
+</p>
+<p>
+Chamo sourceview buffers can also have an associated mode. A mode is composed of
+a name, a description of the menus to display and the keyboard bindings to handle when
+the view of the buffer has the input focus. Associations between filename patterns
+and mode names are defined in option
+<code>mode_from_filename_patterns</code> of the user's file
+<code>~/.chamo/chamo.sourceview</code>. This means that commands
+"specific to a mode" are available even on buffers with another mode associated; it is
+just a matter of key bindings and menus which give direct access to commands.
+Options of modes, like key bindings, are stored (by convention) in a configuration
+file specific to the mode. For example, the configuration options of the "ocaml" mode
+are stored in the user's file
+<code>~/.chamo/chamo.sourceview.mode.ocaml</code>.
+</p>
+</subsection>
+
+<subsection name="definingsourceviewmodes" title="How do I define a new sourceview mode ?">
+<p>
+This is done with some OCaml code. Modes are represented by objects of class type
+<code>Ed_sourceview.mode</code>.
+Then, an instance of your mode class must be registered with
+<code>Ed_sourceview.register_mode</code>. Then, add some association between a filename
+pattern and your mode name and it's ok. Have a look at the code of another mode, e.g.
+<a href="refdoc/Ed_mode_ocaml.html">the ocaml mode</a>
+ (implementation is <a href="refdoc/code_Ed_mode_ocaml.html">here</a>,
+implementation of the management of the configuration file is
+<a href="refdoc/code_Ed_mode_ocaml_rc.html">here</a>).
+</p>
+</subsection>
+
+<subsection name="availablemodes" title="What modes are availables ?">
+<p>
+By now, there are not a lot of modes. Here is a list of the available modes,
+with the commands it provides through a key binding indicated between parenthesis:
+</p>
+<ul>
+<li>"ocaml": 'ocaml_indent_line' (Tab),
+'ocaml_indent_buffer' (C-x C-Tab), 'ocaml_switch_file' (C-x C-a),
+'ocaml_display_type_annot' (A-t),</li>
+<li>"makefile": 'sourceview_insert "\t"' (Tab),</li>
+<li>"changelog": 'changelog_new_day_entry' (C-x a), 'sourceview_insert "\t"' (Tab).</li>
+</ul>
+<p class="warning">
+Contributions (new modes or new commands) are very welcome !
+</p>
+
+</subsection>
+</section>
+
+<section name="keyboardshortcuts" title="Key bindings">
+<subsection name="ksdefinition" title="How/where are key bindings defined ?">
+There are various sets of key bindings:
+<ul>
+<li>
+Chamo-wide key bindings, usable in all Chamo edition windows, whatever the active view is;
+these key bindings are defined in the file <code>~/.chamo/chamo.gui</code>.
+</li>
+<li>
+key bindings associated to a kind of view; these bindings are defined in the file
+<code>~/.chamo/chamo.V</code> where <code>V</code>
+ is the name of a view. So, the bindings of "sourceview" views are defined in the file
+<code>~/.chamo/chamo.sourceview</code>.
+ The bindings associated to a kind of view are active only when the active view is of
+this kind.
+</li>
+<li>
+sourceview mode specific bindings; these are active only when a mode is selected in
+the active sourceview; they are defined in the file
+<code>~/.chamo/chamo.sourceview.mode.M</code> where <code>M</code>
+ is the name of the mode, such as "ocaml".
+</li>
+</ul>
+<p>
+All these files are created with default values if they don't exist when Chamo is launched.
+</p>
+<p>
+The final set of active key bindings is the union of global key bindings and the ones
+of the active view (with eventually the ones of the active mode).
+</p>
+</subsection>
+
+<subsection name="kscommands"
+ title="Where can I find a list of key specification to define my own bindings ?">
+<p>
+The key identifiers usable in configuration files can be found
+<ext-a href="https://forge.ocamlcore.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=gtk-extras/gtk-extras.git;a=blob_plain;f=src/configwin_keys.ml;hb=HEAD">here</ext-a>,
+ in value
+<code>keysym_to_name</code>.
+You should be able to find the corresponding string; for example "page up" will
+be referenced with the identifier "Page_Up".
+</p>
+</subsection>
+
+<subsection name="kscommandsavailable"
+title="How can I know the list of available commands I can associate a key binding to ?">
+<p>
+Most of predefined commands are already bound to a key combination, so you
+can already have a look at the various configuration files for command names.
+If you don't find what you're looking for, you can execute the following command
+in a bytecode version of chamo:
+<hcode lang="ocaml">eval "Cam_commands.available_command_names ()"</hcode>
+</p>
+<p>
+This command will evaluate the given ocaml expression, which returns the list
+of names of registered commands. The list is displayed in the ocaml evaluation
+output window.
+</p>
+
+</subsection>
+
+</section>
+
+<section name="troubleshooting" title="Troubleshooting">
+<subsection name="noocamlsyntaxhighlight"
+title="I have strange syntax highlighting when I edit my OCaml source files in Chamo.">
+<p>
+Sourceviews in Chamo are based on
+<ext-a href="http://gtksourceview.sourceforge.net/">GtkSourceView 2.X</ext-a>,
+ which uses language-specs files to know what to highlight (keywords, comments, ...).
+GtkSourceView 2.X comes with a language description file for  Objective Caml, but
+this one may not be as you like. For example, you may prefer to have different
+styles for definition keywords and expression keywords, or have identifiers containing
+integers displayed correctly (without a different style for the integer part...).
+In this case, you can copy the files below in your directory
+<code>~/.mlgtksourceview2/</code>:
+</p>
+<ul>
+<li>
+<code><a href="ocaml.lang">ocaml.lang</a></code>
+ is an alternative description of ocaml syntax elements. This description is called
+"OCaml" and differs from the "Objective-Caml" style coming with the
+GtkSourceView 2.X installation,
+</li>
+<li>
+<code><a href="scheme_chamo.xml">scheme_chamo.xml</a></code>
+ is a gtksourceview2 style scheme called "Chamo" specifically handling ocaml styles defined in
+<code>ocaml.lang</code>;
+ you can customize it to fit your preferences. To activate this style sheme,
+ choose this scheme in the
+<em>Files/Preferences</em>
+ menu.
+</li>
+</ul>
+</subsection>
+
+<subsection name="encodingproblem"
+title="When I open a file, some characters are badly displayed;
+it seems there is an encoding problem. How is the encoding of files handled ?">
+<p>
+By default, Chamo considers that files are encoded as specified in file
+<code>~/.chamo/chamo.core</code>
+ (the default value when this file is created is ISO8859-1). When a file is
+open, Chamo converts the contents of the file from this encoding to UTF-8 to
+display it correctly in Gtk windows. If you want to open a file which is
+in a different encoding, you can use the command
+<code>open_file_with_encoding</code>
+ which will let you specify the encoding of the file to open. You can also
+change the default encoding used, by modifying the value in the file
+<code>~/.chamo/chamo.core</code>.
+</p>
+</subsection>
+</section>
+
+</prepare-toc>
+
+

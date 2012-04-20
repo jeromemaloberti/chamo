@@ -22,90 +22,24 @@
 #                                                                               #
 #################################################################################
 
-include master.Makefile
+STOGDIR=~/Personal/stog
+STOG=$(STOGDIR)/stog.byte
+DEST_DIR=/tmp/chamo
+BASE_URL_OPTION=
+STOG_OPTIONS=-d $(DEST_DIR) $(BASE_URL_OPTION)
+LESSC=lessc
 
-# Compilation
-#############
+.PHONY: build site test
 
-all: src
+build:
+	$(MAKE) site
 
-src: dummy
-	cd src && $(MAKE) all
 
-re : depend clean all
+site:
+	$(STOG) $(STOG_OPTIONS) .
+	$(LESSC) less/style.less > $(DEST_DIR)/style.css
+	cp -f *png tmpl/*png $(DEST_DIR)/
+#	cp -f *.svg $(DEST_DIR)/
 
-# Documentation :
-#################
-doc: dummy
-	cd src && $(MAKE) doc
-
-# myself
-
-master.Makefile: master.Makefile.in config.status
-	./config.status
-
-config.status: configure
-	./config.status --recheck
-
-configure: configure.in
-	autoconf
-
-# backup, clean and depend :
-############################
-
-distclean: clean
-	cd src && $(MAKE) distclean
-	$(RM) config.cache config.log config.status master.Makefile \
-	src/ed_installation.ml src/ed_config.ml
-
-clean:: dummy
-	$(RM) *~ \#*\#
-	cd src && $(MAKE) clean
-
-depend: dummy
-	cd src && $(MAKE) depend
-
-dummy:
-
-###########
-# Headers
-###########
-HEADEDFILES= configure.in configure \
-	master.Makefile.in Makefile src/Makefile web/Makefile checkocaml.ml \
-	src/*.ml src/*.mli src/ed_installation.ml.in src/ed_config.ml.in
-headers: dummy
-	headache -h header -c ~/.headache_config $(HEADEDFILES)
-
-noheaders: dummy
-	headache -r -c ~/.headache_config $(HEADEDFILES)
-
-############
-# Web site
-############
-webdoc: dummy
-	cd web && $(MAKE) DEST_DIR=../../chamo-gh-pages
-
-#################
-# installation
-#################
-
-install: dummy
-	cd src && $(MAKE) install
-	@$(MKDIR) $(PIXMAPSDIR)
-	@for i in images/*.png ; do \
-		$(CP) $$i $(PIXMAPSDIR)/ && echo Installed $(PIXMAPSDIR)/$$i; done
-
-uninstall: dummy
-	cd src && $(MAKE) uninstall
-
-###########
-# archive
-###########
-archive:
-	git archive --prefix=chamo-$(VERSION)/ HEAD | gzip > ../chamo-gh-pages/chamo-$(VERSION).tar.gz
-
-###########################
-# additional dependencies
-###########################
-
-# DO NOT DELETE
+test:
+	$(MAKE) BASE_URL_OPTION="--site-url file://$(DEST_DIR)" site
