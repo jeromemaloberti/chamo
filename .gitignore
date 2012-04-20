@@ -2,6 +2,7 @@
 META
 config.log
 config.status
+configure.lineno
 ocaml_config.sh
 master.Makefile
 autom4te.cache
