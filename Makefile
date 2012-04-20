@@ -55,7 +55,8 @@ configure: configure.in
 
 distclean: clean
 	cd src && $(MAKE) distclean
-	$(RM) config.cache config.log config.status master.Makefile src/cgversion.ml
+	$(RM) config.cache config.log config.status master.Makefile \
+	src/ed_installation.ml src/ed_config.ml
 
 clean:: dummy
 	$(RM) *~ \#*\#
@@ -98,7 +99,7 @@ uninstall: dummy
 # archive
 ###########
 archive:
-	git archive --prefix=chamo-$(VERSION)/ HEAD | gzip > /tmp/chamo-$(VERSION).tar.gz
+	git archive --prefix=chamo-$(VERSION)/ HEAD | gzip > ../chamo-gh-pages/chamo-$(VERSION).tar.gz
 
 ###########################
 # additional dependencies
