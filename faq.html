@@ -61,9 +61,9 @@ For example, to display the &quot;about box&quot; at launch time, simply add to
 <p>
 The same effect could be achieved by calling the command &quot;about&quot; with no arguments.
 To do so from OCaml code, you can use the function
-<code>Cam_commands.eval_command</code>:
+<code>Ed_commands.eval_command</code>:
 </p>
-<pre class="code-ocaml"><span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;about&quot;</span><span class="hl opt">;;</span>
+<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;about&quot;</span><span class="hl opt">;;</span>
 </pre>
 <p>
 Another way to evaluate OCaml code to add your own command or whatever you want is
@@ -73,7 +73,7 @@ as OCaml code. See
 <a href="#commands">here</a>
 for details on commands. So, putting the following code in your file
 <code>chamo_init.ml</code>:
-<pre class="code-ocaml"><span class="hl kwc">Cam_command</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;eval</span> <span class="hl esc">\&quot;</span><span class="hl str">let x = 1;;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span><span class="hl opt">;;</span>
+<pre class="code-ocaml"><span class="hl kwc">Ed_command</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;eval</span> <span class="hl esc">\&quot;</span><span class="hl str">let x = 1;;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span><span class="hl opt">;;</span>
 </pre>
 is the same as simply putting
 <pre class="code-ocaml"><span class="hl kwa">let</span> x <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;;</span>
@@ -127,7 +127,7 @@ Quoting of arguments works the same way as in the shell (with simple or double q
 <div class="subsection"><div class="subsection-title" id="faq:chamo:defining_commands">How to define new commands ?</div>
 <p>
 Commands are defined in OCaml using the functions in
-<a href="refdoc/Cam_commands.html">module Cam_commands</a>.
+<a href="refdoc/Ed_commands.html">module Ed_commands</a>.
 They are composed of a name, a list of parameter names, an optional description for
 remaining parameters and the OCaml function which is called when the command is launched.
 This function is of type
@@ -148,18 +148,18 @@ argument, or &quot;Alert!&quot; if there is no argument:
       <span class="hl kwc">Ed_misc</span><span class="hl opt">.</span>to_utf8 args<span class="hl opt">.(</span><span class="hl num">0</span><span class="hl opt">)</span>
    <span class="hl kwa">in</span>
    <span class="hl kwc">GToolbox</span><span class="hl opt">.</span>message_box <span class="hl str">&quot;Alert message&quot;</span> message<span class="hl opt">;;</span>
-<span class="hl kwa">let</span> com <span class="hl opt">=</span> <span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>create_com
+<span class="hl kwa">let</span> com <span class="hl opt">=</span> <span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>create_com
    <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>| <span class="hl str">&quot;Message to display&quot;</span> |<span class="hl opt">]</span> alert_message<span class="hl opt">;;</span>
-<span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>register com<span class="hl opt">;;</span>
+<span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>register com<span class="hl opt">;;</span>
 </pre>
 </p>
 <p>
 It is useful to name and make visible the function associated to the command, so that it is
 also directly available in OCaml code, rather than calling
-<pre class="code-ocaml"><span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;alert_message my_message&quot;</span><span class="hl opt">;;</span>
+<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;alert_message my_message&quot;</span><span class="hl opt">;;</span>
 </pre>
 or
-<pre class="code-ocaml"><span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>launch_command <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>|<span class="hl str">&quot;my_message&quot;</span>|<span class="hl opt">];;</span>
+<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>launch_command <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>|<span class="hl str">&quot;my_message&quot;</span>|<span class="hl opt">];;</span>
 </pre>
 Of course, calling directly the function which was first associated to the command &quot;alert_message&quot;
 will short-circuit any redefinition of the command.
@@ -167,16 +167,16 @@ will short-circuit any redefinition of the command.
 <p>
 It is also possible to complete existing commands, by adding some code to execute before or
 after the original code of a command. This is done with the functions
-<code>Cam_commands.register_before</code>
+<code>Ed_commands.register_before</code>
  and
-<code>Cam_commands.register_after</code>.
+<code>Ed_commands.register_after</code>.
 For example, if we want alert messages to be logged, we could use something like
 <pre class="code-ocaml"><span class="hl kwa">let</span> log_message args <span class="hl opt">=</span>
   <span class="hl com">(* log the message(s) in the arguments *)</span>
   <span class="hl opt">...</span>
 <span class="hl opt">;;</span>
-<span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>register_before
-  <span class="hl opt">(</span><span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>create_com
+<span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>register_before
+  <span class="hl opt">(</span><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>create_com
      <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>|<span class="hl str">&quot;Message to display&quot;</span>|<span class="hl opt">]</span> log_message<span class="hl opt">);;</span>
 </pre>
 </p>
@@ -185,19 +185,19 @@ For example, if we want alert messages to be logged, we could use something like
 <div class="subsection"><div class="subsection-title" id="faq:chamo:commandlist">Which commands are available ?</div>
 <p>
 The list of available command names can be obtained with
-<code>Cam_commands.available_command_names ()</code>.
+<code>Ed_commands.available_command_names ()</code>.
  Then it is easy to obtain, for each command, the names of its parameters:
 <pre class="code-ocaml"><span class="hl kwa">let</span> f name <span class="hl opt">=</span>
-  <span class="hl kwa">let</span> com <span class="hl opt">=</span> <span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>get_com_or_fail name <span class="hl kwa">in</span>
-  print_string com<span class="hl opt">.</span><span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>com_name<span class="hl opt">;</span>
-  <span class="hl kwc">Array</span><span class="hl opt">.</span>iter <span class="hl opt">(</span><span class="hl kwa">fun</span> s <span class="hl opt">-&gt;</span> <span class="hl kwc">Printf</span><span class="hl opt">.</span>printf <span class="hl str">&quot; (%s)&quot;</span> s<span class="hl opt">)</span> com<span class="hl opt">.</span><span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>com_args<span class="hl opt">;</span>
-  <span class="hl opt">(</span><span class="hl kwa">match</span> com<span class="hl opt">.</span><span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>com_more_args <span class="hl kwa">with</span>
+  <span class="hl kwa">let</span> com <span class="hl opt">=</span> <span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>get_com_or_fail name <span class="hl kwa">in</span>
+  print_string com<span class="hl opt">.</span><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>com_name<span class="hl opt">;</span>
+  <span class="hl kwc">Array</span><span class="hl opt">.</span>iter <span class="hl opt">(</span><span class="hl kwa">fun</span> s <span class="hl opt">-&gt;</span> <span class="hl kwc">Printf</span><span class="hl opt">.</span>printf <span class="hl str">&quot; (%s)&quot;</span> s<span class="hl opt">)</span> com<span class="hl opt">.</span><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>com_args<span class="hl opt">;</span>
+  <span class="hl opt">(</span><span class="hl kwa">match</span> com<span class="hl opt">.</span><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>com_more_args <span class="hl kwa">with</span>
      <span class="hl kwd">None</span> <span class="hl opt">-&gt; ()</span>
    | <span class="hl kwd">Some</span> s <span class="hl opt">-&gt;</span> <span class="hl kwc">Printf</span><span class="hl opt">.</span>printf <span class="hl str">&quot; (%s...)&quot;</span> s
   <span class="hl opt">);</span>
   print_newline <span class="hl opt">()</span>
 <span class="hl opt">;;</span>
-<span class="hl kwc">List</span><span class="hl opt">.</span>iter f <span class="hl opt">(</span><span class="hl kwc">Cam_commands</span><span class="hl opt">.</span>available_command_names<span class="hl opt">());;</span>
+<span class="hl kwc">List</span><span class="hl opt">.</span>iter f <span class="hl opt">(</span><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>available_command_names<span class="hl opt">());;</span>
 </pre>
 </p>
 <p class="warning">
@@ -332,7 +332,7 @@ or evaluate the following OCaml code to reload the values of options:
 </p>
 <p>
 Values of options can also be set using OCaml code. Refer to the documentation of the
-<a href="refdoc/Config_file.html">Config_file library</a>
+<a href="http://config-file.forge.ocamlcore.org/ocamldoc/Config_file.html">Config_file library</a>
  to manipulate the options.
 For example, to add a new association between a filename pattern and a view name, use the
 following OCaml code (here we add a pattern so that files with &quot;.ocamldoc&quot; extension are
@@ -488,7 +488,7 @@ Most of predefined commands are already bound to a key combination, so you
 can already have a look at the various configuration files for command names.
 If you don't find what you're looking for, you can execute the following command
 in a bytecode version of chamo:
-<pre class="code-ocaml">eval <span class="hl str">&quot;Cam_commands.available_command_names ()&quot;</span>
+<pre class="code-ocaml">eval <span class="hl str">&quot;Ed_commands.available_command_names ()&quot;</span>
 </pre>
 </p>
 <p>
