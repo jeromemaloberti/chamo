@@ -24,7 +24,7 @@
 
 include ../master.Makefile
 
-PACKAGES=str,threads.posix,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.init
+PACKAGES=str,threads.posix,compiler-libs.common,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.init
 # IMPORTANT: do not forget to update ed_eval.ml modifying the list of packages
 
 OF_FLAGS=-package $(PACKAGES) -predicates mt
@@ -118,8 +118,9 @@ $(EDITOR): $(LIB) $(EDITOR_CMIFILES) $(EDITOR_CMXFILES)
 	$(INCLUDES) odoc_info.cmxa $(LIB) $(EDITOR_CMXFILES)
 
 $(EDITOR_BYTE): $(LIB_BYTE) $(EDITOR_CMIFILES) $(EDITOR_CMOFILES)
-	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -linkpkg -w -31 -o $@ -thread -linkall $(LINKFLAGS) \
-	$(INCLUDES) toplevellib.cma odoc_info.cma $(LIB_BYTE) $(EDITOR_CMOFILES)
+	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -package compiler-libs.toplevel -linkpkg \
+	-w -31 -o $@ -thread -linkall $(LINKFLAGS) \
+	$(INCLUDES) odoc_info.cma $(LIB_BYTE) $(EDITOR_CMOFILES)
 
 $(MKCHAMO_SCRIPT): $(LIB)
 	@echo -n "Creating $@... "

@@ -195,11 +195,15 @@ class view (topwin : Ed_view.topwin) (file : string) =
     in
     let open_location loc =
       match loc.loc_impl with
-      | Some (file, char) -> open_file file char
+      | Some loc ->
+        let st = loc.Location.loc_start in
+        open_file st.Lexing.pos_fname st.Lexing.pos_cnum
       | None ->
           match loc.loc_inter with
             None -> ()
-          | Some (file, char) -> open_file file char
+          | Some t -> 
+             let p = t.Location.loc_start in
+             open_file p.Lexing.pos_fname (p.Lexing.pos_bol + p.Lexing.pos_cnum)
     in
     let location_of_data d = !data.get_loc d in
     object(tree)
@@ -214,13 +218,19 @@ class view (topwin : Ed_view.topwin) (file : string) =
             (
              match loc.loc_impl with
                None -> []
-             | Some (file,n) ->
+             | Some t ->
+                 let p = t.Location.loc_start in
+                 let file = p.Lexing.pos_fname in
+                 let n = p.Lexing.pos_bol + p.Lexing.pos_cnum in
                  [`I ("Implementation", (fun () -> open_file file n))]
             ) @
             (
              match loc.loc_inter with
                None -> []
-             | Some (file,n) ->
+             | Some t ->
+                 let p = t.Location.loc_start in
+                 let file = p.Lexing.pos_fname in
+                 let n = p.Lexing.pos_bol + p.Lexing.pos_cnum in
                  [`I ("Interface", (fun () -> open_file file n))]
             )
     end
