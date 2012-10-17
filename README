@@ -1,0 +1,3 @@
+Chamo is a source code editor in OCaml, using Gtk.
+Users can configure and extend chamo with ocaml code.
+More information on http://zoggy.github.com/chamo .
