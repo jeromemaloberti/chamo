@@ -24,7 +24,7 @@
 
 include ../master.Makefile
 
-PACKAGES=str,threads.posix,compiler-libs.common,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.init
+PACKAGES=str,threads.posix,compiler-libs.common,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.auto-init
 # IMPORTANT: do not forget to update ed_eval.ml modifying the list of packages
 
 OF_FLAGS=-package $(PACKAGES) -predicates mt

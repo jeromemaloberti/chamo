@@ -183,7 +183,7 @@ Ed_hooks.set_display_message (fun ?to_utf8 _ -> ());;
 Ed_hooks.set_warning_message (fun ?to_utf8 _ -> ());;
 
 let packages =
-  [ "str" ; "threads.posix" ; "pcre" ; "config-file" ;
+  [ "str" ; "threads.posix" ; "compiler-libs.common"; "pcre" ; "config-file" ;
     "xmlm" ; "lablgtk2.glade" ; "lablgtk2-extras.configwin" ;
   ];;
 

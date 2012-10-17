@@ -1,6 +1,6 @@
 version = "@VERSION@"
 description = "The Chamo library"
-requires = "threads.posix,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.init"
+requires = "threads.posix,pcre,config-file,xmlm,lablgtk2.glade,lablgtk2-extras.configwin,lablgtk2.auto-init"
 archive(byte) = "@OCAMLLIB@/ocamldoc/odoc_info.cma chamo.cma"
 archive(native) = "@OCAMLLIB@/ocamldoc/odoc_info.cmxa chamo.cmxa"
 
