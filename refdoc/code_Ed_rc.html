@@ -93,21 +93,21 @@
 <br>
 <span class="keyword">let</span>&nbsp;rc_dir&nbsp;=&nbsp;<span class="constructor">Ed_installation</span>.rc_dir<br>
 <br>
-</code><table><tr><td></td><td><span class="comment">(** <span id="2_Coreoptions"><h2>Core options</h2></span> *)</span></td></tr></table><code class="code"><br>
+</code><table><tr><td></td><td><span class="comment">(** <h2 id="2_Coreoptions">Core options</h2> *)</span></td></tr></table><code class="code"><br>
 <br>
 <span class="keyword">let</span>&nbsp;rc_core&nbsp;=&nbsp;<span class="constructor">Filename</span>.concat&nbsp;rc_dir&nbsp;<span class="string">"core.ini"</span><br>
 <span class="keyword">let</span>&nbsp;core_ini&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;<span class="constructor">O</span>.group<br>
 <span class="keyword">let</span>&nbsp;save_core&nbsp;()&nbsp;=&nbsp;core_ini<span class="keywordsign">#</span>write&nbsp;rc_core<br>
 <span class="keyword">let</span>&nbsp;load_core&nbsp;()&nbsp;=&nbsp;core_ini<span class="keywordsign">#</span>read&nbsp;rc_core<br>
 <br>
-</code><table><tr><td></td><td><span class="comment">(** <span id="2_Guioptions"><h2>Gui options</h2></span> *)</span></td></tr></table><code class="code"><br>
+</code><table><tr><td></td><td><span class="comment">(** <h2 id="2_Guioptions">Gui options</h2> *)</span></td></tr></table><code class="code"><br>
 <br>
 <span class="keyword">let</span>&nbsp;rc_gui&nbsp;=&nbsp;<span class="constructor">Filename</span>.concat&nbsp;rc_dir&nbsp;<span class="string">"gui.ini"</span><br>
 <span class="keyword">let</span>&nbsp;gui_ini&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;<span class="constructor">O</span>.group<br>
 <span class="keyword">let</span>&nbsp;save_gui&nbsp;()&nbsp;=&nbsp;gui_ini<span class="keywordsign">#</span>write&nbsp;rc_gui<br>
 <span class="keyword">let</span>&nbsp;load_gui&nbsp;()&nbsp;=&nbsp;gui_ini<span class="keywordsign">#</span>read&nbsp;rc_gui<br>
 <br>
-</code><table><tr><td></td><td><span class="comment">(** <span id="3_Keepingwindowspositionsandsizes"><h3>Keeping windows positions and sizes</h3></span> *)</span></td></tr></table><code class="code"><br>
+</code><table><tr><td></td><td><span class="comment">(** <h3 id="3_Keepingwindowspositionsandsizes">Keeping windows positions and sizes</h3> *)</span></td></tr></table><code class="code"><br>
 <br>
 <span class="keyword">let</span>&nbsp;value_to_geom&nbsp;v&nbsp;=<br>
 &nbsp;&nbsp;<span class="keyword">match</span>&nbsp;v&nbsp;<span class="keyword">with</span><br>
@@ -180,7 +180,7 @@
 &nbsp;&nbsp;win<span class="keywordsign">#</span>resize&nbsp;~width&nbsp;~height<br>
 <br>
 <br>
-</code><table><tr><td></td><td><span class="comment">(** <span id="2_Utils"><h2>Utils</h2></span> *)</span></td></tr></table><code class="code"><br>
+</code><table><tr><td></td><td><span class="comment">(** <h2 id="2_Utils">Utils</h2> *)</span></td></tr></table><code class="code"><br>
 <br>
 <span class="keyword">let</span>&nbsp;add_binding&nbsp;map&nbsp;binding&nbsp;action&nbsp;=<br>
 &nbsp;&nbsp;map<span class="keywordsign">#</span>set&nbsp;((<span class="constructor">Configwin</span>.string_to_key&nbsp;binding,&nbsp;action)&nbsp;::&nbsp;map<span class="keywordsign">#</span>get)<br>

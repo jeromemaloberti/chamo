@@ -67,19 +67,20 @@
 <link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_annot</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Ed_args.html">Next</a>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Ed_args.html" title="Ed_args">Next</a>
 </div>
-<center><h1>Module <a href="type_Ed_annot.html">Ed_annot</a> (<a href="code_Ed_annot.html">.ml</a>)</h1></center>
-<br>
-<pre><span class="keyword">module</span> Ed_annot: <code class="code">sig</code> <a href="Ed_annot.html">..</a> <code class="code">end</code></pre>Getting information in ocaml-generated .annot files.<br>
+<h1>Module <a href="type_Ed_annot.html">Ed_annot</a> (<a href="code_Ed_annot.html">.ml</a>)</h1>
+<pre><span class="keyword">module</span> Ed_annot: <code class="code">sig</code> <a href="Ed_annot.html">..</a> <code class="code">end</code></pre><div class="info">
+Getting information in ocaml-generated .annot files.<br>
+</div>
 <hr width="100%">
 <pre><span id="VALfilename_re"><span class="keyword">val</span> <a href="code_VALEd_annot.filename_re.html">filename_re</a></span> : <code class="type">string</code></pre><pre><span id="VALnumber_re"><span class="keyword">val</span> <a href="code_VALEd_annot.number_re.html">number_re</a></span> : <code class="type">string</code></pre><pre><span id="VALposition_re"><span class="keyword">val</span> <a href="code_VALEd_annot.position_re.html">position_re</a></span> : <code class="type">string</code></pre><pre><span id="VALs_location_re"><span class="keyword">val</span> <a href="code_VALEd_annot.s_location_re.html">s_location_re</a></span> : <code class="type">string</code></pre><pre><span id="VALlocation_re"><span class="keyword">val</span> <a href="code_VALEd_annot.location_re.html">location_re</a></span> : <code class="type">Str.regexp</code></pre><pre><span id="TYPEloc"><span class="keyword">type</span> <code class="type"></code>loc</span> = <code class="type">int * int</code> </pre>
 <div class="info">
 absolute position of start and end of type annotation in the .annot file<br>
 </div>
 
-<br><code><span id="TYPEident_kind"><span class="keyword">type</span> <code class="type"></code>ident_kind</span> = </code><table class="typetable">
+<pre><code><span id="TYPEident_kind"><span class="keyword">type</span> <code class="type"></code>ident_kind</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
@@ -103,7 +104,7 @@ absolute position of start and end of type annotation in the .annot file<br>
 </tr></table>
 
 
-<br><code><span id="TYPEannot_kind"><span class="keyword">type</span> <code class="type"></code>annot_kind</span> = </code><table class="typetable">
+<pre><code><span id="TYPEannot_kind"><span class="keyword">type</span> <code class="type"></code>annot_kind</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
@@ -127,7 +128,7 @@ absolute position of start and end of type annotation in the .annot file<br>
 </tr></table>
 
 
-<pre><span id="VALno_blanks"><span class="keyword">val</span> <a href="code_VALEd_annot.no_blanks.html">no_blanks</a></span> : <code class="type">string -> string</code></pre><pre><span id="VALext_ref_re"><span class="keyword">val</span> <a href="code_VALEd_annot.ext_ref_re.html">ext_ref_re</a></span> : <code class="type">string</code></pre><pre><span id="VALint_ref_re"><span class="keyword">val</span> <a href="code_VALEd_annot.int_ref_re.html">int_ref_re</a></span> : <code class="type">string</code></pre><pre><span id="VALdef_re"><span class="keyword">val</span> <a href="code_VALEd_annot.def_re.html">def_re</a></span> : <code class="type">string</code></pre><pre><span id="VALident_info_of_string"><span class="keyword">val</span> <a href="code_VALEd_annot.ident_info_of_string.html">ident_info_of_string</a></span> : <code class="type">string -> <a href="Ed_annot.html#TYPEident_kind">ident_kind</a></code></pre><pre><span id="VALannot_kind_of_string"><span class="keyword">val</span> <a href="code_VALEd_annot.annot_kind_of_string.html">annot_kind_of_string</a></span> : <code class="type">start:int -> stop:int -> string -> string -> <a href="Ed_annot.html#TYPEannot_kind">annot_kind</a></code></pre><pre><span id="VALannot_re"><span class="keyword">val</span> <a href="code_VALEd_annot.annot_re.html">annot_re</a></span> : <code class="type">Str.regexp</code></pre><br><code><span id="TYPEtree"><span class="keyword">type</span> <code class="type"></code>tree</span> = {</code><table class="typetable">
+<pre><span id="VALno_blanks"><span class="keyword">val</span> <a href="code_VALEd_annot.no_blanks.html">no_blanks</a></span> : <code class="type">string -> string</code></pre><pre><span id="VALext_ref_re"><span class="keyword">val</span> <a href="code_VALEd_annot.ext_ref_re.html">ext_ref_re</a></span> : <code class="type">string</code></pre><pre><span id="VALint_ref_re"><span class="keyword">val</span> <a href="code_VALEd_annot.int_ref_re.html">int_ref_re</a></span> : <code class="type">string</code></pre><pre><span id="VALdef_re"><span class="keyword">val</span> <a href="code_VALEd_annot.def_re.html">def_re</a></span> : <code class="type">string</code></pre><pre><span id="VALident_info_of_string"><span class="keyword">val</span> <a href="code_VALEd_annot.ident_info_of_string.html">ident_info_of_string</a></span> : <code class="type">string -> <a href="Ed_annot.html#TYPEident_kind">ident_kind</a></code></pre><pre><span id="VALannot_kind_of_string"><span class="keyword">val</span> <a href="code_VALEd_annot.annot_kind_of_string.html">annot_kind_of_string</a></span> : <code class="type">start:int -> stop:int -> string -> string -> <a href="Ed_annot.html#TYPEannot_kind">annot_kind</a></code></pre><pre><span id="VALannot_re"><span class="keyword">val</span> <a href="code_VALEd_annot.annot_re.html">annot_re</a></span> : <code class="type">Str.regexp</code></pre><pre><code><span id="TYPEtree"><span class="keyword">type</span> <code class="type"></code>tree</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>

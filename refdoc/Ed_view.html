@@ -69,16 +69,17 @@
 <title>Chamo library : Ed_view</title>
 </head>
 <body>
-<div class="navbar"><a href="Ed_utf8.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Ed_view_rc.html">Next</a>
+<div class="navbar"><a class="pre" href="Ed_utf8.html" title="Ed_utf8">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Ed_view_rc.html" title="Ed_view_rc">Next</a>
 </div>
-<center><h1>Module <a href="type_Ed_view.html">Ed_view</a> (<a href="code_Ed_view.html">.ml</a>)</h1></center>
-<br>
-<pre><span class="keyword">module</span> Ed_view: <code class="code">sig</code> <a href="Ed_view.html">..</a> <code class="code">end</code></pre>Views<br>
+<h1>Module <a href="type_Ed_view.html">Ed_view</a> (<a href="code_Ed_view.html">.ml</a>)</h1>
+<pre><span class="keyword">module</span> Ed_view: <code class="code">sig</code> <a href="Ed_view.html">..</a> <code class="code">end</code></pre><div class="info">
+Views<br>
+</div>
 <hr width="100%">
 <pre><span id="TYPEgui_view"><span class="keyword">class type</span> <a href="Ed_view.gui_view-c.html">gui_view</a></span> = <code class="code">object</code> <a href="Ed_view.gui_view-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEtopwin"><span class="keyword">class type</span> <a href="Ed_view.topwin-c.html">topwin</a></span> = <code class="code">object</code> <a href="Ed_view.topwin-c.html">..</a> <code class="code">end</code></pre><pre><span name="TYPEdyn_label"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Ed_view.dyn_label-c.html">dyn_label</a></span> : <code class="type"></code><code class="code">object</code> <a href="Ed_view.dyn_label-c.html">..</a> <code class="code">end</code></pre><pre><span name="TYPEdyn_destroyable"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Ed_view.dyn_destroyable-c.html">dyn_destroyable</a></span> : <code class="type">(unit -> unit) -> </code><code class="code">object</code> <a href="Ed_view.dyn_destroyable-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEview_factory"><span class="keyword">class type</span> <a href="Ed_view.view_factory-c.html">view_factory</a></span> = <code class="code">object</code> <a href="Ed_view.view_factory-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALregister_view_factory"><span class="keyword">val</span> <a href="code_VALEd_view.register_view_factory.html">register_view_factory</a></span> : <code class="type">string -> <a href="Ed_view.view_factory-c.html">view_factory</a> -> unit</code></pre><pre><span id="VALget_factory"><span class="keyword">val</span> <a href="code_VALEd_view.get_factory.html">get_factory</a></span> : <code class="type">string -> <a href="Ed_view.view_factory-c.html">view_factory</a></code></pre><pre><span id="VALiter_factories"><span class="keyword">val</span> <a href="code_VALEd_view.iter_factories.html">iter_factories</a></span> : <code class="type">(<a href="Ed_view.view_factory-c.html">view_factory</a> -> unit) -> unit</code></pre><pre><span id="VALon_factory"><span class="keyword">val</span> <a href="code_VALEd_view.on_factory.html">on_factory</a></span> : <code class="type">string -> (<a href="Ed_view.view_factory-c.html">view_factory</a> -> 'a) -> 'a</code></pre><pre><span id="VALfactory_open_file"><span class="keyword">val</span> <a href="code_VALEd_view.factory_open_file.html">factory_open_file</a></span> : <code class="type">factory:string -><br>       <a href="Ed_view.topwin-c.html">topwin</a> -><br>       <a href="Ed_view.gui_view-c.html">gui_view</a> option -><br>       ?attributes:(string * string) list -><br>       string -> [ `New_view of <a href="Ed_view.gui_view-c.html">gui_view</a> | `Use_view of <a href="Ed_view.gui_view-c.html">gui_view</a> ]</code></pre><pre><span id="VALfactory_open_hidden"><span class="keyword">val</span> <a href="code_VALEd_view.factory_open_hidden.html">factory_open_hidden</a></span> : <code class="type">factory:string -> ?attributes:(string * string) list -> string -> unit</code></pre><br>
-<span id="2_Associationsbetweenfilenamesandfactories"><h2>Associations between filenames and factories</h2></span><br>
+<h2 id="2_Associationsbetweenfilenamesandfactories">Associations between filenames and factories</h2><br>
 <pre><span id="VALset_default_factory_name"><span class="keyword">val</span> <a href="code_VALEd_view.set_default_factory_name.html">set_default_factory_name</a></span> : <code class="type">string -> unit</code></pre><div class="info">
 Set the name of the default factory to use to open files.<br>
 </div>

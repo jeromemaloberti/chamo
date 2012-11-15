@@ -69,13 +69,14 @@
 <title>Chamo library : Ed_config</title>
 </head>
 <body>
-<div class="navbar"><a href="Ed_commands.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Ed_constant.html">Next</a>
+<div class="navbar"><a class="pre" href="Ed_commands.html" title="Ed_commands">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Ed_constant.html" title="Ed_constant">Next</a>
 </div>
-<center><h1>Module <a href="type_Ed_config.html">Ed_config</a> (<a href="code_Ed_config.html">.ml</a>)</h1></center>
-<br>
-<pre><span class="keyword">module</span> Ed_config: <code class="code">sig</code> <a href="Ed_config.html">..</a> <code class="code">end</code></pre>Some configuration constants.<br>
+<h1>Module <a href="type_Ed_config.html">Ed_config</a> (<a href="code_Ed_config.html">.ml</a>)</h1>
+<pre><span class="keyword">module</span> Ed_config: <code class="code">sig</code> <a href="Ed_config.html">..</a> <code class="code">end</code></pre><div class="info">
+Some configuration constants.<br>
+</div>
 <hr width="100%">
 <pre><span id="VALglade_file"><span class="keyword">val</span> <a href="code_VALEd_config.glade_file.html">glade_file</a></span> : <code class="type">string</code></pre><div class="info">
 The glade file describing chamo's windows<br>
@@ -97,7 +98,7 @@ Create a config file with the given suffix, in the user's
 The debug level. <code class="code">debug_level &lt;= 0</code> means no debug.<br>
 </div>
 <br>
-<span id="2_Convenientfunctiontouseconfigurationfiles"><h2>Convenient function to use configuration files.</h2></span><br>
+<h2 id="2_Convenientfunctiontouseconfigurationfiles">Convenient function to use configuration files.</h2><br>
 <pre><span id="VALkey_state_wrappers"><span class="keyword">val</span> <a href="code_VALEd_config.key_state_wrappers.html">key_state_wrappers</a></span> : <code class="type">(Gdk.Tags.modifier list * int) list Config_file.wrappers</code></pre><div class="info">
 Wrappers to convert key states to and from a string.<br>
 </div>

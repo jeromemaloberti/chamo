@@ -137,6 +137,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;iter:<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;start:<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;stop:<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?default_editable:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;iter_backward_to_context_class_toggle&nbsp;:&nbsp;<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;iter_forward_to_context_class_toggle&nbsp;:&nbsp;<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;iter_has_context_class&nbsp;:&nbsp;<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;language&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_language&nbsp;option<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;line_count&nbsp;:&nbsp;int<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;max_undo_levels&nbsp;:&nbsp;int<br>
@@ -174,6 +177,7 @@
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_style_scheme&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_style_scheme&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_syntax_mode&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_language&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_text&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_undo_manager&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_undo_manager&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;source_marks_at_iter&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;?category:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">GText</span>.iter&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">GSourceView2</span>.source_mark&nbsp;list<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;source_marks_at_line&nbsp;:<br>
@@ -183,4 +187,5 @@
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;syntax_mode&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_language&nbsp;option<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;tag_table&nbsp;:&nbsp;<span class="constructor">Gtk</span>.text_tag_table<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;undo&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;undo_manager&nbsp;:&nbsp;<span class="constructor">GSourceView2</span>.source_undo_manager<br>
 <span class="keyword">end</span></code></body></html>

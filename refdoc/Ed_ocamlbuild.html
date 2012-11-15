@@ -68,13 +68,14 @@
 <link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_ocamlbuild</title>
 </head>
 <body>
-<div class="navbar"><a href="Ed_multiclip_rc.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Ed_ocamloutput.html">Next</a>
+<div class="navbar"><a class="pre" href="Ed_multiclip_rc.html" title="Ed_multiclip_rc">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Ed_ocamloutput.html" title="Ed_ocamloutput">Next</a>
 </div>
-<center><h1>Module <a href="type_Ed_ocamlbuild.html">Ed_ocamlbuild</a> (<a href="code_Ed_ocamlbuild.html">.ml</a>)</h1></center>
-<br>
-<pre><span class="keyword">module</span> Ed_ocamlbuild: <code class="code">sig</code> <a href="Ed_ocamlbuild.html">..</a> <code class="code">end</code></pre>OCamlbuild support, with some useful stuff for ocaml compilation handling.<br>
+<h1>Module <a href="type_Ed_ocamlbuild.html">Ed_ocamlbuild</a> (<a href="code_Ed_ocamlbuild.html">.ml</a>)</h1>
+<pre><span class="keyword">module</span> Ed_ocamlbuild: <code class="code">sig</code> <a href="Ed_ocamlbuild.html">..</a> <code class="code">end</code></pre><div class="info">
+OCamlbuild support, with some useful stuff for ocaml compilation handling.<br>
+</div>
 <hr width="100%">
 <pre><span id="VALcommands"><span class="keyword">val</span> <a href="code_VALEd_ocamlbuild.commands.html">commands</a></span> : <code class="type">(string, string) Hashtbl.t</code></pre><div class="info">
 The associations between a file and a compilation command. This table
@@ -99,7 +100,7 @@ Return the ocamlbuild output object (see <a href="Ed_outputs.text_output-c.html"
      The <code class="code">message</code> is displayed in the message zone of the view's window.
      This function is used to position the user on a compilation problem.<br>
 </div>
-<br><code><span id="TYPEproblem"><span class="keyword">type</span> <code class="type"></code>problem</span> = {</code><table class="typetable">
+<pre><code><span id="TYPEproblem"><span class="keyword">type</span> <code class="type"></code>problem</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>

@@ -67,13 +67,14 @@
 <link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_outputs.outputs</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Ed_outputs.html">Up</a>
-&nbsp;<a href="Ed_outputs.text_output-c.html">Next</a>
+<div class="navbar">&nbsp;<a class="up" href="Ed_outputs.html" title="Ed_outputs">Up</a>
+&nbsp;<a class="post" href="Ed_outputs.text_output-c.html" title="Ed_outputs.text_output">Next</a>
 </div>
-<center><h1>Class <a href="type_Ed_outputs.outputs.html">Ed_outputs.outputs</a></h1></center>
-<br>
-<pre><span name="TYPEoutputs"><span class="keyword">class</span> outputs</span> : <code class="type">?on_destroy:unit -> unit -> unit -> </code><code class="code">object</code> <a href="Ed_outputs.outputs-c.html">..</a> <code class="code">end</code></pre>An object to represent an "outputs" window. It consists of a notebook
+<h1>Class <a href="type_Ed_outputs.outputs.html">Ed_outputs.outputs</a></h1>
+<pre><span name="TYPEoutputs"><span class="keyword">class</span> outputs</span> : <code class="type">?on_destroy:unit -> unit -> unit -> </code><code class="code">object</code> <a href="Ed_outputs.outputs-c.html">..</a> <code class="code">end</code></pre><div class="info">
+An object to represent an "outputs" window. It consists of a notebook
    where "output" object can be added in tabs.<br>
+</div>
 <hr width="100%">
 <pre><span id="METHODadd_output"><span class="keyword">method</span> <a href="code_METHODEd_outputs.outputs.add_output.html">add_output</a></span> : <code class="type"><a href="Ed_outputs.output-c.html">output</a> -> unit</code></pre><div class="info">
 To add a new output to the window. It an output with the same
@@ -90,4 +91,4 @@ Get the output object by the given name.
 Call this method to present the window to the used, and make
          the notebook show the page with the output of the given name.<br>
 </div>
-<span id="2_Methodsinheritedfromthegladegeneratedfile"><h2>Methods inherited from the glade-generated file.</h2></span><pre><span id="METHODbind"><span class="keyword">method</span> bind</span> : <code class="type">name:string -> callback:(unit -> unit) -> unit</code></pre><pre><span id="METHODcheck_widgets"><span class="keyword">method</span> check_widgets</span> : <code class="type">unit -> unit</code></pre><pre><span id="METHODnotebook"><span class="keyword">method</span> notebook</span> : <code class="type">GPack.notebook</code></pre><pre><span id="METHODoutput_pos"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODEd_outputs.outputs.output_pos.html">output_pos</a></span> : <code class="type">string -> int</code></pre><pre><span id="METHODoutputs"><span class="keyword">method</span> outputs</span> : <code class="type">GWindow.window</code></pre><pre><span id="METHODreparent"><span class="keyword">method</span> reparent</span> : <code class="type">GObj.widget -> unit</code></pre><pre><span id="METHODtoplevel"><span class="keyword">method</span> toplevel</span> : <code class="type">GWindow.window</code></pre><pre><span id="METHODxml"><span class="keyword">method</span> xml</span> : <code class="type">Glade.glade_xml Gtk.obj</code></pre></body></html>
+<h2 id="2_Methodsinheritedfromthegladegeneratedfile">Methods inherited from the glade-generated file.</h2><pre><span id="METHODbind"><span class="keyword">method</span> bind</span> : <code class="type">name:string -> callback:(unit -> unit) -> unit</code></pre><pre><span id="METHODcheck_widgets"><span class="keyword">method</span> check_widgets</span> : <code class="type">unit -> unit</code></pre><pre><span id="METHODnotebook"><span class="keyword">method</span> notebook</span> : <code class="type">GPack.notebook</code></pre><pre><span id="METHODoutput_pos"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODEd_outputs.outputs.output_pos.html">output_pos</a></span> : <code class="type">string -> int</code></pre><pre><span id="METHODoutputs"><span class="keyword">method</span> outputs</span> : <code class="type">GWindow.window</code></pre><pre><span id="METHODreparent"><span class="keyword">method</span> reparent</span> : <code class="type">GObj.widget -> unit</code></pre><pre><span id="METHODtoplevel"><span class="keyword">method</span> toplevel</span> : <code class="type">GWindow.window</code></pre><pre><span id="METHODxml"><span class="keyword">method</span> xml</span> : <code class="type">Glade.glade_xml Gtk.obj</code></pre></body></html>

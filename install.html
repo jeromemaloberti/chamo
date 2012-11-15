@@ -1,10 +1,8 @@
-<!DOCTYPE html><html>
+<!DOCTYPE HTML>
+<html>
 <head>
 <title>Chamo : Installation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<link rel="stylesheet" type="text/css" href="style.css"/>
-
-
-
+<link rel="stylesheet" type="text/css" href="http://zoggy.github.com/chamo/style.css"/>
 </head><body>
 <div id="page">
 <div class="navbar navbar-fixed-top">
@@ -15,11 +13,11 @@
   <a class="brand" href="http://zoggy.github.com/chamo/index.html">Chamo</a>
   <div class="nav-collapse">
   <ul class="nav">
-    <li class=""><a href="http://zoggy.github.com/chamo/index.html">Home</a></li>
+    <li class="&lt;navbar-home/&gt;"><a href="http://zoggy.github.com/chamo/index.html">Home</a></li>
     <li class="active"><a href="http://zoggy.github.com/chamo/install.html">Installation</a></li>
-    <li class=""><a href="http://zoggy.github.com/chamo/doc.html">Documentation</a></li>
+    <li class="&lt;navbar-doc/&gt;"><a href="http://zoggy.github.com/chamo/doc.html">Documentation</a></li>
     <li class="&lt;navbar-blog/&gt;"><a href="http://zoggy.github.com/chamo/blog.html">Blog</a></li>
-    <li class=""><a href="http://zoggy.github.com/chamo/about.html">?</a></li>
+    <li class="&lt;navbar-about/&gt;"><a href="http://zoggy.github.com/chamo/about.html">?</a></li>
   </ul>
   </div>
   <div class="nav pull-right">
@@ -29,6 +27,7 @@
 </div>
 </div>
 <div id="header">
+
 <div class="page-title">Installation</div>
 </div>
 
@@ -42,21 +41,33 @@ To build Chamo, you will need:
 <li><span class="ext-a"><a href="http://caml.inria.fr/">OCaml &gt;= 3.12</a></span> installed
 (not tested with prior versions, but it should be ok),</li>
 <li><span class="ext-a"><a href="http://projects.camlcity.org/projects/findlib.html">findlib</a></span>,</li>
-<li><span class="ext-a"><a href="http://lablgtk.forge.ocamlcore.org/">Lablgtk2</a></span> &gt;= 2.14.2
+<li><span class="ext-a"><a href="http://lablgtk.forge.ocamlcore.org/">Lablgtk2</a></span> &gt;= 2.16.0
    installed with findlib,</li>
 <li><span class="ext-a"><a href="http://ocaml.info/home/ocaml_sources.html">pcre-ocaml</a></span> &gt;= 6.2.5 (not
 tested with previous versions but it should be ok),</li>
 <li><span class="ext-a"><a href="http://config-file.forge.ocamlcore.org/">Config-file</a></span> &gt;= 1.1,</li>
-<li><span class="ext-a"><a href="http://gtk-extras.forge.ocamlcore.org/">LablGtk-extras</a></span> &gt;= 1.1.</li>
+<li><span class="ext-a"><a href="http://gtk-extras.forge.ocamlcore.org/">LablGtk-extras</a></span> &gt;= 1.2.</li>
 </ul>
 </div>
 
 <div class="section"><div class="section-title" id="download">Get the sources</div>
 <p>Get the sources from git repository:
-<pre class="code-sh">git clone https<span class="hl opt">://</span>github.com<span class="hl opt">/</span>zoggy<span class="hl opt">/</span>chamo.git
-</pre>
+<pre class="code-sh">git clone https<span class="hl opt">://</span>github.com<span class="hl opt">/</span>zoggy<span class="hl opt">/</span>chamo.git</pre>
 </p>
-<div class="subsection"><div class="subsection-title">Releases</div>
+<div class="subsection"><div class="subsection-title" id="ae7d-bb01-f4c0-5907">Releases</div>
+<table class="release" summary="release 2.01">
+<tr>
+<td class="release-number">
+<a href="chamo-2.01.tar.gz"><b>2.01</b></a> (2012-11-15)
+</td>
+<td class="release-desc">
+
+Upgrade to Lablgtk 2.16.0.
+
+</td>
+</tr>
+</table>
+
 <table class="release" summary="release 2.0">
 <tr>
 <td class="release-number">
@@ -81,10 +92,13 @@ make
 make install
 </pre>
 This will install <span class="icode">chamo</span>, <span class="icode">chamo.byte</span>
-and <span class="icode">ml-chamo</span> in the same directory as <span class="icode">ocamlc</span>.
+and <span class="icode">mk-chamo</span> in the same directory as <span class="icode">ocamlc</span>.
 This will also install the <span class="icode">chamo</span> findlib package.
 </p>
 </div>
+
+
+
 
 
 </div>

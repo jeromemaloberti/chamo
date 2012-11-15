@@ -282,7 +282,7 @@ let&nbsp;gtkevent_set_above_child&nbsp;evbox&nbsp;b&nbsp;=<br>
 &nbsp;_gtkevent_set_above_child&nbsp;(Obj.magic&nbsp;evbox#as_widget&nbsp;:&gt;&nbsp;[Gtk.event_box]&nbsp;Gtk.obj)&nbsp;b<br>
 *)</span><br>
 <br>
-</code><table><tr><td></td><td><span class="comment">(** <span id="2_Gettingcanonicalfilenames"><h2>Getting canonical filenames</h2></span> *)</span></td></tr></table><code class="code"><br>
+</code><table><tr><td></td><td><span class="comment">(** <h2 id="2_Gettingcanonicalfilenames">Getting canonical filenames</h2> *)</span></td></tr></table><code class="code"><br>
 <br>
 <span class="keyword">let</span>&nbsp;equal_node&nbsp;n1&nbsp;n2&nbsp;=<br>
 &nbsp;&nbsp;n1.<span class="constructor">Unix</span>.st_ino&nbsp;=&nbsp;n2.<span class="constructor">Unix</span>.st_ino&nbsp;<span class="keywordsign">&amp;&amp;</span>&nbsp;n1.<span class="constructor">Unix</span>.st_dev&nbsp;=&nbsp;n2.<span class="constructor">Unix</span>.st_dev;;<br>

@@ -69,17 +69,18 @@
 <title>Chamo library : Ed_commands</title>
 </head>
 <body>
-<div class="navbar"><a href="Ed_com_history.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Ed_config.html">Next</a>
+<div class="navbar"><a class="pre" href="Ed_com_history.html" title="Ed_com_history">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Ed_config.html" title="Ed_config">Next</a>
 </div>
-<center><h1>Module <a href="type_Ed_commands.html">Ed_commands</a> (<a href="code_Ed_commands.html">.ml</a>)</h1></center>
-<br>
-<pre><span class="keyword">module</span> Ed_commands: <code class="code">sig</code> <a href="Ed_commands.html">..</a> <code class="code">end</code></pre>Commands management<br>
+<h1>Module <a href="type_Ed_commands.html">Ed_commands</a> (<a href="code_Ed_commands.html">.ml</a>)</h1>
+<pre><span class="keyword">module</span> Ed_commands: <code class="code">sig</code> <a href="Ed_commands.html">..</a> <code class="code">end</code></pre><div class="info">
+Commands management<br>
+</div>
 <hr width="100%">
 <pre><span id="TYPEcommand"><span class="keyword">type</span> <code class="type"></code>command</span> = <code class="type">string array -> unit</code> </pre>
 
-<br><code><span id="TYPEcommand_desc"><span class="keyword">type</span> <code class="type"></code>command_desc</span> = {</code><table class="typetable">
+<pre><code><span id="TYPEcommand_desc"><span class="keyword">type</span> <code class="type"></code>command_desc</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
@@ -147,7 +148,7 @@ Create a simple command with a function taking no argument.<br>
 Convenient function to create a command.<br>
 </div>
 <br>
-<span id="2_Globalvariables"><h2>Global variables</h2></span><br>
+<h2 id="2_Globalvariables">Global variables</h2><br>
 <pre><span id="VALset_global"><span class="keyword">val</span> <a href="code_VALEd_commands.set_global.html">set_global</a></span> : <code class="type">string -> string -> unit</code></pre><div class="info">
 <code class="code">set_global name value</code> associates the given <code class="code">value</code> to the given <code class="code">name</code>.<br>
 </div>

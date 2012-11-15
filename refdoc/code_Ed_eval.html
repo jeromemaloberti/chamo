@@ -225,7 +225,7 @@
 &nbsp;&nbsp;<span class="keyword">in</span><br>
 &nbsp;&nbsp;<span class="constructor">Ed_commands</span>.register&nbsp;com<br>
 <br>
-</code><table><tr><td></td><td><span class="comment">(** <span id="2_Addingcommandlineoptions"><h2>Adding command line options</h2></span> *)</span></td></tr></table><code class="code"><br>
+</code><table><tr><td></td><td><span class="comment">(** <h2 id="2_Addingcommandlineoptions">Adding command line options</h2> *)</span></td></tr></table><code class="code"><br>
 <br>
 <span class="keyword">let</span>&nbsp;use&nbsp;file&nbsp;=<br>
 &nbsp;&nbsp;<span class="keyword">let</span>&nbsp;com&nbsp;=&nbsp;<span class="constructor">Printf</span>.sprintf&nbsp;<span class="string">"eval_file&nbsp;%s"</span>&nbsp;(<span class="constructor">Filename</span>.quote&nbsp;file)&nbsp;<span class="keyword">in</span><br>
@@ -236,7 +236,7 @@
 <br>
 <span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<span class="constructor">Ed_args</span>.add_option&nbsp;option_use;;<br>
 <br>
-</code><table><tr><td></td><td><span class="comment">(** <span id="2_Init"><h2>Init</h2></span> *)</span></td></tr></table><code class="code"><br>
+</code><table><tr><td></td><td><span class="comment">(** <h2 id="2_Init">Init</h2> *)</span></td></tr></table><code class="code"><br>
 <br>
 </code><table><tr><td></td><td><span class="comment">(** Add the cameleon2 lib dir to directories where to look for interfaces. *)</span></td></tr></table><code class="code"><br>
 <br>
@@ -248,7 +248,7 @@
 <span class="constructor">Ed_hooks</span>.set_warning_message&nbsp;(<span class="keyword">fun</span>&nbsp;?to_utf8&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;());;<br>
 <br>
 <span class="keyword">let</span>&nbsp;packages&nbsp;=<br>
-&nbsp;&nbsp;[&nbsp;<span class="string">"str"</span>&nbsp;;&nbsp;<span class="string">"threads.posix"</span>&nbsp;;&nbsp;<span class="string">"pcre"</span>&nbsp;;&nbsp;<span class="string">"config-file"</span>&nbsp;;<br>
+&nbsp;&nbsp;[&nbsp;<span class="string">"str"</span>&nbsp;;&nbsp;<span class="string">"threads.posix"</span>&nbsp;;&nbsp;<span class="string">"compiler-libs.common"</span>;&nbsp;<span class="string">"pcre"</span>&nbsp;;&nbsp;<span class="string">"config-file"</span>&nbsp;;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"xmlm"</span>&nbsp;;&nbsp;<span class="string">"lablgtk2.glade"</span>&nbsp;;&nbsp;<span class="string">"lablgtk2-extras.configwin"</span>&nbsp;;<br>
 &nbsp;&nbsp;];;<br>
 <br>

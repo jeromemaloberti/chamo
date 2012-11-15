@@ -68,13 +68,13 @@
 <link title="Multiclip_gui" rel="Chapter" href="Multiclip_gui.html"><title>Chamo library : Ed_eval</title>
 </head>
 <body>
-<div class="navbar"><a href="Ed_dbg.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Ed_extern.html">Next</a>
+<div class="navbar"><a class="pre" href="Ed_dbg.html" title="Ed_dbg">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Ed_extern.html" title="Ed_extern">Next</a>
 </div>
-<center><h1>Module <a href="type_Ed_eval.html">Ed_eval</a> (<a href="code_Ed_eval.html">.ml</a>)</h1></center>
-<br>
-<pre><span class="keyword">module</span> Ed_eval: <code class="code">sig</code> <a href="Ed_eval.html">..</a> <code class="code">end</code></pre>OCaml code evaluation. 
+<h1>Module <a href="type_Ed_eval.html">Ed_eval</a> (<a href="code_Ed_eval.html">.ml</a>)</h1>
+<pre><span class="keyword">module</span> Ed_eval: <code class="code">sig</code> <a href="Ed_eval.html">..</a> <code class="code">end</code></pre><div class="info">
+OCaml code evaluation. 
    This module is present only in the bytecode version of chamo and
    defines commands to evaluate OCaml code in the editor itself,
    to modify is behaviour, add commands, etc... 
@@ -82,6 +82,7 @@
 
    This module also adds a command line option <code class="code">--run</code> taking
    a filename whose contents must be evaluated at launch time.<br>
+</div>
 <hr width="100%">
 <pre><span id="VALinit_file"><span class="keyword">val</span> <a href="code_VALEd_eval.init_file.html">init_file</a></span> : <code class="type">string</code></pre><div class="info">
 The user's init file evaluated at launch time. This file

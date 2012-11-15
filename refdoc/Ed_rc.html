@@ -72,26 +72,27 @@
 <title>Chamo library : Ed_rc</title>
 </head>
 <body>
-<div class="navbar"><a href="Ed_prefs.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Ed_sourceview.html">Next</a>
+<div class="navbar"><a class="pre" href="Ed_prefs.html" title="Ed_prefs">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Ed_sourceview.html" title="Ed_sourceview">Next</a>
 </div>
-<center><h1>Module <a href="type_Ed_rc.html">Ed_rc</a> (<a href="code_Ed_rc.html">.ml</a>)</h1></center>
-<br>
-<pre><span class="keyword">module</span> Ed_rc: <code class="code">sig</code> <a href="Ed_rc.html">..</a> <code class="code">end</code></pre>Handling configuration files<br>
+<h1>Module <a href="type_Ed_rc.html">Ed_rc</a> (<a href="code_Ed_rc.html">.ml</a>)</h1>
+<pre><span class="keyword">module</span> Ed_rc: <code class="code">sig</code> <a href="Ed_rc.html">..</a> <code class="code">end</code></pre><div class="info">
+Handling configuration files<br>
+</div>
 <hr width="100%">
 <pre><span id="VALrc_dir"><span class="keyword">val</span> <a href="code_VALEd_rc.rc_dir.html">rc_dir</a></span> : <code class="type">string</code></pre><div class="info">
 The directory where personal config files are stored.<br>
 </div>
 <br>
-<span id="2_Thecoreconfiguration"><h2>The core configuration</h2></span><br>
+<h2 id="2_Thecoreconfiguration">The core configuration</h2><br>
 <pre><span id="VALcore_ini"><span class="keyword">val</span> <a href="code_VALEd_rc.core_ini.html">core_ini</a></span> : <code class="type">Config_file.group</code></pre><pre><span id="VALsave_core"><span class="keyword">val</span> <a href="code_VALEd_rc.save_core.html">save_core</a></span> : <code class="type">unit -> unit</code></pre><pre><span id="VALload_core"><span class="keyword">val</span> <a href="code_VALEd_rc.load_core.html">load_core</a></span> : <code class="type">unit -> unit</code></pre><br>
-<span id="2_theGUIconfigurationfile"><h2>the GUI configuration file</h2></span><br>
+<h2 id="2_theGUIconfigurationfile">the GUI configuration file</h2><br>
 <pre><span id="VALgui_ini"><span class="keyword">val</span> <a href="code_VALEd_rc.gui_ini.html">gui_ini</a></span> : <code class="type">Config_file.group</code></pre><pre><span id="VALsave_gui"><span class="keyword">val</span> <a href="code_VALEd_rc.save_gui.html">save_gui</a></span> : <code class="type">unit -> unit</code></pre><pre><span id="VALload_gui"><span class="keyword">val</span> <a href="code_VALEd_rc.load_gui.html">load_gui</a></span> : <code class="type">unit -> unit</code></pre><br>
-<span id="2_Keepingwindowspositionsandsizes"><h2>Keeping windows positions and sizes</h2></span><br>
+<h2 id="2_Keepingwindowspositionsandsizes">Keeping windows positions and sizes</h2><br>
 <pre><span id="VALhandle_window"><span class="keyword">val</span> <a href="code_VALEd_rc.handle_window.html">handle_window</a></span> : <code class="type">GWindow.window -> string -> unit</code></pre><div class="info">
 <code class="code">handle_window win name</code><br>
 </div>
 <br>
-<span id="2_Utils"><h2>Utils</h2></span><br>
+<h2 id="2_Utils">Utils</h2><br>
 <pre><span id="VALadd_binding"><span class="keyword">val</span> <a href="code_VALEd_rc.add_binding.html">add_binding</a></span> : <code class="type">< get : ((Gdk.Tags.modifier list * int) * 'a) list;<br>         set : ((Gdk.Tags.modifier list * int) * 'a) list -> 'b; .. > -><br>       string -> 'a -> 'b</code></pre></body></html>

@@ -1,10 +1,8 @@
-<!DOCTYPE html><html>
+<!DOCTYPE HTML>
+<html>
 <head>
 <title>Chamo : FAQ</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<link rel="stylesheet" type="text/css" href="style.css"/>
-
-
-
+<link rel="stylesheet" type="text/css" href="http://zoggy.github.com/chamo/style.css"/>
 </head><body>
 <div id="page">
 <div class="navbar navbar-fixed-top">
@@ -15,11 +13,11 @@
   <a class="brand" href="http://zoggy.github.com/chamo/index.html">Chamo</a>
   <div class="nav-collapse">
   <ul class="nav">
-    <li class=""><a href="http://zoggy.github.com/chamo/index.html">Home</a></li>
+    <li class="&lt;navbar-home/&gt;"><a href="http://zoggy.github.com/chamo/index.html">Home</a></li>
     <li class="&lt;navbar-install/&gt;"><a href="http://zoggy.github.com/chamo/install.html">Installation</a></li>
     <li class="active"><a href="http://zoggy.github.com/chamo/doc.html">Documentation</a></li>
     <li class="&lt;navbar-blog/&gt;"><a href="http://zoggy.github.com/chamo/blog.html">Blog</a></li>
-    <li class=""><a href="http://zoggy.github.com/chamo/about.html">?</a></li>
+    <li class="&lt;navbar-about/&gt;"><a href="http://zoggy.github.com/chamo/about.html">?</a></li>
   </ul>
   </div>
   <div class="nav pull-right">
@@ -29,6 +27,7 @@
 </div>
 </div>
 <div id="header">
+
 <div class="page-title">FAQ</div>
 </div>
 
@@ -56,15 +55,13 @@ for information about the API of the available modules.
 For example, to display the &quot;about box&quot; at launch time, simply add to
 <code>chamo_init.ml</code> the following code:
 </p>
-<pre class="code-ocaml"><span class="hl kwc">Ed_window</span><span class="hl opt">.</span>show_about_dialog <span class="hl opt">();;</span>
-</pre>
+<pre class="code-ocaml"><span class="hl kwc">Ed_window</span><span class="hl opt">.</span>show_about_dialog <span class="hl opt">();;</span></pre>
 <p>
 The same effect could be achieved by calling the command &quot;about&quot; with no arguments.
 To do so from OCaml code, you can use the function
 <code>Ed_commands.eval_command</code>:
 </p>
-<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;about&quot;</span><span class="hl opt">;;</span>
-</pre>
+<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;about&quot;</span><span class="hl opt">;;</span></pre>
 <p>
 Another way to evaluate OCaml code to add your own command or whatever you want is
 to call the &quot;eval&quot; command. When called without argument, this command
@@ -73,11 +70,9 @@ as OCaml code. See
 <a href="#commands">here</a>
 for details on commands. So, putting the following code in your file
 <code>chamo_init.ml</code>:
-<pre class="code-ocaml"><span class="hl kwc">Ed_command</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;eval</span> <span class="hl esc">\&quot;</span><span class="hl str">let x = 1;;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span><span class="hl opt">;;</span>
-</pre>
+<pre class="code-ocaml"><span class="hl kwc">Ed_command</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;eval</span> <span class="hl esc">\&quot;</span><span class="hl str">let x = 1;;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span><span class="hl opt">;;</span></pre>
 is the same as simply putting
-<pre class="code-ocaml"><span class="hl kwa">let</span> x <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;;</span>
-</pre>
+<pre class="code-ocaml"><span class="hl kwa">let</span> x <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;;</span></pre>
 </p>
 
 <p>
@@ -150,17 +145,14 @@ argument, or &quot;Alert!&quot; if there is no argument:
    <span class="hl kwc">GToolbox</span><span class="hl opt">.</span>message_box <span class="hl str">&quot;Alert message&quot;</span> message<span class="hl opt">;;</span>
 <span class="hl kwa">let</span> com <span class="hl opt">=</span> <span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>create_com
    <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>| <span class="hl str">&quot;Message to display&quot;</span> |<span class="hl opt">]</span> alert_message<span class="hl opt">;;</span>
-<span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>register com<span class="hl opt">;;</span>
-</pre>
+<span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>register com<span class="hl opt">;;</span></pre>
 </p>
 <p>
 It is useful to name and make visible the function associated to the command, so that it is
 also directly available in OCaml code, rather than calling
-<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;alert_message my_message&quot;</span><span class="hl opt">;;</span>
-</pre>
+<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>eval_command <span class="hl str">&quot;alert_message my_message&quot;</span><span class="hl opt">;;</span></pre>
 or
-<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>launch_command <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>|<span class="hl str">&quot;my_message&quot;</span>|<span class="hl opt">];;</span>
-</pre>
+<pre class="code-ocaml"><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>launch_command <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>|<span class="hl str">&quot;my_message&quot;</span>|<span class="hl opt">];;</span></pre>
 Of course, calling directly the function which was first associated to the command &quot;alert_message&quot;
 will short-circuit any redefinition of the command.
 </p>
@@ -177,8 +169,7 @@ For example, if we want alert messages to be logged, we could use something like
 <span class="hl opt">;;</span>
 <span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>register_before
   <span class="hl opt">(</span><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>create_com
-     <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>|<span class="hl str">&quot;Message to display&quot;</span>|<span class="hl opt">]</span> log_message<span class="hl opt">);;</span>
-</pre>
+     <span class="hl str">&quot;alert_message&quot;</span> <span class="hl opt">[</span>|<span class="hl str">&quot;Message to display&quot;</span>|<span class="hl opt">]</span> log_message<span class="hl opt">);;</span></pre>
 </p>
 </div>
 
@@ -197,8 +188,7 @@ The list of available command names can be obtained with
   <span class="hl opt">);</span>
   print_newline <span class="hl opt">()</span>
 <span class="hl opt">;;</span>
-<span class="hl kwc">List</span><span class="hl opt">.</span>iter f <span class="hl opt">(</span><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>available_command_names<span class="hl opt">());;</span>
-</pre>
+<span class="hl kwc">List</span><span class="hl opt">.</span>iter f <span class="hl opt">(</span><span class="hl kwc">Ed_commands</span><span class="hl opt">.</span>available_command_names<span class="hl opt">());;</span></pre>
 </p>
 <p class="warning">
 A naming convention is needed to get some consistency in command names. By now, general commands are not
@@ -327,8 +317,7 @@ match the file name. The default view name can be set with option
 <p>
 This file is read at launch time, so you must restart Chamo if you modified it,
 or evaluate the following OCaml code to reload the values of options:
-<pre class="code-ocaml"><span class="hl kwc">Ed_view_rc</span><span class="hl opt">.</span>read<span class="hl opt">();;</span>
-</pre>
+<pre class="code-ocaml"><span class="hl kwc">Ed_view_rc</span><span class="hl opt">.</span>read<span class="hl opt">();;</span></pre>
 </p>
 <p>
 Values of options can also be set using OCaml code. Refer to the documentation of the
@@ -338,13 +327,11 @@ For example, to add a new association between a filename pattern and a view name
 following OCaml code (here we add a pattern so that files with &quot;.ocamldoc&quot; extension are
 open with the &quot;odoc&quot; view):
 <pre class="code-ocaml"><span class="hl kwa">let</span> l <span class="hl opt">=</span> <span class="hl kwc">Ed_view_rc</span><span class="hl opt">.</span>filename_view_patterns#get <span class="hl kwa">in</span>
-<span class="hl kwc">Ed_view_rc</span><span class="hl opt">.</span>filename_view_patterns#set <span class="hl opt">((</span><span class="hl str">&quot;</span><span class="hl esc">\\</span><span class="hl str">.*ocamldoc$&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;odoc&quot;</span><span class="hl opt">) ::</span> l<span class="hl opt">) ;;</span>
-</pre>
+<span class="hl kwc">Ed_view_rc</span><span class="hl opt">.</span>filename_view_patterns#set <span class="hl opt">((</span><span class="hl str">&quot;</span><span class="hl esc">\\</span><span class="hl str">.*ocamldoc$&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;odoc&quot;</span><span class="hl opt">) ::</span> l<span class="hl opt">) ;;</span></pre>
 </p>
 <p>
 It is also possible to store the values of options, this way:
-<pre class="code-ocaml"><span class="hl kwc">Ed_view_rc</span><span class="hl opt">.</span>write <span class="hl opt">();;</span>
-</pre>
+<pre class="code-ocaml"><span class="hl kwc">Ed_view_rc</span><span class="hl opt">.</span>write <span class="hl opt">();;</span></pre>
 </p>
 </div>
 <div class="subsection"><div class="subsection-title" id="sourceview">Can you give me some details about the &quot;sourceview&quot; view ?</div>
@@ -488,8 +475,7 @@ Most of predefined commands are already bound to a key combination, so you
 can already have a look at the various configuration files for command names.
 If you don't find what you're looking for, you can execute the following command
 in a bytecode version of chamo:
-<pre class="code-ocaml">eval <span class="hl str">&quot;Ed_commands.available_command_names ()&quot;</span>
-</pre>
+<pre class="code-ocaml">eval <span class="hl str">&quot;Ed_commands.available_command_names ()&quot;</span></pre>
 </p>
 <p>
 This command will evaluate the given ocaml expression, which returns the list
@@ -548,6 +534,9 @@ change the default encoding used, by modifying the value in the file
 </p>
 </div>
 </div>
+
+
+
 
 
 </div>
