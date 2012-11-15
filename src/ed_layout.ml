@@ -22,7 +22,6 @@
 (*                                                                               *)
 (*********************************************************************************)
 
-open Xml
 
 let layout_file = ref (Ed_config.local_dir_rc_file "layout.xml")
 
