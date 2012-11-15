@@ -1,9 +1,7 @@
-page-title=Documentation
-<->
-<page id="faq"/>
-<page id="tips"/>
-
-<section title="Topics">
+<page title="Documentation"
+navbar-doc="active"
+>
+<section counter-name="" title="Topics">
 <ul class="toc">
 <li><a href="#introduction">Introduction</a>,</li>
 <li><a href="#tour">Screenshots and tour</a>,</li>
@@ -13,7 +11,7 @@ page-title=Documentation
 </ul>
 </section>
 
-<section name="introduction" title="Introduction">
+<section id="introduction" title="Introduction">
 <p>
 Chamo is a source code editor, even if it can be used to edit any text file.
 A system of "views" allows to edit some kinds of files in specific views.
@@ -59,7 +57,7 @@ A quick reference of default key bindings is
 </p>
 </section>
 
-<section name="tour" title="Screenshots and tour">
+<section id="tour" title="Screenshots and tour">
 <div class="row">
 <div class="span7">
 The windows can be splitted to display various views, à la emacs.
@@ -166,7 +164,7 @@ window_key_bindings =
 </div>
 </section>
 
-<section name="mychamo" title="Creating your own native code Chamo">
+<section id="mychamo" title="Creating your own native code Chamo">
 <p>
 The native version of Chamo can not interpret OCaml code
 to modify its behaviour. However, it is possible to create your own
@@ -195,3 +193,4 @@ be used in the parameters of
 <code>mk-chamo</code>.
 </p>
 </section>
+</page>

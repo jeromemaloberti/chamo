@@ -1,5 +1,6 @@
-page-title=FAQ
-<->
+<page title="FAQ"
+navbar-doc="active"
+>
 <p>
 Here are some questions and answers about Chamo and its usage.
 </p>
@@ -7,8 +8,8 @@ Here are some questions and answers about Chamo and its usage.
 <prepare-toc depth="2">
 <toc/>
 
-<section name="scriptable" title="Using OCaml code and commands in Chamo">
-<subsection name="ocaml_scriptable"
+<section id="scriptable" title="Using OCaml code and commands in Chamo">
+<subsection id="ocaml_scriptable"
 title="Chamo is OCaml-scriptable. What does it mean ?">
 <p>
 This means that you can fully customize Chamo with pieces of OCaml code,
@@ -74,7 +75,7 @@ It is false for the native code version
 </p>
 
 </subsection>
-<subsection name="commands" title="What are commands ?">
+<subsection id="commands" title="What are commands ?">
 <p>
 Commands are functions associated to a name. The name is a string. See
 <a href="#defining_commands">here</a>
@@ -93,7 +94,7 @@ Quoting of arguments works the same way as in the shell (with simple or double q
 </p>
 </subsection>
 
-<subsection name="faq:chamo:defining_commands" title="How to define new commands ?">
+<subsection id="faq:chamo:defining_commands" title="How to define new commands ?">
 <p>
 Commands are defined in OCaml using the functions in
 <a href="refdoc/Ed_commands.html">module Ed_commands</a>.
@@ -150,7 +151,7 @@ Ed_commands.register_before
 </p>
 </subsection>
 
-<subsection name="faq:chamo:commandlist" title="Which commands are available ?">
+<subsection id="faq:chamo:commandlist" title="Which commands are available ?">
 <p>
 The list of available command names can be obtained with
 <code>Ed_commands.available_command_names ()</code>.
@@ -178,8 +179,8 @@ to separate words in command names by "_" and not "-".
 </subsection>
 </section>
 
-<section name="configfiles" title="Configuration files">
-<subsection name="rcdir" title="Where are stored the configuration files of Chamo ?">
+<section id="configfiles" title="Configuration files">
+<subsection id="rcdir" title="Where are stored the configuration files of Chamo ?">
 <p>
 The user's global configuration files of Chamo are stored in the
 <code>~/.chamo/</code>
@@ -210,7 +211,7 @@ add some customization relative to a particular directory.
 </ul>
 </subsection>
 
-<subsection name="configfileslist"
+<subsection id="configfileslist"
 title="Wow ! There are a lot of Chamo configuration files in ~/.chamo/ !">
 <p>
 Indeed. But don't panic, there's a logical organisation.
@@ -253,8 +254,8 @@ file named
 </subsection>
 </section>
 
-<section name="views" title="Views">
-<subsection name="whatareviews" title="What are views ?">
+<section id="views" title="Views">
+<subsection id="whatareviews" title="What are views ?">
 <p>
 Views in Chamo are different ways to edit or display files. The most commonly used
 view in the "sourceview" view, which allows the edition of any text file. It is based
@@ -276,7 +277,7 @@ all Chamo windows.
 </p>
 </subsection>
 
-<subsection name="chosingview" title="How do I choose which view is used to edit a file ?">
+<subsection id="chosingview" title="How do I choose which view is used to edit a file ?">
 <p>
 Chamo has no way to guess the view you want to use to edit a file. You have to
 give some indications. This is done in the file
@@ -313,7 +314,7 @@ It is also possible to store the values of options, this way:
 <hcode lang="ocaml">Ed_view_rc.write ();;</hcode>
 </p>
 </subsection>
-<subsection name="sourceview" title="Can you give me some details about the &quot;sourceview&quot; view ?">
+<subsection id="sourceview" title="Can you give me some details about the &quot;sourceview&quot; view ?">
 <p>
 This view can be used to edit any text file. It is based on the
 <a href="http://gtksourceview.sourceforge.net/">GtkSourceView</a>
@@ -372,7 +373,7 @@ are stored in the user's file
 </p>
 </subsection>
 
-<subsection name="definingsourceviewmodes" title="How do I define a new sourceview mode ?">
+<subsection id="definingsourceviewmodes" title="How do I define a new sourceview mode ?">
 <p>
 This is done with some OCaml code. Modes are represented by objects of class type
 <code>Ed_sourceview.mode</code>.
@@ -386,7 +387,7 @@ implementation of the management of the configuration file is
 </p>
 </subsection>
 
-<subsection name="availablemodes" title="What modes are availables ?">
+<subsection id="availablemodes" title="What modes are availables ?">
 <p>
 By now, there are not a lot of modes. Here is a list of the available modes,
 with the commands it provides through a key binding indicated between parenthesis:
@@ -405,8 +406,8 @@ Contributions (new modes or new commands) are very welcome !
 </subsection>
 </section>
 
-<section name="keyboardshortcuts" title="Key bindings">
-<subsection name="ksdefinition" title="How/where are key bindings defined ?">
+<section id="keyboardshortcuts" title="Key bindings">
+<subsection id="ksdefinition" title="How/where are key bindings defined ?">
 There are various sets of key bindings:
 <ul>
 <li>
@@ -437,7 +438,7 @@ of the active view (with eventually the ones of the active mode).
 </p>
 </subsection>
 
-<subsection name="kscommands"
+<subsection id="kscommands"
  title="Where can I find a list of key specification to define my own bindings ?">
 <p>
 The key identifiers usable in configuration files can be found
@@ -449,7 +450,7 @@ be referenced with the identifier "Page_Up".
 </p>
 </subsection>
 
-<subsection name="kscommandsavailable"
+<subsection id="kscommandsavailable"
 title="How can I know the list of available commands I can associate a key binding to ?">
 <p>
 Most of predefined commands are already bound to a key combination, so you
@@ -468,8 +469,8 @@ output window.
 
 </section>
 
-<section name="troubleshooting" title="Troubleshooting">
-<subsection name="noocamlsyntaxhighlight"
+<section id="troubleshooting" title="Troubleshooting">
+<subsection id="noocamlsyntaxhighlight"
 title="I have strange syntax highlighting when I edit my OCaml source files in Chamo.">
 <p>
 Sourceviews in Chamo are based on
@@ -501,7 +502,7 @@ GtkSourceView 2.X installation,
 </ul>
 </subsection>
 
-<subsection name="encodingproblem"
+<subsection id="encodingproblem"
 title="When I open a file, some characters are badly displayed;
 it seems there is an encoding problem. How is the encoding of files handled ?">
 <p>
@@ -520,5 +521,4 @@ change the default encoding used, by modifying the value in the file
 </section>
 
 </prepare-toc>
-
-
+</page>

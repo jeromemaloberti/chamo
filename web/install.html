@@ -1,8 +1,9 @@
-page-title=Installation
-<->
+<page title="Installation"
+navbar-install="active"
+>
 <prepare-toc depth="2">
 <toc></toc>
-<section name="deps" title="Dependencies">
+<section id="deps" title="Dependencies">
 <p>
 To build Chamo, you will need:
 </p>
@@ -10,28 +11,33 @@ To build Chamo, you will need:
 <li><ext-a href="http://caml.inria.fr/">OCaml >= 3.12</ext-a> installed
 (not tested with prior versions, but it should be ok),</li>
 <li><ext-a href="http://projects.camlcity.org/projects/findlib.html">findlib</ext-a>,</li>
-<li><ext-a href="http://lablgtk.forge.ocamlcore.org/">Lablgtk2</ext-a> &gt;= 2.14.2
+<li><ext-a href="http://lablgtk.forge.ocamlcore.org/">Lablgtk2</ext-a> &gt;= 2.16.0
    installed with findlib,</li>
 <li><ext-a href="http://ocaml.info/home/ocaml_sources.html">pcre-ocaml</ext-a> &gt;= 6.2.5 (not
 tested with previous versions but it should be ok),</li>
 <li><ext-a href="http://config-file.forge.ocamlcore.org/">Config-file</ext-a> &gt;= 1.1,</li>
-<li><ext-a href="http://gtk-extras.forge.ocamlcore.org/">LablGtk-extras</ext-a> &gt;= 1.1.</li>
+<li><ext-a href="http://gtk-extras.forge.ocamlcore.org/">LablGtk-extras</ext-a> &gt;= 1.2.</li>
 </ul>
 </section>
 
-<section name="download" title="Get the sources">
+<section id="download" title="Get the sources">
 <p>Get the sources from git repository:
 <command-line>git clone https://github.com/zoggy/chamo.git</command-line>
 </p>
 <subsection title="Releases">
-<include file="release.tmpl" number="2.0" date="2012-04-20" last="true"
+<include file="release.tmpl" number="2.01" date="2012-11-15" last="true"
+ url="chamo-2.01.tar.gz">
+Upgrade to Lablgtk 2.16.0.
+</include>
+
+<include file="release.tmpl" number="2.0" date="2012-04-20"
  url="chamo-2.0.tar.gz">
 First release after extraction from Cameleon. Now use findlib.
 </include>
 </subsection>
 </section>
 
-<section name="compilation" title="Compilation">
+<section id="compilation" title="Compilation">
 <p>
 Just type
 <pre>
@@ -46,3 +52,4 @@ This will also install the <icode>chamo</icode> findlib package.
 </section>
 
 </prepare-toc>
+</page>

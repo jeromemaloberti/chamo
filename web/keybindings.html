@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Chamo key bindings</title>
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type"/>
+<style type="text/css">
+body {
+font-family:"Trebuchet MS", Arial, Verdana;
+font-size: 1.0em;
+color: #333333;
+}
+h1 { padding-left: 4em ; color: brown; }
+td.mode {
+  font-size: 12pt;
+  font-weight: bold;
+  margin-top: 3px;
+  background-color: brown;
+  color: white;
+  border-style:solid;
+  border-color: brown;
+  border-width: 2px;
+  padding-left: 6px;
+}
+
+td.group {
+  padding-left: 6px;
+  padding-right: 6px;
+  vertical-align: text-top;
+}
+table.bindings {
+  width: 100%;
+  font-size: 8pt;
+  border-width : 2px;
+  border-style: solid ;
+  border-color: brown;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+table.bindings td {
+/*  border-style: solid;
+  border-width: 1px; 1px; 1px; 2px;
+  border-color: black black black brown;*/
+}
+
+td.keystate {
+  white-space: nowrap;
+  font-family: Monospace, Courier;
+  font-weight: bold;
+  border-width: 1px; 1px; 1px; 2px;
+  border-color: black black black brown;
+
+  padding-right: 1em;
+  padding-left: 1em;
+}
+td.command {
+  white-space: nowrap;
+  font-family: Monospace, Courier;
+  font-weight: bold;
+  padding-right: 1em;
+  padding-left: 1em;
+  border-width: 1px; 2px; 1px; &px;
+  border-color: black brown black black;
+}
+</style>
+</head>
+<body>
+<div id="page"><h1>Chamo key bindings: quick reference</h1><table><tr>
+<td class="group"><table class="bindings"><tr><td> </td><td class="mode">Sourceview</td></tr>
+<tr><td class="keystate">C-m C-v</td><td class="command">multiclip_sourceview_paste</td></tr>
+<tr><td class="keystate">C-l f</td><td class="command">sourceview_forward_location</td></tr>
+<tr><td class="keystate">C-l o</td><td class="command">sourceview_pop_location</td></tr>
+<tr><td class="keystate">C-l p</td><td class="command">sourceview_push_location</td></tr>
+<tr><td class="keystate">C-x C-b</td><td class="command">sourceview_set_bookmark</td></tr>
+<tr><td class="keystate">Escape t</td><td class="command">sourceview_transpose_words</td></tr>
+<tr><td class="keystate">C-x C-l</td><td class="command">sourceview_transpose_lines</td></tr>
+<tr><td class="keystate">C-t</td><td class="command">sourceview_transpose_chars</td></tr>
+<tr><td class="keystate">BackSpace</td><td class="command">sourceview_backward_delete_char</td></tr>
+<tr><td class="keystate">C-d</td><td class="command">sourceview_delete_char</td></tr>
+<tr><td class="keystate">A-g</td><td class="command">sourceview_goto_line</td></tr>
+<tr><td class="keystate">Escape y</td><td class="command">sourceview_yank_choose</td></tr>
+<tr><td class="keystate">Right</td><td class="command">sourceview_forward_char</td></tr>
+<tr><td class="keystate">Left</td><td class="command">sourceview_backward_char</td></tr>
+<tr><td class="keystate">Down</td><td class="command">sourceview_forward_line</td></tr>
+<tr><td class="keystate">Up</td><td class="command">sourceview_backward_line</td></tr>
+<tr><td class="keystate">C-Right</td><td class="command">sourceview_forward_word</td></tr>
+<tr><td class="keystate">C-Left</td><td class="command">sourceview_backward_word</td></tr>
+<tr><td class="keystate">C-BackSpace</td><td class="command">sourceview_backward_kill_word</td></tr>
+<tr><td class="keystate">C-Delete</td><td class="command">sourceview_kill_word</td></tr>
+<tr><td class="keystate">C-k</td><td class="command">sourceview_kill_line</td></tr>
+<tr><td class="keystate">C-e</td><td class="command">sourceview_end_of_line</td></tr>
+<tr><td class="keystate">C-a</td><td class="command">sourceview_beginning_of_line</td></tr>
+<tr><td class="keystate">AC-z</td><td class="command">sourceview_redo</td></tr>
+<tr><td class="keystate">C-z</td><td class="command">sourceview_undo</td></tr>
+<tr><td class="keystate">S-Escape S-slash</td><td class="command">sourceview_expand</td></tr>
+<tr><td class="keystate">Escape S-slash</td><td class="command">sourceview_expand</td></tr>
+<tr><td class="keystate">AC-r</td><td class="command">sourceview_search_re_backward</td></tr>
+<tr><td class="keystate">AC-s</td><td class="command">sourceview_search_re</td></tr>
+<tr><td class="keystate">C-r</td><td class="command">sourceview_search_backward</td></tr>
+<tr><td class="keystate">C-s</td><td class="command">sourceview_search</td></tr>
+<tr><td class="keystate">SAC-percent</td><td class="command">sourceview_query_replace_re</td></tr>
+<tr><td class="keystate">SA-percent</td><td class="command">sourceview_query_replace</td></tr>
+<tr><td class="keystate">C-x k</td><td class="command">sourceview_destroy_buffer</td></tr>
+<tr><td class="keystate">C-x b</td><td class="command">sourceview_switch_buffer</td></tr>
+</table></td><td class="group"><table class="bindings"><tr><td> </td><td class="mode">Window</td></tr>
+<tr><td class="keystate">A-x</td><td class="command">prompt_command</td></tr>
+<tr><td class="keystate">C-w</td><td class="command">cut</td></tr>
+<tr><td class="keystate">C-c</td><td class="command">copy</td></tr>
+<tr><td class="keystate">C-y</td><td class="command">paste</td></tr>
+<tr><td class="keystate">C-x C-x l</td><td class="command">print_key_bindings</td></tr>
+<tr><td class="keystate">C-x S-0</td><td class="command">destroy_active_view</td></tr>
+<tr><td class="keystate">C-x S-2</td><td class="command">split_horizontally</td></tr>
+<tr><td class="keystate">C-h</td><td class="command">split_horizontally</td></tr>
+<tr><td class="keystate">C-x S-3</td><td class="command">split_vertically</td></tr>
+<tr><td class="keystate">C-v</td><td class="command">split_vertically</td></tr>
+<tr><td class="keystate">C-x C-t</td><td class="command">new_tab</td></tr>
+<tr><td class="keystate">SC-Tab</td><td class="command">rev_cycle_tab</td></tr>
+<tr><td class="keystate">C-Tab</td><td class="command">cycle_tab</td></tr>
+<tr><td class="keystate">C-b</td><td class="command">cycle_view</td></tr>
+<tr><td class="keystate">C-x C-f</td><td class="command">open_file</td></tr>
+<tr><td class="keystate">C-x C-w</td><td class="command">save_active_view_as</td></tr>
+<tr><td class="keystate">C-x C-s</td><td class="command">save_active_view</td></tr>
+<tr><td class="keystate">C-n</td><td class="command">new_window</td></tr>
+<tr><td class="keystate">C-x C-c</td><td class="command">close_active_window</td></tr>
+</table><table class="bindings"><tr><td> </td><td class="mode">ocaml mode</td></tr>
+<tr><td class="keystate">AC-x</td><td class="command">ocaml_expand_ext_idents</td></tr>
+<tr><td class="keystate">AC-c</td><td class="command">ocaml_show_stack_calls</td></tr>
+<tr><td class="keystate">A-j</td><td class="command">ocaml_jump_to_local_def</td></tr>
+<tr><td class="keystate">A-i</td><td class="command">ocaml_display_ident_annot</td></tr>
+<tr><td class="keystate">A-c</td><td class="command">ocaml_display_call_annot</td></tr>
+<tr><td class="keystate">AC-t</td><td class="command">ocaml_copy_type_annot</td></tr>
+<tr><td class="keystate">A-t</td><td class="command">ocaml_display_type_annot</td></tr>
+<tr><td class="keystate">C-o C-c</td><td class="command">ocaml_build</td></tr>
+<tr><td class="keystate">C-x C-a</td><td class="command">ocaml_switch_file</td></tr>
+<tr><td class="keystate">C-x C-Tab</td><td class="command">ocaml_indent_buffer</td></tr>
+<tr><td class="keystate">Tab</td><td class="command">ocaml_indent_line</td></tr>
+</table></td><td class="group"><table class="bindings"><tr><td> </td><td class="mode">Minibuffer</td></tr>
+<tr><td class="keystate">Tab</td><td class="command">minibuffer_complete</td></tr>
+<tr><td class="keystate">A-Return</td><td class="command">minibuffer_insert &quot;
+&quot;</td></tr>
+<tr><td class="keystate">Return</td><td class="command">minibuffer_eval</td></tr>
+</table><table class="bindings"><tr><td> </td><td class="mode">Multiclip</td></tr>
+<tr><td class="keystate">C-m C-x</td><td class="command">multiclip_remove</td></tr>
+<tr><td class="keystate">C-m A-c</td><td class="command">multiclip_copy</td></tr>
+<tr><td class="keystate">C-m C-c</td><td class="command">multiclip_copy_selection</td></tr>
+</table><table class="bindings"><tr><td> </td><td class="mode">Todo list</td></tr>
+<tr><td class="keystate">C-e</td><td class="command">tdl_edit_selected</td></tr>
+<tr><td class="keystate">C-o</td><td class="command">tdl_add_group</td></tr>
+<tr><td class="keystate">C-i</td><td class="command">tdl_add_item</td></tr>
+</table><table class="bindings"><tr><td> </td><td class="mode">changelog mode</td></tr>
+<tr><td class="keystate">C-x a</td><td class="command">changelog_new_day_entry</td></tr>
+<tr><td class="keystate">Tab</td><td class="command">sourceview_insert &quot;	&quot;</td></tr>
+</table><table class="bindings"><tr><td> </td><td class="mode">makefile mode</td></tr>
+<tr><td class="keystate">Tab</td><td class="command">sourceview_insert &quot;	&quot;</td></tr>
+</table></td></tr></table><br/>
+</div></body></html>
