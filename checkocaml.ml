@@ -880,7 +880,7 @@ let modes = `Byte :: (if conf.ocamlopt = "" then [] else [`Opt])
 let _ = !print "\n### checking required tools and libraries ###\n"
 let () = check_ocamlfind_package conf "config-file";;
 let () = check_ocamlfind_package conf "pcre";;
-let () = check_ocamlfind_package conf "lablgtk2";;
+let () = check_ocamlfind_package conf ~min_version: [2;16] "lablgtk2";;
 let () = check_ocamlfind_package conf "lablgtk2.glade";;
 let () = check_ocamlfind_package conf "lablgtk2-extras.configwin";;
 
