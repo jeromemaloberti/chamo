@@ -934,14 +934,14 @@ rule token = parse
   | newline
       { update_loc lexbuf None 1 false 0;
         (* increment only if this is not an empty line *)
-(*        if (not !next_token_is_first) then
+        if (not !next_token_is_first) then
           if !next_line_is_more_indented > 0 &&
             (!cur_indent <= last_block_inner_indent ())
           then
             cur_indent := !cur_indent + !cst_indent.ind_newline
           else
             incr next_line_is_more_indented;
-*)        if_first_token_on_line 0;
+        if_first_token_on_line 0;
         next_token_is_first := true;
         token lexbuf
       }

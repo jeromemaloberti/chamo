@@ -180,19 +180,27 @@ include .depend
 #################
 # Installation
 #################
-install: all
+install: install-lib intall-bin
+
+install-lib: all
 	$(OCAMLFIND) install $(PACKAGE) ../META \
 		$(LIB) $(LIB:.cmxa=.a) $(LIB_CMIFILES)	$(LIB_BYTE) $(LIB_CMXFILES:.cmx=.o) \
 		$(EDITOR_CMXFILES) $(EDITOR_CMOFILES) $(EDITOR_CMIFILES) \
 		$(EDITOR_CMXFILES:.cmx=.o) *.mli
-	@$(MKDIR) $(OCAMLBIN) $(GLADEDIR)
-	@for i in $(EDITOR) $(EDITOR_BYTE) $(MKCHAMO_SCRIPT); do\
-		$(CP) $$i $(OCAMLBIN) && echo Installed $(OCAMLBIN)/$$i; done
 	@$(MKDIR) $(DTDDIR) $(GLADEDIR)
 	@$(CP) chamo.glade $(GLADEDIR)/ && echo Installed echo $(GLADEDIR)/chamo.glade
 
-uninstall: dummy
+install-bin: all
+	@$(MKDIR) $(OCAMLBIN)
+	@for i in $(EDITOR) $(EDITOR_BYTE) $(MKCHAMO_SCRIPT); do\
+		$(CP) $$i $(OCAMLBIN) && echo Installed $(OCAMLBIN)/$$i; done
+
+uninstall: uninstall-lib uninstall-bin
+
+uninstall-lib:
 	@$(OCAMLFIND) remove $(PACKAGE)
+
+uninstall-bin:
 	$(RM) $(OCAMLBIN)/$(EDITOR)
 	$(RM) $(OCAMLBIN)/$(EDITOR_BYTE)
 	$(RM) $(OCAMLBIN)/$(MKCHAMO_SCRIPT)

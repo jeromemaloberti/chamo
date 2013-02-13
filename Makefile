@@ -91,14 +91,25 @@ webdoc: dummy
 # installation
 #################
 
-install: dummy
-	cd src && $(MAKE) install
+install: install-lib install-bin
+
+install-lib: dummy
+	cd src && $(MAKE) install-lib
 	@$(MKDIR) $(PIXMAPSDIR)
 	@for i in images/*.png ; do \
 		$(CP) $$i $(PIXMAPSDIR)/ && echo Installed $(PIXMAPSDIR)/$$i; done
 
-uninstall: dummy
+install-bin: dummy
+	cd src && $(MAKE) install-bin
+
+uninstall:
 	cd src && $(MAKE) uninstall
+
+uninstall-lib: dummy
+	cd src && $(MAKE) uninstall-lib
+
+uninstall-bin: dummy
+	cd src && $(MAKE) uninstall-bin
 
 ###########
 # archive
