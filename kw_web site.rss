@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0"><channel><title>Chamo: web site</title><link>http://zoggy.github.com/chamo/kw_web site.html</link><description>Source code editor in OCaml</description><managingEditor>zoggy 'AT' bat8 'DOT' org</managingEditor><pubDate>20 Apr 2012 08:00:00 +0000</pubDate><lastBuildDate>20 Apr 2012 08:00:00 +0000</lastBuildDate><generator>Stog</generator><image><url>http://zoggy.github.com/chamo/</url><title>Chamo</title><link>http://zoggy.github.com/chamo</link></image><item><title>Chamo is not in Cameleon any more</title><link>http://zoggy.github.com/chamo/posts/new-site.html</link><description>
+<rss version="2.0"><channel><title>Chamo: web site</title><link>http://zoggy.github.com/chamo/kw_web%20site.html</link><description>Source code editor in OCaml</description><managingEditor>foo@bar.com</managingEditor><pubDate>13 Feb 2013 08:00:00 +0000</pubDate><lastBuildDate>13 Feb 2013 08:00:00 +0000</lastBuildDate><generator>Stog</generator><image><url>http://zoggy.github.com/chamo/</url><title>Chamo</title><link>http://zoggy.github.com/chamo</link></image><item><title>Release 2.02</title><link>http://zoggy.github.com/chamo/posts/release-2.02.html</link><description>
+&lt;p&gt;
+Release 2.02 is available from the &lt;elt href=&quot;install&quot;/&gt; page.
+&lt;/p&gt;
+</description><pubDate>13 Feb 2013 08:00:00 +0000</pubDate><category>chamo</category><category>web site</category><guid isPermaLink="true">http://zoggy.github.com/chamo/posts/release-2.02.html</guid></item><item><title>Chamo is not in Cameleon any more</title><link>http://zoggy.github.com/chamo/posts/new-site.html</link><description>
 &lt;p&gt;
 Chamo is now separated from
 &lt;span class=&quot;ext-a&quot;&gt;&lt;a href=&quot;http://home.gna.org/cameleon/index.en.html&quot;&gt;Cameleon&lt;/a&gt;&lt;/span&gt;.
