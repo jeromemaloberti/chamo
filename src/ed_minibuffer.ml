@@ -348,7 +348,9 @@ class minibuffer () =
       l @ exiting_key_bindings
 
     initializer
-      ignore(buffer#connect#changed (fun () -> self#on_text_changed));
+      (*ignore(buffer#connect#changed (fun () -> self#on_text_changed));*)
+      ignore(buffer#connect#after#delete_range (fun ~start ~stop -> self#on_text_changed));
+      ignore(buffer#connect#after#insert_text (fun _ _ -> self#on_text_changed));
       ignore(view#connect#destroy (fun () -> Gtksv_utils.unregister_source_buffer buffer));
 (*      ignore(view#event#connect#after#focus_out (fun _ -> self#exit (); false));*)
   end
