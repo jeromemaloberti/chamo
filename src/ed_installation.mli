@@ -28,8 +28,6 @@ val bin_dir : string
 
 val lib_dir : string
 
-val man_dir : string
-
 val ocamlfind : string
 
 val pixmap_dir : string

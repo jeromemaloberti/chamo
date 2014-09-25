@@ -45,7 +45,7 @@ MKCHAMO_SCRIPT=mk-chamo
 # Compilation
 #############
 EDITOR_CMXFILES=ed_main.cmx
-EDITOR_CMOFILES=$(EDITOR_CMXFILES:.cmx=.cmo)
+EDITOR_CMOFILES=ed_init_byte.cmo $(EDITOR_CMXFILES:.cmx=.cmo)
 EDITOR_CMIFILES=$(EDITOR_CMXFILES:.cmx=.cmi)
 
 LIB_CMXFILES= \
@@ -117,7 +117,7 @@ $(EDITOR): $(LIB) $(EDITOR_CMIFILES) $(EDITOR_CMXFILES)
 	$(OCAMLFIND) ocamlopt $(OF_FLAGS) -linkpkg -o $@ -thread -linkall $(LINKFLAGS) \
 	$(INCLUDES) odoc_info.cmxa $(LIB) $(EDITOR_CMXFILES)
 
-$(EDITOR_BYTE): $(LIB_BYTE) $(EDITOR_CMIFILES) $(EDITOR_CMOFILES)
+$(EDITOR_BYTE): $(LIB_BYTE) $(EDITOR_CMIFILES) ed_init_byte.cmi $(EDITOR_CMOFILES)
 	$(OCAMLFIND) ocamlc $ $(OF_FLAGS) -package compiler-libs.toplevel -linkpkg \
 	-w -31 -o $@ -thread -linkall $(LINKFLAGS) \
 	$(INCLUDES) odoc_info.cma $(LIB_BYTE) $(EDITOR_CMOFILES)

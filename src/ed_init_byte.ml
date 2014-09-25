@@ -22,30 +22,7 @@
 (*                                                                               *)
 (*********************************************************************************)
 
-let bin_dir = "@bindir@"
-let lib_dir = "@libdir@"
-let ocamlfind = "@OCAMLFIND@"
-let pixmap_dir = "@PIXMAPSDIR@"
-let glade_dir = "@GLADEDIR@"
-let glade_file = Filename.concat glade_dir "chamo.glade"
+(** *)
 
-let languages_specs_dir = "@LANGUAGESSPECSDIR@"
 
-let version = "@VERSION@"
-
-let home =
-  try Sys.getenv "HOME"
-  with Not_found -> ""
-
-let login =
-  try Sys.getenv "USER"
-  with Not_found -> Filename.basename home
-
-let rc_dir =
-  let d = Filename.concat home ".chamo" in
-  let _ =
-    try Unix.mkdir d 0o700
-    with _ -> ()
-  in
-  d
-(* shut up autconf: @datarootdir@ *)
+let () = Topdirs.dir_directory Ed_installation.lib_dir;;

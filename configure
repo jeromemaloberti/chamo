@@ -1708,7 +1708,8 @@ fi
 if test "$datadir" = "\${prefix}/share" ; then
         datadir=$prefix/share
 fi
-
+bindir=$OCAMLBIN
+libdir=`$OCAMLFIND printconf destdir`/chamo
 PIXMAPSDIR=$datadir/pixmaps
 GLADEDIR=$datadir/glade
 LANGUAGESSPECSDIR=$datadir/language-specs
