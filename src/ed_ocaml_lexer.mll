@@ -273,9 +273,9 @@ let remove_underscores s =
   let l = Bytes.length s in
   let rec remove src dst =
     if src >= l then
-      if dst >= l then s else Bytes.sub_string s 0 dst
+      if dst >= l then Bytes.to_string s else Bytes.sub_string s 0 dst
     else
-      match s.[src] with
+      match Bytes.get s src with
         '_' -> remove (src + 1) dst
       |  c  -> Bytes.set s dst c; remove (src + 1) (dst + 1)
   in remove 0 0

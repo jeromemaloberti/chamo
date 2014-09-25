@@ -93,7 +93,7 @@ let replace_in_string ~pat ~subs ~s =
   Buffer.contents b
 (*/c==v=[String.replace_in_string]=1.0====*)
 
-(*c==v=[File.string_of_file]=1.0====*)
+(*c==v=[File.string_of_file]=1.1====*)
 let string_of_file name =
   let chanin = open_in_bin name in
   let len = 1024 in
@@ -106,7 +106,7 @@ let string_of_file name =
         ()
       else
         (
-         Buffer.add_substring buf s 0 n;
+         Buffer.add_subbytes buf s 0 n;
          iter ()
         )
     with
@@ -115,7 +115,7 @@ let string_of_file name =
   iter ();
   close_in chanin;
   Buffer.contents buf
-(*/c==v=[File.string_of_file]=1.0====*)
+(*/c==v=[File.string_of_file]=1.1====*)
 (*c==v=[File.file_of_string]=1.1====*)
 let file_of_string ~file s =
   let oc = open_out file in
@@ -145,13 +145,13 @@ let no_blanks s =
   Buffer.contents buf
 (*/c==v=[String.no_blanks]=1.0====*)
 
-(*c==v=[String.split_string]=1.1====*)
+(*c==v=[String.split_string]=1.2====*)
 let split_string ?(keep_empty=false) s chars =
   let len = String.length s in
   let rec iter acc pos =
     if pos >= len then
       match acc with
-        "" -> []
+        "" -> if keep_empty then [""] else []
       | _ -> [acc]
     else
       if List.mem s.[pos] chars then
@@ -166,7 +166,7 @@ let split_string ?(keep_empty=false) s chars =
         iter (Printf.sprintf "%s%c" acc s.[pos]) (pos + 1)
   in
   iter "" 0
-(*/c==v=[String.split_string]=1.1====*)
+(*/c==v=[String.split_string]=1.2====*)
 
 (*c==v=[List.make_list]=1.0====*)
 let make_list n ele =
