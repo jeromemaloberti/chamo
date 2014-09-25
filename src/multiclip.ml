@@ -37,7 +37,7 @@ let create_multiclip ?(abst_len=default_abst_len) () =
 (*c==v=[String.chop_n_char]=1.0====*)
 let chop_n_char n s =
   let len = String.length s in
-  if len <= n +1 or n < 0 then
+  if len <= n +1 || n < 0 then
     s
   else
     Printf.sprintf "%s..." (String.sub s 0 (n+1))

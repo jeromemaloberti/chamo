@@ -27,7 +27,7 @@ Ed_minibuffer_rc.write ();;
 
 class minibuffer_history () =
   let history_size = Ed_gui_rc.minibuffer_history_size#get in
-  let t = Array.create history_size "" in
+  let t = Array.make history_size "" in
   object
     val mutable len = 0
     val mutable pos = 0
@@ -208,7 +208,7 @@ class minibuffer () =
        is not active.
     *)
     method set_active b =
-      if b or (active <> b) then
+      if b || (active <> b) then
         begin
           view#set_editable b;
           view#set_cursor_visible b;

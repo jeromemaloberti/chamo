@@ -1137,7 +1137,7 @@ class sourceview ?(attributes=[]) (topwin : Ed_view.topwin)
     method transpose_chars =
       let b = file#buffer in
       let insert = b#get_iter `INSERT in
-      if insert#is_end or insert#is_start then
+      if insert#is_end || insert#is_start then
         ()
       else
         let stop = insert#backward_char in
@@ -1168,7 +1168,7 @@ class sourceview ?(attributes=[]) (topwin : Ed_view.topwin)
          let prevline_stop =
            (* do not cut the line with the ending '\n' if we are at the end of the buffer,
               to prevent adding a new blank line *)
-           if line1_stop#is_end or line1_start#equal line1_stop then
+           if line1_stop#is_end || line1_start#equal line1_stop then
              prevline_start#forward_to_line_end
            else
              line1_start
@@ -1178,7 +1178,7 @@ class sourceview ?(attributes=[]) (topwin : Ed_view.topwin)
             *)
          let prev_line = b#get_text ~start: prevline_start ~stop: prevline_stop () in
          let prev_line =
-           if line1_stop#is_end or line1_start#equal line1_stop then
+           if line1_stop#is_end || line1_start#equal line1_stop then
              "\n"^prev_line
            else
              prev_line
@@ -1217,12 +1217,12 @@ class sourceview ?(attributes=[]) (topwin : Ed_view.topwin)
                 if insert#inside_word then insert#forward_word_end else insert
               in
               let itend2 = itend#forward_word_end in
-              if itend2#equal itend or not itend2#ends_word then
+              if itend2#equal itend || not itend2#ends_word then
                 raise Not_found
               else
                 itend2#backward_word_start
             in
-            if it#is_end or not it#starts_word then
+            if it#is_end || not it#starts_word then
               raise Not_found
             else
               it
@@ -1230,7 +1230,7 @@ class sourceview ?(attributes=[]) (topwin : Ed_view.topwin)
         let right_word_end = right_word_start#forward_word_end in
         let left_word_start =
           let it = right_word_start#backward_word_start in
-          if it#equal right_word_start or not it#starts_word then
+          if it#equal right_word_start || not it#starts_word then
             raise Not_found
           else
             it
@@ -1698,7 +1698,7 @@ let rec search =
       (
        let on_changed () =
          (* do not do anything if there is nothing to search
-            or the searched string has not changed, to prevent
+           or the searched string has not changed, to prevent
             from moving to next search when changing the fixed text
             of the minibuffer *)
          match mb#get_user_text with

@@ -53,13 +53,13 @@ val filename_mode_patterns : (string * string) Config_file.list_cp
 val max_undo_levels : Config_file.int_cp
 
 (** Default wrap mode to use when creating a sourceview, if no indication is given. *)
-val default_wrap_mode : [ `CHAR | `NONE | `WORD ] Config_file.cp_custom_type
+val default_wrap_mode : [ `CHAR | `NONE | `WORD | `WORD_CHAR] Config_file.cp_custom_type
 
 (** Return a string which can be used to describe the given wrap mode.*)
-val string_of_wrap_mode : [< `CHAR | `NONE | `WORD ] -> string
+val string_of_wrap_mode : [< `CHAR | `NONE | `WORD | `WORD_CHAR] -> string
 
 (** Return the wrap mode corresponding to the given string. *)
-val wrap_mode_of_string : string -> [> `CHAR | `NONE | `WORD ]
+val wrap_mode_of_string : string -> [> `CHAR | `NONE | `WORD | `WORD_CHAR]
 
 (** Default regexp for words. *)
 val default_word_re : string

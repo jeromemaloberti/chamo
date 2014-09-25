@@ -39,10 +39,12 @@ let string_of_wrap_mode = function
   `NONE -> "none"
 | `CHAR -> "char"
 | `WORD -> "word"
+| `WORD_CHAR -> "word-char"
 
 let wrap_mode_of_string = function
   "char" -> `CHAR
 | "word" -> `WORD
+| "word-char" -> `WORD_CHAR
 | _ -> `NONE
 
 let default_word_re = "[a-zA-Z0-9]+"

@@ -141,8 +141,8 @@ let expand (v : Ed_sourceview.sourceview) args =
         context := Some c;
         c
     | Some c ->
-        if (not (Ed_commands.same_previous_command ())) or
-          c.buffer <> f#name or c.pos <> pos
+        if (not (Ed_commands.same_previous_command ())) ||
+          c.buffer <> f#name || c.pos <> pos
         then
           (
            let (pat, rex) = get_pattern v cur_iter in

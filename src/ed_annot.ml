@@ -91,7 +91,7 @@ let ident_info_of_string s =
 let annot_kind_of_string ~start ~stop annot_string = function
   "type" ->
     Type
-      (Lazy.lazy_from_fun
+      (Lazy.from_fun
        (fun () -> String.sub annot_string start (stop-start))
       )
 | "ident" ->

@@ -269,14 +269,15 @@ let char_for_hexadecimal_code lexbuf i =
 (* Remove underscores from float literals *)
 
 let remove_underscores s =
-  let l = String.length s in
+  let s = Bytes.of_string s in
+  let l = Bytes.length s in
   let rec remove src dst =
     if src >= l then
-      if dst >= l then s else String.sub s 0 dst
+      if dst >= l then s else Bytes.sub_string s 0 dst
     else
       match s.[src] with
         '_' -> remove (src + 1) dst
-      |  c  -> s.[dst] <- c; remove (src + 1) (dst + 1)
+      |  c  -> Bytes.set s dst c; remove (src + 1) (dst + 1)
   in remove 0 0
 
 (* Update the current location with file name and line number. *)
@@ -456,7 +457,7 @@ let last_and_associated_indent () =
   try
     let (t,vext,vin) =
       List.find
-        (fun (t,_,_) -> t=LET or t=MODULE or t=CLASS or t=TYPE)
+        (fun (t,_,_) -> t=LET || t=MODULE || t=CLASS || t=TYPE)
         !blocks
     in
     Some (vext,vin)
@@ -470,7 +471,7 @@ let last_begin_module_indent () =
 
 let last_begin_struct_sig_indent () =
   try
-    let (_,v,off) = List.find (fun (t,_,_) -> t=STRUCT or t=SIG) !blocks in
+    let (_,v,off) = List.find (fun (t,_,_) -> t=STRUCT || t=SIG) !blocks in
     Some (v,off)
   with Not_found -> None
 
@@ -482,7 +483,7 @@ let last_begin_object_indent () =
 
 let last_begin_sig_object_indent () =
   try
-    let (_,v,off) = List.find (fun (t,_,_) -> t=OBJECT or t=SIG) !blocks in
+    let (_,v,off) = List.find (fun (t,_,_) -> t=OBJECT || t=SIG) !blocks in
     Some (v,off)
   with Not_found -> None
 
@@ -733,12 +734,12 @@ let rec on_keyword lexbuf = function
        match last_begin_object_indent () with
          None ->
            if_first_token_on_line !cur_indent;
-           if token = METHOD or token = INITIALIZER then
+           if token = METHOD || token = INITIALIZER then
              push token !cur_indent !cst_indent.ind_field;
            inc_indent !cst_indent.ind_field;
        | Some (n,off) ->
            if_first_token_on_line (n+off);
-           if token = METHOD or token = INITIALIZER then
+           if token = METHOD || token = INITIALIZER then
              push token (n + off) !cst_indent.ind_field;
            set_indent (n + off + !cst_indent.ind_field);
       )

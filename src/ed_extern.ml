@@ -27,7 +27,7 @@
 (*c==v=[String.chop_n_char]=1.0====*)
 let chop_n_char n s =
   let len = String.length s in
-  if len <= n +1 or n < 0 then
+  if len <= n +1 || n < 0 then
     s
   else
     Printf.sprintf "%s..." (String.sub s 0 (n+1))
@@ -52,8 +52,8 @@ let subdirs path =
     match file with
     | None -> List.rev acc
     | Some s when
-	s = Filename.current_dir_name or
-	s = Filename.parent_dir_name -> iter acc
+          s = Filename.current_dir_name ||
+          s = Filename.parent_dir_name -> iter acc
     | Some file ->
         let complete_f = Filename.concat path file in
 	match
@@ -76,18 +76,18 @@ let replace_in_string ~pat ~subs ~s =
       ()
     else
       if pos + len_pat > len then
-	Buffer.add_string b (String.sub s pos (len - pos))
+        Buffer.add_string b (String.sub s pos (len - pos))
       else
-	if String.sub s pos len_pat = pat then
-	  (
-	   Buffer.add_string b subs;
-	   iter (pos+len_pat)
-	  )
-	else
-	  (
-	   Buffer.add_char b s.[pos];
-	   iter (pos+1);
-	  )
+        if String.sub s pos len_pat = pat then
+          (
+           Buffer.add_string b subs;
+           iter (pos+len_pat)
+          )
+        else
+          (
+           Buffer.add_char b s.[pos];
+           iter (pos+1);
+          )
   in
   iter 0;
   Buffer.contents b
@@ -97,7 +97,7 @@ let replace_in_string ~pat ~subs ~s =
 let string_of_file name =
   let chanin = open_in_bin name in
   let len = 1024 in
-  let s = String.create len in
+  let s = Bytes.create len in
   let buf = Buffer.create len in
   let rec iter () =
     try

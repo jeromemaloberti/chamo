@@ -30,7 +30,7 @@ PACKAGES=str,threads.posix,compiler-libs.common,pcre,config-file,xmlm,lablgtk2.g
 OF_FLAGS=-package $(PACKAGES) -predicates mt
 INCLUDES=-I +ocamldoc
 
-COMPFLAGS=$(INCLUDES) -annot -thread
+COMPFLAGS=$(INCLUDES) -annot -thread -warn-error A
 LINKFLAGS=$(INCLUDES)
 
 # The executables and libraries to produce
@@ -180,7 +180,7 @@ include .depend
 #################
 # Installation
 #################
-install: install-lib intall-bin
+install: install-lib install-bin
 
 install-lib: all
 	$(OCAMLFIND) install $(PACKAGE) ../META \

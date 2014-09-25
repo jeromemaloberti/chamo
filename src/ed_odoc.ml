@@ -102,6 +102,8 @@ let fill_data modules =
             Some d
         | Element_module_comment _ ->
             None
+        | Element_type_extension _ ->
+            None    
       in
       match d with
         None -> iter_mod_eles acc father q

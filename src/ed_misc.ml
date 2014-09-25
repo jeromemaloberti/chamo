@@ -112,11 +112,13 @@ let select_in_list ?ok ?cancel ?(allow_empty=false) ?(value_in_list=true) ~title
     ~title ?ok ?cancel message
 
 let remove_char s c =
-  if s <> "" then
-    for i = 0 to (String.length s) - 1 do
-      if s.[i] = c then s.[i] <- ' '
+  let s = Bytes.of_string s in
+  let len = Bytes.length s in
+  if len > 0 then
+    for i = 0 to len - 1 do
+      if Bytes.get s i = c then Bytes.set s i ' '
     done;
-  s
+  Bytes.to_string s
 
 let line_of_char file n =
   try

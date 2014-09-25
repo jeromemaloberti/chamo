@@ -26,7 +26,7 @@
 
 module O = Config_file
 
-let history : string option array = Array.create Ed_constant.com_history_size None
+let history : string option array = Array.make Ed_constant.com_history_size None
 
 let pos = ref 0
 let n = ref 0

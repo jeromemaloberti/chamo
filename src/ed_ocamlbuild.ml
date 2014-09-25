@@ -102,9 +102,9 @@ let warning_is_error c =
   let len = String.length to_show in
   let res = ref false in
   for i = 0 to len - 1 do
-    if to_show.[i] = c or to_show.[i] = 'A' then
+    if to_show.[i] = c || to_show.[i] = 'A' then
       res := true
-    else if to_show.[i] = Char.lowercase c or to_show.[i] = 'a' then
+    else if to_show.[i] = Char.lowercase c || to_show.[i] = 'a' then
         res := false
   done;
   !res

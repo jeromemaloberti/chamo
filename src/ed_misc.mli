@@ -46,7 +46,7 @@ val select_in_list :
 	  choices: string list ->
 	    string -> string option
 
-(** [remove_char s c] returns the given string [s] without character [c]. *)
+(** [remove_char s c] returns a copy of the given string [s] without character [c]. *)
 val remove_char : string -> char -> string
 
 (** [line_of_char file char] gets the line number (0-based)
