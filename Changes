@@ -1,0 +1,4 @@
+Next release:
+- move to -safe-string mode
+- replace calls to deprecated functions
+- fix warning when searching text (see https://bugzilla.gnome.org/show_bug.cgi?id=606751)

@@ -658,7 +658,7 @@ button.btn.small, input[type="submit"].btn.small {
   height: 30px;
   width: 1px;
   margin: 0 9px;
-  overflow: hidden;
+  overflow: pathden;
   background-color: #222222;
   border-right: 1px solid #333333;
 }

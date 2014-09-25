@@ -8,15 +8,14 @@ navbar-install="active"
 To build Chamo, you will need:
 </p>
 <ul>
-<li><ext-a href="http://www.ocaml.org/">OCaml >= 3.12</ext-a> installed
-(not tested with prior versions, but it should be ok),</li>
+<li><ext-a href="http://www.ocaml.org/">OCaml >= 4.02.0</ext-a> installed (using safe strings),</li>
 <li><ext-a href="http://projects.camlcity.org/projects/findlib.html">findlib</ext-a>,</li>
-<li><ext-a href="http://lablgtk.forge.ocamlcore.org/">Lablgtk2</ext-a> &gt;= 2.16.0
+<li><ext-a href="http://lablgtk.forge.ocamlcore.org/">Lablgtk2</ext-a> &gt;= 2.18.2
    installed with findlib,</li>
 <li><ext-a href="https://bitbucket.org/mmottl/pcre-ocaml">pcre-ocaml</ext-a> &gt;= 6.2.5 (not
 tested with previous versions but it should be ok),</li>
 <li><ext-a href="http://config-file.forge.ocamlcore.org/">Config-file</ext-a> &gt;= 1.1,</li>
-<li><ext-a href="http://gtk-extras.forge.ocamlcore.org/">LablGtk-extras</ext-a> &gt;= 1.2.</li>
+<li><ext-a href="http://gtk-extras.forge.ocamlcore.org/">LablGtk-extras</ext-a> &gt;= 1.5.</li>
 </ul>
 </section>
 
@@ -25,6 +24,13 @@ tested with previous versions but it should be ok),</li>
 <command-line>git clone https://github.com/zoggy/chamo.git</command-line>
 </p>
 <subsection title="Releases">
+<include file="release.tmpl" number="2.03" date="2014-09-25" last="true"
+ url="chamo-2.03.tar.gz">
+Move to safe strings (OCaml &gt;= 4.02.0 required). Replace calls to
+deprecated functions. Fix warning when searching text.
+</include>
+
+
 <include file="release.tmpl" number="2.02" date="2013-02-13" last="true"
  url="chamo-2.02.tar.gz">
 Split (un)install targets to (un)install-lib and (un)install-bin, for Opam.

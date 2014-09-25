@@ -42,3 +42,6 @@ site:
 
 test:
 	$(MAKE) BASE_URL_OPTION="--site-url file://$(DEST_DIR)" site
+
+clean:
+	$(RM) -r .stog/cache

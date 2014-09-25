@@ -1,23 +1,23 @@
 <html>
 <head>
-<title><site-title/> : <elt-title/></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title><site-title/> : <doc-title/></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link rel="stylesheet" type="text/css" href="&lt;site-url/&gt;/style.css"></link>
 </head><body>
 <div id="page">
 <include file="menubar.tmpl"/>
 <div id="header">
-<if elt-type="post"><div class="date"><elt-date/></div></if>
-<div class="page-title"><elt-title/></div>
+<if doc-type="post"><div class="date"><doc-date/></div></if>
+<div class="page-title"><doc-title/></div>
 </div>
-<elt-body/>
-<if elt-type="post"><div class="comments">
+<doc-body/>
+<if doc-type="post"><div class="comments">
 <div>
-<div class="elt-keywords">
+<div class="doc-keywords">
   <div class="bloc-keywords">
-  Topics: <div class="keywords"><elt-topics ep=", "/></div>
+  Topics: <div class="keywords"><doc-topics ep=", "/></div>
   </div>
   <div class="bloc-keywords">
-  Keywords: <div class="keywords"><elt-keywords sep=", "/></div>
+  Keywords: <div class="keywords"><doc-keywords sep=", "/></div>
   </div>
 </div>
 </div>
