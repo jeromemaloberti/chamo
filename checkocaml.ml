@@ -865,7 +865,7 @@ let add_conf_variables c =
 
 (*/c==m=[OCaml_conf]=0.5=t==*)
 
-let ocaml_required = [3;12;0]
+let ocaml_required = [4;2;0]
 let conf = ocaml_conf ();;
 print_conf conf;;
 
@@ -878,11 +878,11 @@ let _ =
 
 let modes = `Byte :: (if conf.ocamlopt = "" then [] else [`Opt])
 let _ = !print "\n### checking required tools and libraries ###\n"
-let () = check_ocamlfind_package conf "config-file";;
+let () = check_ocamlfind_package conf ~min_version: [1;2] "config-file";;
 let () = check_ocamlfind_package conf "pcre";;
-let () = check_ocamlfind_package conf ~min_version: [2;16] "lablgtk2";;
+let () = check_ocamlfind_package conf ~min_version: [2;18] "lablgtk2";;
 let () = check_ocamlfind_package conf "lablgtk2.glade";;
-let () = check_ocamlfind_package conf "lablgtk2-extras.configwin";;
+let () = check_ocamlfind_package conf ~min_version: [1;5] "lablgtk2-extras.configwin";;
 
 let _ =
   let lablgladecc =
