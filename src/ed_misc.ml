@@ -325,7 +325,7 @@ let select_file (mb : Ed_minibuffer.minibuffer) ~title text f =
       let (list, text) =
         if is_dir && s.[len-1] = '/' then
           (
-           let entries = dir_entries (Filename.dirname s) in
+           let entries = dir_entries s in
            (entries, s)
           )
         else
