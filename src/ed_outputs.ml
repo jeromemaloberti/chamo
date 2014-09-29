@@ -108,7 +108,7 @@ let outputs () =
 let watch_and_insert ?(on_end=fun() -> ()) ic insert =
   let gchan = GMain.Io.channel_of_descr (Unix.descr_of_in_channel ic) in
   let buf_size = 512 in
-  let buf = String.make buf_size 'x' in
+  let buf = Bytes.make buf_size 'x' in
   let rec f_read l =
     try
       if List.mem `IN l then
@@ -116,7 +116,7 @@ let watch_and_insert ?(on_end=fun() -> ()) ic insert =
           let n = GMain.Io.read gchan ~buf ~pos: 0 ~len: buf_size in
           (
            (
-            try insert (String.sub buf 0 n)
+            try insert (Bytes.sub_string buf 0 n)
             with _ -> ()
            );
            (n < buf_size) || (f_read l)
